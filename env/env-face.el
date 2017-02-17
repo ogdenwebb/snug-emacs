@@ -105,7 +105,7 @@
   :config
   (dashboard-setup-startup-hook)
   ;; Set the title
-  (setq dashboard-banner-logo-title "Welcome to Emacs Dashboard")
+  (setq dashboard-banner-logo-title "I know no evil")
   ;; Set the banner
   (setq dashboard-startup-banner 'logo)
 
@@ -126,9 +126,13 @@
 ;; Icons
 ;; (use-package all-the-icons)
 
+;; Add TODO, FIXME, etc highlighting in comments and strings
+(use-package fic-mode
+  :config
+  (add-hook 'prog-mode-hook (lambda () (fic-mode 1))))
+
 ;; Custom highlight: t, nil
 (font-lock-add-keywords 'emacs-lisp-mode
-  '(("\\<\\(FIXME\\):" 1 font-lock-warning-face prepend)
-    ("\\<\\(nil\\|t\\)\\>" . font-lock-warning-face)))
+  '(("\\<\\(nil\\|t\\)\\>" . font-lock-warning-face)))
 
 (provide 'env-face)

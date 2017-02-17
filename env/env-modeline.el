@@ -43,6 +43,7 @@
 
   ;;;; Custom segments
 
+  ;; TODO: Rewrite using assoc and defvar
   ;; Display major mode
   (telephone-line-defsegment* my-major-mode-segment
     (let ((mode (cond
@@ -79,9 +80,17 @@
             (telephone-line-trim (format-mode-line mode-line-front-space))
           '(" %3l,%2c "))))
 
+  ;; TODO: split to external file
+  ;; Ignore some buffers in modeline
+  (defvar modeline-ignored-modes nil
+    "List of major modes to ignore in modeline")
+
+  (setq modeline-ignored-modes '("Dashboard"
+                                 "Messages"))
+
   ;; Display modified status
   (telephone-line-defsegment* my-modified-status-segment
-    (if (buffer-modified-p)
+    (if (and (buffer-modified-p) (not (member mode-name modeline-ignored-modes)))
         (propertize "+" 'face `(:foreground "#85b654"))
       ""))
 
