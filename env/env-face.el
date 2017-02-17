@@ -20,6 +20,7 @@
                       :width  'normal))
 
 ;; Make the left fringe 4 pixels wide and the right disappear
+(setq-default fringes-outside-margins t)
 (fringe-mode '(4 . 0))
 
 ;; Set default theme
@@ -105,22 +106,19 @@
   :config
   (dashboard-setup-startup-hook)
   ;; Set the title
-  (setq dashboard-banner-logo-title "I know no evil")
+  (setq dashboard-banner-logo-title "I know no Evil")
   ;; Set the banner
   (setq dashboard-startup-banner 'logo)
 
   (setq dashboard-items
-        '((recents  . 5)
-          (bookmarks . 5)
-          (projects . 5))))
+        '((recents   . 5)
+          (bookmarks . 10)
+          (projects  . 10))))
 
 ;; Line numbering
 (use-package nlinum
   :config
-  (setq nlinum-format " %3d "
-        nlinum-current-symbol ""
-        nlinum-highlight-current-line t
-        nlinum-redisplay-delay 0)
+  (setq nlinum-format " %3d ")
   (add-hook 'prog-mode-hook 'nlinum-mode))
 
 ;; Icons

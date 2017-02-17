@@ -47,6 +47,7 @@
   ;; Display major mode
   (telephone-line-defsegment* my-major-mode-segment
     (let ((mode (cond
+                 ((string= mode-name "Fundamental") "Text")
                  ((string= mode-name "Emacs-Lisp") "Elisp")
                  ((string= mode-name "Javascript-IDE") "Javascript")
                  (t mode-name))))

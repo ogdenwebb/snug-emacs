@@ -2,6 +2,11 @@
 (use-package evil
   :ensure t
   :config
+  (setq evil-want-fine-undo nil)
+
+  ;; Initial states
+  (evil-set-initial-state 'nrepl-mode 'insert)
+
   (evil-mode 1)
   (evil-commentary-mode))
 

@@ -50,10 +50,10 @@
 ;; (setq indent-line-function 'insert-tab)
 
 (defun lisp-indent-setup ()
-        ;; Set tab-width to 2
-        (setq tab-width 2)
-        ;; Set evil-shift-width to 2
-        (setq evil-shift-width 2))
+    ;; Set tab-width to 2
+    (setq tab-width 2)
+    ;; Set evil-shift-width to 2
+    (setq evil-shift-width 2))
 
 (add-hook 'emacs-lisp-mode-hook 'lisp-indent-setup)
 (add-hook 'clojure-mode-hook 'lisp-indent-setup)
