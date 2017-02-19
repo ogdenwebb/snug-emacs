@@ -19,6 +19,8 @@
                       "i" 'find-file
                       "o" 'switch-to-buffer
                       "r" 'quickrun
+                      "m d" 'magit-diff
+                      "m m" 'magit-status
                       "p" 'counsel-locate
                       "P" 'counsel-projectile-find-file)
 

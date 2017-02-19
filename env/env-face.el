@@ -1,7 +1,7 @@
 ;; Custom theme load
-;; (defadvice load-theme (before clear-previous-themes activate)
-;;   "Clear existing theme settings instead of layering them"
-;;   (mapc #'disable-theme custom-enabled-themes))
+(defadvice load-theme (before clear-previous-themes activate)
+  "Clear existing theme settings instead of layering them"
+  (mapc #'disable-theme custom-enabled-themes))
 
 ;; Theme settings
 ;; noctilux
@@ -20,8 +20,8 @@
                       :width  'normal))
 
 ;; Make the left fringe 4 pixels wide and the right disappear
-(setq-default fringes-outside-margins t)
 (fringe-mode '(4 . 0))
+;; (setq-default fringes-outside-margins t)
 
 ;; Set default theme
 (defun load-my-theme (frame)
@@ -115,19 +115,13 @@
           (bookmarks . 10)
           (projects  . 10))))
 
-;; Line numbering
-(use-package nlinum
-  :config
-  (setq nlinum-format " %3d ")
-  (add-hook 'prog-mode-hook 'nlinum-mode))
-
 ;; Icons
 ;; (use-package all-the-icons)
 
-;; Add TODO, FIXME, etc highlighting in comments and strings
+;; Highlight TODO and FIXME
 (use-package fic-mode
   :config
-  (add-hook 'prog-mode-hook (lambda () (fic-mode 1))))
+  (add-hook 'prog-mode-hook 'fic-mode))
 
 ;; Custom highlight: t, nil
 (font-lock-add-keywords 'emacs-lisp-mode
