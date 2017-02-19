@@ -13,6 +13,11 @@
 ;; Use Common Lisp
 (use-package cl)
 
+(when window-system
+  (require 'server)
+  (unless (server-running-p)
+    (server-start)))
+
 ;; Load my configuration files
 (add-to-list 'load-path "~/.emacs.d/env/")
 (add-to-list 'load-path "~/.emacs.d/use/")

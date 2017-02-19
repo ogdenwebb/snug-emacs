@@ -3,27 +3,47 @@
 ;;   :config
 ;;   (setq monky-process-type 'cmdserver))
 
-;; (use-package ediff
-;;   :defer t
-;;   :config
-;;   (use-package evil-ediff))
+(use-package ediff
+  :defer t
+  :config
+  (use-package evil-ediff))
 
-;; Git
+;; FIXME: conflict with git-gutter
+;; (defun nlinum-disable (&optional frame)
+;;   (interactive)
+;;   (global-nlinum-mode -1))
+
+;; (defun nlinum-enable (&optional frame)
+;;   (interactive)
+;;   (global-nlinum-mode +1))
+
+;; Line numbering
+;; (use-package nlinum
+;;   :config
+;;   (add-hook 'before-make-frame-hook 'nlinum-disable)
+;;   (add-hook 'after-make-frame-functions 'nlinum-enable)
+;;   (setq nlinum-format " %4d ")
+
+;;   (if (daemonp)
+;;       (add-hook 'after-make-frame-functions 'nlinum-disable)
+;;     (add-hook 'prog-mode-hook 'nlinum-mode)))
+
+; Git
 (use-package magit)
 
 ;; Highlight changes in git
 (use-package git-gutter
-  :defer t
-  :if (not (window-system))
   :init
   (add-hook 'prog-mode-hook 'git-gutter-mode)
   :config
-  (setq git-gutter:window-width 1)
+  ;; FIXME: add reload
+  ;; (add-hook 'post-command-hook 'git-gutter:update-all-windows)
+  (add-hook 'focus-in-hook 'git-gutter:update-all-windows)
 
-  (setq git-gutter:update-interval 2)
-
-  ;; WARNING: "" contains tag space character
   (custom-set-variables
+    ;; '(git-gutter:update-interval 2)
+    '(git-gutter:window-width 1)
+    ;; WARNING: "" contains tag space character to display line
     '(git-gutter:unchanged-sign "󠀠")
     '(git-gutter:added-sign "󠀠")
     '(git-gutter:modified-sign "󠀠")
@@ -32,13 +52,5 @@
   (general-nvmap
    "] h" 'git-gutter:next-hunk
    "[ h" 'git-gutter:previous-hunk))
-
-;; FIXME: conflict with git-gutter
-;; Line numbering
-;; (use-package nlinum
-  ;; :config
-;;   (setq nlinum-format "%3d ")
-;;   (add-hook 'prog-mode-hook 'nlinum-mode))
-
 
 (provide 'use-vcs)

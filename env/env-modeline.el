@@ -87,6 +87,7 @@
     "List of major modes to ignore in modeline")
 
   (setq modeline-ignored-modes '("Dashboard"
+                                 "Warnings"
                                  "Messages"))
 
   ;; Display modified status

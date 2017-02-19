@@ -21,7 +21,8 @@
 
 ;; Make the left fringe 4 pixels wide and the right disappear
 (fringe-mode '(4 . 0))
-;; (setq-default fringes-outside-margins t)
+;; Need to show fringe in vertical split
+(setq-default fringes-outside-margins t)
 
 ;; Set default theme
 (defun load-my-theme (frame)
