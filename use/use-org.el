@@ -2,6 +2,7 @@
 
 (use-package org
   :config
+  (setq org-startup-indented t)
   ;; Fontify
   (setq org-fontify-quote-and-verse-blocks t)
   (setq org-src-fontify-natively t)

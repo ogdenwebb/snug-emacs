@@ -88,6 +88,7 @@
 
   (setq modeline-ignored-modes '("Dashboard"
                                  "Warnings"
+                                 "EShell"
                                  "Messages"))
 
   ;; Display modified status

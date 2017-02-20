@@ -28,7 +28,8 @@
                           ".*-autoloads\\.el\\'"
                           "[/\\]\\.elpa/"))
   :config
-  (setq recentf-max-menu-items 30)
+  (setq recentf-max-menu-items 50)
+  (setq recentf-max-saved-items 30)
   (recentf-mode 1))
 
 ;; OCaml

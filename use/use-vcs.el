@@ -36,7 +36,7 @@
   :init
   (add-hook 'prog-mode-hook 'git-gutter-mode)
   :config
-  ;; FIXME: add reload
+  ;; FIXME: add live reload
   ;; (add-hook 'post-command-hook 'git-gutter:update-all-windows)
   (add-hook 'focus-in-hook 'git-gutter:update-all-windows)
 
