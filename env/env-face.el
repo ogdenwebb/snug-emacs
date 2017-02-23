@@ -124,8 +124,8 @@
   :config
   (add-hook 'prog-mode-hook 'fic-mode))
 
-;; Custom highlight: t, nil
-(font-lock-add-keywords 'emacs-lisp-mode
-  '(("\\<\\(nil\\|t\\)\\>" . font-lock-warning-face)))
+;; FIXME: add face to highlight boolean: t, nil
+;; (font-lock-add-keywords 'emacs-lisp-mode
+;;   '(("\\<\\(nil\\|t\\)\\>" . kaolin-boolean)))
 
 (provide 'env-face)

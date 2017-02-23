@@ -19,14 +19,17 @@
      "de")
     ("q" nil "cancel")))
 
+;; Package-lint
+(use-package package-lint)
+
 ;; Flycheck
-;; (use-package flycheck
-;;   :ensure t
-;;   :init
-;;   (use-package flycheck-clojure
-;;     :config
-;;     (eval-after-load 'flycheck '(flycheck-clojure-setup)))
-;;   (add-hook 'after-init-hook #'global-flycheck-mode)
+(use-package flycheck
+  :ensure t
+  :init
+  (use-package flycheck-clojure
+    :config
+    (eval-after-load 'flycheck '(flycheck-clojure-setup)))
+  (add-hook 'after-init-hook #'global-flycheck-mode))
 
 ;;   (use-package flycheck-pos-tip
 ;;     :config

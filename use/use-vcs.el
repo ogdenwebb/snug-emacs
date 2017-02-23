@@ -48,6 +48,12 @@
     '(git-gutter:added-sign "󠀠")
     '(git-gutter:modified-sign "󠀠")
     '(git-gutter:deleted-sign "󠀠"))
+
+  ;; Color lines
+  (custom-set-faces
+   `(git-gutter:added ((t (:background "#54b685"))))
+   `(git-gutter:modified ((t (:background "#acb370"))))
+   `(git-gutter:deleted ((t (:background "#d75f5f")))))
   :general
   (general-nvmap
    "] h" 'git-gutter:next-hunk
