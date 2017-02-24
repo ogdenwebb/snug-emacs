@@ -20,15 +20,18 @@
     ("q" nil "cancel")))
 
 ;; Package-lint
-(use-package package-lint)
+(use-package package-lint
+  :after flycheck)
 
 ;; Flycheck
 (use-package flycheck
   :ensure t
   :init
+  (setq-default flycheck-disabled-checkers '(emacs-lisp emacs-lisp-checkdoc))
   (use-package flycheck-clojure
     :config
     (eval-after-load 'flycheck '(flycheck-clojure-setup)))
+  :config
   (add-hook 'after-init-hook #'global-flycheck-mode))
 
 ;;   (use-package flycheck-pos-tip
