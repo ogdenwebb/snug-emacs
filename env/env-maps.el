@@ -11,6 +11,7 @@
                  "j" 'hydra-smartparens/body)
 
   (general-define-key :prefix leader
+                      "1" 'colorpicker
                       "3" 'neotree-toggle
                       "5" 'hydra-flyspell/body
                       "f" 'counsel-recentf
@@ -46,6 +47,7 @@
    "j"   'evil-next-visual-line
    "k"   'evil-previous-visual-line)
 
+  ;; Insert mode maps
   (general-imap
    "TAB" 'company-indent-or-complete-common
    "C-j" 'parinfer-toggle-mode
@@ -69,7 +71,7 @@
                       "N" 'evil-search-previous
                       "q" 'kill-this-buffer)
 
-  ;; Clojure
+  ;; Clojure mode
   (general-define-key :keymaps 'clojure-mode-map
                       :prefix leader
                       :states '(normal visual)
