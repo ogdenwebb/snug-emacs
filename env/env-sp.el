@@ -46,7 +46,6 @@
 (use-package smartparens
   :init
   (smartparens-global-mode 1)
-  ;; (show-smartparens-global-mode +1)
   :config
   ;; (!!) Read: sp-cheat-sheet
   (use-package smartparens-config)

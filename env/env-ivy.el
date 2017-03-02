@@ -2,7 +2,6 @@
 (use-package ivy
   :ensure t
   :config
-  (setq ivy-display-style 'fancy)
   (ivy-mode 1)
   (setq ivy-re-builders-alist
         '((t . ivy--regex-fuzzy)))
