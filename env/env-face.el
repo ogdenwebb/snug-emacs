@@ -95,12 +95,12 @@
 
 ;; Show indent line
 (use-package highlight-indent-guides
+  :init
+  (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
   :config
   (setq highlight-indent-guides-method 'character)
   ;; Indent character samples: | ┆ ┊
-  (setq highlight-indent-guides-character ?\┆)
-
-  (add-hook 'prog-mode-hook 'highlight-indent-guides-mode))
+  (setq highlight-indent-guides-character ?\┆))
 
 ;; Dashboard
 (use-package dashboard
