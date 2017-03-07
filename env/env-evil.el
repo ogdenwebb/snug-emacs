@@ -8,7 +8,9 @@
   (evil-set-initial-state 'nrepl-mode 'insert)
 
   (evil-mode 1)
-  (evil-commentary-mode))
+  (use-package evil-commentary
+    :init
+    (evil-commentary-mode)))
 
   ;; Set default states
 

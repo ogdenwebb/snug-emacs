@@ -3,6 +3,7 @@
   :mode (("\\.html\\'" . web-mode))
   :config
   (add-hook 'web-mode-hook 'turn-off-smartparens-mode)
+  (add-hook 'web-mode-hook #'(lambda () (highlight-indent-guides-mode -1)))
   (add-hook 'web-mode-hook #'(lambda () (yas-activate-extra-mode 'web-mode)))
 
   (setq-default

@@ -6,7 +6,7 @@
   ;; Fontify
   (setq org-fontify-quote-and-verse-blocks t)
   (setq org-src-fontify-natively t)
-  (setq org-ellipsis " -")
+  (setq org-ellipsis " ~ ")
 
   ;; done
   ;; (defun modify-org-done-face ()
@@ -16,6 +16,7 @@
 
   ;; (add-hook 'org-add-hook 'modify-org-done-face)
   (setq org-fontify-done-headline t)
+
   (custom-set-faces
     `(org-todo ((t (:foreground "#5485b6" :bold t))))
     `(org-done ((t (:foreground "dimgray" :bold t :strike-through t))))

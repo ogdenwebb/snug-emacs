@@ -8,21 +8,6 @@
   :config
   (use-package evil-ediff))
 
-;; FIXME: conflict with git-gutter
-(defun nlinum-disable (&optional frame)
-  (interactive)
-  (global-nlinum-mode -1))
-
-(defun nlinum-enable (&optional frame)
-  (interactive)
-  (global-nlinum-mode +1))
-
-(use-package nlinum
-    :init
-    (setq nlinum-format "%4d ")
-    (add-hook 'prog-mode-hook 'nlinum-mode)
-    (add-hook 'text-mode-hook 'nlinum-mode))
-
 ; Git
 (use-package magit)
 

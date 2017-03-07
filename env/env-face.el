@@ -102,6 +102,13 @@
   ;; Indent character samples: | ┆ ┊
   (setq highlight-indent-guides-character ?\┆))
 
+;; Line numbering
+(use-package nlinum
+    :init
+    (setq nlinum-format "%4d ")
+    (add-hook 'prog-mode-hook 'nlinum-mode)
+    (add-hook 'text-mode-hook 'nlinum-mode))
+
 ;; Dashboard
 (use-package dashboard
   :config
