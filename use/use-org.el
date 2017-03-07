@@ -8,13 +8,11 @@
   (setq org-src-fontify-natively t)
   (setq org-ellipsis " ~ ")
 
-  ;; done
-  ;; (defun modify-org-done-face ()
-  ;;   (setq org-fontify-done-headline t)
-  ;;   (set-face-attribute 'org-done nil :strike-through t)
-  ;;   (set-face-attribute 'org-headline-done nil :strike-through t))
+  (defun org-init-hook ()
+    (interactive)
+    (nlinum-mode -1))
 
-  ;; (add-hook 'org-add-hook 'modify-org-done-face)
+  (add-hook 'org-mode-hook 'org-init-hook)
   (setq org-fontify-done-headline t)
 
   (custom-set-faces

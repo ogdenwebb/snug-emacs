@@ -5,7 +5,7 @@
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
 
-;; Use package
+;; Use-package
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
@@ -14,7 +14,7 @@
   (require 'use-package))
 
 ;; General configation
-(load (concat user-emacs-directory "env/env-base"))
+(load (concat user-emacs-directory "env/env-boot"))
 
 (require 'env-common)
 (require 'env-check)
