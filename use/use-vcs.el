@@ -15,6 +15,19 @@
 (use-package git-gutter
   :init
   (global-git-gutter-mode)
+
+  (custom-set-variables
+   ;; WARNING: "" contains tag space character to display line
+   '(git-gutter:unchanged-sign "󠀠")
+   '(git-gutter:added-sign "󠀠")
+   '(git-gutter:modified-sign "󠀠")
+   '(git-gutter:deleted-sign "󠀠"))
+
+  ;; Color lines
+  (custom-set-faces
+   `(git-gutter:added ((t (:background "#54b685"))))
+   `(git-gutter:modified ((t (:background "#acb370"))))
+   `(git-gutter:deleted ((t (:background "#d75f5f")))))
   :config
   (use-package git-gutter-fringe)
   :general

@@ -3,6 +3,7 @@
   :ensure t
   :config
   (setq company-idle-delay nil) ; never start completions automatically
+  (setq company-require-match nil)
 
   ;;;; Make company aware of merlin
   ;; (with-eval-after-load 'company

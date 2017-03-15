@@ -19,7 +19,7 @@
     ("F" sp-forward-sexp "Forward sexp")
     ("B" sp-backward-sexp "Backward sexp")
     ("p" sp-previous-sexp "Previous")
-    ("w" (sp-wrap-with-pair "(") "Wrap")
+    ;; ("w" (sp-wrap-with-pair "(") "Wrap")
     ("W" sp-unwrap-sexp "Unwrap")
     ("n" sp-next-sexp "Next")
     ("J" sp-join-sexp "Join")

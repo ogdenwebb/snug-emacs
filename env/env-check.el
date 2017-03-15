@@ -28,9 +28,9 @@
   :ensure t
   :init
   (setq-default flycheck-disabled-checkers '(emacs-lisp emacs-lisp-checkdoc))
-  (use-package flycheck-clojure
-    :config
-    (eval-after-load 'flycheck '(flycheck-clojure-setup)))
+  ;; (use-package flycheck-clojure
+  ;;   :config
+  ;;   (eval-after-load 'flycheck '(flycheck-clojure-setup)))
   :config
   (add-hook 'after-init-hook #'global-flycheck-mode))
 

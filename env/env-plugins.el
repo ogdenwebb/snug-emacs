@@ -29,7 +29,7 @@
                           "[/\\]\\.elpa/"))
   :config
   (setq recentf-max-menu-items 50)
-  (setq recentf-max-saved-items 30)
+  (setq recentf-max-saved-items 35)
   (recentf-mode 1))
 
 ;; OCaml
