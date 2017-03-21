@@ -43,7 +43,7 @@
 
   ;; Evil bindings normal and visual
   (general-nvmap
-   "ga"  'align-regexp
+   ;; "ga"  'align-regexp
    "j"   'evil-next-visual-line
    "k"   'evil-previous-visual-line)
 

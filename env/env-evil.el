@@ -41,4 +41,12 @@
   :config
   (global-evil-visualstar-mode))
 
+(use-package evil-lion
+  :config
+  (evil-lion-mode)
+  :general
+  (general-nvmap
+   "ga"  'evil-lion-left
+   "gA"  'evil-lion-left))
+
 (provide 'env-evil)
