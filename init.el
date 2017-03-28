@@ -1,7 +1,7 @@
 ;;;; 0rdy Emacs config with Evil
 
 (require 'package)
-;; (setq package-enable-at-startup nil)   ; To prevent initialising twice
+(setq package-enable-at-startup nil)   ; To prevent initialising twice
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
 

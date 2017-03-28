@@ -8,9 +8,13 @@
   (evil-set-initial-state 'nrepl-mode 'insert)
 
   (evil-mode 1)
+
   (use-package evil-commentary
-    :init
-    (evil-commentary-mode)))
+    :commands (evil-commentary evil-commentary-yank)
+    :general
+    (general-nvmap
+     "gc" 'evil-commentary
+     "gy" 'evil-commentary-yank)))
 
   ;; Set default states
 
@@ -42,11 +46,12 @@
   (global-evil-visualstar-mode))
 
 (use-package evil-lion
-  :config
-  (evil-lion-mode)
+  :commands (evil-lion-mode evil-lion-left evil-lion-right)
+  ;; :config
+  ;; (evil-lion-mode)
   :general
   (general-nvmap
    "ga"  'evil-lion-left
-   "gA"  'evil-lion-left))
+   "gA"  'evil-lion-right))
 
 (provide 'env-evil)
