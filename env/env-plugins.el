@@ -111,6 +111,7 @@
                       "RET" 'neotree-enter
                       "q" 'neotree-hide))
 
-(use-package colorpicker)
+(use-package colorpicker
+  :commands (colorpicker))
 
 (provide 'env-plugins)

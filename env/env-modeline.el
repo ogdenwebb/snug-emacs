@@ -43,6 +43,11 @@
 
   ;;;; Custom segments
 
+  ;; Example of color string segment
+  ;; (telephone-line-defsegment* my-color-segment
+  ;;   (propertize "some-string" 'face `(:foreground "green")))
+
+
   ;; TODO: Rewrite using assoc and defvar
   ;; Display major mode
   (telephone-line-defsegment* my-major-mode-segment
@@ -81,7 +86,7 @@
             (telephone-line-trim (format-mode-line mode-line-front-space))
           '(" %3l,%2c "))))
 
-  ;; TODO: split segments to external file
+  ;; TODO: Split segments to external file
   ;; Ignore some buffers in modeline
   (defvar modeline-ignored-modes nil
     "List of major modes to ignore in modeline")
@@ -98,10 +103,6 @@
     (if (and (buffer-modified-p) (not (member mode-name modeline-ignored-modes)))
         (propertize "+" 'face `(:foreground "#85b654"))
       ""))
-
-  ;; Example of color string segment
-  ;; (telephone-line-defsegment* my-color-segment
-  ;;   (propertize "some-string" 'face `(:foreground "green")))
 
   ;; Display encoding system
   (telephone-line-defsegment* my-coding-segment

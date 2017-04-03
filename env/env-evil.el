@@ -47,8 +47,6 @@
 
 (use-package evil-lion
   :commands (evil-lion-mode evil-lion-left evil-lion-right)
-  ;; :config
-  ;; (evil-lion-mode)
   :general
   (general-nvmap
    "ga"  'evil-lion-left

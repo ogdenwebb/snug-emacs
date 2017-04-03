@@ -20,19 +20,28 @@
                       "i" 'find-file
                       "o" 'switch-to-buffer
                       "r" 'quickrun
+
+                      ;; TODO: Add focus and swap
+                      "w c" 'delete-window
+                      "w s" 'split-window-below
+                      "w v" 'split-window-right
+                      "w k" 'kill-this-buffer
+                      "w K" 'kill-buffer
+
                       "m d" 'magit-diff
                       "m m" 'magit-status
+
                       "p" 'counsel-locate
                       "P" 'counsel-projectile-find-file)
 
   (general-define-key
    "<f6>" 'ivy-resume
-   "/"  'swiper
-   "C-j" 'parinfer-toggle-mode
-   "M-h" 'evil-window-left
-   "M-j" 'evil-window-down
-   "M-k" 'evil-window-up
-   "M-l" 'evil-window-right)
+   "/"    'swiper
+   "C-j"  'parinfer-toggle-mode
+   "M-h"  'evil-window-left
+   "M-j"  'evil-window-down
+   "M-k"  'evil-window-up
+   "M-l"  'evil-window-right)
 
   ;; Bind ESC to jk
   (general-imap
