@@ -131,8 +131,8 @@
   :config
   (add-hook 'prog-mode-hook 'fic-mode))
 
-;; FIXME: add face to highlight boolean: t, nil
-;; (font-lock-add-keywords 'emacs-lisp-mode
-;;   '(("\\<\\(nil\\|t\\)\\>" . kaolin-boolean)))
+;; Highlight t and nil in elisp-mode
+(font-lock-add-keywords 'emacs-lisp-mode
+  '(("\\<\\(nil\\|t\\)\\>" . 'kaolin-boolean)))
 
 (provide 'env-face)

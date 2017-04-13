@@ -17,6 +17,7 @@
                       "f" 'counsel-recentf
                       "y" 'counsel-yank-pop
                       "k" 'counsel-ag
+                      "l" 'counsel-bookmark
                       "i" 'find-file
                       "o" 'switch-to-buffer
                       "r" 'quickrun

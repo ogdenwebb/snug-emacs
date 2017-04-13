@@ -8,6 +8,8 @@
 
 ;; Undotree
 (use-package undo-tree
+  :init
+  (global-undo-tree-mode 1)
   :config
   (setq undo-tree-auto-save-history t)
   ;; Persistent undo-tree history across emacs sessions
@@ -16,7 +18,6 @@
   (add-hook 'find-file-hook #'undo-tree-load-history-hook)
   (add-hook 'find-file-hook #'global-undo-tree-mode-check-buffers)
 
-  (global-undo-tree-mode 1)
   (setq undo-tree-visualizer-timestamps t))
   ;; (setq undo-tree-visualizer-diff t))
 
@@ -26,11 +27,12 @@
   (setq recentf-exclude '("^/var/folders\\.*"
                           "COMMIT_EDITMSG\\'"
                           ".*-autoloads\\.el\\'"
+                          "[/\\]\\.emacs.d/bookmarks"
                           "[/\\]\\.elpa/"))
+  (recentf-mode 1)
   :config
   (setq recentf-max-menu-items 50)
-  (setq recentf-max-saved-items 35)
-  (recentf-mode 1))
+  (setq recentf-max-saved-items 35))
 
 ;; OCaml
 (let ((opam-share (ignore-errors (car (process-lines "opam" "config" "var" "share")))))
