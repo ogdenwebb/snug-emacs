@@ -129,7 +129,6 @@
           (accent  . (my-position-segment))
           (nil     . (my-major-mode-segment))
           (accent  . (my-coding-segment))))
-  ;; (accent . (my-position-segment))))
 
   (telephone-line-mode 1))
 

@@ -62,8 +62,8 @@
     (forward-line -1)
     (indent-according-to-mode))
 
-  (setq-default sp-autoskip-closing-pair 'always-end)
+  (setq-default sp-autoskip-closing-pair 'always-end))
 
-  (sp-pair "\"" nil :actions '(:rem escape)))
+  ;; (sp-pair "\"" nil :actions '(:rem escape)))
 
 (provide 'env-sp)

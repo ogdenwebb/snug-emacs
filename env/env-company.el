@@ -50,6 +50,14 @@
 
   (setq company-backends (mapcar #'company-mode/backend-with-yas company-backends))
 
+  ;; company-daabrev
+  ;; (add-to-list 'company-backends 'company-dabbrev)
+  ;; (add-to-list 'company-backends 'company-dabbrev-code)
+  ;; (setq company-ddabbrev-code-everywhere t)
+  ;; (setq company-dabbrev-code-modes t)
+  ;; (setq company-dabbrev-code-other-buffers 'all)
+  ;; (setq company-dabbrev-ignore-buffers "\\`\\'")
+
   (add-hook 'after-init-hook 'global-company-mode)
   (with-eval-after-load 'company
     (define-key company-active-map (kbd "M-n") nil)

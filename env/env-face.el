@@ -19,8 +19,8 @@
                       :weight 'normal
                       :width  'normal))
 
-;; Make the left fringe 4 pixels wide and the right disappear
-(fringe-mode '(4 . 0))
+;; Set the fringe size
+(fringe-mode '(6 . 0))
 ;; Need to show fringe in vertical split
 (setq-default fringes-outside-margins t)
 

@@ -47,6 +47,8 @@
 
 (use-package evil-lion
   :commands (evil-lion-mode evil-lion-left evil-lion-right)
+  :config
+  (setq evil-lion-squeeze-spaces t)
   :general
   (general-nvmap
    "ga"  'evil-lion-left
