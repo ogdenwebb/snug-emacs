@@ -7,26 +7,18 @@
   ;; Initial states
   (evil-set-initial-state 'nrepl-mode 'insert)
 
-  (evil-mode 1)
+  ;; Evil ex
+  (evil-ex-define-cmd "pu[pgrade]" 'package-utils-upgrade-all)
 
-  (use-package evil-commentary
-    :commands (evil-commentary evil-commentary-yank)
-    :general
-    (general-nvmap
-     "gc" 'evil-commentary
-     "gy" 'evil-commentary-yank)))
+  (evil-mode 1))
 
-  ;; Set default states
-
-  ;; (add-hook 'monky-mode-hook
-  ;;        (lambda ()
-  ;;          (evil-add-hjkl-bindings monky-mode-map 'emacs
-  ;;            (kbd "/")       'evil-search-forward
-  ;;            (kbd "n")       'evil-search-next
-  ;;            (kbd "N")       'evil-search-previous
-  ;;            (kbd "C-d")     'evil-scroll-down
-  ;;            (kbd "C-u")     'evil-scroll-up
-  ;;            (kbd "C-w C-w") 'other-window)))
+(use-package evil-commentary
+  :after evil
+  :commands (evil-commentary evil-commentary-yank)
+  :general
+  (general-nvmap
+    "gc" 'evil-commentary
+    "gy" 'evil-commentary-yank))
 
 (use-package evil-surround
   :ensure t

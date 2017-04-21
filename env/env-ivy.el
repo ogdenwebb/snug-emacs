@@ -4,7 +4,9 @@
   :config
   (ivy-mode 1)
   (setq ivy-re-builders-alist
-        '((t . ivy--regex-fuzzy)))
+        ;; '((t . ivy--regex-fuzzy))
+        '((t . ivy--regex-plus)))
+  ;; (setq ivy-initial-inputs-alist nil)
 
   ;; add ‘recentf-mode’ and bookmarks to ‘ivy-switch-buffer’.
   (setq ivy-use-virtual-buffers nil)
