@@ -86,7 +86,6 @@
             (telephone-line-trim (format-mode-line mode-line-front-space))
           '(" %3l,%2c "))))
 
-  ;; TODO: Split segments to external file
   ;; Ignore some buffers in modeline
   (defvar modeline-ignored-modes nil
     "List of major modes to ignore in modeline")

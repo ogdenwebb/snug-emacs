@@ -13,6 +13,9 @@
 (eval-when-compile
   (require 'use-package))
 
+;; TODO:
+;; Disable autoindent two empty lines
+
 ;; General configation
 (load (concat user-emacs-directory "env/env-boot"))
 

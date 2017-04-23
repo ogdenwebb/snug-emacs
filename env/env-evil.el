@@ -7,6 +7,9 @@
   ;; Initial states
   (evil-set-initial-state 'nrepl-mode 'insert)
 
+  ;; fix for company
+  (evil-declare-change-repeat 'company-complete)
+
   ;; Evil ex
   (evil-ex-define-cmd "pu[pgrade]" 'package-utils-upgrade-all)
 
