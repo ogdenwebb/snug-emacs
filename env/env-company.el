@@ -51,7 +51,7 @@
   (setq company-backends (mapcar #'company-mode/backend-with-yas company-backends))
 
   ;; company-daabrev
-  (add-to-list 'company-backends 'company-dabbrev)
+  ;; (add-to-list 'company-backends 'company-dabbrev)
   ;; (add-to-list 'company-backends 'company-dabbrev-code)
   ;; (setq company-ddabbrev-code-everywhere t)
   ;; (setq company-dabbrev-code-modes t)

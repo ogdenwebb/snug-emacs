@@ -4,7 +4,7 @@
   :config
   (ivy-mode 1)
   (setq ivy-re-builders-alist
-        ;; '((t . ivy--regex-fuzzy))
+        ;; '((t . ivy--regex-fuzzy)))
         '((t . ivy--regex-plus)))
   ;; (setq ivy-initial-inputs-alist nil)
 

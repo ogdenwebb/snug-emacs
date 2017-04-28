@@ -34,7 +34,7 @@
 ;; Specific modules and major modes
 (require 'use-eshell)
 (require 'use-grep)
-(require 'use-multiedit)
+;; (require 'use-multiedit)
 (require 'use-vcs)
 
 (require 'use-clj)

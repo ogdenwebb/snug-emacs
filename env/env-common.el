@@ -42,6 +42,8 @@
 (defalias 'yes-or-no-p 'y-or-n-p)
 (put 'upcase-region 'disabled nil)
 
+(setq-default indicate-buffer-boundaries nil)  ; don't show where buffer starts/ends
+
 ;; Indentation
 (setq evil-shift-width 2)
 (setq tab-width 2)
@@ -79,6 +81,9 @@
 
 ;; Save last position
 (save-place-mode 1)
+
+;; Disable lockfiles
+(setq create-lockfiles nil)
 
 ;; Save history
 (use-package savehist

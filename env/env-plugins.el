@@ -3,8 +3,17 @@
   :commands (package-utils-upgrade-all))
 
 ;; smart new line
-(use-package smart-newline
-  :bind ("RET" . smart-newline))
+;; (use-package smart-newline
+;;   :init
+;;   (add-hook 'prog-mode-hook 'smart-newline-mode))
+
+;; Auto-indent-mode
+;; (use-package auto-indent-mode
+;;   :init
+;;   (add-hook 'prog-mode-hook 'auto-indent-mode)
+;;   :config
+;;   (setq auto-indent-newline-function 'newline-and-indent)
+;;   (add-to-list 'auto-indent-multiple-indent-modes 'nim-mode))
 
 ;; Undotree
 (use-package undo-tree

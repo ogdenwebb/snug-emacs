@@ -3,6 +3,7 @@
   :ensure t
   :config
   (setq evil-want-fine-undo nil)
+  ;; (setq evil-auto-indent nil)
 
   ;; Initial states
   (evil-set-initial-state 'nrepl-mode 'insert)

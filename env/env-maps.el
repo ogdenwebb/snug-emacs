@@ -22,6 +22,11 @@
                       "o" 'switch-to-buffer
                       "r" 'quickrun
 
+                      "h k" 'describe-key
+                      "h v" 'describe-variable
+                      "h f" 'describe-function
+                      "h m" 'describe-mode
+
                       ;; TODO: Add focus and swap
                       "w c" 'delete-window
                       "w s" 'split-window-below
@@ -60,6 +65,7 @@
   ;; Insert mode maps
   (general-imap
    "TAB" 'company-indent-or-complete-common
+   "RET" 'newline-and-indent
    "C-j" 'parinfer-toggle-mode
    "C-k" 'company-complete-common-or-cycle
    "C-a" 'beginning-of-line
