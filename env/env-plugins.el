@@ -10,10 +10,16 @@
 ;; Auto-indent-mode
 ;; (use-package auto-indent-mode
 ;;   :init
-;;   (add-hook 'prog-mode-hook 'auto-indent-mode)
+;;   ;; (add-hook 'prog-mode-hook 'auto-indent-mode)
+;;   (setq auto-indent-on-visit-file t)
+;;   (auto-indent-global-mode)
 ;;   :config
 ;;   (setq auto-indent-newline-function 'newline-and-indent)
 ;;   (add-to-list 'auto-indent-multiple-indent-modes 'nim-mode))
+
+;; Electric indent
+(electric-indent-mode -1)
+;; (setq-default electric-indent-inhibit t)
 
 ;; Undotree
 (use-package undo-tree
@@ -28,7 +34,7 @@
   (add-hook 'find-file-hook #'global-undo-tree-mode-check-buffers)
 
   (setq undo-tree-visualizer-timestamps t))
-  ;; (setq undo-tree-visualizer-diff t))
+;; (setq undo-tree-visualizer-diff t))
 
 ;; Recent files
 (use-package recentf
@@ -56,7 +62,7 @@
   :ensure t
   :config
   (setq projectile-completion-system 'ivy)
-  (projectile-global-mode 1))
+  (projectile-mode +1))
 
 (use-package counsel-projectile
   :after projectile
@@ -87,10 +93,10 @@
   (progn
     (setq parinfer-extensions
           '(defaults       ; should be included.
-            pretty-parens  ; different paren styles for different modes.
-            evil           ; If you use Evil.
-            smart-tab      ; C-b & C-f jump positions and smart shift with tab & S-tab.
-            smart-yank))   ; Yank behavior depend on mode.
+             pretty-parens  ; different paren styles for different modes.
+             evil           ; If you use Evil.
+             smart-tab      ; C-b & C-f jump positions and smart shift with tab & S-tab.
+             smart-yank))   ; Yank behavior depend on mode.
     (add-hook 'clojure-mode-hook #'parinfer-mode)
     (add-hook 'emacs-lisp-mode-hook #'parinfer-mode)
     (add-hook 'common-lisp-mode-hook #'parinfer-mode)

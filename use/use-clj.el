@@ -1,4 +1,7 @@
 (use-package clojure-mode
+  :mode (("\\.clj\\'" . clojure-mode)
+         ("\\.cljc\\'" . clojure-mode)
+         ("\\.cljs\\'" . clojurescript-mode))
   :config
   ;; Boot
   (add-to-list 'auto-mode-alist '("\\.boot\\'" . clojure-mode))

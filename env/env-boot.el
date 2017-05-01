@@ -1,11 +1,16 @@
 (defun byte-compile-config ()
   (interactive)
   ;; (async-byte-recompile-directory))
-  (mapc (lambda (fname) (byte-compile-file (concat user-emacs-directory "/" fname)))
-        '("init.el"
-          "env/env-modeline.el"))
+  (byte-compile-file (concat user-emacs-directory "/" "init.el") 0)
+  (byte-recompile-directory (concat user-emacs-directory "/env") 0)
+  ;; (mapc (lambda (fname) (byte-compile-file (concat user-emacs-directory "/" fname)))
+  ;;       '("init.el"
+  ;;         "env/env-boot.el"
+  ;;         "env/env-common.el"
+  ;;         "env/env-modeline.el"))
 
   (message "Success!"))
+
 
 (setq byte-compile--use-old-handlers nil)
 (setq load-prefer-newer t)

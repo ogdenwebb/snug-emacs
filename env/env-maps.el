@@ -25,6 +25,7 @@
                       "h k" 'describe-key
                       "h v" 'describe-variable
                       "h f" 'describe-function
+                      "h F" 'describe-face
                       "h m" 'describe-mode
 
                       ;; TODO: Add focus and swap
@@ -102,8 +103,8 @@
                       :states '(visual)
                       "e e" 'cider-eval-region))
 
-  ;; (general-define-key :keymaps 'ivy-minibuffer-map
-  ;;                     "C-n" 'ivy-previous-line-and-call
-  ;;                     "C-p" 'ivy-next-line-and-call))
+;; (general-define-key :keymaps 'ivy-minibuffer-map
+;;                     "C-n" 'ivy-previous-line-and-call
+;;                     "C-p" 'ivy-next-line-and-call))
 
 (provide 'env-maps)

@@ -47,6 +47,7 @@
 ;; Indentation
 (setq evil-shift-width 2)
 (setq tab-width 2)
+(setq tab-always-indent t)
 (setq-default indent-tabs-mode nil)
 
 ;; (setq indent-line-function 'insert-tab)

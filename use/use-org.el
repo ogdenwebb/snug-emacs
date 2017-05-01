@@ -15,10 +15,11 @@
   (add-hook 'org-mode-hook 'org-init-hook)
   (setq org-fontify-done-headline t)
 
-  (custom-set-faces
-    `(org-todo ((t (:foreground "#5485b6" :bold t))))
-    `(org-done ((t (:foreground "dimgray" :bold t :strike-through t))))
-    `(org-headline-done ((t (:foreground "dimgray" :bold nil :strike-through t)))))
+  (custom-theme-set-faces
+   'kaolin
+   '(org-todo ((t (:foreground "#5485b6" :bold t))))
+   '(org-done ((t (:foreground "dimgray" :bold t :strike-through t))))
+   '(org-headline-done ((t (:foreground "dimgray" :bold nil :strike-through t)))))
 
   (use-package syndicate)
   :general

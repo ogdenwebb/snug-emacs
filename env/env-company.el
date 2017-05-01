@@ -50,10 +50,17 @@
 
   (setq company-backends (mapcar #'company-mode/backend-with-yas company-backends))
 
+  ;; (set (make-local-variable 'company-backends)
+  ;;    '((company-elisp :with company-dabbrev-code)))
+
   ;; company-daabrev
   ;; (add-to-list 'company-backends 'company-dabbrev)
   ;; (add-to-list 'company-backends 'company-dabbrev-code)
-  ;; (setq company-ddabbrev-code-everywhere t)
+  ;; (add-to-list 'company-backends '(company-capf company-dabbrev-code))
+  (setq company-dabbrev-downcase nil)
+  ;; (setq company-dabbrev-ignore-case nil)
+  ;; (setq company-dabbrev-code-ignore-case nil)
+  ;; (setq company-dabbrev-code-everywhere t)
   ;; (setq company-dabbrev-code-modes t)
   ;; (setq company-dabbrev-code-other-buffers 'all)
   ;; (setq company-dabbrev-ignore-buffers "\\`\\'")

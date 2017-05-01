@@ -13,6 +13,8 @@
 
   ;; Evil ex
   (evil-ex-define-cmd "pu[pgrade]" 'package-utils-upgrade-all)
+  (evil-ex-define-cmd "pi[stall]" 'package-install)
+  (evil-ex-define-cmd "pd[elete]" 'package-delete)
 
   (evil-mode 1))
 
@@ -49,5 +51,9 @@
   (general-nvmap
    "ga"  'evil-lion-left
    "gA"  'evil-lion-right))
+
+(use-package evil-goggles
+  :config
+  (evil-goggles-mode))
 
 (provide 'env-evil)

@@ -24,14 +24,17 @@
 ;; Need to show fringe in vertical split
 (setq-default fringes-outside-margins t)
 
-;; Set default theme
-(defun load-my-theme (frame)
-  (select-frame frame)
-  (load-theme 'kaolin t))
+(use-package kaolin-theme
+  :load-path "themes/kaolin-theme"
+  :init
+  ;; Set default theme
+  (defun load-my-theme (frame)
+    (select-frame frame)
+    (load-theme 'kaolin t))
 
-(if (daemonp)
-    (add-hook 'after-make-frame-functions #'load-my-theme)
-  (load-theme 'kaolin t))
+  (if (daemonp)
+      (add-hook 'after-make-frame-functions #'load-my-theme)
+    (load-theme 'kaolin t)))
 
 ;; Highlight current line
 (global-hl-line-mode 1)
