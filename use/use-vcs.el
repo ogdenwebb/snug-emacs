@@ -24,10 +24,13 @@
    '(git-gutter:deleted-sign "󠀠"))
 
   ;; Color lines
+  ;; (custom-theme-set-faces
+  ;;  'kaolin
   (custom-set-faces
-   `(git-gutter:added ((t (:background "#54b685"))))
-   `(git-gutter:modified ((t (:background "#acb370"))))
-   `(git-gutter:deleted ((t (:background "#d75f5f")))))
+   '(git-gutter:added ((t (:background "#54b685" :foreground "#54b685"))))
+   ;; '(git-gutter:modified ((t (:background "#54b6b6" :foreground "#54b6b6"))))
+   '(git-gutter:modified ((t (:background "#ab98b5" :foreground "#ab98b5"))))
+   '(git-gutter:deleted ((t (:background "#d75f5f" :foreground "#d75f5f")))))
   :config
   (use-package git-gutter-fringe)
   :general

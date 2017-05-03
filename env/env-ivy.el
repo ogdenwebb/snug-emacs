@@ -8,7 +8,20 @@
         '((t . ivy--regex-plus)))
   ;; (setq ivy-initial-inputs-alist nil)
 
-  ;; add ‘recentf-mode’ and bookmarks to ‘ivy-switch-buffer’.
+  ;; Fix n and N in evil
+  ;; https://github.com/abo-abo/swiper/issues/89#issuecomment-183662338
+  (defun my-swiper-update-search-ring-forward (&rest args)
+    (add-to-history 'regexp-search-ring (ivy--regex ivy-text))
+    (setq isearch-forward t))
+
+  (defun my-swiper-update-search-ring-backward (&rest args)
+    (add-to-history 'regexp-search-ring (ivy--regex ivy-text))
+    (setq isearch-forward nil))
+
+  (advice-add 'ivy-next-line :after #'my-swiper-update-search-ring-forward)
+  (advice-add 'ivy-previous-line :after #'my-swiper-update-search-ring-backward)
+
+  ;; Add ‘recentf-mode’ and bookmarks to ‘ivy-switch-buffer’.
   (setq ivy-use-virtual-buffers nil)
   (define-key read-expression-map (kbd "C-r") 'counsel-expression-history))
 

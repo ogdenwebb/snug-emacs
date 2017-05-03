@@ -3,6 +3,12 @@
   :ensure t
   :config
   (setq evil-want-fine-undo nil)
+
+  ;; (setq evil-search-module 'evil-search)
+  ;; (setq evil-magic 'very-magic)
+  ;; (setq evil-vim-regexp-replacements nil)
+  (setq evil-ex-search-vim-style-regexp t)
+  (setq evil-move-beyond-eol t)
   ;; (setq evil-auto-indent nil)
 
   ;; Initial states
@@ -52,8 +58,8 @@
    "ga"  'evil-lion-left
    "gA"  'evil-lion-right))
 
-(use-package evil-goggles
-  :config
-  (evil-goggles-mode))
+;; (use-package evil-goggles
+;;   :config
+;;   (evil-goggles-mode))
 
 (provide 'env-evil)

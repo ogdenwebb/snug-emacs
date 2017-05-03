@@ -16,26 +16,6 @@
 (eval-when-compile
   (require 'use-package))
 
-;; TODO:
-;; Local package dev
-
-;; TODO:
-;; Disable autoindent two empty lines
-;; indent-relative-maybe
-;; = key is evil-indent command
-;; indent-region
-;; https://github.com/syl20bnr/spacemacs/issues/5010
-
-;; TODO:
-;; multi-term
-;; Electric indent mode
-;; Fix RET in term/eshell mode
-
-;; Install https://github.com/zk-phi/highlight-stages
-;; add faces ^
-
-;; https://github.com/iqbalansari/mu4e-alert
-
 ;; General configation
 (load (concat user-emacs-directory "env/env-boot"))
 
