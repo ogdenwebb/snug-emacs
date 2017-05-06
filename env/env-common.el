@@ -61,6 +61,8 @@
 (add-hook 'emacs-lisp-mode-hook 'lisp-indent-setup)
 (add-hook 'clojure-mode-hook 'lisp-indent-setup)
 
+;; (setq nim-indent-offset 2)
+
 ;; Clean whitespace
 (add-hook 'before-save-hook 'whitespace-cleanup)
 

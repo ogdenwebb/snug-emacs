@@ -34,7 +34,14 @@
 
   (if (daemonp)
       (add-hook 'after-make-frame-functions #'load-my-theme)
-    (load-theme 'kaolin t)))
+    (load-theme 'kaolin t))
+
+  :config
+  ;; Highlight t and nil in elisp-mode
+  (font-lock-add-keywords 'emacs-lisp-mode
+    '(("\\<\\(nil\\|t\\)\\>" . 'kaolin-boolean))))
+
+
 
 ;; Highlight current line
 (global-hl-line-mode 1)
@@ -133,9 +140,5 @@
 (use-package fic-mode
   :config
   (add-hook 'prog-mode-hook 'fic-mode))
-
-;; Highlight t and nil in elisp-mode
-(font-lock-add-keywords 'emacs-lisp-mode
-  '(("\\<\\(nil\\|t\\)\\>" . 'kaolin-boolean)))
 
 (provide 'env-face)

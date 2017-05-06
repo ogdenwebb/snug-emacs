@@ -1,6 +1,9 @@
 ;; Autocomplete
 (use-package company
   :ensure t
+  :init
+  (add-hook 'after-init-hook 'global-company-mode)
+  (company-flx-mode +1)
   :config
   (setq company-idle-delay nil) ; never start completions automatically
   (setq company-require-match nil)
@@ -17,8 +20,6 @@
   (add-to-list 'company-backends 'company-files)
 
   ;; Add fuzzy matching
-  (with-eval-after-load 'company
-    (company-flx-mode +1))
 
   ;; Clojure
   (add-hook 'cider-repl-mode-hook #'company-mode)
@@ -65,7 +66,6 @@
   ;; (setq company-dabbrev-code-other-buffers 'all)
   ;; (setq company-dabbrev-ignore-buffers "\\`\\'")
 
-  (add-hook 'after-init-hook 'global-company-mode)
   (with-eval-after-load 'company
     (define-key company-active-map (kbd "M-n") nil)
     (define-key company-active-map (kbd "M-p") nil)

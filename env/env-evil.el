@@ -59,6 +59,7 @@
    "gA"  'evil-lion-right))
 
 ;; (use-package evil-goggles
+;;   :load-path "dev/evil-goggles"
 ;;   :config
 ;;   (evil-goggles-mode))
 

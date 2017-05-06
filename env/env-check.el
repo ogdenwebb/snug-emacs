@@ -32,7 +32,12 @@
   ;;   :config
   ;;   (eval-after-load 'flycheck '(flycheck-clojure-setup)))
   :config
-  (add-hook 'after-init-hook #'global-flycheck-mode))
+  (add-hook 'after-init-hook #'global-flycheck-mode)
+  :general
+  (general-nvmap
+   "] e" 'flycheck-next-error
+   "[ e" 'flycheck-previous-error))
+
 
 ;;   (use-package flycheck-pos-tip
 ;;     :config

@@ -22,6 +22,8 @@
                       "o" 'switch-to-buffer
                       "r" 'quickrun
 
+                      "e" 'flycheck-list-errors
+
                       "h k" 'describe-key
                       "h v" 'describe-variable
                       "h f" 'describe-function
@@ -43,6 +45,7 @@
 
   (general-define-key
    "<f6>" 'ivy-resume
+   "g x"  'browse-url-at-point
    "/"    'swiper
    "C-j"  'parinfer-toggle-mode
    "M-h"  'evil-window-left
@@ -66,7 +69,7 @@
   ;; Insert mode maps
   (general-imap
    "TAB" 'company-indent-or-complete-common
-   "RET" 'newline-and-indent
+   "RET" 'evil-ret-and-indent
    "C-j" 'parinfer-toggle-mode
    "C-k" 'company-complete-common-or-cycle
    "C-a" 'beginning-of-line
@@ -101,7 +104,13 @@
   (general-define-key :keymaps 'clojure-mode-map
                       :prefix leader
                       :states '(visual)
-                      "e e" 'cider-eval-region))
+                      "e e" 'cider-eval-region)
+
+  ;; EShell
+  (general-define-key :keymaps 'eshell-mode-map
+                      :states  '(insert)
+                      "RET" 'eshell-send-input))
+
 
 ;; (general-define-key :keymaps 'ivy-minibuffer-map
 ;;                     "C-n" 'ivy-previous-line-and-call
