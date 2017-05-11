@@ -74,7 +74,8 @@
       require-final-newline t)
 
 ;; Disable bell
-(setq ring-bell-function 'ignore)
+(setq visible-bell nil
+ ring-bell-function 'ignore)
 
 ;; VC settings
 ;; Built-in VC backend is fucking slow

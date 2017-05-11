@@ -20,6 +20,7 @@
                       :width  'normal))
 
 ;; Set the fringe size
+;; TODO: fix change fringe size after start Emacs
 (fringe-mode '(6 . 0))
 ;; Need to show fringe in vertical split
 (setq-default fringes-outside-margins t)
@@ -111,6 +112,7 @@
   (setq highlight-indent-guides-method 'character)
   ;; Indent character samples: | ┆ ┊
   (setq highlight-indent-guides-character ?\┆))
+
 
 ;; Line numbering
 (use-package nlinum

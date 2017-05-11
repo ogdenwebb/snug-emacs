@@ -24,6 +24,10 @@
 
                       "e" 'flycheck-list-errors
 
+                      ;; TODO: maybe swap with magit
+                      "g h" 'previous-buffer
+                      "g l" 'next-buffer
+
                       "h k" 'describe-key
                       "h v" 'describe-variable
                       "h f" 'describe-function
@@ -62,7 +66,6 @@
 
   ;; Evil bindings normal and visual
   (general-nvmap
-   ;; "ga"  'align-regexp
    "j"   'evil-next-visual-line
    "k"   'evil-previous-visual-line)
 
@@ -70,6 +73,7 @@
   (general-imap
    "TAB" 'company-indent-or-complete-common
    "RET" 'evil-ret-and-indent
+   "DEL" 'my-smart-backspace
    "C-j" 'parinfer-toggle-mode
    "C-k" 'company-complete-common-or-cycle
    "C-a" 'beginning-of-line
@@ -105,6 +109,12 @@
                       :prefix leader
                       :states '(visual)
                       "e e" 'cider-eval-region)
+
+  ;; Flycheck
+  (general-define-key :keymaps 'flycheck-mode-map
+                      :states '(normal)
+                      "] e" 'flycheck-next-error
+                      "[ e" 'flycheck-previous-error)
 
   ;; EShell
   (general-define-key :keymaps 'eshell-mode-map

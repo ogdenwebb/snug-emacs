@@ -42,4 +42,16 @@
     ;; Note: upcoming url.el package ought to handle this automatically.
     guess))
 
+(defun my-empty-line? ()
+  (save-excursion
+    (beginning-of-line)
+    (looking-at "[[:space:]]*$")))
+
+(defun my-smart-backspace ()
+  (interactive)
+  (if (my-empty-line?)
+      ;; (delete-indentation)
+      (delete-horizontal-space)
+    (backward-delete-char-untabify 1 nil)))
+
 (provide 'env-fu)
