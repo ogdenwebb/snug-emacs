@@ -18,8 +18,8 @@
 ;;   (add-to-list 'auto-indent-multiple-indent-modes 'nim-mode))
 
 ;; Electric indent
-(electric-indent-mode -1)
-;; (setq-default electric-indent-inhibit t)
+;; (electric-indent-mode -1)
+(setq-default electric-indent-inhibit t)
 
 ;; Undotree
 (use-package undo-tree

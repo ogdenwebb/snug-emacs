@@ -20,8 +20,9 @@
                       :width  'normal))
 
 ;; Set the fringe size
-;; TODO: fix change fringe size after start Emacs
-(fringe-mode '(6 . 0))
+(setq-default left-fringe-width  6)
+(setq-default right-fringe-width 6)
+
 ;; Need to show fringe in vertical split
 (setq-default fringes-outside-margins t)
 
@@ -41,7 +42,6 @@
   ;; Highlight t and nil in elisp-mode
   (font-lock-add-keywords 'emacs-lisp-mode
     '(("\\<\\(nil\\|t\\)\\>" . 'kaolin-boolean))))
-
 
 
 ;; Highlight current line
