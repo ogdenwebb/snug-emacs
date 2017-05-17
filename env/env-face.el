@@ -11,21 +11,7 @@
 ;; danneskjold-theme
 ;; flatland-theme
 
-;; Set default font
-(if window-system
-  (set-face-attribute 'default t
-                      :family "Roboto Mono for Powerline"
-                      :height 110
-                      :weight 'normal
-                      :width  'normal))
-
-;; Set the fringe size
-(setq-default left-fringe-width  6)
-(setq-default right-fringe-width 6)
-
-;; Need to show fringe in vertical split
-(setq-default fringes-outside-margins t)
-
+;; Load my theme
 (use-package kaolin-theme
   :load-path "themes/kaolin-theme"
   :init
@@ -42,6 +28,24 @@
   ;; Highlight t and nil in elisp-mode
   (font-lock-add-keywords 'emacs-lisp-mode
     '(("\\<\\(nil\\|t\\)\\>" . 'kaolin-boolean))))
+
+;; Set default font
+;; TODO: Error: highlight-indent-guides cannot auto set faces:
+;; `default' face is not set properly
+(add-to-list 'default-frame-alist '(font . "Roboto Mono for Powerline-11"))
+
+  ;; (set-face-attribute 'default t
+  ;;                     :family "Roboto Mono for Powerline"
+  ;;                     :height 110
+  ;;                     :weight 'normal
+  ;;                     :width  'normal))
+
+;; Set the fringe size
+(setq-default left-fringe-width  8)
+(setq-default right-fringe-width 8)
+
+;; Need to show fringe in vertical split
+(setq-default fringes-outside-margins t)
 
 
 ;; Highlight current line

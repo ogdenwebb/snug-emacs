@@ -42,6 +42,14 @@
     ;; Note: upcoming url.el package ought to handle this automatically.
     guess))
 
+(defun line-length (n)
+  "Length of the Nth line."
+  (save-excursion
+    (goto-char (point-min))
+    (if (zerop (forward-line (1- n)))
+        (- (line-end-position)
+           (line-beginning-position)))))
+
 (defun my-empty-line? ()
   (save-excursion
     (beginning-of-line)
@@ -50,9 +58,28 @@
 (defun my-smart-backspace ()
   (interactive)
   (if (my-empty-line?)
-      ;; (delete-indentation)
-      (delete-horizontal-space)
+      (if (= (line-length (line-number-at-pos)) 0)
+          (delete-indentation)
+        (delete-horizontal-space))
     (backward-delete-char-untabify 1 nil)))
 
+;; -------------------------------------------------------------------------------------------------------------------------
+;; Neo tree open xdg on point helpers
+;; -------------------------------------------------------------------------------------------------------------------------
+(defun xdg-open-from-kill-ring ()
+  "Launch the default xdg appplication."
+  (interactive)
+  (shell-command (concat "xdg-open " (substring-no-properties (car kill-ring)))))
+;;change xdg-open to whatever launcher you have (xdg-open is the default on most linux systems)
+
+(defun neotree-open-xdg-on-point ()
+  "Open a file under point."
+  (interactive)
+  (progn
+    (neotree-copy-filepath-to-yank-ring)
+    (xdg-open-from-kill-ring)))
+
+;; Add "J" as the key that will launch the function
+;; (define-key neotree-mode-map (kbd "J") 'neotree-open-xdg-on-point)
 
 (provide 'env-fu)

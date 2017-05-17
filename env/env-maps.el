@@ -22,7 +22,9 @@
                       "o" 'switch-to-buffer
                       "r" 'quickrun
 
-                      "e" 'flycheck-list-errors
+                      ;; TODO:
+                      ;; "e" 'flycheck-list-errors
+                      "e e" 'eval-expression
 
                       ;; TODO: maybe swap with magit
                       "g h" 'previous-buffer
