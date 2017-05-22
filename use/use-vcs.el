@@ -33,6 +33,8 @@
    '(git-gutter:deleted ((t (:background "#d75f5f" :foreground "#d75f5f")))))
   :config
   (use-package git-gutter-fringe)
+    ;; :config
+    ;; (setq git-gutter-fr:side 'right-fringe))
   :general
   (general-nvmap
    "] h" 'git-gutter:next-hunk
@@ -43,10 +45,10 @@
 ;;   :init
 ;;   (progn
 ;;     (add-hook 'prog-mode-hook 'git-gutter-mode)
-;;     ;; FIXME: break down nlinum V
+;;     ;; TODO: break down nlinum V
 ;;     ;; (git-gutter:linum-setup)
 ;;   ;; :config
-;;   ;; FIXME: add live reload
+;;   ;; TODO: add live reload
 ;;   ;; (add-hook 'post-command-hook 'git-gutter:update-all-windows)
 ;;   ;; (add-hook 'focus-in-hook 'git-gutter:update-all-windows)
 

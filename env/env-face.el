@@ -41,8 +41,10 @@
   ;;                     :width  'normal))
 
 ;; Set the fringe size
-(setq-default left-fringe-width  8)
+(setq-default left-fringe-width  6)
 (setq-default right-fringe-width 8)
+
+;; TODO: Disable newline markers in fringe
 
 ;; Need to show fringe in vertical split
 (setq-default fringes-outside-margins t)

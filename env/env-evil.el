@@ -63,4 +63,14 @@
 ;;   :config
 ;;   (evil-goggles-mode))
 
+;; Folding
+
+(use-package vimish-fold
+  :config
+  (use-package evil-vimish-fold
+    :init
+    (evil-vimish-fold-mode 1))
+  (setq vimish-fold-header-width nil))
+
+
 (provide 'env-evil)

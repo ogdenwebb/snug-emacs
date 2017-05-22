@@ -35,12 +35,14 @@
   (setq flycheck-idle-change-delay
         (if flycheck-current-errors 0.3 3.0))
 
+  (setq-default flycheck-disabled-checkers '(emacs-lisp emacs-lisp-checkdoc))
+
   (make-variable-buffer-local 'flycheck-idle-change-delay)
   ;; Disable fringe markers
   ;; (setq flycheck-indication-mode nil)
+  (setq flycheck-indication-mode 'right-fringe)
 
   ;; Customize fringe bitmap
-  (setq-default flycheck-disabled-checkers '(emacs-lisp emacs-lisp-checkdoc))
   (when (fboundp 'define-fringe-bitmap))
   (define-fringe-bitmap 'my-flycheck-fringe-indicator
     (vector #b00000000
