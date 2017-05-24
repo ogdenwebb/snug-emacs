@@ -71,7 +71,7 @@
                   ((string= evil-state "emacs") "Emacs")
                   ((string= evil-state "multiedit") "Multi")
                   (t "-"))))
-        tag)))
+        (concat " " tag))))
 
   ;; Display buffer name
   (telephone-line-defsegment* my-buffer-segment
@@ -117,14 +117,14 @@
 
   ;; Left edge
   (setq telephone-line-lhs
-        '((accent . "  ")
-          (evil   . (my-evil-segment))
+        '((evil   . (my-evil-segment))
           (nil    . (my-buffer-segment))
           (nil    . (my-modified-status-segment))))
 
   ;; Right edge
   (setq telephone-line-rhs
-        '((nil     . (telephone-line-misc-info-segment))
+        '((nil    . (telephone-line-vc-segment))
+          (nil     . (telephone-line-misc-info-segment))
           (accent  . (my-position-segment))
           (nil     . (my-major-mode-segment))
           (accent  . (my-coding-segment))))

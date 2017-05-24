@@ -78,10 +78,9 @@
  ring-bell-function 'ignore)
 
 ;; VC settings
-;; Built-in VC backend is fucking slow
 (setq vc-follow-symlinks t)
 (remove-hook 'find-file-hooks 'vc-find-file-hook)
-(setq vc-handled-backends nil)
+;; (setq vc-handled-backends nil)
 
 ;; Save last position
 (save-place-mode 1)

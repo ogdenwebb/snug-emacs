@@ -131,4 +131,9 @@
 (use-package colorpicker
   :commands (colorpicker))
 
+;; (use-package which-key
+;;   :init
+;;   (which-key-mode)
+;;   (which-key-setup-side-window-bottom))
+
 (provide 'env-plugins)
