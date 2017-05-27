@@ -123,7 +123,7 @@
 
   ;; Right edge
   (setq telephone-line-rhs
-        '((nil    . (telephone-line-vc-segment))
+        '((nil     . (telephone-line-vc-segment))
           (nil     . (telephone-line-misc-info-segment))
           (accent  . (my-position-segment))
           (nil     . (my-major-mode-segment))

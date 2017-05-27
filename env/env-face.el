@@ -142,7 +142,7 @@
           (projects  . 10))))
 
 ;; Icons
-;; (use-package all-the-icons)
+(use-package all-the-icons)
 
 ;; Highlight TODO and FIXME
 (use-package fic-mode
