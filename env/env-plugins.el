@@ -25,7 +25,6 @@
 (use-package undo-tree
   :init
   (global-undo-tree-mode 1)
-  :config
   (setq undo-tree-auto-save-history t)
   ;; Persistent undo-tree history across emacs sessions
   (setq undo-tree-history-directory-alist '(("." . "~/.cache/emacs/undo")))

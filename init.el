@@ -19,10 +19,6 @@
 ;; General configation
 (load (concat user-emacs-directory "env/env-boot"))
 
-;; TODO:
-;; https://github.com/tam17aki/ace-isearch
-;; Fix telephone-line. See messages.
-
 (require 'env-common)
 (require 'env-maps)
 (require 'env-check)
