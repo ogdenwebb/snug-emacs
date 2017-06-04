@@ -121,7 +121,13 @@
   ;; EShell
   (general-define-key :keymaps 'eshell-mode-map
                       :states  '(insert)
-                      "RET" 'eshell-send-input))
+                      "RET" 'eshell-send-input)
+
+  ;; Term-mode
+  ;; TODO:
+  (general-define-key :keymaps 'term-mode-map
+                      :states  '(insert)
+                      "RET" 'term-send-input))
 
 
 ;; (general-define-key :keymaps 'ivy-minibuffer-map

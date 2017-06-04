@@ -31,6 +31,8 @@
 (require 'env-plugins)
 (require 'env-sp)
 
+;; (require 'env-dev)
+
 ;; Specific modules and major modes
 (require 'use-eshell)
 (require 'use-grep)

@@ -23,6 +23,7 @@
 
   ;; Add ‘recentf-mode’ and bookmarks to ‘ivy-switch-buffer’.
   (setq ivy-use-virtual-buffers nil)
+
   (define-key read-expression-map (kbd "C-r") 'counsel-expression-history))
 
 ;; (use-package helm
