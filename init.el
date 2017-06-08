@@ -1,9 +1,16 @@
 ;;;; 0rdy Emacs config with Evil
 
+;; TODO:
+;; add debug/minimal mode
+
+; (setq max-lisp-eval-depth 10000)
+; (setq max-specpdl-size 5)  ; default is 1000, reduce the backtrace level
+(setq debug-on-error t)    ; now you should get a backtrace
+
 (require 'package)
 (setq package-enable-at-startup nil)   ; To prevent initialising twice
 (setq package-archives
-      '(("gnu"    . "https://elpa.gnu.org/packages/")
+      '(("gnu"   . "https://elpa.gnu.org/packages/")
         ("org"   . "http://orgmode.org/elpa/")
         ("melpa" . "https://melpa.org/packages/")))
 (package-initialize)

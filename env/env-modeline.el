@@ -50,7 +50,7 @@
 
   ;; TODO: Rewrite using assoc and defvar
   ;; Display major mode
-  (telephone-line-defsegment* my-major-mode-segment
+  (telephone-line-defsegment my-major-mode-segment ()
     (let ((mode (cond
                  ((string= mode-name "Fundamental") "Text")
                  ((string= mode-name "Emacs-Lisp") "Elisp")
@@ -59,7 +59,7 @@
       (propertize mode 'face `(:foreground "#835d83"))))
 
   ;; Display evil state
-  (telephone-line-defsegment* my-evil-segment
+  (telephone-line-defsegment my-evil-segment ()
     (if (telephone-line-selected-window-active)
       (let ((tag (cond
                   ((string= evil-state "normal") ":")
@@ -74,13 +74,13 @@
         (concat " " tag))))
 
   ;; Display buffer name
-  (telephone-line-defsegment* my-buffer-segment
+  (telephone-line-defsegment my-buffer-segment ()
     `(""
       ,(telephone-line-raw mode-line-buffer-identification t)))
 
 
   ;; Display current position in a buffer
-  (telephone-line-defsegment* my-position-segment
+  (telephone-line-defsegment* my-position-segment ()
     (if (telephone-line-selected-window-active)
         (if (eq major-mode 'paradox-menu-mode)
             (telephone-line-trim (format-mode-line mode-line-front-space))
@@ -98,13 +98,13 @@
                                  "Messages"))
 
   ;; Display modified status
-  (telephone-line-defsegment* my-modified-status-segment
+  (telephone-line-defsegment my-modified-status-segment ()
     (if (and (buffer-modified-p) (not (member mode-name modeline-ignored-modes)))
         (propertize "+" 'face `(:foreground "#85b654"))
       ""))
 
   ;; Display encoding system
-  (telephone-line-defsegment* my-coding-segment
+  (telephone-line-defsegment my-coding-segment ()
     (if (telephone-line-selected-window-active)
         (let* ((code (symbol-name buffer-file-coding-system))
                (eol-type (coding-system-eol-type buffer-file-coding-system))
