@@ -25,6 +25,7 @@
 ;; TODO: add icons
 ;; TODO: big modeline config
 ;; TODO: check if all-the-icons installed
+;; TODO: (!!) flycheck segment
   ;; Gray "#545c5e"
 
 ;; Telephone line
@@ -39,9 +40,8 @@
   (setq telephone-line-height 22)
 
   ;; Set default separators: choose either of them
-  ;; TODO: report about bug with height
-  ;; (setq telephone-line-primary-left-separator 'telephone-line-nil)
-  ;; (setq telephone-line-primary-right-separator 'telephone-line-nil)
+  ;; (setq telephone-line-primary-left-separator 'telephone-line-flat)
+  ;; (setq telephone-line-primary-right-separator 'telephone-line-flat)
   ;; OR
   (setq telephone-line-primary-left-separator 'telephone-line-identity-left)
   (setq telephone-line-primary-right-separator 'telephone-line-identity-right)
@@ -62,15 +62,24 @@
   ;;   (propertize "some-string" 'face `(:foreground "green")))
 
 
-  ;; TODO: Rewrite using assoc and defvar
-  ;; Display major mode #835d83
-  (telephone-line-defsegment my-major-mode-segment ()
-    (let ((mode (cond
-                 ((string= mode-name "Fundamental") "Text")
-                 ((string= mode-name "Emacs-Lisp") "Elisp")
-                 ((string= mode-name "Javascript-IDE") "Javascript")
-                 (t mode-name))))
-      (propertize mode 'face `(:foreground "#9d81ba"))))
+  ;; Display major mode
+  ;; TODO: Rewrite using assoc and defvar #835d83
+  (telephone-line-defsegment* my-major-mode-segment ()
+    (let ((icon (all-the-icons-icon-for-buffer))
+          (mode (cond
+                  ((string= mode-name "Fundamental") "Text")
+                  ((string= mode-name "Emacs-Lisp") "Elisp")
+                  ((string= mode-name "Javascript-IDE") "Javascript")
+                  (t mode-name))))
+      (concat
+        (unless (symbolp icon) ;; This implies it's the major mode
+          (format "%s "
+                  (propertize icon
+                              'face `(:height 1.0 :family ,(all-the-icons-icon-family-for-buffer))
+                              'display '(raise -0.1))))
+        (propertize mode 'face `(:foreground "#9d81ba")))))
+  ;; ;; Display name
+  ;;   (propertize mode 'face `(:foreground "#9d81ba")))))
 
   ;; Display evil state
   (telephone-line-defsegment my-evil-segment ()
@@ -133,6 +142,7 @@
   ;; (vc-state buffer-file-name)
   (telephone-line-defsegment my-vc-segment ()
     ;; #6fb593 #4a858c
+    ;; TODO: use format instead of " "
     (let ((fg-color "#6fb593"))
       (telephone-line-raw
         (concat
