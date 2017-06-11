@@ -29,12 +29,20 @@
 
 ;; Telephone line
 (use-package telephone-line
+  ;; :load-path "dev/telephone-line"
   :config
   ;; To create custom segments
   (use-package telephone-line-utils)
 
-  ;; Set default separators: choose either of them
+  ;; TODO:
+  ;; TODO: choose separator by name
+  (setq telephone-line-height 22)
 
+  ;; Set default separators: choose either of them
+  ;; TODO: report about bug with height
+  ;; (setq telephone-line-primary-left-separator 'telephone-line-nil)
+  ;; (setq telephone-line-primary-right-separator 'telephone-line-nil)
+  ;; OR
   (setq telephone-line-primary-left-separator 'telephone-line-identity-left)
   (setq telephone-line-primary-right-separator 'telephone-line-identity-right)
   ;; OR
@@ -55,14 +63,14 @@
 
 
   ;; TODO: Rewrite using assoc and defvar
-  ;; Display major mode
+  ;; Display major mode #835d83
   (telephone-line-defsegment my-major-mode-segment ()
     (let ((mode (cond
                  ((string= mode-name "Fundamental") "Text")
                  ((string= mode-name "Emacs-Lisp") "Elisp")
                  ((string= mode-name "Javascript-IDE") "Javascript")
                  (t mode-name))))
-      (propertize mode 'face `(:foreground "#835d83"))))
+      (propertize mode 'face `(:foreground "#9d81ba"))))
 
   ;; Display evil state
   (telephone-line-defsegment my-evil-segment ()
@@ -110,29 +118,32 @@
 
   ;; Display encoding system
   (telephone-line-defsegment my-coding-segment ()
-    (if (telephone-line-selected-window-active)
-        (let* ((code (symbol-name buffer-file-coding-system))
-               (eol-type (coding-system-eol-type buffer-file-coding-system))
-               (eol (cond
-                     ((eq 0 eol-type) "unix")
-                     ((eq 1 eol-type) "dos")
-                     ((eq 2 eol-type) "mac")
-                     (t ""))))
-          (concat eol " "))))
+    (let* ((code (symbol-name buffer-file-coding-system))
+           (eol-type (coding-system-eol-type buffer-file-coding-system))
+           (eol (cond
+                 ((eq 0 eol-type) "unix")
+                 ((eq 1 eol-type) "dos")
+                 ((eq 2 eol-type) "mac")
+                 (t ""))))
+      (concat eol " ")))
 
   ;; Display current branch
   ;; Status
   ;; (vc-state (buffer-file-name (current-buffer)))
   ;; (vc-state buffer-file-name)
   (telephone-line-defsegment my-vc-segment ()
+    ;; #6fb593 #4a858c
+    (let ((fg-color "#6fb593"))
       (telephone-line-raw
         (concat
           (propertize (all-the-icons-octicon "git-branch")
-                      'face `(:family ,(all-the-icons-octicon-family) :height 1.0 :foreground "#817f96")
+                      'face `(:family ,(all-the-icons-octicon-family) :height 1.0 :foreground ,fg-color)
                       'display '(raise 0.0))
           " "
-          (substring vc-mode (+ (if (eq (vc-backend buffer-file-name) 'Hg) 2 3) 2)))
-        t))
+          (propertize
+            (substring vc-mode (+ (if (eq (vc-backend buffer-file-name) 'Hg) 2 3) 2))
+            'face `(:foreground ,fg-color)))
+        t)))
 
   ;; Left edge
   (setq telephone-line-lhs
@@ -147,7 +158,7 @@
           ;; (nil     . (telephone-line-misc-info-segment))
           (accent  . (my-position-segment))
           (nil     . (my-major-mode-segment))
-          (accent  . (my-coding-segment))))
+          (accent  . ((my-coding-segment :active)))))
 
   (telephone-line-mode 1))
 
