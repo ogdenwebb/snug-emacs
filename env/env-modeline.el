@@ -22,13 +22,19 @@
 ;;           " SP"
 ;;           " s-/")))
 
+;; TODO: add icons
+;; TODO: big modeline config
+;; TODO: check if all-the-icons installed
+  ;; Gray "#545c5e"
+
 ;; Telephone line
 (use-package telephone-line
   :config
-  ;; Need to create custom segments
+  ;; To create custom segments
   (use-package telephone-line-utils)
 
   ;; Set default separators: choose either of them
+
   (setq telephone-line-primary-left-separator 'telephone-line-identity-left)
   (setq telephone-line-primary-right-separator 'telephone-line-identity-right)
   ;; OR
@@ -69,7 +75,6 @@
                   ((string= evil-state "operator") "=")
                   ((string= evil-state "motion") "m")
                   ((string= evil-state "emacs") "Emacs")
-                  ((string= evil-state "multiedit") "Multi")
                   (t "-"))))
         (concat " " tag))))
 
@@ -115,6 +120,20 @@
                      (t ""))))
           (concat eol " "))))
 
+  ;; Display current branch
+  ;; Status
+  ;; (vc-state (buffer-file-name (current-buffer)))
+  ;; (vc-state buffer-file-name)
+  (telephone-line-defsegment my-vc-segment ()
+      (telephone-line-raw
+        (concat
+          (propertize (all-the-icons-octicon "git-branch")
+                      'face `(:family ,(all-the-icons-octicon-family) :height 1.0 :foreground "#817f96")
+                      'display '(raise 0.0))
+          " "
+          (substring vc-mode (+ (if (eq (vc-backend buffer-file-name) 'Hg) 2 3) 2)))
+        t))
+
   ;; Left edge
   (setq telephone-line-lhs
         '((evil   . (my-evil-segment))
@@ -123,8 +142,9 @@
 
   ;; Right edge
   (setq telephone-line-rhs
-        '((nil     . ((telephone-line-vc-segment :active)))
-          (nil     . (telephone-line-misc-info-segment))
+        '((nil     . ((my-vc-segment :active)))
+          ;; TODO: (??) delete
+          ;; (nil     . (telephone-line-misc-info-segment))
           (accent  . (my-position-segment))
           (nil     . (my-major-mode-segment))
           (accent  . (my-coding-segment))))
