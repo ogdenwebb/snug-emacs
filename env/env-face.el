@@ -34,6 +34,12 @@
 ;; `default' face is not set properly
 (add-to-list 'default-frame-alist '(font . "Roboto Mono for Powerline-11"))
 
+;; (let ((default-font "Iosevka-12"))
+;;   (assq-delete-all 'font default-frame-alist)
+;;   (add-to-list 'default-frame-alist
+;;          `(font . ,default-font))
+;;   (set-frame-font default-font))
+
   ;; (set-face-attribute 'default t
   ;;                     :family "Roboto Mono for Powerline"
   ;;                     :height 110

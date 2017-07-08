@@ -2,10 +2,11 @@
 
 ;; TODO:
 ;; add debug/minimal mode
-
 ; (setq max-lisp-eval-depth 10000)
 ; (setq max-specpdl-size 5)  ; default is 1000, reduce the backtrace level
-(setq debug-on-error t)    ; now you should get a backtrace
+; Emacs is slow with large(1k+ lines) files
+
+(setq debug-on-error t)
 
 (require 'package)
 (setq package-enable-at-startup nil)   ; To prevent initialising twice
