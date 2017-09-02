@@ -37,7 +37,7 @@
 
   ;; TODO:
   ;; TODO: choose separator by name
-  (setq telephone-line-height 20)
+  (setq telephone-line-height 22)
 
   ;; Set default separators: choose either of them
   ;; (setq telephone-line-primary-left-separator 'telephone-line-flat)

@@ -38,6 +38,9 @@
 ;; Recent files
 (use-package recentf
   :init
+  ;; Save recentf every 5 minutes
+  (run-at-time nil (* 5 60) 'recentf-save-list)
+  ;; Recentf blacklist
   (setq recentf-exclude '("^/var/folders\\.*"
                           "COMMIT_EDITMSG\\'"
                           ".*-autoloads\\.el\\'"

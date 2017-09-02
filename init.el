@@ -5,6 +5,8 @@
 ; (setq max-lisp-eval-depth 10000)
 ; (setq max-specpdl-size 5)  ; default is 1000, reduce the backtrace level
 ; Emacs is slow with large(1k+ lines) files
+;; Completion in :ielm
+;; (??) Fix slow first start
 
 (setq debug-on-error t)
 
@@ -42,6 +44,7 @@
 ;; (require 'env-dev)
 
 ;; Specific modules and major modes
+;; TODO: use-ocaml or use-ml
 (require 'use-eshell)
 (require 'use-grep)
 ;; (require 'use-multiedit)

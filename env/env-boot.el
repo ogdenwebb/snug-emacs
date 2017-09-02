@@ -1,3 +1,4 @@
+;; TODO:
 (defun byte-compile-config ()
   (interactive)
   ;; (async-byte-recompile-directory))
