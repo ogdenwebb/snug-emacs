@@ -50,7 +50,7 @@
 ;; (require 'use-multiedit)
 (require 'use-vcs)
 
-(require 'use-clj)
+;; (require 'use-clj)
 ;; (require 'use-elm)
 (require 'use-nim)
 (require 'use-org)
