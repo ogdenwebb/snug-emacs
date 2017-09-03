@@ -50,7 +50,28 @@
 (setq-default left-fringe-width  6)
 (setq-default right-fringe-width 8)
 
-;; TODO: Disable newline markers in fringe
+;; Disable newline markers in fringe
+;; (setq overflow-newline-into-fringe nil)
+(setf (cdr (assq 'truncation fringe-indicator-alist)) '(nil nil))
+
+(define-fringe-bitmap 'right-curly-arrow
+  [#b00000000
+   #b00000000
+   #b00000000
+   #b00000000
+   #b00000000
+   #b00000000
+   #b00000000
+   #b00000000])
+(define-fringe-bitmap 'left-curly-arrow
+  [#b00000000
+   #b00000000
+   #b00000000
+   #b00000000
+   #b00000000
+   #b00000000
+   #b00000000
+   #b00000000])
 
 ;; Need to show fringe in vertical split
 (setq-default fringes-outside-margins t)

@@ -10,7 +10,9 @@
 
   (defun org-init-hook ()
     (interactive)
-    (nlinum-mode -1))
+    (nlinum-mode -1)
+    ;; Enable line wrapping
+    (visual-line-mode t))
 
   (add-hook 'org-mode-hook 'org-init-hook)
   (setq org-fontify-done-headline t)

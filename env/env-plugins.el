@@ -44,6 +44,7 @@
   (setq recentf-exclude '("^/var/folders\\.*"
                           "COMMIT_EDITMSG\\'"
                           ".*-autoloads\\.el\\'"
+                          "[/\\]\\.emacs.d/recentf"
                           "[/\\]\\.emacs.d/bookmarks"
                           "[/\\]\\.elpa/"))
   (recentf-mode 1)
