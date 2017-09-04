@@ -22,6 +22,10 @@
 
   (add-hook 'org-mode-hook 'org-init-hook)
 
+  (setq org-highest-priority ?A)
+  (setq org-lowest-priority ?D)
+  (setq org-default-priority ?B)
+
   (custom-set-faces
    ;; '(org-todo ((t (:foreground "#5485b6" :bold t))))
    '(org-todo ((t (:foreground "#267fb5" :bold t))))
