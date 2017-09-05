@@ -26,6 +26,7 @@
 
   (define-key read-expression-map (kbd "C-r") 'counsel-expression-history))
 
+;; Helm setup to test theme faces
 ;; (use-package helm
 ;;   :ensure t
 ;;   :diminish helm-mode

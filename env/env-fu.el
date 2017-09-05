@@ -63,6 +63,9 @@
         (delete-horizontal-space))
     (backward-delete-char-untabify 1 nil)))
 
+;; TODO: Jump to defenition
+;; https://github.com/syl20bnr/spacemacs/blob/master/core/core-jump.el
+
 ;; -------------------------------------------------------------------------------------------------------------------------
 ;; Neo tree open xdg on point helpers
 ;; -------------------------------------------------------------------------------------------------------------------------

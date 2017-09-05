@@ -137,21 +137,20 @@
       (concat eol " ")))
 
   ;; Display current branch
-  ;; Status
-  ;; (vc-state (buffer-file-name (current-buffer)))
-  ;; (vc-state buffer-file-name)
+  ;; TODO: move raise and etc into var
   (telephone-line-defsegment my-vc-segment ()
     ;; #6fb593 #4a858c
-    (let ((fg-color "#6fb593"))
-      (telephone-line-raw
-        (format "%s %s"
-          (propertize (all-the-icons-octicon "git-branch")
-                      'face `(:family ,(all-the-icons-octicon-family) :height 1.0 :foreground ,fg-color)
-                      'display '(raise 0.0))
-          (propertize
-            (substring vc-mode (+ (if (eq (vc-backend buffer-file-name) 'Hg) 2 3) 2))
-            'face `(:foreground ,fg-color)))
-        t)))
+    (let ((fg-color "#6fb593")
+          (backend (vc-backend buffer-file-name)))
+      (format "%s %s"
+        (propertize (all-the-icons-octicon "git-branch")
+                    'face `(:family ,(all-the-icons-octicon-family) :height 1.0 :foreground ,fg-color)
+                    'display '(raise 0.0))
+        (propertize
+         ;; TODO: fix error in the message buffer
+         ;; wrong arrayp
+          (substring vc-mode (+ (if (eq backend 'Hg) 2 3) 2))
+          'face `(:foreground ,fg-color)))))
 
   ;; Left edge
   (setq telephone-line-lhs
@@ -161,9 +160,8 @@
 
   ;; Right edge
   (setq telephone-line-rhs
-        '((nil     . ((my-vc-segment :active)))
-          ;; TODO: (??) delete
-          ;; (nil     . (telephone-line-misc-info-segment))
+        ;; '((nil     . ((my-vc-segment :active))))
+        '((nil     . (my-vc-segment))
           (accent  . (my-position-segment))
           (nil     . (my-major-mode-segment))
           (accent  . ((my-coding-segment :active)))))

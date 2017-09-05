@@ -14,6 +14,7 @@
                       "1" 'colorpicker
                       "3" 'neotree-toggle
                       "5" 'hydra-flyspell/body
+                      "6" 'ivy-resume
                       "f" 'counsel-recentf
                       "y" 'counsel-yank-pop
                       "k" 'counsel-ag
@@ -22,13 +23,13 @@
                       "o" 'switch-to-buffer
                       "r" 'quickrun
 
-                      ;; TODO: (??) "c e" "c s"
+                      ;; TODO: (??) "c e" "c s" for list errors(i.e. check err, syn)
                       ;; "e" 'flycheck-list-errors
                       "e e" 'eval-expression
                       "e r" 'eval-defun
                       "e b" 'eval-buffer
 
-                      ;; TODO: maybe swap with magit
+                      ;; TODO: maybe swap with magit(g - git)
                       "g h" 'previous-buffer
                       "g l" 'next-buffer
 
