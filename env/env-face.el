@@ -32,7 +32,7 @@
 ;; Set default font
 ;; TODO: Error: highlight-indent-guides cannot auto set faces:
 ;; `default' face is not set properly
-(add-to-list 'default-frame-alist '(font . "Roboto Mono-11"))
+(add-to-list 'default-frame-alist '(font . "Roboto Mono-11.5"))
 
 ;; (let ((default-font "Iosevka-12"))
 ;;   (assq-delete-all 'font default-frame-alist)
