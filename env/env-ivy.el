@@ -10,6 +10,7 @@
 
   ;; Fix n and N in evil
   ;; https://github.com/abo-abo/swiper/issues/89#issuecomment-183662338
+  ;; TODO: work after eval this buffer, but doesn't work after multiply swiper run
   (defun my-swiper-update-search-ring-forward (&rest args)
     (add-to-history 'regexp-search-ring (ivy--regex ivy-text))
     (setq isearch-forward t))
