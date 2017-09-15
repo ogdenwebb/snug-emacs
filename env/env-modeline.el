@@ -153,6 +153,7 @@
           'face `(:foreground ,fg-color)))))
 
   ;; Left edge
+  ;; TODO: gray background for buffer and mode segment in inactive line
   (setq telephone-line-lhs
         '((evil   . (my-evil-segment))
           (nil    . (my-buffer-segment))
