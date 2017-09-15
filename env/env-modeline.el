@@ -26,6 +26,7 @@
 ;; TODO: big modeline config
 ;; TODO: check if all-the-icons installed
 ;; TODO: (!!) flycheck segment
+;; TODO: (??) disable mouse menu
   ;; Gray "#545c5e"
 
 ;; Telephone line
@@ -35,7 +36,6 @@
   ;; To create custom segments
   (use-package telephone-line-utils)
 
-  ;; TODO:
   ;; TODO: choose separator by name
   (setq telephone-line-height 22)
 

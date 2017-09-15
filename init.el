@@ -2,11 +2,12 @@
 
 ;; TODO:
 ;; add debug/minimal mode
-; (setq max-lisp-eval-depth 10000)
-; (setq max-specpdl-size 5)  ; default is 1000, reduce the backtrace level
-; Emacs is slow with large(1k+ lines) files
+;; (setq max-lisp-eval-depth 10000)
+;; (setq max-specpdl-size 5)  ; default is 1000, reduce the backtrace level
+;; Emacs is slow with large(1k+ lines) files
 ;; Completion in :ielm
-;; (??) Fix slow first start
+;; TODO: (??) Fix slow first start
+;; USE PROFILER
 
 (setq debug-on-error t)
 

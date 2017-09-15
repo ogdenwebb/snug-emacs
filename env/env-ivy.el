@@ -1,16 +1,11 @@
 ;; Use ivy for fuzzy matching
 (use-package ivy
   :ensure t
-  :config
+  :init
   (ivy-mode 1)
-  (setq ivy-re-builders-alist
-        ;; '((t . ivy--regex-fuzzy)))
-        '((t . ivy--regex-plus)))
-  ;; (setq ivy-initial-inputs-alist nil)
 
-  ;; Fix n and N in evil
+  ;; Fix for n and N in Evil
   ;; https://github.com/abo-abo/swiper/issues/89#issuecomment-183662338
-  ;; TODO: work after eval this buffer, but doesn't work after multiply swiper run
   (defun my-swiper-update-search-ring-forward (&rest args)
     (add-to-history 'regexp-search-ring (ivy--regex ivy-text))
     (setq isearch-forward t))
@@ -22,10 +17,18 @@
   (advice-add 'ivy-next-line :after #'my-swiper-update-search-ring-forward)
   (advice-add 'ivy-previous-line :after #'my-swiper-update-search-ring-backward)
 
+
+  :config
+  (setq ivy-re-builders-alist
+        ;; '((t . ivy--regex-fuzzy)))
+        '((t . ivy--regex-plus)))
+  ;; (setq ivy-initial-inputs-alist nil)
+
   ;; Add ‘recentf-mode’ and bookmarks to ‘ivy-switch-buffer’.
   (setq ivy-use-virtual-buffers nil)
 
   (define-key read-expression-map (kbd "C-r") 'counsel-expression-history))
+
 
 ;; Helm setup to test theme faces
 ;; (use-package helm
