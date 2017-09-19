@@ -33,6 +33,12 @@
    '(org-done ((t (:foreground "dimgray" :bold t :strike-through t))))
    '(org-headline-done ((t (:foreground "dimgray" :bold nil :strike-through t)))))
 
+  ;; Open links
+  (setq org-link-frame-setup '((vm . vm-visit-folder)
+                               (gnus . org-gnus-no-new-news)
+                               (file . find-file)))
+  (setq org-src-window-setup 'current-window)
+
   (use-package syndicate)
   :general
   (general-define-key :keymaps 'org-mode-map

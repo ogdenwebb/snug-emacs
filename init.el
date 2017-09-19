@@ -8,8 +8,11 @@
 ;; Completion in :ielm
 ;; TODO: (??) Fix slow first start
 ;; USE PROFILER
+;; Fix for gd
+;; https://github.com/jacktasia/dumb-jump
+;; read xref gxref
 
-(setq debug-on-error t)
+;; (setq debug-on-error t)
 
 (require 'package)
 (setq package-enable-at-startup nil)   ; To prevent initialising twice
@@ -46,15 +49,15 @@
 
 ;; Specific modules and major modes
 ;; TODO: use-ocaml or use-ml
+;; (require 'use-multiedit)
 (require 'use-eshell)
 (require 'use-grep)
-;; (require 'use-multiedit)
 (require 'use-vcs)
 
 ;; (require 'use-clj)
 ;; (require 'use-elm)
 (require 'use-nim)
-(require 'use-org)
+;; (require 'use-org)
 (require 'use-web)
 
 ;; (~ ^ . ^ ~)

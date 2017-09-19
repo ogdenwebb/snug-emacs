@@ -132,7 +132,6 @@
 
 ;; Rainbow delimiters
 (use-package rainbow-delimiters
-  :ensure t
   :config
   (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
   (add-hook 'clojure-mode-hook #'rainbow-delimiters-mode))
@@ -157,18 +156,19 @@
     (add-hook 'text-mode-hook 'nlinum-mode))
 
 ;; Dashboard
-(use-package dashboard
-  :config
-  (dashboard-setup-startup-hook)
-  ;; Set the title
-  (setq dashboard-banner-logo-title "I know no Evil")
-  ;; Set the banner
-  (setq dashboard-startup-banner 'logo)
+;; TODO: fix slow startup mb move it
+;; (use-package dashboard
+;;   :init
+;;   (dashboard-setup-startup-hook)
+;;   ;; Set the title
+;;   (setq dashboard-banner-logo-title "I know no Evil")
+;;   ;; Set the banner
+;;   (setq dashboard-startup-banner 'logo)
 
-  (setq dashboard-items
-        '((recents   . 5)
-          (bookmarks . 10)
-          (projects  . 10))))
+;;   (setq dashboard-items
+;;         '((recents   . 5)
+;;           (bookmarks . 5)
+;;           (projects  . 5))))
 
 ;; Icons
 (use-package all-the-icons)
