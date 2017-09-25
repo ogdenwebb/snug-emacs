@@ -17,8 +17,9 @@
   :init
   ;; Set default theme
   (defun load-my-theme (frame)
-    (select-frame frame)
-    (load-theme 'kaolin t))
+    ;; (select-frame frame)
+    (with-selected-frame frame
+      (load-theme 'kaolin t)))
 
   (if (daemonp)
       (add-hook 'after-make-frame-functions #'load-my-theme)

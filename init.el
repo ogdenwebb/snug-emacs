@@ -11,6 +11,9 @@
 ;; Fix for gd
 ;; https://github.com/jacktasia/dumb-jump
 ;; read xref gxref
+;; TODO: buffer-menu or C-x C-b
+;; toggle-truncate-lines
+;; unset-key
 
 ;; (setq debug-on-error t)
 

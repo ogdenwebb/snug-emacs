@@ -2,8 +2,8 @@
 ;; TODO: add comments
 ;; TODO: read about fontify(priority, etc)
 ;; TODO: zc; fix for outline-hide-all
-;; OR
-;; TODO: migrate to evil-org
+;; TODO: disable/change to C- A-h,j,k,l
+;; https://github.com/Somelauw/evil-org-mode
 
 (use-package org
   :config
@@ -12,6 +12,7 @@
   (setq org-fontify-done-headline t)
   (setq org-fontify-quote-and-verse-blocks t)
   (setq org-src-fontify-natively t)
+  (setq org-src-tab-acts-natively t)
   (setq org-ellipsis " ~ ")
 
   (defun org-init-hook ()
@@ -39,12 +40,19 @@
                                (file . find-file)))
   (setq org-src-window-setup 'current-window)
 
-  (use-package syndicate)
+  (use-package evil-org
+    :after org
+    :config
+    (add-hook 'org-mode-hook 'evil-org-mode)
+    (add-hook 'evil-org-mode-hook
+              (lambda ()
+                (evil-org-set-key-theme))))
+
   :general
   (general-define-key :keymaps 'org-mode-map
                       :states '(normal)
                       "RET" 'org-open-at-point
-                      "TAB" 'org-cycle
+                      "gx"  'org-open-at-point
                       "za"  'org-cycle
                       "zA"  'org-shifttab
                       "zm"  'outline-hide-body
@@ -52,7 +60,8 @@
                       "zo"  'outline-show-subtree
                       "zo"  'outline-show-all
                       "zc"  'outline-hide-subtree
-                      "zc"  'outline-hide-all
+                      ;; TODO: (??) fix outline-hide-all
+                      "zc"  'outline-hide-sublevels
                       "T"   'org-insert-todo-heading-respect-content)
 
   (general-define-key :keymaps 'org-mode-map
