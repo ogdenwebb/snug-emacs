@@ -1,0 +1,28 @@
+* Global
+** TODO add debug/minimal mode
+ (setq debug-on-error t)
+ (setq max-lisp-eval-depth 10000)
+ (setq max-specpdl-size 5)  ; default is 1000, reduce the backtrace level
+** TODO Emacs is slow with large(1k+ lines) files
+** TODO Completion in :ielm
+** TODO USE PROFILER
+** TODO Fix for gd
+ https://github.com/jacktasia/dumb-jump
+ read xref gxref
+** TODO buffer-menu or C-x C-b
+** TODO toggle-truncate-lines
+** TODO unset-key
+** TODO https://github.com/grizzl/grizzl
+** TODO find file recursively
+** TODO sr-speedbar
+** TODO yasnippet
+* Modules
+** TODO add use-ocaml or use-ml
+* Company
+** TODO add dictionary
+* Org-mode
+** TODO add comments
+** read about fontify(priority, etc)
+** TODO zc; fix for outline-hide-all
+** TODO disable/change to C- A-h,j,k,l
+** https://github.com/Somelauw/evil-org-mode

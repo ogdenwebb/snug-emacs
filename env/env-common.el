@@ -88,6 +88,9 @@
 ;; Disable lockfiles
 (setq create-lockfiles nil)
 
+;; TODO: read
+;; (setq auto-save-list-file-name nil)
+
 ;; Save history
 (use-package savehist
   :init (savehist-mode 1)

@@ -19,6 +19,7 @@
                       "y" 'counsel-yank-pop
                       "k" 'counsel-ag
                       "l" 'counsel-bookmark
+                      ;; TODO: ?? i -> O
                       "i" 'find-file
                       "o" 'switch-to-buffer
                       "r" 'quickrun
@@ -26,6 +27,7 @@
                       ;; TODO: (??) "c e" "c s" for list errors(i.e. check err, syn)
                       ;; "e" 'flycheck-list-errors
                       "e e" 'eval-expression
+                      "e w" 'eval-last-sexp
                       "e r" 'eval-defun
                       "e b" 'eval-buffer
 

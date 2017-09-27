@@ -1,9 +1,4 @@
 ;; Org-mode
-;; TODO: add comments
-;; TODO: read about fontify(priority, etc)
-;; TODO: zc; fix for outline-hide-all
-;; TODO: disable/change to C- A-h,j,k,l
-;; https://github.com/Somelauw/evil-org-mode
 
 (use-package org
   :config
@@ -53,6 +48,7 @@
                       :states '(normal)
                       "RET" 'org-open-at-point
                       "gx"  'org-open-at-point
+                      "t"   'org-todo
                       "za"  'org-cycle
                       "zA"  'org-shifttab
                       "zm"  'outline-hide-body

@@ -1,22 +1,5 @@
 ;;;; 0rdy Emacs config with Evil
 
-;; TODO:
-;; add debug/minimal mode
-;; (setq max-lisp-eval-depth 10000)
-;; (setq max-specpdl-size 5)  ; default is 1000, reduce the backtrace level
-;; Emacs is slow with large(1k+ lines) files
-;; Completion in :ielm
-;; TODO: (??) Fix slow first start
-;; USE PROFILER
-;; Fix for gd
-;; https://github.com/jacktasia/dumb-jump
-;; read xref gxref
-;; TODO: buffer-menu or C-x C-b
-;; toggle-truncate-lines
-;; unset-key
-
-;; (setq debug-on-error t)
-
 (require 'package)
 (setq package-enable-at-startup nil)   ; To prevent initialising twice
 (setq package-archives
@@ -51,7 +34,6 @@
 ;; (require 'env-dev)
 
 ;; Specific modules and major modes
-;; TODO: use-ocaml or use-ml
 ;; (require 'use-multiedit)
 (require 'use-eshell)
 (require 'use-grep)
