@@ -26,15 +26,18 @@
 
                       ;; TODO: (??) "c e" "c s" for list errors(i.e. check err, syn)
                       ;; "e" 'flycheck-list-errors
+                      ;; TODO: (??) move to lisp mode
                       "e e" 'eval-expression
+                      "e p" 'eval-print-last-sexp
                       "e w" 'eval-last-sexp
-                      "e r" 'eval-defun
+                      "e d" 'eval-defun
                       "e b" 'eval-buffer
 
                       ;; TODO: maybe swap with magit(g - git)
                       "g h" 'previous-buffer
                       "g l" 'next-buffer
 
+                      "h a" 'apropos
                       "h k" 'describe-key
                       "h v" 'describe-variable
                       "h f" 'describe-function
@@ -51,8 +54,13 @@
                       "m d" 'magit-diff
                       "m m" 'magit-status
 
-                      "p" 'counsel-locate
-                      "P" 'counsel-projectile-find-file)
+                      ;; "p" 'counsel-locate
+
+                      ;; Projectile
+                      "p f" 'counsel-projectile-find-file
+                      "p k" 'projectile-grep
+                      "p r" 'projectile-replace
+                      "p t" 'projectile-regenerate-tags)
 
   (general-define-key
    "<f6>" 'ivy-resume
@@ -117,6 +125,10 @@
                       :states '(visual)
                       "e e" 'cider-eval-region)
 
+  (general-define-key :keymaps 'emacs-lisp-mode-map
+                      :prefix leader
+                      :states '(visual)
+                      "e r" 'eval-region)
   ;; Flycheck
   (general-define-key :keymaps 'flycheck-mode-map
                       :states '(normal)

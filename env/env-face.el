@@ -4,6 +4,7 @@
   (mapc #'disable-theme custom-enabled-themes))
 
 ;; Theme settings
+;; List of nice themes
 ;; noctilux
 ;; bliss
 ;; boron
@@ -119,6 +120,7 @@
 (use-package paren
   :config
   (show-paren-mode 1)        ; Automatically highlight parenthesis pairs
+  (setq show-paren-style 'parenthesis)
   ;; (setq show-paren-style 'expression)
   (setq show-paren-delay 0)) ; show the paren match immediately
 
