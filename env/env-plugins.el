@@ -36,6 +36,9 @@
 ;; (setq undo-tree-visualizer-diff t))
 
 ;; Recent files
+;; TODO: auto cleanup
+;; see: https://gist.github.com/masutaka/1325654/955277113028eb7b968453a5b7802b74b51b393d
+;; TODO: disable message in minibuffer after auto-save
 (use-package recentf
   :init
   ;; Save recentf every 5 minutes
@@ -49,8 +52,9 @@
                           "[/\\]\\.elpa/"))
   (recentf-mode 1)
   :config
-  (setq recentf-max-menu-items 50)
-  (setq recentf-max-saved-items 35))
+  (setq recentf-auto-cleanup 2)
+  (setq recentf-max-menu-items 100)
+  (setq recentf-max-saved-items 50))
 
 ;; OCaml
 (let ((opam-share (ignore-errors (car (process-lines "opam" "config" "var" "share")))))
@@ -123,6 +127,8 @@
   (yas-global-mode 1))
 
 (use-package neotree
+  :config
+  (setq neo-mode-line-type 'none)
   :general
   (general-define-key :keymaps 'neotree-mode-map
                       :states '(normal)
@@ -130,6 +136,11 @@
                       "TAB" 'neotree-enter
                       "RET" 'neotree-enter
                       "q" 'neotree-hide))
+
+;; TODO: https://github.com/Alexander-Miller/treemacs/blob/d5456233909a4f558d24056a5e53f15e9f2029f6/treemacs-mode.el#L202
+(use-package treemacs
+  :config
+  (use-package treemacs-evil))
 
 (use-package colorpicker
   :commands (colorpicker))

@@ -1,3 +1,9 @@
+https://github.com/wasamasa/shackle
+enable browser: xwidget-browse
+Lexical and dynamic bindings
+:@: and @@
+bind U(i.e. undo changes in line) from vim
+
 * Global
 ** TODO add debug/minimal mode
  (setq debug-on-error t)

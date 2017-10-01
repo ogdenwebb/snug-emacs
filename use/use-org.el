@@ -13,6 +13,7 @@
   (defun org-init-hook ()
     (interactive)
     (nlinum-mode -1)
+    ;; TODO: disable git-gutter
     ;; Enable line wrapping
     (visual-line-mode t))
 
@@ -24,7 +25,10 @@
 
   (custom-set-faces
    ;; '(org-todo ((t (:foreground "#5485b6" :bold t))))
-   '(org-todo ((t (:foreground "#267fb5" :bold t))))
+   ;; OLD
+   ;; '(org-todo ((t (:foreground "#5077a5" :bold t))))
+   ;; #4e7f95
+   ;; '(org-todo ((t (:foreground "#3B6FA3" :bold t))))
 
    '(org-done ((t (:foreground "dimgray" :bold t :strike-through t))))
    '(org-headline-done ((t (:foreground "dimgray" :bold nil :strike-through t)))))

@@ -12,7 +12,7 @@
 
   (general-define-key :prefix leader
                       "1" 'colorpicker
-                      "3" 'neotree-toggle
+                      "3" 'treemacs-toggle
                       "5" 'hydra-flyspell/body
                       "6" 'ivy-resume
                       "f" 'counsel-recentf
