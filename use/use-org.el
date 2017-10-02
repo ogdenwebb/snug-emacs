@@ -45,7 +45,8 @@
     (add-hook 'org-mode-hook 'evil-org-mode)
     (add-hook 'evil-org-mode-hook
               (lambda ()
-                (evil-org-set-key-theme))))
+                ;; (evil-org-set-key-theme)
+                (evil-org-set-key-theme '(navigation insert textobjects)))))
 
   :general
   (general-define-key :keymaps 'org-mode-map
@@ -63,6 +64,10 @@
                       ;; TODO: (??) fix outline-hide-all
                       "zc"  'outline-hide-sublevels
                       "T"   'org-insert-todo-heading-respect-content)
+                      ;; "M-h"  'evil-window-left
+                      ;; "M-j"  'evil-window-down
+                      ;; "M-k"  'evil-window-up
+                      ;; "M-l"  'evil-window-right)
 
   (general-define-key :keymaps 'org-mode-map
                       :prefix leader

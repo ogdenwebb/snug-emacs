@@ -7,8 +7,6 @@
 
   ;; Leader bindings
   (setq leader "SPC")
-  (general-nvmap :prefix leader
-                 "j" 'hydra-smartparens/body)
 
   (general-define-key :prefix leader
                       "1" 'colorpicker
@@ -66,11 +64,18 @@
    "<f6>" 'ivy-resume
    "g x"  'browse-url-at-point
    "/"    'swiper
-   "C-j"  'parinfer-toggle-mode
+   ;; TODO:
+   ;; "C-j"  'parinfer-toggle-mode
+   ;; Navigation between windows
    "M-h"  'evil-window-left
    "M-j"  'evil-window-down
    "M-k"  'evil-window-up
-   "M-l"  'evil-window-right)
+   "M-l"  'evil-window-right
+   ;; Drag stuff
+   "C-h"  'drag-stuff-left
+   "C-j"  'drag-stuff-down
+   "C-k"  'drag-stuff-up
+   "C-l"  'drag-stuff-down)
 
   ;; Bind ESC to jk
   (general-imap
@@ -144,8 +149,15 @@
   ;; TODO:
   (general-define-key :keymaps 'term-mode-map
                       :states  '(insert)
-                      "RET" 'term-send-input))
+                      "RET" 'term-send-input)
 
+  ;; Org-mode
+  (general-define-key :keymaps 'org-mode-map
+                      :states  '(normal visual)
+                      "M-h"  'evil-window-left
+                      "M-j"  'evil-window-down
+                      "M-k"  'evil-window-up
+                      "M-l"  'evil-window-right))
 
 ;; (general-define-key :keymaps 'ivy-minibuffer-map
 ;;                     "C-n" 'ivy-previous-line-and-call

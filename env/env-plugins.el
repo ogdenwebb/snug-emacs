@@ -118,7 +118,6 @@
 ;; Move region or line
 (use-package drag-stuff
   :config
-  (drag-stuff-define-keys)
   (drag-stuff-global-mode 1))
 
 ;; Yasnippet

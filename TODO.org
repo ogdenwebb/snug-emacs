@@ -1,8 +1,11 @@
+SORT:
 https://github.com/wasamasa/shackle
 enable browser: xwidget-browse
 Lexical and dynamic bindings
 :@: and @@
 bind U(i.e. undo changes in line) from vim
+Image, pdf viewer and other desktop stuff.
+Migrate from parinfer to... ???
 
 * Global
 ** TODO add debug/minimal mode
