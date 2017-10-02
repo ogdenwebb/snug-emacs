@@ -1,3 +1,4 @@
+;; TODO: check counsel-file-jump
 ;; Use ivy for fuzzy matching
 (use-package ivy
   :ensure t

@@ -27,6 +27,7 @@
 ;; TODO: check if all-the-icons installed
 ;; TODO: (!!) flycheck segment
 ;; TODO: (??) disable mouse menu
+;; TODO: add function to paste icons
   ;; Gray "#545c5e"
 
 ;; Telephone line
@@ -88,7 +89,7 @@
                   ((string= evil-state "normal") ":")
                   ((string= evil-state "insert") ">")
                   ((string= evil-state "replace") "r")
-                  ((string= evil-state "visual") "v")
+                  ((string= evil-state "visual") "!")
                   ((string= evil-state "operator") "=")
                   ((string= evil-state "motion") "m")
                   ((string= evil-state "emacs") "Emacs")
@@ -124,6 +125,13 @@
     (when (and (buffer-modified-p) (not (member mode-name modeline-ignored-modes)))
         (propertize "+" 'face `(:foreground "#85b654"))))
 
+  ;; Display read-only status
+  (telephone-line-defsegment my-read-only-status-segment ()
+    (when buffer-read-only
+      ;; (propertize "ro" 'face `(:foreground "#dbac66"))
+      (propertize (all-the-icons-octicon "key")
+                  'face `(:family ,(all-the-icons-octicon-family) :height 1.0 :foreground "dim gray")
+                  'display '(raise 0.0))))
 
   ;; Display encoding system
   (telephone-line-defsegment my-coding-segment ()
@@ -157,7 +165,8 @@
   (setq telephone-line-lhs
         '((evil   . (my-evil-segment))
           (nil    . (my-buffer-segment))
-          (nil    . (my-modified-status-segment))))
+          (nil    . (my-modified-status-segment))
+          (nil    . (my-read-only-status-segment))))
 
   ;; Right edge
   (setq telephone-line-rhs

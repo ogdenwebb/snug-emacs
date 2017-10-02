@@ -6,6 +6,8 @@ Lexical and dynamic bindings
 bind U(i.e. undo changes in line) from vim
 Image, pdf viewer and other desktop stuff.
 Migrate from parinfer to... ???
+C-a/C-x - inc/dec numbers
+F10
 
 * Global
 ** TODO add debug/minimal mode

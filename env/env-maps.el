@@ -25,6 +25,7 @@
                       ;; TODO: (??) "c e" "c s" for list errors(i.e. check err, syn)
                       ;; "e" 'flycheck-list-errors
                       ;; TODO: (??) move to lisp mode
+                      ;; TODO: remap "e d"
                       "e e" 'eval-expression
                       "e p" 'eval-print-last-sexp
                       "e w" 'eval-last-sexp
