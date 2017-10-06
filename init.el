@@ -1,4 +1,5 @@
-;;;; 0rdy Emacs config with Evil
+;;;; Emacs config with Evil
+;; https://github.com/syl20bnr/spacemacs/pull/1376
 
 (require 'package)
 (setq package-enable-at-startup nil)   ; To prevent initialising twice

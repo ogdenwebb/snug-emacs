@@ -8,6 +8,9 @@ Image, pdf viewer and other desktop stuff.
 Migrate from parinfer to... ???
 C-a/C-x - inc/dec numbers
 F10
+Debug. debug-on-entry; edebug
+Disable auto load/initialize package, i.e. installed, but not required/use-package
+ELISP FLYCHECK
 
 * Global
 ** TODO add debug/minimal mode

@@ -1,3 +1,4 @@
+;; TODO: split to basic plugin and dev plugin
 (use-package package-utils
   :ensure t
   :commands (package-utils-upgrade-all))
@@ -114,6 +115,9 @@
 ; (use-package atomic-chrome
 ;   :config
 ;   (atomic-chrome-start-server))
+
+;; On-the-fly evaluation/substitution of emacs lisp code
+(use-package litable)
 
 ;; Move region or line
 (use-package drag-stuff

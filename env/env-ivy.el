@@ -18,18 +18,20 @@
   (advice-add 'ivy-next-line :after #'my-swiper-update-search-ring-forward)
   (advice-add 'ivy-previous-line :after #'my-swiper-update-search-ring-backward)
 
-
   :config
   (setq ivy-re-builders-alist
+        '((t . regexp-quote)))
         ;; '((t . ivy--regex-fuzzy)))
-        '((t . ivy--regex-plus)))
+        ;; '((t . ivy--regex-plus)))
   ;; (setq ivy-initial-inputs-alist nil)
 
   ;; Add ‘recentf-mode’ and bookmarks to ‘ivy-switch-buffer’.
   (setq ivy-use-virtual-buffers nil)
 
-  (define-key read-expression-map (kbd "C-r") 'counsel-expression-history))
-
+  (use-package counsel
+    :config
+    (setq counsel-find-file-ignore-regexp (regexp-opt '(".jpg" ".png" ".jpeg")))
+    (define-key read-expression-map (kbd "C-r") 'counsel-expression-history)))
 
 ;; Helm setup to test theme faces
 ;; (use-package helm

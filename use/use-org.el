@@ -23,6 +23,11 @@
   (setq org-lowest-priority ?D)
   (setq org-default-priority ?B)
 
+  ;; TODO:
+  ;; org-todo-keywords
+  ;; :tangle yes
+  ;; export html/pdf; see C-c C-e
+
   (custom-set-faces
    ;; '(org-todo ((t (:foreground "#5485b6" :bold t))))
    ;; OLD
@@ -51,6 +56,13 @@
   :general
   (general-define-key :keymaps 'org-mode-map
                       :states '(normal)
+                      ;; TODO: (??) bind M-ret to O/o
+                      ;; C-c C-z
+                      ;; C-c C-x f
+                      ;; M-S-ret
+                      ;; M-S-left,right
+                      ;; M-S-up,down
+                      ;; S-left S-right
                       "RET" 'org-open-at-point
                       "gx"  'org-open-at-point
                       "t"   'org-todo

@@ -9,6 +9,12 @@
   (setq leader "SPC")
 
   (general-define-key :prefix leader
+                      ;; TODO: counsel-linux-app
+                      ;; counsel-mark-ring
+                      ;; counsel-imenu
+                      ;; counsel-descbinds
+                      ;; counsel-unicode-char
+                      ;; counsel-faces
                       "1" 'colorpicker
                       "3" 'treemacs-toggle
                       "5" 'hydra-flyspell/body
@@ -18,7 +24,8 @@
                       "k" 'counsel-ag
                       "l" 'counsel-bookmark
                       ;; TODO: ?? i -> O
-                      "i" 'find-file
+                      "I" 'counsel-find-file
+                      "i" 'counsel-overall
                       "o" 'switch-to-buffer
                       "r" 'quickrun
 
@@ -53,7 +60,6 @@
                       "m d" 'magit-diff
                       "m m" 'magit-status
 
-                      ;; "p" 'counsel-locate
 
                       ;; Projectile
                       "p f" 'counsel-projectile-find-file

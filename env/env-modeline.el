@@ -44,11 +44,11 @@
   ;; (setq telephone-line-primary-left-separator 'telephone-line-flat)
   ;; (setq telephone-line-primary-right-separator 'telephone-line-flat)
   ;; OR
-  (setq telephone-line-primary-left-separator 'telephone-line-identity-left)
-  (setq telephone-line-primary-right-separator 'telephone-line-identity-right)
+  ;; (setq telephone-line-primary-left-separator 'telephone-line-identity-left)
+  ;; (setq telephone-line-primary-right-separator 'telephone-line-identity-right)
   ;; OR
-  ;; (setq telephone-line-primary-left-separator 'telephone-line-cubed-left)
-  ;; (setq telephone-line-primary-right-separator 'telephone-line-cubed-right)
+  (setq telephone-line-primary-left-separator 'telephone-line-cubed-left)
+  (setq telephone-line-primary-right-separator 'telephone-line-cubed-right)
 
   ;; Set subseparator
   (if window-system
@@ -109,7 +109,7 @@
             (telephone-line-trim (format-mode-line mode-line-front-space))
           '(" %3l,%2c "))))
 
-  ;; Ignore some buffers in modeline
+  ;; Exclude some buffers in modeline
   (defvar modeline-ignored-modes nil
     "List of major modes to ignore in modeline")
 
@@ -117,7 +117,9 @@
                                  "Warnings"
                                  "Compilation"
                                  "EShell"
+                                 "Debugger"
                                  "REPL"
+                                 "IELM"
                                  "Messages"))
 
   ;; Display modified status
