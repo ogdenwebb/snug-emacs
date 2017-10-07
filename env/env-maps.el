@@ -40,8 +40,10 @@
                       "e b" 'eval-buffer
 
                       ;; TODO: maybe swap with magit(g - git)
-                      "g h" 'previous-buffer
-                      "g l" 'next-buffer
+                      "b p" 'previous-buffer
+                      "b n" 'next-buffer
+                      ;; "b l" 'list-buffers
+                      "b l" 'ibuffer
 
                       "h a" 'apropos
                       "h k" 'describe-key
@@ -66,6 +68,13 @@
                       "p k" 'projectile-grep
                       "p r" 'projectile-replace
                       "p t" 'projectile-regenerate-tags)
+
+  ;; Narrowing
+  (general-nvmap :prefix leader
+                 "n n" 'narrow-to-region
+                 "n d" 'narrow-to-defun
+                 "n p" 'narrow-to-page
+                 "n w" 'widen)
 
   (general-define-key
    "<f6>" 'ivy-resume

@@ -1,5 +1,6 @@
 ;;;; Emacs config with Evil
 ;; https://github.com/syl20bnr/spacemacs/pull/1376
+;; https://github.com/purcell/emacs.d/blob/master/init.el
 
 (require 'package)
 (setq package-enable-at-startup nil)   ; To prevent initialising twice
@@ -47,3 +48,4 @@
 (require 'use-web)
 
 ;; (~ ^ . ^ ~)
+(put 'narrow-to-region 'disabled nil)

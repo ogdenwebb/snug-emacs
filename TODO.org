@@ -11,6 +11,10 @@ F10
 Debug. debug-on-entry; edebug
 Disable auto load/initialize package, i.e. installed, but not required/use-package
 ELISP FLYCHECK
+package: highlight boolean
+semantic; semantic-highlight-func-mode, semantic-decoration-mode, semantic-stickyfunc-mode
+Reload/restart from client
+
 
 * Global
 ** TODO add debug/minimal mode

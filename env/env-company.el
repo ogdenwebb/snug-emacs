@@ -5,9 +5,14 @@
   (add-hook 'after-init-hook 'global-company-mode)
   (company-flx-mode +1)
   :config
+  ;; TODO:
+  ;; dabbrev hides other normal condidats
+  (add-to-list 'completion-styles 'initials t)
+
   (setq company-idle-delay nil) ; never start completions automatically
   (setq company-require-match nil)
 
+  ;; OCaml
   ;;;; Make company aware of merlin
   ;; (with-eval-after-load 'company
   ;;   (add-to-list 'company-backends 'merlin-company-backend))
