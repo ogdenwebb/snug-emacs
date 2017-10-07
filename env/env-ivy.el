@@ -20,9 +20,9 @@
 
   :config
   (setq ivy-re-builders-alist
-        '((t . regexp-quote)))
+        ;; '((t . regexp-quote)))
         ;; '((t . ivy--regex-fuzzy)))
-        ;; '((t . ivy--regex-plus)))
+        '((t . ivy--regex-plus)))
   ;; (setq ivy-initial-inputs-alist nil)
 
   ;; Add ‘recentf-mode’ and bookmarks to ‘ivy-switch-buffer’.

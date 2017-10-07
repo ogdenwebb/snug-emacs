@@ -1,33 +1,10 @@
-;; ;; Hide modes via rich minority
-;; (use-package rich-minority
-;;   :ensure t
-;;   :config
-;;   (setq rm-blacklist
-;;         '(
-;;           " yas"        ;; yasnippet
-;;           " ctagsU"      ;; ctags update
-;;           " Undo-Tree"      ;; undo tree
-;;           " wr"        ;; Wrap Region
-;;           " SliNav"      ;; elisp-slime-nav
-;;           " Fly"        ;; Flycheck
-;;           " GG"        ;; ggtags
-;;           " ElDoc"      ;; eldoc
-;;           " hl-highlight"
-;;           " VHl"
-;;           " ivy"
-;;           " es"
-;;           " company"
-;;           " Parinfer:Indent"
-;;           " Parinfer:Paren"
-;;           " SP"
-;;           " s-/")))
-
 ;; TODO: add icons
 ;; TODO: big modeline config
 ;; TODO: check if all-the-icons installed
 ;; TODO: (!!) flycheck segment
 ;; TODO: (??) disable mouse menu
 ;; TODO: add function to paste icons
+;; TODO: add segment based on vc-state
   ;; Gray "#545c5e"
 
 ;; Telephone line
@@ -146,21 +123,28 @@
                  (t ""))))
       (concat eol " ")))
 
+  ;; TODO:
+  ;; Hide vc backend in modeline
+  (defadvice vc-mode-line (after strip-backend () activate)
+      (when (stringp vc-mode)
+        (let ((my-vc (replace-regexp-in-string "^ Git." "" vc-mode)))
+          (setq vc-mode my-vc))))
+
   ;; Display current branch
   ;; TODO: move raise and etc into var
   (telephone-line-defsegment my-vc-segment ()
     ;; #6fb593 #4a858c
-    (let ((fg-color "#6fb593")
-          (backend (vc-backend buffer-file-name)))
-      (format "%s %s"
-        (propertize (all-the-icons-octicon "git-branch")
-                    'face `(:family ,(all-the-icons-octicon-family) :height 1.0 :foreground ,fg-color)
-                    'display '(raise 0.0))
-        (propertize
-         ;; TODO: fix error in the message buffer
-         ;; wrong arrayp
-          (substring vc-mode (+ (if (eq backend 'Hg) 2 3) 2))
-          'face `(:foreground ,fg-color)))))
+    (let ((fg-color "#6fb593"))
+      (when vc-mode
+        ;; double format due to prevent warnings in Messages buffer
+          (format "%s %s"
+                  (propertize (all-the-icons-octicon "git-branch")
+                              'face `(:family ,(all-the-icons-octicon-family) :height 1.0 :foreground ,fg-color)
+                              'display '(raise 0.0))
+                  (propertize
+                    (format "%s"
+                      (telephone-line-raw vc-mode t))
+                    'face `(:foreground ,fg-color))))))
 
   ;; Left edge
   ;; TODO: gray background for buffer and mode segment in inactive line
@@ -172,11 +156,10 @@
 
   ;; Right edge
   (setq telephone-line-rhs
-        ;; '((nil     . ((my-vc-segment :active))))
-        '((nil     . (my-vc-segment))
-          (accent  . (my-position-segment))
-          (nil     . (my-major-mode-segment))
-          (accent  . ((my-coding-segment :active)))))
+        '((nil    . (my-vc-segment))
+          (accent   . (my-position-segment))
+          (nil      . (my-major-mode-segment))
+          (accent   . ((my-coding-segment :active)))))
 
   (telephone-line-mode 1))
 

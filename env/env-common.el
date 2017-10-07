@@ -40,9 +40,10 @@
 
 ;; Replacing yes/no to y/n.
 (defalias 'yes-or-no-p 'y-or-n-p)
-(put 'upcase-region 'disabled nil)
 
 (setq-default indicate-buffer-boundaries nil)  ; don't show where buffer starts/ends
+
+(setq-default sentence-end-double-space nil)
 
 ;; Indentation
 (setq evil-shift-width 2)
@@ -138,6 +139,7 @@
 
 ;; Disable some warning messages
 (put 'narrow-to-region 'disabled nil)
+(put 'narrow-to-page 'disabled nil)
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
 (put 'erase-buffer 'disabled nil)

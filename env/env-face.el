@@ -95,7 +95,7 @@
 (menu-bar-mode -1)
 
 ;; Disable startup/splash screen
-;; (setq initial-scratch-message nil)
+(setq initial-scratch-message nil)
 
 (setq inhibit-splash-screen t)
 (setq inhibit-startup-message t)

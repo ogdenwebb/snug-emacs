@@ -12,11 +12,14 @@
 
   (message "Success!"))
 
-
 (setq byte-compile--use-old-handlers nil)
 (setq load-prefer-newer t)
 
-;; Use Common Lisp
+;; start scratch in text mode (usefull to get a faster Emacs load time
+;; because it avoids autoloads of elisp modes)
+(setq initial-major-mode 'text-mode)
+
+;; Use Common Lisp library
 (use-package cl)
 
 (when window-system

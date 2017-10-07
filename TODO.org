@@ -14,6 +14,7 @@ ELISP FLYCHECK
 package: highlight boolean
 semantic; semantic-highlight-func-mode, semantic-decoration-mode, semantic-stickyfunc-mode
 Reload/restart from client
+(??) modeline in message buffer
 
 
 * Global
