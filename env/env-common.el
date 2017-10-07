@@ -136,4 +136,12 @@
 (setq browse-url-browser-function 'browse-url-generic
           browse-url-generic-program "chromium")
 
+;; Disable some warning messages
+(put 'narrow-to-region 'disabled nil)
+(put 'upcase-region 'disabled nil)
+(put 'downcase-region 'disabled nil)
+(put 'erase-buffer 'disabled nil)
+(put 'scroll-left 'disabled nil)
+(put 'dired-find-alternate-file 'disabled nil)
+
 (provide 'env-common)

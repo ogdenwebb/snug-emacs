@@ -48,4 +48,3 @@
 (require 'use-web)
 
 ;; (~ ^ . ^ ~)
-(put 'narrow-to-region 'disabled nil)
