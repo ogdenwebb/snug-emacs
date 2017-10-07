@@ -71,7 +71,7 @@
 
   ;; Narrowing
   (general-nvmap :prefix leader
-                 "n n" 'narrow-to-region
+                 "n r" 'narrow-to-region
                  "n d" 'narrow-to-defun
                  "n p" 'narrow-to-page
                  "n w" 'widen)
