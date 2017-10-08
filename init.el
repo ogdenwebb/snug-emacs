@@ -1,4 +1,4 @@
-;;;; Emacs config with Evil
+;;;; Elamx - Emacs configuration with Evil
 ;; https://github.com/syl20bnr/spacemacs/pull/1376
 ;; https://github.com/purcell/emacs.d/blob/master/init.el
 
@@ -27,6 +27,7 @@
 (require 'env-company)
 (require 'env-evil)
 (require 'env-face)
+;; TODO: rename
 (require 'env-fu)
 (require 'env-ivy)
 (require 'env-modeline)

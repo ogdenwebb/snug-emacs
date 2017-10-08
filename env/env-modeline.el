@@ -3,8 +3,10 @@
 ;; TODO: check if all-the-icons installed
 ;; TODO: (!!) flycheck segment
 ;; TODO: (??) disable mouse menu
-;; TODO: add function to paste icons
+;; TODO: add function to easy paste icons
 ;; TODO: add segment based on vc-state
+;; TODO: use colors vars
+;; TODO: rename my* segments to ???
   ;; Gray "#545c5e"
 
 ;; Telephone line
@@ -136,7 +138,7 @@
     ;; #6fb593 #4a858c
     (let ((fg-color "#6fb593"))
       (when vc-mode
-        ;; double format due to prevent warnings in Messages buffer
+        ;; double format to prevent warnings in Messages buffer
           (format "%s %s"
                   (propertize (all-the-icons-octicon "git-branch")
                               'face `(:family ,(all-the-icons-octicon-family) :height 1.0 :foreground ,fg-color)
@@ -157,9 +159,9 @@
   ;; Right edge
   (setq telephone-line-rhs
         '((nil    . (my-vc-segment))
-          (accent   . (my-position-segment))
-          (nil      . (my-major-mode-segment))
-          (accent   . ((my-coding-segment :active)))))
+          (accent . (my-position-segment))
+          (nil    . (my-major-mode-segment))
+          (accent . ((my-coding-segment :active)))))
 
   (telephone-line-mode 1))
 

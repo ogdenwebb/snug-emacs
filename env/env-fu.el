@@ -50,14 +50,14 @@
         (- (line-end-position)
            (line-beginning-position)))))
 
-(defun my-empty-line? ()
+(defun elmax/empty-line? ()
   (save-excursion
     (beginning-of-line)
     (looking-at "[[:space:]]*$")))
 
-(defun my-smart-backspace ()
+(defun elmax/smart-backspace ()
   (interactive)
-  (if (my-empty-line?)
+  (if (elmax/empty-line?)
       (if (= (line-length (line-number-at-pos)) 0)
           (delete-indentation)
         (delete-horizontal-space))

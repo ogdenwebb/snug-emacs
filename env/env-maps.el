@@ -109,7 +109,7 @@
   (general-imap
    "TAB" 'company-indent-or-complete-common
    "RET" 'evil-ret-and-indent
-   "DEL" 'my-smart-backspace
+   "DEL" 'elmax/smart-backspace
    "C-j" 'parinfer-toggle-mode
    "C-k" 'company-complete-common-or-cycle
    "C-a" 'beginning-of-line
