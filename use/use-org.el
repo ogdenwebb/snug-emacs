@@ -6,6 +6,7 @@
   ;; Fontify
   (setq org-fontify-done-headline t)
   (setq org-fontify-quote-and-verse-blocks t)
+  ;; (setq org-fontify-whole-heading-line t)
   (setq org-src-fontify-natively t)
   (setq org-src-tab-acts-natively t)
   (setq org-ellipsis " ~ ")

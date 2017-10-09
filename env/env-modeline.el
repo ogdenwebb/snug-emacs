@@ -12,6 +12,7 @@
 ;; Telephone line
 (use-package telephone-line
   ;; :load-path "dev/telephone-line"
+
   :config
   ;; To create custom segments
   (use-package telephone-line-utils)
@@ -148,6 +149,22 @@
                       (telephone-line-raw vc-mode t))
                     'face `(:foreground ,fg-color))))))
 
+  (telephone-line-defsegment my-flycheck-segment ()
+    ;; TODO: split errors and warnings
+    (when (boundp 'flycheck-last-status-change)
+      (pcase flycheck-last-status-change
+        ('finished (if flycheck-current-errors
+                       (let-alist (flycheck-count-errors flycheck-current-errors)
+                         (let ((sum (+ (or .error 0) (or .warning 0))))
+                           (format "%s: %s"
+                                   (if .error "errors" "warnings")
+                                   (number-to-string sum))))
+                      "Succesed"))
+        ('running     "Working...")
+        ('no-checker  "no-checker")
+        ('errored     "ERROR")
+        ('interrupted "Interrupted"))))
+
   ;; Left edge
   ;; TODO: gray background for buffer and mode segment in inactive line
   (setq telephone-line-lhs
@@ -155,6 +172,7 @@
           (nil    . (my-buffer-segment))
           (nil    . (my-modified-status-segment))
           (nil    . (my-read-only-status-segment))))
+          ;; (nil    . (my-flycheck-segment))))
 
   ;; Right edge
   (setq telephone-line-rhs

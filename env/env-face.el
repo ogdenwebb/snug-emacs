@@ -11,6 +11,7 @@
 ;; base16-default-dark
 ;; danneskjold-theme
 ;; flatland-theme
+;; seti -- only basic faces
 
 ;; Load my theme
 (use-package kaolin-theme

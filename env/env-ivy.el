@@ -19,10 +19,10 @@
   (advice-add 'ivy-previous-line :after #'my-swiper-update-search-ring-backward)
 
   :config
-  (setq ivy-re-builders-alist
-        ;; '((t . regexp-quote)))
-        ;; '((t . ivy--regex-fuzzy)))
-        '((t . ivy--regex-plus)))
+  ;; (setq ivy-re-builders-alist
+  ;;       ;; '((t . regexp-quote)))
+  ;;       '((t . ivy--regex-fuzzy)))
+  ;;    ;; '((t . ivy--regex-plus)))
   ;; (setq ivy-initial-inputs-alist nil)
 
   ;; Add ‘recentf-mode’ and bookmarks to ‘ivy-switch-buffer’.

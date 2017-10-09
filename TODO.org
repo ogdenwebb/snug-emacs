@@ -15,6 +15,12 @@ package: highlight boolean
 semantic; semantic-highlight-func-mode, semantic-decoration-mode, semantic-stickyfunc-mode
 Reload/restart from client
 (??) modeline in message buffer
+Read Emacs regex :/
+Read about :tag in defcustom.
+https://www.reddit.com/r/orgmode/comments/70p9lk/hashtags_in_orgmode/
+https://github.com/hlissner/emacs-doom-themes/blob/master/doom-themes-org.el
+Dashboard
+Autochange layout
 
 
 * Global
@@ -42,6 +48,7 @@ https://www.emacswiki.org/emacs/BufferSelection
 ** TODO add dictionary
 ** dabbrev; dabbrev-expand
 * Org-mode
+** TODO checkbox
 ** TODO add comments
 ** read about fontify(priority, etc)
 ** TODO zc; fix for outline-hide-all
