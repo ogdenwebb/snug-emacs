@@ -98,6 +98,7 @@
                                  "Compilation"
                                  "EShell"
                                  "Debugger"
+                                 "Quickrun"
                                  "REPL"
                                  "IELM"
                                  "Messages"))

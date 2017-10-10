@@ -49,9 +49,9 @@
   :config
   ;; (!!) Read: sp-cheat-sheet
   (use-package smartparens-config)
-  (sp-local-pair 'clojure-mode "(" ")" :actions nil)
-  (sp-local-pair 'clojurescript-mode "(" ")" :actions nil)
-  (sp-local-pair 'emacs-lisp-mode "(" ")" :actions nil)
+  ;; (sp-local-pair 'clojure-mode "(" ")" :actions nil)
+  ;; (sp-local-pair 'clojurescript-mode "(" ")" :actions nil)
+  ;; (sp-local-pair 'emacs-lisp-mode "(" ")" :actions nil)
 
   (sp-pair "{" nil :post-handlers '((my-create-newline-and-enter-sexp "RET")))
 

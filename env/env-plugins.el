@@ -95,28 +95,36 @@
   :init (setq markdown-command "multimarkdown"))
 
 ;; Let's simplify the way we write Lisp
-(use-package parinfer
-  :ensure t
+;; (use-package parinfer
+;;   :ensure t
+;;   :init
+;;   (progn
+;;     (setq parinfer-extensions
+;;           '(defaults       ; should be included.
+;;              pretty-parens  ; different paren styles for different modes.
+;;              evil           ; If you use Evil.
+;;              smart-tab      ; C-b & C-f jump positions and smart shift with tab & S-tab.
+;;              smart-yank))   ; Yank behavior depend on mode.
+;;     (add-hook 'clojure-mode-hook #'parinfer-mode)
+;;     (add-hook 'emacs-lisp-mode-hook #'parinfer-mode)
+;;     (add-hook 'common-lisp-mode-hook #'parinfer-mode)
+;;     (add-hook 'scheme-mode-hook #'parinfer-mode)
+;;     (add-hook 'lisp-mode-hook #'parinfer-mode)))
+
+(use-package lispyville
   :init
-  (progn
-    (setq parinfer-extensions
-          '(defaults       ; should be included.
-             pretty-parens  ; different paren styles for different modes.
-             evil           ; If you use Evil.
-             smart-tab      ; C-b & C-f jump positions and smart shift with tab & S-tab.
-             smart-yank))   ; Yank behavior depend on mode.
-    (add-hook 'clojure-mode-hook #'parinfer-mode)
-    (add-hook 'emacs-lisp-mode-hook #'parinfer-mode)
-    (add-hook 'common-lisp-mode-hook #'parinfer-mode)
-    (add-hook 'scheme-mode-hook #'parinfer-mode)
-    (add-hook 'lisp-mode-hook #'parinfer-mode)))
+  (add-hook 'clojure-mode-hook #'lispyville-mode)
+  (add-hook 'emacs-lisp-mode-hook #'lispyville-mode)
+  (add-hook 'common-lisp-mode-hook #'lispyville-mode)
+  (add-hook 'scheme-mode-hook #'lispyville-mode)
+  (add-hook 'lisp-mode-hook #'lispyville-mode))
 
 ;; Integration with Chrome/Chromium
 ; (use-package atomic-chrome
 ;   :config
 ;   (atomic-chrome-start-server))
 
-;; On-the-fly evaluation/substitution of emacs lisp code
+;; On-the-fly evaluation/substitution of Emacs lisp code
 (use-package litable)
 
 ;; Move region or line
