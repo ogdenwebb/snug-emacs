@@ -26,6 +26,7 @@
 
   ;; TODO:
   ;; org-todo-keywords
+  ;; org-todo-state-tags-triggers
   ;; :tangle yes
   ;; export html/pdf; see C-c C-e
 
@@ -39,11 +40,21 @@
    '(org-done ((t (:foreground "dimgray" :bold t :strike-through t))))
    '(org-headline-done ((t (:foreground "dimgray" :bold nil :strike-through t)))))
 
+  ;; Fontify done checkbox items in org-mode
+  (font-lock-add-keywords
+   'org-mode
+   `(("^[ \t]*\\(?:[-+*]\\|[0-9]+[).]\\)[ \t]+\\(\\(?:\\[@\\(?:start:\\)?[0-9]+\\][ \t]*\\)?\\[\\(?:X\\|\\([0-9]+\\)/\\2\\)\\][^\n]*\n\\)" 1 'org-headline-done prepend))
+   'append)
+
   ;; Open links
   (setq org-link-frame-setup '((vm . vm-visit-folder)
                                (gnus . org-gnus-no-new-news)
                                (file . find-file)))
   (setq org-src-window-setup 'current-window)
+
+  ;; Customize org todo keywrods
+  (setq org-todo-keywords '((sequence "TODO(t)" "EXPLORE(e)" "ACTIVE(a)" "|" "DONE(d)" "CANCELED(c)")))
+  ;; (setq org-fast-tag-selection-include-todo t)
 
   (use-package evil-org
     :after org

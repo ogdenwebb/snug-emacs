@@ -21,7 +21,9 @@ https://www.reddit.com/r/orgmode/comments/70p9lk/hashtags_in_orgmode/
 https://github.com/hlissner/emacs-doom-themes/blob/master/doom-themes-org.el
 Dashboard
 Autochange layout
-
+Lispyville bindings
+http://orgmode.org/manual/TODO-extensions.html
+Face org-ellipsis
 
 * Global
 ** TODO add debug/minimal mode

@@ -43,7 +43,7 @@
                       "b p" 'previous-buffer
                       "b n" 'next-buffer
                       ;; "b l" 'list-buffers
-                      "b l" 'ibuffer
+                      "b l" '(ibuffer nil)
 
                       "h a" 'apropos
                       "h k" 'describe-key
