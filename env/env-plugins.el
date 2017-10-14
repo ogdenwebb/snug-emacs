@@ -94,38 +94,12 @@
          ("\\.markdown\\'" . markdown-mode))
   :init (setq markdown-command "multimarkdown"))
 
-;; Let's simplify the way we write Lisp
-;; (use-package parinfer
-;;   :ensure t
-;;   :init
-;;   (progn
-;;     (setq parinfer-extensions
-;;           '(defaults       ; should be included.
-;;              pretty-parens  ; different paren styles for different modes.
-;;              evil           ; If you use Evil.
-;;              smart-tab      ; C-b & C-f jump positions and smart shift with tab & S-tab.
-;;              smart-yank))   ; Yank behavior depend on mode.
-;;     (add-hook 'clojure-mode-hook #'parinfer-mode)
-;;     (add-hook 'emacs-lisp-mode-hook #'parinfer-mode)
-;;     (add-hook 'common-lisp-mode-hook #'parinfer-mode)
-;;     (add-hook 'scheme-mode-hook #'parinfer-mode)
-;;     (add-hook 'lisp-mode-hook #'parinfer-mode)))
-
-(use-package lispyville
-  :init
-  (add-hook 'clojure-mode-hook #'lispyville-mode)
-  (add-hook 'emacs-lisp-mode-hook #'lispyville-mode)
-  (add-hook 'common-lisp-mode-hook #'lispyville-mode)
-  (add-hook 'scheme-mode-hook #'lispyville-mode)
-  (add-hook 'lisp-mode-hook #'lispyville-mode))
 
 ;; Integration with Chrome/Chromium
 ; (use-package atomic-chrome
 ;   :config
 ;   (atomic-chrome-start-server))
 
-;; On-the-fly evaluation/substitution of Emacs lisp code
-(use-package litable)
 
 ;; Move region or line
 (use-package drag-stuff
@@ -137,16 +111,16 @@
   :config
   (yas-global-mode 1))
 
-(use-package neotree
-  :config
-  (setq neo-mode-line-type 'none)
-  :general
-  (general-define-key :keymaps 'neotree-mode-map
-                      :states '(normal)
-                      "SPC" 'neotree-enter
-                      "TAB" 'neotree-enter
-                      "RET" 'neotree-enter
-                      "q" 'neotree-hide))
+;; (use-package neotree
+;;   :config
+;;   (setq neo-mode-line-type 'none)
+;;   :general
+;;   (general-define-key :keymaps 'neotree-mode-map
+;;                       :states '(normal)
+;;                       "SPC" 'neotree-enter
+;;                       "TAB" 'neotree-enter
+;;                       "RET" 'neotree-enter
+;;                       "q" 'neotree-hide))
 
 ;; TODO: https://github.com/Alexander-Miller/treemacs/blob/d5456233909a4f558d24056a5e53f15e9f2029f6/treemacs-mode.el#L202
 (use-package treemacs

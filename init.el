@@ -33,6 +33,7 @@
 (require 'env-modeline)
 (require 'env-plugins)
 ;; (require 'env-sp)
+(require 'env-lisp)
 (require 'env-dev)
 
 ;; Specific modules and major modes

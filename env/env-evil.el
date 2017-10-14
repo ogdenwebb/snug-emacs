@@ -24,13 +24,18 @@
 
   (evil-mode 1))
 
+(use-package evil-goggles
+  :config
+  (evil-goggles-mode)
+  (setq evil-goggles-pulse t))
+
 (use-package evil-commentary
   :after evil
   :commands (evil-commentary evil-commentary-yank)
   :general
   (general-nvmap
-    "gc" 'evil-commentary
-    "gy" 'evil-commentary-yank))
+   "gc" 'evil-commentary
+   "gy" 'evil-commentary-yank))
 
 (use-package evil-surround
   :ensure t
@@ -57,11 +62,6 @@
   (general-nvmap
    "ga"  'evil-lion-left
    "gA"  'evil-lion-right))
-
-;; (use-package evil-goggles
-;;   :load-path "dev/evil-goggles"
-;;   :config
-;;   (evil-goggles-mode))
 
 ;; Folding
 
