@@ -168,7 +168,7 @@
                       "RET" 'term-send-input)
 
   ;; Org-mode
-  (general-define-key :keymaps 'org-mode-map
+  (general-define-key :keymaps 'org-mode-map 'treemacs-mode-map
                       :states  '(normal visual)
                       "M-h"  'evil-window-left
                       "M-j"  'evil-window-down

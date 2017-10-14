@@ -122,10 +122,22 @@
 ;;                       "RET" 'neotree-enter
 ;;                       "q" 'neotree-hide))
 
-;; TODO: https://github.com/Alexander-Miller/treemacs/blob/d5456233909a4f558d24056a5e53f15e9f2029f6/treemacs-mode.el#L202
 (use-package treemacs
   :config
-  (use-package treemacs-evil))
+  (use-package treemacs-evil)
+
+  ;; Disable mode-line in treemacs buffer
+  ;; see: https://github.com/Alexander-Miller/treemacs/blob/d5456233909a4f558d24056a5e53f15e9f2029f6/treemacs-mode.el#L202
+  (defun treemacs--setup-mode-line ()
+      (setq mode-line-format nil))
+
+  :general
+  (general-define-key :keymaps 'treemacs-mode-map
+                      :states  '(normal visual treemacs)
+                      "M-h"  'evil-window-left
+                      "M-j"  'evil-window-down
+                      "M-k"  'evil-window-up
+                      "M-l"  'evil-window-right))
 
 (use-package colorpicker
   :commands (colorpicker))
