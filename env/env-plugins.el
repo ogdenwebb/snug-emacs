@@ -147,4 +147,9 @@
 ;;   (which-key-mode)
 ;;   (which-key-setup-side-window-bottom))
 
+;; Simple Emacs minor mode for a nice writing environment.
+(use-package olivetti
+  :config
+  (setq-default olivetti-body-width 80))
+
 (provide 'env-plugins)

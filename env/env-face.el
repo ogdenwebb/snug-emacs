@@ -15,6 +15,7 @@
 
 ;; Load my theme
 (use-package kaolin-theme
+  ;; Comment the following line if you use MELPA package
   :load-path "themes/kaolin-theme"
   :init
   ;; Set default theme
@@ -28,6 +29,7 @@
     (load-theme 'kaolin t))
 
   :config
+  (setq kaolin-hl-line-colored t)
   ;; Highlight t and nil in elisp-mode
   (font-lock-add-keywords 'emacs-lisp-mode
     '(("\\<\\(nil\\|t\\)\\>" . 'kaolin-boolean))))

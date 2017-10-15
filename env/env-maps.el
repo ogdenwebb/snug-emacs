@@ -38,6 +38,12 @@
                       "e d" 'eval-defun
                       "e b" 'eval-buffer
 
+                      ;; Olivetti
+                      ". ." 'olivetti-mode
+                      ". [" 'olivetti-shirk
+                      ". ]" 'olivetti-expand
+                      ". m" 'olivetti-toggle-hide-mode-line
+
                       ;; TODO: maybe swap with magit(g - git)
                       "b p" 'previous-buffer
                       "b n" 'next-buffer
