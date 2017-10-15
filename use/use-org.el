@@ -2,6 +2,14 @@
 
 (use-package org
   :config
+  ;; (use-package org-bullets
+  ;;   ;; :commands org-bullets-mode
+  ;;   :init
+  ;;   (add-hook 'org-mode-hook #'org-bullets-mode)
+  ;;   :config)
+  ;;   ;; | ┆ ┊
+  ;;   (setq org-bullets-bullet-list '("."))
+
   (setq org-startup-indented t)
   ;; Fontify
   (setq org-fontify-done-headline t)
@@ -10,6 +18,7 @@
   (setq org-src-fontify-natively t)
   (setq org-src-tab-acts-natively t)
   (setq org-ellipsis " ~ ")
+  ;; (setq org-ellipsis " — ")
 
   (defun org-init-hook ()
     (interactive)

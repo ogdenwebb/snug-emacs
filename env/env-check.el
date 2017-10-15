@@ -25,7 +25,6 @@
 
 ;; Flycheck
 (use-package flycheck
-  :ensure t
   :init
   (add-hook 'after-init-hook #'global-flycheck-mode)
   ;; (use-package flycheck-clojure
@@ -85,7 +84,6 @@
 
 ;; Spell checking
 (use-package flyspell
-  :ensure t
   :config
   ;; (add-hook 'prog-mode-hook 'flyspell-prog-mode)
   ;; (add-hook 'text-mode-hook 'flyspell-mode)
@@ -95,7 +93,6 @@
 
 ;; flyspell ivy corret
 (use-package flyspell-correct-ivy
-  :ensure t
   :after flyspell)
 
 (provide 'env-check)

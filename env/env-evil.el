@@ -1,6 +1,5 @@
 ;; Enable evil mode
 (use-package evil
-  :ensure t
   :config
   (setq evil-want-fine-undo nil)
 
@@ -38,7 +37,6 @@
    "gy" 'evil-commentary-yank))
 
 (use-package evil-surround
-  :ensure t
   :init
   (global-evil-surround-mode 1))
 

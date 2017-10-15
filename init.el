@@ -1,4 +1,6 @@
 ;;;; Elmax - Emacs configuration with Evil
+;; Kull Wahad! Kull Wahad! Kull Wahad!
+
 ;; https://github.com/syl20bnr/spacemacs/pull/1376
 ;; https://github.com/purcell/emacs.d/blob/master/init.el
 
@@ -8,6 +10,7 @@
       '(("gnu"   . "https://elpa.gnu.org/packages/")
         ("org"   . "http://orgmode.org/elpa/")
         ("melpa" . "https://melpa.org/packages/")))
+
 (package-initialize)
 
 ;; Use-package

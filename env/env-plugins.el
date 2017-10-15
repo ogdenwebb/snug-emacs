@@ -1,6 +1,5 @@
 ;; TODO: split to basic plugin and dev plugin
 (use-package package-utils
-  :ensure t
   :commands (package-utils-upgrade-all))
 
 ;; smart new line
@@ -67,7 +66,6 @@
 
 ;; Project management
 (use-package projectile
-  :ensure t
   :config
   (setq projectile-completion-system 'ivy)
   (projectile-mode +1))
@@ -123,8 +121,10 @@
 ;;                       "q" 'neotree-hide))
 
 (use-package treemacs
+  :commands treemacs-toggle
   :config
-  (use-package treemacs-evil)
+  (use-package treemacs-evil
+    :after treemacs)
 
   ;; Disable mode-line in treemacs buffer
   ;; see: https://github.com/Alexander-Miller/treemacs/blob/d5456233909a4f558d24056a5e53f15e9f2029f6/treemacs-mode.el#L202

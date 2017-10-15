@@ -1,7 +1,6 @@
 ;; TODO: check counsel-file-jump
 ;; Use ivy for fuzzy matching
 (use-package ivy
-  :ensure t
   :init
   (ivy-mode 1)
 
@@ -35,7 +34,6 @@
 
 ;; Helm setup to test theme faces
 ;; (use-package helm
-;;   :ensure t
 ;;   :diminish helm-mode
 ;;   :bind (("M-x" . helm-M-x)
 ;;          ("C-x C-f" . helm-find-files)

@@ -1,5 +1,4 @@
 (use-package general
-  :ensure t
   :config
   (setq general-default-keymaps 'evil-normal-state-map)
 
@@ -61,6 +60,7 @@
 
                       "m d" 'magit-diff
                       "m m" 'magit-status
+                      "m l" 'magit-log-current
 
 
                       ;; Projectile
@@ -168,7 +168,7 @@
                       "RET" 'term-send-input)
 
   ;; Org-mode
-  (general-define-key :keymaps 'org-mode-map 'treemacs-mode-map
+  (general-define-key :keymaps 'org-mode-map
                       :states  '(normal visual)
                       "M-h"  'evil-window-left
                       "M-j"  'evil-window-down
