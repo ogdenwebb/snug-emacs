@@ -44,6 +44,8 @@
 
   ;; Customize fringe bitmap
 
+  ;; TODO: indicators in the corner of the sceen without padding
+  ;; after window resize
   (when (fboundp 'define-fringe-bitmap))
   (define-fringe-bitmap 'elmax/flycheck-fringe-indicator
     (vector #b00000000
@@ -53,11 +55,11 @@
             #b00000000
             #b00000000
             #b00000000
-            #b01110000
-            #b11111000
-            #b11111000
-            #b11111000
-            #b01110000
+            #b00111000
+            #b01111100
+            #b01111100
+            #b01111100
+            #b00111000
             #b00000000
             #b00000000
             #b00000000

@@ -42,7 +42,7 @@
                       ;; TODO: (??) bind . or smth for major mode
                       ;; Olivetti
                       ". ." 'olivetti-mode
-                      ". [" 'olivetti-shirk
+                      ". [" 'olivetti-shrink
                       ". ]" 'olivetti-expand
                       ". m" 'olivetti-toggle-hide-mode-line
 
@@ -52,12 +52,14 @@
                       ;; "b l" 'list-buffers
                       "b l" '(ibuffer nil)
 
+                      ;; Help
                       "h a" 'apropos
                       "h k" 'describe-key
                       "h v" 'describe-variable
                       "h f" 'describe-function
                       "h F" 'describe-face
                       "h m" 'describe-mode
+                      "h i" 'info
 
                       ;; TODO: Add focus and swap
                       "w c" 'delete-window
@@ -79,6 +81,7 @@
 
   ;; Narrowing
   (general-nvmap :prefix leader
+                 "t" 'google-translate-smooth-translate
                  "n r" 'narrow-to-region
                  "n d" 'narrow-to-defun
                  "n p" 'narrow-to-page

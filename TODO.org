@@ -30,6 +30,7 @@ https://github.com/aspiers/smooth-scrolling
 https://github.com/dholm/tabbar
 https://github.com/joostkremers/visual-fill-column
 https://github.com/larstvei/Focus
+package google-this
 
 * Global
 ** TODO add debug/minimal mode

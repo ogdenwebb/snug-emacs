@@ -105,9 +105,10 @@
   (drag-stuff-global-mode 1))
 
 ;; Yasnippet
-(use-package yasnippet
-  :config
-  (yas-global-mode 1))
+;; TODO:
+;; (use-package yasnippet
+;;   :config
+;;   (yas-global-mode 1))
 
 ;; (use-package neotree
 ;;   :config
@@ -151,5 +152,12 @@
 (use-package olivetti
   :config
   (setq-default olivetti-body-width 80))
+
+(use-package google-translate
+  :config
+  (use-package google-translate-smooth-ui)
+  (setq google-translate-translation-directions-alist '(("en" . "ru"))))
+
+
 
 (provide 'env-plugins)
