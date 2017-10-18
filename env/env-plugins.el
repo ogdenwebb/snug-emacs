@@ -49,6 +49,7 @@
                           ".*-autoloads\\.el\\'"
                           "[/\\]\\.emacs.d/recentf"
                           "[/\\]\\.emacs.d/bookmarks"
+                          "[/\\]\\.emacs.d/url"
                           "[/\\]\\.elpa/"))
   (recentf-mode 1)
   :config

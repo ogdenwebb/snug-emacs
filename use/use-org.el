@@ -105,7 +105,9 @@
   (general-define-key :keymaps 'org-mode-map
                       :prefix leader
                       :states '(normal)
-                      "t" 'org-set-tags
+                      "c"   'org-ctrl-c-ctrl-c
+                      ;; "t" 'org-set-tags
+                      "t"   'org-ctrl-c-ctrl-c
                       "p" 'org-priority-up
                       "P" 'org-priority-down))
 

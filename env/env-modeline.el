@@ -12,6 +12,17 @@
 ;; Telephone line
 (use-package telephone-line
   ;; :load-path "dev/telephone-line"
+  :init
+  ;; Need to display telephone-line in *Messages* buffer
+  (defun recreate-message-buffer ()
+    (cl-flet ((buffer-string* (buffer)
+                (with-current-buffer buffer
+                  (buffer-string))))
+      (let ((msg (buffer-string* "*Messages*")))
+        (kill-buffer "*Messages*")
+        (message msg))))
+
+  (add-hook 'after-init-hook #'recreate-message-buffer)
 
   :config
   ;; To create custom segments
@@ -140,7 +151,7 @@
     ;; #6fb593 #4a858c
     (let ((fg-color "#6fb593"))
       (when vc-mode
-        ;; double format to prevent warnings in Messages buffer
+        ;; double format to prevent warnings in '*Messages*' buffer
           (format "%s %s"
                   (propertize (all-the-icons-octicon "git-branch")
                               'face `(:family ,(all-the-icons-octicon-family) :height 1.0 :foreground ,fg-color)
@@ -163,7 +174,7 @@
                       "Succesed"))
         ('running     "Working...")
         ('no-checker  "no-checker")
-        ('errored     "ERROR")
+        ('errored     "Error")
         ('interrupted "Interrupted"))))
 
   ;; Left edge

@@ -59,6 +59,7 @@
                       "h f" 'describe-function
                       "h F" 'describe-face
                       "h m" 'describe-mode
+                      "h l" 'find-library
                       "h i" 'info
 
                       ;; TODO: Add focus and swap
