@@ -31,7 +31,7 @@
 (add-to-list 'load-path "~/.emacs.d/env/")
 (add-to-list 'load-path "~/.emacs.d/use/")
 (add-to-list 'load-path "~/.emacs.d/lisp/")
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/kaolin-theme/")
+;; (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/kaolin-theme/")
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file 'noerror)
 

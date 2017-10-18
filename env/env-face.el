@@ -22,11 +22,11 @@
   (defun load-my-theme (frame)
     ;; (select-frame frame)
     (with-selected-frame frame
-      (load-theme 'kaolin t)))
+      (load-theme 'kaolin-dark t)))
 
   (if (daemonp)
       (add-hook 'after-make-frame-functions #'load-my-theme)
-    (load-theme 'kaolin t))
+    (load-theme 'kaolin-dark t))
 
   :config
   (setq kaolin-hl-line-colored t)

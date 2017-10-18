@@ -1,4 +1,5 @@
 SORT:
+electric-* modes
 https://github.com/wasamasa/shackle
 enable browser: xwidget-browse
 Lexical and dynamic bindings
@@ -24,6 +25,11 @@ Autochange layout
 Lispyville bindings
 http://orgmode.org/manual/TODO-extensions.html
 Face org-ellipsis
+https://github.com/joodland/bm
+https://github.com/aspiers/smooth-scrolling
+https://github.com/dholm/tabbar
+https://github.com/joostkremers/visual-fill-column
+https://github.com/larstvei/Focus
 
 * Global
 ** TODO add debug/minimal mode

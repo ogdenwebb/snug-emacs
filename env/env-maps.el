@@ -8,6 +8,7 @@
   (setq leader "SPC")
 
   (general-define-key :prefix leader
+                      ;; TODO: (??) add second leader
                       ;; TODO: counsel-linux-app
                       ;; counsel-mark-ring
                       ;; counsel-imenu
@@ -38,6 +39,7 @@
                       "e d" 'eval-defun
                       "e b" 'eval-buffer
 
+                      ;; TODO: (??) bind . or smth for major mode
                       ;; Olivetti
                       ". ." 'olivetti-mode
                       ". [" 'olivetti-shirk
