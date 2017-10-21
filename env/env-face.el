@@ -144,14 +144,14 @@
   (add-hook 'clojure-mode-hook #'rainbow-delimiters-mode))
 
 ;; Show indent line
-;; TODO: disable in swiper
-;; (use-package highlight-indent-guides
-;;   :init
-;;   (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
-;;   :config
-;;   (setq highlight-indent-guides-method 'character)
-;;   ;; Indent character samples: | ┆ ┊
-;;   (setq highlight-indent-guides-character ?\┆))
+;; TODO: (??) disable in swiper
+(use-package highlight-indent-guides
+  :init
+  (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
+  :config
+  (setq highlight-indent-guides-method 'character)
+  ;; Indent character samples: | ┆ ┊
+  (setq highlight-indent-guides-character ?\┆))
 
 
 ;; Line numbering

@@ -1,6 +1,12 @@
+Agenda
+https://www.reddit.com/r/emacs/comments/6s9ez3/package_management_under_emacs_25/
+
 SORT:
 electric-* modes
 https://github.com/wasamasa/shackle
+https://github.com/escherdragon/sunrise-commander
+https://github.com/emacscollective/no-littering
+org-agenda
 enable browser: xwidget-browse
 Lexical and dynamic bindings
 :@: and @@
@@ -31,6 +37,7 @@ https://github.com/dholm/tabbar
 https://github.com/joostkremers/visual-fill-column
 https://github.com/larstvei/Focus
 package google-this
+https://github.com/kaz-yos/eval-in-repl
 
 * Global
 ** TODO add debug/minimal mode

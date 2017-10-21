@@ -8,6 +8,8 @@
   (setq leader "SPC")
 
   (general-define-key :prefix leader
+                      ;; TODO: add load-theme somewhere
+                      ;; TODO: mb add configuration opt or smth
                       ;; TODO: (??) add second leader
                       ;; TODO: counsel-linux-app
                       ;; counsel-mark-ring
@@ -115,7 +117,9 @@
   ;; Evil bindings normal and visual
   (general-nvmap
    "j"   'evil-next-visual-line
-   "k"   'evil-previous-visual-line)
+   "k"   'evil-previous-visual-line
+   "C-a" 'evil-numbers/inc-at-pt
+   "C-x" 'evil-numbers/dec-at-pt)
 
   ;; Insert mode maps
   (general-imap

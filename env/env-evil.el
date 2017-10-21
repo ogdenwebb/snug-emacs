@@ -87,5 +87,7 @@
     (evil-vimish-fold-mode 1))
   (setq vimish-fold-header-width nil))
 
+(use-package evil-numbers)
+
 
 (provide 'env-evil)

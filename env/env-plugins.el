@@ -159,6 +159,4 @@
   (use-package google-translate-smooth-ui)
   (setq google-translate-translation-directions-alist '(("en" . "ru"))))
 
-
-
 (provide 'env-plugins)

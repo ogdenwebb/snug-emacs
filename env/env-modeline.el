@@ -28,9 +28,10 @@
   ;; To create custom segments
   (use-package telephone-line-utils)
 
-  ;; TODO: choose separator by name
+  ;; Set mode-line height
   (setq telephone-line-height 22)
 
+  ;; TODO: choose separator by name
   ;; Set default separators: choose either of them
   ;; (setq telephone-line-primary-left-separator 'telephone-line-flat)
   ;; (setq telephone-line-primary-right-separator 'telephone-line-flat)
