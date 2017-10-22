@@ -1,6 +1,8 @@
 ;;;; Elmax - Emacs configuration with Evil
 ;; Kull Wahad! Kull Wahad! Kull Wahad!
 
+;; TODO: try to fix low performance with default mode-line
+
 (require 'package)
 (setq package-enable-at-startup nil)   ; To prevent initialising twice
 (setq package-archives

@@ -28,6 +28,7 @@
   ;;  'kaolin
   ;; TODO:
   ;; (custom-theme-set-faces
+  ;;  'kaolin-eclipse
   ;;  '(git-gutter:added ((t (:background "#54b685" :foreground "#54b685"))))
   ;;  ;; '(git-gutter:modified ((t (:background "#54b6b6" :foreground "#54b6b6"))))
   ;;  '(git-gutter:modified ((t (:background "#ab98b5" :foreground "#ab98b5"))))

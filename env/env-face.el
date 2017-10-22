@@ -14,9 +14,9 @@
 ;; seti -- only basic faces
 
 ;; Load my theme
-(use-package kaolin-theme
+(use-package kaolin-themes
   ;; Comment the following line if you use MELPA package
-  :load-path "themes/kaolin-theme"
+  :load-path "dev/emacs-kaolin-themes"
   :init
   ;; Set default theme
   (defun load-my-theme (frame)
@@ -28,6 +28,7 @@
       (add-hook 'after-make-frame-functions #'load-my-theme)
     (load-theme 'kaolin-eclipse t))
 
+
   :config
   ;; TODO:
   ;; (custom-theme-set-faces
@@ -37,8 +38,9 @@
 
   (setq kaolin-hl-line-colored t)
   ;; Highlight t and nil in elisp-mode
-  (font-lock-add-keywords 'emacs-lisp-mode
-    '(("\\<\\(nil\\|t\\)\\>" . 'kaolin-boolean))))
+  (font-lock-add-keywords
+   'emacs-lisp-mode
+   '(("\\<\\(nil\\|t\\)\\>" . 'kaolin-boolean))))
 
 ;; Set default font
 ;; TODO: Error: highlight-indent-guides cannot auto set faces:

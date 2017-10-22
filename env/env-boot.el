@@ -32,7 +32,7 @@
 (add-to-list 'load-path "~/.emacs.d/use/")
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 ;; Needed by emacs without daemon
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/kaolin-theme/themes/")
+;; (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/kaolin-theme/themes/")
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file 'noerror)
 
