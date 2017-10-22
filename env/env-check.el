@@ -35,7 +35,7 @@
         (if flycheck-current-errors 0.3 3.0))
 
   ;; TODO: enable
-  ;; (setq-default flycheck-disabled-checkers '(emacs-lisp emacs-lisp-checkdoc))
+  (setq-default flycheck-disabled-checkers '(emacs-lisp emacs-lisp-checkdoc))
 
   (make-variable-buffer-local 'flycheck-idle-change-delay)
   ;; Disable fringe markers

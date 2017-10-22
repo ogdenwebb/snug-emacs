@@ -22,13 +22,19 @@
   (defun load-my-theme (frame)
     ;; (select-frame frame)
     (with-selected-frame frame
-      (load-theme 'kaolin-dark t)))
+      (load-theme 'kaolin-eclipse t)))
 
   (if (daemonp)
       (add-hook 'after-make-frame-functions #'load-my-theme)
-    (load-theme 'kaolin-dark t))
+    (load-theme 'kaolin-eclipse t))
 
   :config
+  ;; TODO:
+  ;; (custom-theme-set-faces
+  ;;  'kaolin-eclipse
+  ;;  '(org-done ((t (:foreground "dimgray" :bold t :strike-through t))))
+  ;;  '(org-headline-done ((t (:foreground "dimgray" :bold nil :strike-through t)))))
+
   (setq kaolin-hl-line-colored t)
   ;; Highlight t and nil in elisp-mode
   (font-lock-add-keywords 'emacs-lisp-mode
@@ -98,6 +104,7 @@
 (menu-bar-mode -1)
 
 ;; Disable startup/splash screen
+;; TODO: disable scrollbar-mode
 (setq initial-scratch-message nil)
 
 (setq inhibit-splash-screen t)
@@ -145,14 +152,13 @@
 
 ;; Show indent line
 ;; TODO: (??) disable in swiper
-(use-package highlight-indent-guides
-  :init
-  (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
-  :config
-  (setq highlight-indent-guides-method 'character)
-  ;; Indent character samples: | ┆ ┊
-  (setq highlight-indent-guides-character ?\┆))
-
+;; (use-package highlight-indent-guides
+;;   :init
+;;   (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
+;;   :config
+;;   (setq highlight-indent-guides-method 'character)
+;;   ;; Indent character samples: | ┆ ┊
+;;   (setq highlight-indent-guides-character ?\┆))
 
 ;; Line numbering
 (use-package nlinum

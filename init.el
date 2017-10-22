@@ -1,9 +1,6 @@
 ;;;; Elmax - Emacs configuration with Evil
 ;; Kull Wahad! Kull Wahad! Kull Wahad!
 
-;; https://github.com/syl20bnr/spacemacs/pull/1376
-;; https://github.com/purcell/emacs.d/blob/master/init.el
-
 (require 'package)
 (setq package-enable-at-startup nil)   ; To prevent initialising twice
 (setq package-archives
