@@ -39,18 +39,16 @@
   ;; :tangle yes
   ;; export html/pdf; see C-c C-e
 
-  ;; TODO:
-  ;; (custom-theme-set-faces
-  ;;  'kaolin-dark
-  ;;  '(org-done ((t (:foreground "dimgray" :bold t :strike-through t))))
-  ;;  '(org-headline-done ((t (:foreground "dimgray" :bold nil :strike-through t)))))
+  (custom-theme-set-faces
+   'kaolin-eclipse
+   '(org-done ((t (:foreground "dimgray" :bold t :strike-through t))))
+   '(org-headline-done ((t (:foreground "dimgray" :bold nil :strike-through t)))))
 
   ;; Fontify done checkbox items in org-mode
-  ;; TODO:
-  ;; (font-lock-add-keywords
-  ;;  'org-mode
-  ;;  `(("^[ \t]*\\(?:[-+*]\\|[0-9]+[).]\\)[ \t]+\\(\\(?:\\[@\\(?:start:\\)?[0-9]+\\][ \t]*\\)?\\[\\(?:X\\|\\([0-9]+\\)/\\2\\)\\][^\n]*\n\\)" 1 'org-headline-done prepend))
-  ;;  'append)
+  (font-lock-add-keywords
+   'org-mode
+   `(("^[ \t]*\\(?:[-+*]\\|[0-9]+[).]\\)[ \t]+\\(\\(?:\\[@\\(?:start:\\)?[0-9]+\\][ \t]*\\)?\\[\\(?:X\\|\\([0-9]+\\)/\\2\\)\\][^\n]*\n\\)" 1 'org-headline-done prepend))
+   'append)
 
   ;; Open links
   (setq org-link-frame-setup '((vm . vm-visit-folder)

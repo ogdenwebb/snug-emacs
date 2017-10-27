@@ -17,24 +17,17 @@
 (use-package kaolin-themes
   ;; Comment the following line if you use MELPA package
   :load-path "dev/emacs-kaolin-themes"
-  :init
-  ;; Set default theme
-  (defun load-my-theme (frame)
-    ;; (select-frame frame)
-    (with-selected-frame frame
-      (load-theme 'kaolin-eclipse t)))
-
-  (if (daemonp)
-      (add-hook 'after-make-frame-functions #'load-my-theme)
-    (load-theme 'kaolin-eclipse t))
-
-
   :config
-  ;; TODO:
-  ;; (custom-theme-set-faces
-  ;;  'kaolin-eclipse
-  ;;  '(org-done ((t (:foreground "dimgray" :bold t :strike-through t))))
-  ;;  '(org-headline-done ((t (:foreground "dimgray" :bold nil :strike-through t)))))
+  ;; Set default theme
+  ;; (defun load-my-theme (frame)
+  ;;   (with-selected-frame frame
+  ;;     (load-theme 'kaolin-eclipse t)))
+
+  ;; (if (daemonp)
+  ;;     (add-hook 'after-make-frame-functions #'load-my-theme)
+  ;;   (load-theme 'kaolin-eclipse t))
+
+  (load-theme 'kaolin-eclipse t)
 
   (setq kaolin-hl-line-colored t)
   ;; Highlight t and nil in elisp-mode
@@ -161,6 +154,10 @@
 ;;   (setq highlight-indent-guides-method 'character)
 ;;   ;; Indent character samples: | ┆ ┊
 ;;   (setq highlight-indent-guides-character ?\┆))
+
+(use-package indent-guide
+  :config
+  (indent-guide-global-mode))
 
 ;; Line numbering
 (use-package nlinum
