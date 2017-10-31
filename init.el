@@ -46,7 +46,8 @@
 
 ;; (require 'use-clj)
 ;; (require 'use-elm)
-(require 'use-nim)
+;; TODO:
+;; (require 'use-nim)
 (require 'use-org)
 (require 'use-web)
 

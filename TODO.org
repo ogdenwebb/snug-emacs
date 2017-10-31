@@ -46,6 +46,17 @@ https://github.com/joostkremers/visual-fill-column
 https://github.com/larstvei/Focus
 package google-this
 https://github.com/kaz-yos/eval-in-repl
+https://emacs.stackexchange.com/questions/30129/how-can-i-implement-vims-undo-line-command-in-emacs-evil-mode
+https://github.com/alphapapa/org-web-tools
+https://github.com/bmag/imenu-list
+https://github.com/anler/centered-window-mode
+https://github.com/magnars/dash.el
+https://github.com/rejeep/f.el
+https://github.com/syl20bnr/spacemacs/issues/4326
+https://github.com/nschum/highlight-symbol.el
+https://github.com/felipeochoa/rjsx-mode
+
+Javascript Env
 
 * Global
 ** TODO add debug/minimal mode

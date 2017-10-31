@@ -29,6 +29,7 @@
 
   (load-theme 'kaolin-eclipse t)
 
+
   (setq kaolin-hl-line-colored t)
   ;; Highlight t and nil in elisp-mode
   (font-lock-add-keywords

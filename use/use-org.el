@@ -2,6 +2,14 @@
 
 (use-package org
   :config
+  (use-package org-download)
+
+  ;; Fit image into the screen
+  ;; TODO:
+  (setq org-image-actual-width '(200))
+
+  (setq org-startup-with-inline-images t)
+  ;; (setq org-image-actual-width (/ (display-pixel-width) 3))
   ;; (use-package org-bullets
   ;;   ;; :commands org-bullets-mode
   ;;   :init

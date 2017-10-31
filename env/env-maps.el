@@ -92,6 +92,7 @@
 
   (general-define-key
    "<f6>" 'ivy-resume
+   "Y" "y $"
    "g x"  'browse-url-at-point
    "/"    'swiper
    ;; TODO:

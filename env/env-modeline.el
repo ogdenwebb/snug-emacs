@@ -150,7 +150,8 @@
   ;; TODO: move raise and etc into var
   (telephone-line-defsegment my-vc-segment ()
     ;; #6fb593 #4a858c
-    (let ((fg-color "#6fb593"))
+    ;; (let ((fg-color "#6fb593")) ; kaolin-dark
+    (let ((fg-color "#709688")) ; kaolin-eclipse
       (when vc-mode
         ;; double format to prevent warnings in '*Messages*' buffer
           (format "%s %s"
