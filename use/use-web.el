@@ -1,10 +1,14 @@
 ;; Enable web-mode
+;; sudo npm install -g csslint
 (use-package web-mode
   :mode (("\\.html\\'" . web-mode))
   :config
   (add-hook 'web-mode-hook 'turn-off-smartparens-mode)
   (add-hook 'web-mode-hook #'(lambda () (highlight-indent-guides-mode -1)))
   (add-hook 'web-mode-hook #'(lambda () (yas-activate-extra-mode 'web-mode)))
+
+  ;; Install tidy html5
+  (flycheck-add-mode 'html-tidy 'web-mode)
 
   (setq-default
    web-mode-markup-indent-offset 2

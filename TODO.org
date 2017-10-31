@@ -56,6 +56,9 @@ https://github.com/syl20bnr/spacemacs/issues/4326
 https://github.com/nschum/highlight-symbol.el
 https://github.com/felipeochoa/rjsx-mode
 
+let g:syntastic_error_symbol        = '✖'
+let g:syntastic_warning_symbol      = '►'
+
 Javascript Env
 
 * Global
