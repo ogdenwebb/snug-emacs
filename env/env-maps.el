@@ -1,4 +1,5 @@
 (use-package general
+  :ensure t
   :config
   (setq general-default-keymaps 'evil-normal-state-map)
 

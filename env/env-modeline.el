@@ -12,6 +12,7 @@
 ;; Telephone line
 (use-package telephone-line
   ;; :load-path "dev/telephone-line"
+  :ensure t
   :init
   ;; Need to display telephone-line in *Messages* buffer
   (defun recreate-message-buffer ()

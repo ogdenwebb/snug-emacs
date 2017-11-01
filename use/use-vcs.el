@@ -9,10 +9,12 @@
   (use-package evil-ediff))
 
 ; Git
-(use-package magit)
+(use-package magit
+  :ensure t)
 
 ;; Highlight changes in git
 (use-package git-gutter
+  :ensure t
   :init
   (global-git-gutter-mode)
 
@@ -34,7 +36,8 @@
   ;;  '(git-gutter:modified ((t (:background "#ab98b5" :foreground "#ab98b5"))))
   ;;  '(git-gutter:deleted ((t (:background "#d75f5f" :foreground "#d75f5f")))))
   :config
-  (use-package git-gutter-fringe)
+  (use-package git-gutter-fringe
+    :ensure t)
     ;; :config
     ;; (setq git-gutter-fr:side 'right-fringe))
   :general

@@ -23,6 +23,7 @@
 
 ;; Undotree
 (use-package undo-tree
+  :ensure t
   :init
   (global-undo-tree-mode 1)
   (setq undo-tree-auto-save-history t)
@@ -67,17 +68,20 @@
 
 ;; Project management
 (use-package projectile
+  :ensure t
   :config
   (setq projectile-completion-system 'ivy)
   (projectile-mode +1))
 
 (use-package counsel-projectile
+  :ensure t
   :after projectile
   :config
   (counsel-projectile-on))
 
 ;; Quickrun
 (use-package quickrun
+  :ensure t
   :commands (quickrun
              quickrun-region
              quickrun-with-arg
@@ -87,6 +91,7 @@
 
 ;; Markdown
 (use-package markdown-mode
+  :ensure t
   :commands (markdown-mode gfm-mode)
   :mode (("README\\.md\\'" . gfm-mode)
          ("\\.md\\'" . markdown-mode)
@@ -102,12 +107,14 @@
 
 ;; Move region or line
 (use-package drag-stuff
+  :ensure t
   :config
   (drag-stuff-global-mode 1))
 
 ;; Yasnippet
 ;; TODO:
 (use-package yasnippet
+  :ensure t
   :config
   (yas-global-mode 1))
 
@@ -123,6 +130,7 @@
 ;;                       "q" 'neotree-hide))
 
 (use-package treemacs
+  :ensure t
   :commands treemacs-toggle
   :config
   (use-package treemacs-evil
@@ -142,6 +150,7 @@
                       "M-l"  'evil-window-right))
 
 (use-package colorpicker
+  :load-path "dev/emacs-colorpicker"
   :commands (colorpicker))
 
 ;; (use-package which-key
@@ -151,10 +160,12 @@
 
 ;; Simple Emacs minor mode for a nice writing environment.
 (use-package olivetti
+  :ensure t
   :config
   (setq-default olivetti-body-width 80))
 
 (use-package google-translate
+  :ensure t
   :config
   (use-package google-translate-smooth-ui)
   (setq google-translate-translation-directions-alist '(("en" . "ru"))))

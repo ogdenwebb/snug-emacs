@@ -11,6 +11,7 @@
 
 ; Let's simplify the way we write Lisp
 (use-package parinfer
+  :ensure t
   :init
   (progn
     (setq parinfer-extensions

@@ -1,8 +1,12 @@
 ;; Autocomplete
 (use-package company
+  :ensure t
   :init
   (add-hook 'after-init-hook 'global-company-mode)
-  (company-flx-mode +1)
+  (use-package company-flx
+	       :ensure t
+	       :config
+	       (company-flx-mode +1))
   :config
   ;; TODO:
   ;; dabbrev hides other normal condidats

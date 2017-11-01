@@ -1,6 +1,7 @@
 ;; Use ivy for fuzzy matching
 
 (use-package ivy
+  :ensure t
   :init
   (ivy-mode 1)
 
@@ -27,7 +28,11 @@
   ;; Add ‘recentf-mode’ and bookmarks to ‘ivy-switch-buffer’.
   (setq ivy-use-virtual-buffers nil)
 
+  (use-package swiper
+    :ensure t)
+
   (use-package counsel
+    :ensure t
     :config
     (setq counsel-find-file-ignore-regexp (regexp-opt '(".jpg" ".png" ".jpeg")))
     (define-key read-expression-map (kbd "C-r") 'counsel-expression-history)))

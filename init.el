@@ -1,24 +1,6 @@
 ;;;; Elmax - Emacs configuration with Evil
 ;; Kull Wahad! Kull Wahad! Kull Wahad!
 
-;; TODO: try to fix low performance with default mode-line
-
-(require 'package)
-(setq package-enable-at-startup nil)   ; To prevent initialising twice
-(setq package-archives
-      '(("gnu"   . "https://elpa.gnu.org/packages/")
-        ("org"   . "http://orgmode.org/elpa/")
-        ("melpa" . "https://melpa.org/packages/")))
-
-(package-initialize)
-
-;; Use-package
-(unless (package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package))
-
-(eval-when-compile
-  (require 'use-package))
 
 ;; General configation
 (load (concat user-emacs-directory "env/env-boot"))

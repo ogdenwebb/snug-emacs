@@ -23,6 +23,7 @@
     (if face (message "Face: %s" face) (message "No face at %d" pos))))
 
 ;; Disable promt in find file at point
+;; TODO:
 (defun ffap-read-file-or-url (prompt guess)
   "Read file or URL from minibuffer, with PROMPT and initial GUESS."
   (or guess (setq guess default-directory))

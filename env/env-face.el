@@ -17,6 +17,9 @@
 (use-package kaolin-themes
   ;; Comment the following line if you use MELPA package
   :load-path "dev/emacs-kaolin-themes"
+  :init
+  (use-package autothemer
+    :ensure t)
   :config
   ;; Set default theme
   ;; (defun load-my-theme (frame)
@@ -114,16 +117,19 @@
 
 ;; Highlight numbers
 (use-package highlight-numbers
+  :ensure t
   :config
   (add-hook 'prog-mode-hook 'highlight-numbers-mode))
 
 ;; Highlight defined Emacs Lisp symbols in source code
 (use-package highlight-defined
+  :ensure t
   :config
   (add-hook 'emacs-lisp-mode-hook 'highlight-defined-mode))
 
 ;; Highlight parenthess
 (use-package paren
+  :ensure t
   :config
   (show-paren-mode 1)        ; Automatically highlight parenthesis pairs
   (setq show-paren-style 'parenthesis)
@@ -132,6 +138,7 @@
 
 ;; Highlight quoted symbols
 (use-package highlight-quoted
+  :ensure t
   :config
   (add-hook 'emacs-lisp-mode-hook 'highlight-quoted-mode))
 
@@ -142,6 +149,7 @@
 
 ;; Rainbow delimiters
 (use-package rainbow-delimiters
+  :ensure t
   :config
   (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
   (add-hook 'clojure-mode-hook #'rainbow-delimiters-mode))
@@ -157,16 +165,19 @@
 ;;   (setq highlight-indent-guides-character ?\┆))
 
 (use-package indent-guide
+  :ensure t
   :config
   (indent-guide-global-mode))
 
 ;; Line numbering
 (use-package nlinum
-    :init
-    (setq nlinum-format "%4d ")
-    (setq nlinum-highlight-current-line t)
-    (add-hook 'prog-mode-hook 'nlinum-mode)
-    (add-hook 'text-mode-hook 'nlinum-mode))
+  :ensure t
+  :recipe (nlinum :type git :host github :repo "emacsmirror/nlinum")
+  :init
+  (setq nlinum-format "%4d ")
+  (setq nlinum-highlight-current-line t)
+  (add-hook 'prog-mode-hook 'nlinum-mode)
+  (add-hook 'text-mode-hook 'nlinum-mode))
 
 ;; Dashboard
 ;; TODO: fix slow startup mb move it
@@ -184,10 +195,12 @@
 ;;           (projects  . 5))))
 
 ;; Icons
-(use-package all-the-icons)
+(use-package all-the-icons
+  :ensure t)
 
 ;; Highlight TODO and FIXME
 (use-package fic-mode
+  :ensure t
   :config
   (add-hook 'prog-mode-hook 'fic-mode))
 

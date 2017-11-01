@@ -1,3 +1,19 @@
+(let ((bootstrap-file (concat user-emacs-directory "straight/bootstrap.el"))
+      (bootstrap-version 2))
+  (unless (file-exists-p bootstrap-file)
+    (with-current-buffer
+        (url-retrieve-synchronously
+         "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
+         'silent 'inhibit-cookies)
+      (goto-char (point-max))
+      (eval-print-last-sexp)))
+  (load bootstrap-file nil 'nomessage))
+
+(straight-use-package 'use-package)
+
+(eval-when-compile
+  (require 'use-package))
+
 ;; TODO:
 (defun byte-compile-config ()
   (interactive)
@@ -21,6 +37,9 @@
 
 ;; Use Common Lisp library
 (use-package cl)
+
+(straight-use-package
+     '(font-lock+ :type git :host github :repo "emacsmirror/font-lock-plus"))
 
 (when window-system
   (require 'server)

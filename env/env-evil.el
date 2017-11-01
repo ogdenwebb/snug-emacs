@@ -1,5 +1,6 @@
 ;; Enable evil mode
 (use-package evil
+  :ensure t
   :config
   (setq evil-want-fine-undo nil)
 
@@ -24,6 +25,7 @@
   (evil-mode 1))
 
 (use-package evil-goggles
+  :ensure t
   :config
   (defun evil-goggles--show-p (beg end)
     "Return t if the overlay should be displayed in region BEG to END."
@@ -46,6 +48,7 @@
   (setq evil-goggles-pulse t))
 
 (use-package evil-commentary
+  :ensure t
   :after evil
   :commands (evil-commentary evil-commentary-yank)
   :general
@@ -54,22 +57,27 @@
    "gy" 'evil-commentary-yank))
 
 (use-package evil-surround
+  :ensure t
   :init
   (global-evil-surround-mode 1))
 
 ;; Magit
 (use-package evil-magit
+  :ensure t
   :after magit)
 
 (use-package evil-matchit
+  :ensure t
   :config
   (global-evil-matchit-mode t))
 
 (use-package evil-visualstar
+  :ensure t
   :config
   (global-evil-visualstar-mode))
 
 (use-package evil-lion
+  :ensure t
   :commands (evil-lion-mode evil-lion-left evil-lion-right)
   :config
   (setq evil-lion-squeeze-spaces t)
@@ -81,13 +89,16 @@
 ;; Folding
 
 (use-package vimish-fold
+  :ensure t
   :config
   (use-package evil-vimish-fold
+    :ensure t
     :init
     (evil-vimish-fold-mode 1))
   (setq vimish-fold-header-width nil))
 
-(use-package evil-numbers)
+(use-package evil-numbers
+  :ensure t)
 
 
 (provide 'env-evil)
