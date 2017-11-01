@@ -82,21 +82,21 @@
                       "p r" 'projectile-replace
                       "p t" 'projectile-regenerate-tags)
 
-  ;; Narrowing
   (general-nvmap :prefix leader
-                 "t" 'google-translate-smooth-translate
+                 "t"   'google-translate-smooth-translate
+                 ;; Narrowing
                  "n r" 'narrow-to-region
                  "n d" 'narrow-to-defun
                  "n p" 'narrow-to-page
                  "n w" 'widen)
 
+  ;; Normal state
   (general-define-key
-   "<f6>" 'ivy-resume
-   "Y" "y $"
+   ;; TODO:
+   "*" (lambda () (interactive) (swiper (format "\\<%s\\>" (thing-at-point 'symbol))))
+   "#" (lambda () (interactive) (swiper (format "\\<%s\\>" (thing-at-point 'word))))
    "g x"  'browse-url-at-point
    "/"    'swiper
-   ;; TODO:
-   ;; "C-j"  'parinfer-toggle-mode
    ;; Navigation between windows
    "M-h"  'evil-window-left
    "M-j"  'evil-window-down
