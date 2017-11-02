@@ -20,6 +20,7 @@
   :init
   (use-package autothemer
     :ensure t)
+  (setq kaolin-hl-line-colored t)
   :config
   ;; Set default theme
   ;; (defun load-my-theme (frame)
@@ -30,10 +31,9 @@
   ;;     (add-hook 'after-make-frame-functions #'load-my-theme)
   ;;   (load-theme 'kaolin-eclipse t))
 
-  (load-theme 'kaolin-eclipse t)
+  (load-theme 'kaolin-dark t)
 
 
-  (setq kaolin-hl-line-colored t)
   ;; Highlight t and nil in elisp-mode
   (font-lock-add-keywords
    'emacs-lisp-mode
@@ -172,7 +172,6 @@
 ;; Line numbering
 (use-package nlinum
   :ensure t
-  :recipe (nlinum :type git :host github :repo "emacsmirror/nlinum")
   :init
   (setq nlinum-format "%4d ")
   (setq nlinum-highlight-current-line t)

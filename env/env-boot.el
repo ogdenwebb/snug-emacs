@@ -1,15 +1,16 @@
-(let ((bootstrap-file (concat user-emacs-directory "straight/bootstrap.el"))
-      (bootstrap-version 2))
-  (unless (file-exists-p bootstrap-file)
-    (with-current-buffer
-        (url-retrieve-synchronously
-         "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
-         'silent 'inhibit-cookies)
-      (goto-char (point-max))
-      (eval-print-last-sexp)))
-  (load bootstrap-file nil 'nomessage))
+(require 'package)
+(setq package-enable-at-startup nil)   ; To prevent initialising twice
+(setq package-archives
+      '(("gnu"   . "https://elpa.gnu.org/packages/")
+        ("org"   . "http://orgmode.org/elpa/")
+        ("melpa" . "https://melpa.org/packages/")))
 
-(straight-use-package 'use-package)
+(package-initialize)
+
+;; Use-package
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
 
 (eval-when-compile
   (require 'use-package))
@@ -37,9 +38,6 @@
 
 ;; Use Common Lisp library
 (use-package cl)
-
-(straight-use-package
-     '(font-lock+ :type git :host github :repo "emacsmirror/font-lock-plus"))
 
 (when window-system
   (require 'server)
