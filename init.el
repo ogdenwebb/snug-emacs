@@ -3,6 +3,8 @@
 
 ;; General configation
 
+(setq debug-on-error t)
+
 (require 'package)
 (setq package-enable-at-startup nil)   ; To prevent initialising twice
 (setq package-archives
@@ -24,22 +26,21 @@
 (load (concat user-emacs-directory "env/env-boot"))
 
 (require 'env-common)
-;; TODO: rename
 (require 'env-maps)
+(require 'env-evil)
 (require 'env-check)
 (require 'env-company)
-(require 'env-evil)
 (require 'env-face)
 (require 'env-ivy)
 (require 'env-modeline)
 (require 'env-plugins)
 (require 'env-lisp)
 (require 'env-dev)
+(require 'use-vcs)
 
 ;; ;; Specific modules and major modes
 (require 'use-eshell)
 (require 'use-grep)
-(require 'use-vcs)
 
 ;; ;; (require 'use-clj)
 ;; ;; TODO:

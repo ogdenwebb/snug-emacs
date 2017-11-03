@@ -175,9 +175,9 @@
                       "[ e" 'flycheck-previous-error)
 
   ;; EShell
-  (general-define-key :keymaps 'eshell-mode-map
-                      :states  '(insert)
-                      "RET" 'eshell-send-input)
+  ;; (general-define-key :keymaps 'eshell-mode-map
+  ;;                     :states  '(insert)
+  ;;                     "RET" 'eshell-send-input)
 
   ;; Term-mode
   ;; TODO:
