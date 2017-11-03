@@ -1,6 +1,7 @@
 ;; Enable web-mode
 ;; sudo npm install -g csslint
 (use-package web-mode
+  :ensure t
   :mode (("\\.html\\'" . web-mode))
   :config
   (add-hook 'web-mode-hook 'turn-off-smartparens-mode)

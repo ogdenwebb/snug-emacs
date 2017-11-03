@@ -1,20 +1,3 @@
-(require 'package)
-(setq package-enable-at-startup nil)   ; To prevent initialising twice
-(setq package-archives
-      '(("gnu"   . "https://elpa.gnu.org/packages/")
-        ("org"   . "http://orgmode.org/elpa/")
-        ("melpa" . "https://melpa.org/packages/")))
-
-(package-initialize)
-
-;; Use-package
-(unless (package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package))
-
-(eval-when-compile
-  (require 'use-package))
-
 ;; TODO:
 (defun byte-compile-config ()
   (interactive)

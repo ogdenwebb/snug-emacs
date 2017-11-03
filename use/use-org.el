@@ -2,7 +2,8 @@
 
 (use-package org
   :config
-  (use-package org-download)
+  (use-package org-download
+    :ensure t)
 
   ;; Fit image into the screen
   ;; TODO:
@@ -70,6 +71,7 @@
   ;; (setq org-fast-tag-selection-include-todo t)
 
   (use-package evil-org
+    :ensure t
     :after org
     :config
     (add-hook 'org-mode-hook 'evil-org-mode)

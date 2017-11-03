@@ -1,6 +1,7 @@
 ;; TODO: split to basic plugin and dev plugin
-;; (use-package package-utils
-;;   :commands (package-utils-upgrade-all))
+(use-package package-utils
+  :ensure t
+  :commands (package-utils-upgrade-all))
 
 ;; smart new line
 ;; (use-package smart-newline
