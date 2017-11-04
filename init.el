@@ -3,7 +3,7 @@
 
 ;; General configation
 
-(setq debug-on-error t)
+;; (setq debug-on-error t)
 
 (require 'package)
 (setq package-enable-at-startup nil)   ; To prevent initialising twice
@@ -32,11 +32,13 @@
 (require 'env-company)
 (require 'env-face)
 (require 'env-ivy)
-(require 'env-modeline)
 (require 'env-plugins)
 (require 'env-lisp)
 (require 'env-dev)
 (require 'use-vcs)
+
+;; Mode-line
+(require 'modeline-common)
 
 ;; ;; Specific modules and major modes
 (require 'use-eshell)

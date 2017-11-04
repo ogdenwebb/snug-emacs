@@ -21,6 +21,9 @@
   (use-package autothemer
     :ensure t)
   (setq kaolin-hl-line-colored t)
+  (setq kaolin-git-gutter-solid t)
+  ;; With Fira Mono font.
+  ;; (setq kaolin-bold nil)
   :config
   ;; Set default theme
   ;; (defun load-my-theme (frame)
@@ -43,18 +46,7 @@
 ;; TODO: Error: highlight-indent-guides cannot auto set faces:
 ;; `default' face is not set properly
 (add-to-list 'default-frame-alist '(font . "Roboto Mono-11.5"))
-
-;; (let ((default-font "Iosevka-12"))
-;;   (assq-delete-all 'font default-frame-alist)
-;;   (add-to-list 'default-frame-alist
-;;          `(font . ,default-font))
-;;   (set-frame-font default-font))
-
-  ;; (set-face-attribute 'default t
-  ;;                     :family "Roboto Mono for Powerline"
-  ;;                     :height 110
-  ;;                     :weight 'normal
-  ;;                     :width  'normal))
+;; (add-to-list 'default-frame-alist '(font . "Fira Mono-12"))
 
 ;; Set the fringe size
 (setq-default left-fringe-width  6)

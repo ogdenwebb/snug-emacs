@@ -24,13 +24,11 @@
         (message msg))))
 
   (add-hook 'after-init-hook #'recreate-message-buffer)
-
   :config
-  ;; To create custom segments
-  (use-package telephone-line-utils)
 
-  ;; Set mode-line height
-  (setq telephone-line-height 22)
+  ;; To create custom segments
+  (require 'telephone-line-utils)
+
 
   ;; TODO: choose separator by name
   ;; Set default separators: choose either of them
@@ -40,8 +38,6 @@
   ;; (setq telephone-line-primary-left-separator 'telephone-line-identity-left)
   ;; (setq telephone-line-primary-right-separator 'telephone-line-identity-right)
   ;; OR
-  (setq telephone-line-primary-left-separator 'telephone-line-cubed-left)
-  (setq telephone-line-primary-right-separator 'telephone-line-cubed-right)
 
   ;; Set subseparator
   (if window-system
@@ -151,8 +147,8 @@
   ;; TODO: move raise and etc into var
   (telephone-line-defsegment my-vc-segment ()
     ;; #6fb593 #4a858c
-    ;; (let ((fg-color "#6fb593")) ; kaolin-dark
-    (let ((fg-color "#709688")) ; kaolin-eclipse
+    (let ((fg-color "#6fb593")) ; kaolin-dark
+    ;; (let ((fg-color "#709688")) ; kaolin-eclipse
       (when vc-mode
         ;; double format to prevent warnings in '*Messages*' buffer
           (format "%s %s"
@@ -180,22 +176,9 @@
         ('errored     "Error")
         ('interrupted "Interrupted"))))
 
-  ;; Left edge
-  ;; TODO: gray background for buffer and mode segment in inactive line
-  (setq telephone-line-lhs
-        '((evil   . (my-evil-segment))
-          (nil    . (my-buffer-segment))
-          (nil    . (my-modified-status-segment))
-          (nil    . (my-read-only-status-segment))))
-          ;; (nil    . (my-flycheck-segment))))
-
-  ;; Right edge
-  (setq telephone-line-rhs
-        '((nil    . (my-vc-segment))
-          (accent . (my-position-segment))
-          (nil    . (my-major-mode-segment))
-          (accent . ((my-coding-segment :active)))))
+  (require 'modeline-cubed)
+  ;; (require 'modeline-flat)
 
   (telephone-line-mode 1))
 
-(provide 'env-modeline)
+(provide 'modeline-common)
