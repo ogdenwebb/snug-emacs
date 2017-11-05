@@ -13,6 +13,21 @@ https://github.com/hrs/sensible-defaults.el
 https://github.com/kaihaosw/eshell-prompt-extras
 https://github.com/emacs-lsp/lsp-mode
 https://github.com/tsdh/highlight-parentheses.el
+http://blog.binchen.org/posts/auto-complete-everything-in-emacs.html
+https://github.com/redguardtoo/eacl
+https://github.com/magit/git-modes
+https://github.com/IvanMalison/org-projectile
+https://github.com/dholm/tabbar
+https://github.com/Wilfred/emacs-refactor
+https://github.com/hlissner/emacs-solaire-mode
+https://github.com/Alexander-Miller/company-shell
+https://github.com/8cylinder/showcss-mode
+https://github.com/marcowahl/emacsshot
+https://github.com/NicolasPetton/Indium
+https://github.com/yasuyk/web-beautify
+http://whyarethingsthewaytheyare.com/fishlike-autosuggestions-in-eshell/
+https://www.emacswiki.org/emacs/SearchAtPoint
+https://gitlab.com/emacs-stuff/indent-tools
 
 org-agenda
 enable browser: xwidget-browse
