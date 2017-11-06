@@ -49,6 +49,7 @@
 ;; ;; (require 'use-nim)
 (require 'use-org)
 (require 'use-web)
+(require 'use-js)
 
 (require 'env-fu)
 
