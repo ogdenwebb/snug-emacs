@@ -126,7 +126,8 @@
   ;; Insert mode maps
   (general-imap
    "TAB" 'company-indent-or-complete-common
-   "RET" 'evil-ret-and-indent
+   ;; "RET" 'evil-ret-and-indent
+   "RET" 'reindent-then-newline-and-indent
    "DEL" 'elmax/smart-backspace
    "C-j" 'parinfer-toggle-mode
    "C-k" 'company-complete-common-or-cycle
