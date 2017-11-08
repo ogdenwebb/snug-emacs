@@ -94,8 +94,8 @@
   ;; Normal state
   (general-define-key
    ;; TODO:
-   "*" (lambda () (interactive) (swiper (format "\\<%s\\>" (thing-at-point 'symbol))))
-   "#" (lambda () (interactive) (swiper (format "\\<%s\\>" (thing-at-point 'word))))
+   ;; "*" (lambda () (interactive) (swiper (format "\\<%s\\>" (thing-at-point 'symbol))))
+   ;; "#" (lambda () (interactive) (swiper (format "\\<%s\\>" (thing-at-point 'word))))
    "g x"  'browse-url-at-point
    "/"    'swiper
    ;; Navigation between windows

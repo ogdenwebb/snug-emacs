@@ -17,6 +17,8 @@
   :ensure t
   :init
   (global-git-gutter-mode)
+  (with-eval-after-load 'git-gutter
+    (require 'git-gutter-fringe))
 
   (custom-set-variables
    ;; WARNING: "" contains tag space character to display line
@@ -37,6 +39,7 @@
   ;;  '(git-gutter:deleted ((t (:background "#d75f5f" :foreground "#d75f5f")))))
   :config
   (use-package git-gutter-fringe
+    :after git-gutter
     :ensure t)
     ;; :config
     ;; (setq git-gutter-fr:side 'right-fringe))
