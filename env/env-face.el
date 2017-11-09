@@ -34,7 +34,7 @@
   ;;     (add-hook 'after-make-frame-functions #'load-my-theme)
   ;;   (load-theme 'kaolin-eclipse t))
 
-  (load-theme 'kaolin-dark t)
+  (load-theme 'kaolin-eclipse t)
 
 
   ;; Highlight t and nil in elisp-mode

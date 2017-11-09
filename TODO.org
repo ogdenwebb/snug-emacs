@@ -28,6 +28,10 @@ https://github.com/yasuyk/web-beautify
 http://whyarethingsthewaytheyare.com/fishlike-autosuggestions-in-eshell/
 https://www.emacswiki.org/emacs/SearchAtPoint
 https://gitlab.com/emacs-stuff/indent-tools
+https://en.wikipedia.org/wiki/EMMS
+https://github.com/theodorewiles/org-mind-map
+https://github.com/Kungsgeten/org-brain
+
 
 org-agenda
 enable browser: xwidget-browse

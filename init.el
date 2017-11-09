@@ -40,7 +40,7 @@
 ;; Mode-line
 (require 'modeline-common)
 
-;; ;; Specific modules and major modes
+;; Specific modules and major modes
 (require 'use-eshell)
 (require 'use-grep)
 
@@ -50,6 +50,7 @@
 (require 'use-org)
 (require 'use-web)
 (require 'use-js)
+(require 'use-elixir)
 
 (require 'env-fu)
 
