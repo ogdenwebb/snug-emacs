@@ -34,7 +34,7 @@
   ;;     (add-hook 'after-make-frame-functions #'load-my-theme)
   ;;   (load-theme 'kaolin-eclipse t))
 
-  (load-theme 'kaolin-eclipse t)
+  (load-theme 'kaolin-tribal t)
 
 
   ;; Highlight t and nil in elisp-mode
@@ -46,6 +46,7 @@
 ;; TODO: Error: highlight-indent-guides cannot auto set faces:
 ;; `default' face is not set properly
 (add-to-list 'default-frame-alist '(font . "Roboto Mono-11.5"))
+;; (add-to-list 'default-frame-alist '(font . "Iosevka-13"))
 ;; (add-to-list 'default-frame-alist '(font . "Fira Mono-12"))
 
 ;; Set the fringe size

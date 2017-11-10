@@ -167,17 +167,17 @@
         ('finished (if flycheck-current-errors
                        (let-alist (flycheck-count-errors flycheck-current-errors)
                          (let ((sum (+ (or .error 0) (or .warning 0))))
-                           (format "%s: %s"
-                                   (if .error "errors" "warnings")
+                           (format " %s: %s"
+                                   (if .error "Errors" "Warnings")
                                    (number-to-string sum))))
-                      "Succesed"))
-        ('running     "Working...")
-        ('no-checker  "no-checker")
-        ('errored     "Error")
-        ('interrupted "Interrupted"))))
+                      " Succesed"))
+        ('running     " Working...")
+        ('no-checker  " No checker")
+        ('errored     " Error")
+        ('interrupted " Interrupted"))))
 
-  (require 'modeline-cubed)
-  ;; (require 'modeline-flat)
+  ;; (require 'modeline-cubed)
+  (require 'modeline-flat)
 
   (telephone-line-mode 1))
 
