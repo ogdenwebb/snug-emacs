@@ -23,12 +23,13 @@
       ;; '((nil . (my-major-mode-segment)))
       '(
         (nil)
-        (accent . (my-flycheck-segment))
-        (accent . (my-buffer-segment))))
+        (accent . (my-flycheck-segment
+                   my-major-mode-segment))))
 
 (setq telephone-line-center-rhs
       '(
-        (accent . (my-position-segment))
+        (accent . (my-buffer-segment
+                   my-position-segment))
         (nil)))
         ;; (nil . (my-vc-segment))))
 
