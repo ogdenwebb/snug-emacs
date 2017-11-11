@@ -20,11 +20,10 @@
   :init
   (use-package autothemer
     :ensure t)
+  :config
   (setq kaolin-hl-line-colored t)
   (setq kaolin-git-gutter-solid t)
-  ;; With Fira Mono font.
-  ;; (setq kaolin-bold nil)
-  :config
+
   ;; Set default theme
   ;; (defun load-my-theme (frame)
   ;;   (with-selected-frame frame

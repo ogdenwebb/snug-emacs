@@ -17,10 +17,8 @@
         (accent . (my-evil-segment))
         (nil    . (my-modified-status-segment))
         (nil    . (my-read-only-status-segment))))
-        ;; (nil . (my-flycheck-segment))))
 
 (setq telephone-line-center-lhs
-      ;; '((nil . (my-major-mode-segment)))
       '(
         (nil)
         (accent . (my-flycheck-segment
@@ -28,17 +26,16 @@
 
 (setq telephone-line-center-rhs
       '(
-        (accent . (my-buffer-segment
-                   my-position-segment))
+        (accent . (my-buffer-segment))
         (nil)))
-        ;; (nil . (my-vc-segment))))
 
 ;; Right edge
 (setq telephone-line-rhs
       '(
         (nil)
+        (nil    . (my-vc-segment))
+        (nil    . (my-position-segment))
         (accent . ((my-coding-segment :active)))))
-        ;; (nil . (my-vc-segment))
         ;; (nil . (my-position-segment))
         ;; (nil . (my-major-mode-segment))
         ;; (accent . ((my-coding-segment :active)))))

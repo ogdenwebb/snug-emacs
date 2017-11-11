@@ -1,7 +1,6 @@
 ;; TODO: add icons
 ;; TODO: big modeline config
 ;; TODO: check if all-the-icons installed
-;; TODO: (!!) flycheck segment
 ;; TODO: (??) disable mouse menu
 ;; TODO: add function to easy paste icons
 ;; TODO: add segment based on vc-state
@@ -147,8 +146,8 @@
   ;; TODO: move raise and etc into var
   (telephone-line-defsegment my-vc-segment ()
     ;; #6fb593 #4a858c
-    (let ((fg-color "#6fb593")) ; kaolin-dark
-    ;; (let ((fg-color "#709688")) ; kaolin-eclipse
+    ;; (let ((fg-color "#6fb593")) ; kaolin-dark
+    (let ((fg-color "#709688")) ; kaolin-eclipse
       (when vc-mode
         ;; double format to prevent warnings in '*Messages*' buffer
           (format "%s %s"
@@ -170,9 +169,10 @@
                            (format " %s: %s"
                                    (if .error "errors" "warnings")
                                    (number-to-string sum))))
+                     ;; TODO:
                       " succesed"))
         ('running     " working...")
-        ('no-checker  " no checker")
+        ('no-checker  "")
         ('errored     " error")
         ('interrupted " interrupted"))))
 
