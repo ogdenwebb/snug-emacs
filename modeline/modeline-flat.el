@@ -14,15 +14,15 @@
 ;; TODO: gray background for buffer and mode segment in inactive line
 (setq telephone-line-lhs
       '(
-        (accent . (my-evil-segment))
+        (evil   . (my-evil-segment))
         (nil    . (my-modified-status-segment))
         (nil    . (my-read-only-status-segment))))
 
 (setq telephone-line-center-lhs
       '(
         (nil)
-        (accent . (my-flycheck-segment
-                   my-major-mode-segment))))
+        (accent . (my-flycheck-segment))
+        (accent . ((my-major-mode-segment :active)))))
 
 (setq telephone-line-center-rhs
       '(
@@ -33,8 +33,8 @@
 (setq telephone-line-rhs
       '(
         (nil)
-        (nil    . (my-vc-segment))
-        (nil    . (my-position-segment))
+        (nil    . ((my-vc-segment :active)))
+        ;; (nil    . (my-position-segment))
         (accent . ((my-coding-segment :active)))))
         ;; (nil . (my-position-segment))
         ;; (nil . (my-major-mode-segment))

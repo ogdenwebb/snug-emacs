@@ -171,4 +171,11 @@
   (use-package google-translate-smooth-ui)
   (setq google-translate-translation-directions-alist '(("en" . "ru"))))
 
+(use-package imenu-list
+  :ensure t
+  :config
+  (setq imenu-list-mode-line-format nil)
+  (setq imenu-list-size 32))
+
+
 (provide 'env-plugins)

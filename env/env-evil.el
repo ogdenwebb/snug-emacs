@@ -21,6 +21,7 @@
   (evil-ex-define-cmd "pu[pgrade]" 'package-utils-upgrade-all)
   (evil-ex-define-cmd "pi[stall]"  'package-install)
   (evil-ex-define-cmd "pd[elete]"  'package-delete)
+  (evil-ex-define-cmd "lt"  'load-theme)
 
   (evil-mode 1))
 

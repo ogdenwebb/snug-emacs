@@ -19,7 +19,10 @@
                       ;; counsel-unicode-char
                       ;; counsel-faces
                       "1" 'colorpicker
+                      ;; TODO: mapundolist
+                      ;; "2" 'undolist
                       "3" 'treemacs-toggle
+                      "4" 'imenu-list-smart-toggle
                       "5" 'hydra-flyspell/body
                       "6" 'ivy-resume
                       "f" 'counsel-recentf

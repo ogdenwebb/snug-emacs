@@ -23,6 +23,7 @@
   :config
   (setq kaolin-hl-line-colored t)
   (setq kaolin-git-gutter-solid t)
+  (setq kaolin-wave t)
 
   ;; Set default theme
   ;; (defun load-my-theme (frame)
@@ -33,7 +34,7 @@
   ;;     (add-hook 'after-make-frame-functions #'load-my-theme)
   ;;   (load-theme 'kaolin-eclipse t))
 
-  (load-theme 'kaolin-tribal t)
+  (load-theme 'kaolin-galaxy t)
 
 
   ;; Highlight t and nil in elisp-mode

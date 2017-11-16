@@ -1,6 +1,10 @@
 Agenda
 https://www.reddit.com/r/emacs/comments/6s9ez3/package_management_under_emacs_25/
 
+# Read
+(vc-annotate-background nil)
+(vc-annotate-very-old-color nil)
+
 SORT:
 electric-* modes
 https://github.com/wasamasa/shackle
