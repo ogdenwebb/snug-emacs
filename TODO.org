@@ -5,6 +5,11 @@ https://www.reddit.com/r/emacs/comments/6s9ez3/package_management_under_emacs_25
 (vc-annotate-background nil)
 (vc-annotate-very-old-color nil)
 
+# Read
+ (eval-after-load 'nix-mode
+ (add-hook 'nix-mode-hook
+ (lambda () (setq-local indent-line-function #'indent-relative))))
+
 SORT:
 electric-* modes
 https://github.com/wasamasa/shackle
