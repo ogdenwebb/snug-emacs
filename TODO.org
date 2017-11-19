@@ -11,7 +11,10 @@ https://www.reddit.com/r/emacs/comments/6s9ez3/package_management_under_emacs_25
  (lambda () (setq-local indent-line-function #'indent-relative))))
 
 SORT:
-electric-* modes
+built-in electric-* modes
+https://github.com/xwl/electric-spacing
+https://github.com/sirikid/add-hook-x
+https://github.com/jojojames/evil-collection
 https://github.com/wasamasa/shackle
 https://github.com/escherdragon/sunrise-commander
 https://github.com/emacscollective/no-littering
