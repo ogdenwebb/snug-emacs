@@ -10,7 +10,10 @@
 
 ; Git
 (use-package magit
-  :ensure t)
+  :ensure t
+  :init
+  (setenv "GIT_ASKPASS" "")
+  (setenv "SSH_ASKPASS" ""))
 
 ;; Highlight changes in git
 (use-package git-gutter
