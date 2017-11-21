@@ -178,8 +178,8 @@
         ('errored     " error")
         ('interrupted " interrupted"))))
 
-  ;; (require 'modeline-cubed)
-  (require 'modeline-flat)
+  (require 'modeline-cubed)
+  ;; (require 'modeline-flat)
 
   (telephone-line-mode 1))
 

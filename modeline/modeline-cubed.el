@@ -3,7 +3,7 @@
 (setq telephone-line-primary-right-separator 'telephone-line-cubed-right)
 
 ;; Set mode-line height
-(setq telephone-line-height 22)
+(setq telephone-line-height 28)
 
 ;; Left edge
 ;; TODO: gray background for buffer and mode segment in inactive line
