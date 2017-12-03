@@ -27,7 +27,7 @@
                       "6" 'ivy-resume
                       "f" 'counsel-recentf
                       "y" 'counsel-yank-pop
-                      "k" 'counsel-ag
+                      "k" 'counsel-rg
                       "l" 'counsel-bookmark
                       ;; TODO: ?? i -> O
                       "I" 'counsel-find-file
