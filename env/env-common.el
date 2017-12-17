@@ -135,7 +135,7 @@
 
 ;; Set default browser
 (setq browse-url-browser-function 'browse-url-generic
-          browse-url-generic-program "chromium")
+          browse-url-generic-program "firefox-bin")
 
 ;; Enable some features
 (put 'narrow-to-region 'disabled nil)
@@ -145,5 +145,10 @@
 (put 'erase-buffer 'disabled nil)
 (put 'scroll-left 'disabled nil)
 (put 'dired-find-alternate-file 'disabled nil)
+
+
+(use-package uniquify
+  :config
+  (setq uniquify-buffer-name-style 'forward))
 
 (provide 'env-common)
