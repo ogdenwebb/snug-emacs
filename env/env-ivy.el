@@ -37,6 +37,11 @@
     (setq counsel-find-file-ignore-regexp (regexp-opt '(".jpg" ".png" ".jpeg")))
     (define-key read-expression-map (kbd "C-r") 'counsel-expression-history)))
 
+(use-package ivy-rich
+  :config
+  (ivy-set-display-transformer 'ivy-switch-buffer 'ivy-rich-switch-buffer-transformer)
+  (setq ivy-rich-path-style 'abbrev))
+
 ;; Helm setup to test theme faces
 ;; (use-package helm
 ;;   :diminish helm-mode
