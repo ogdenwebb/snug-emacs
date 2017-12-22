@@ -78,7 +78,7 @@
   :ensure t
   :after projectile
   :config
-  (counsel-projectile-on))
+  (counsel-projectile-mode))
 
 ;; Quickrun
 (use-package quickrun
