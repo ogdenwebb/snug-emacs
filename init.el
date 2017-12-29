@@ -1,6 +1,8 @@
 ;;;; Elmax - Emacs configuration with Evil
 ;; Kull Wahad! Kull Wahad! Kull Wahad!
 
+;; el-get
+
 ;; General configation
 
 ;; (setq debug-on-error t)

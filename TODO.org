@@ -12,6 +12,7 @@ https://www.reddit.com/r/emacs/comments/6s9ez3/package_management_under_emacs_25
 
 SORT:
 built-in electric-* modes
+https://github.com/ninrod/evil-string-inflection
 https://melpa.org/#/highlight-operators
 https://github.com/noctuid/evil-textobj-anyblock
 https://github.com/xwl/electric-spacing

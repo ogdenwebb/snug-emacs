@@ -45,7 +45,6 @@
                       "e d" 'eval-defun
                       "e b" 'eval-buffer
 
-                      ;; TODO: (??) bind . or smth for major mode
                       ;; Olivetti
                       ". ." 'olivetti-mode
                       ". [" 'olivetti-shrink
@@ -72,8 +71,8 @@
                       "w c" 'delete-window
                       "w s" 'split-window-below
                       "w v" 'split-window-right
-                      "w k" 'kill-this-buffer
-                      "w K" 'kill-buffer
+                      "w d" 'kill-this-buffer
+                      "w D" 'kill-buffer
 
                       "m d" 'magit-diff
                       "m m" 'magit-status
