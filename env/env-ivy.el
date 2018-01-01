@@ -28,6 +28,9 @@
   ;; Add ‘recentf-mode’ and bookmarks to ‘ivy-switch-buffer’.
   (setq ivy-use-virtual-buffers nil)
 
+  ;; Do not show "./" and "../" in the `counsel-find-file' completion list
+  (setq ivy-extra-directories nil) ; default value: ("../" "./")
+
   (use-package swiper
     :ensure t)
 
