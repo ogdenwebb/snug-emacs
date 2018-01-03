@@ -12,6 +12,8 @@ https://www.reddit.com/r/emacs/comments/6s9ez3/package_management_under_emacs_25
 
 SORT:
 built-in electric-* modes
+https://github.com/bard/org-dashboard/
+https://github.com/jscheid/dtrt-indent
 https://github.com/cyrus-and/zoom
 https://github.com/ninrod/evil-string-inflection
 https://github.com/davidshepherd7/electric-operator/tree/e414534bd0a4149919647beec8fe4e342d2d1219

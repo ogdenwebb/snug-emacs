@@ -33,6 +33,7 @@
 (require 'env-check)
 (require 'env-company)
 (require 'env-face)
+(require 'env-dashboard)
 (require 'env-ivy)
 (require 'env-plugins)
 (require 'env-lisp)
@@ -47,7 +48,6 @@
 (require 'use-grep)
 
 ;; (require 'use-clj)
-;; ;; TODO:
 (require 'use-nim)
 (require 'use-org)
 (require 'use-web)
