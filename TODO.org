@@ -5,6 +5,10 @@ https://www.reddit.com/r/emacs/comments/6s9ez3/package_management_under_emacs_25
 (vc-annotate-background nil)
 (vc-annotate-very-old-color nil)
 
+;; auto insert command
+
+https://github.com/emacs-berlin/syntactic-close/t
+
 # Read
  (eval-after-load 'nix-mode
  (add-hook 'nix-mode-hook

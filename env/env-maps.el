@@ -31,7 +31,7 @@
                       "l" 'counsel-bookmark
                       ;; TODO: ?? i -> O
                       "I" 'counsel-find-file
-                      "i" 'counsel-overall
+                      "i" 'counsel-file-jump
                       "o" 'switch-to-buffer
                       "r" 'quickrun
 

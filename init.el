@@ -33,7 +33,7 @@
 (require 'env-check)
 (require 'env-company)
 (require 'env-face)
-(require 'env-dashboard)
+;; (require 'env-dashboard)
 (require 'env-ivy)
 (require 'env-plugins)
 (require 'env-lisp)

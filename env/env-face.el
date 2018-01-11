@@ -15,15 +15,17 @@
 
 ;; Load my theme
 (use-package kaolin-themes
-  ;; Comment the following line if you use MELPA package
+  ;; Delete the following line if you use MELPA package
   :load-path "dev/emacs-kaolin-themes"
   :init
   (use-package autothemer
     :ensure t)
   :config
+
   (setq kaolin-hl-line-colored t)
   (setq kaolin-git-gutter-solid t)
   (setq kaolin-wave t)
+  ;; (setq kaolin-bold nil)
 
   ;; Set default theme
   ;; (defun load-my-theme (frame)
