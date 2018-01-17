@@ -1,14 +1,17 @@
 ;; Enable evil mode
 (use-package evil
   :ensure t
-  :config
+  :init
   (setq evil-want-fine-undo t)
+  (setq evil-want-Y-yank-to-eol t)
+  (setq evil-ex-search-vim-style-regexp t)
+  (setq evil-move-beyond-eol t)
+
+  :config
 
   ;; (setq evil-search-module 'evil-search)
   ;; (setq evil-magic 'very-magic)
   ;; (setq evil-vim-regexp-replacements nil)
-  (setq evil-ex-search-vim-style-regexp t)
-  (setq evil-move-beyond-eol t)
   ;; (setq evil-auto-indent nil)
 
   ;; Initial states
