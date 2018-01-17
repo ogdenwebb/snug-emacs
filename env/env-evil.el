@@ -1,11 +1,14 @@
 ;; Enable evil mode
 (use-package evil
   :ensure t
+  :defer .1 ;; don't block emacs when starting, load evil immediately after startup
   :init
+  (setq evil-want-integration nil) ;; required by evil-collection
   (setq evil-want-fine-undo t)
   (setq evil-want-Y-yank-to-eol t)
   (setq evil-ex-search-vim-style-regexp t)
   (setq evil-move-beyond-eol t)
+  (setq evil-shift-round nil)
 
   :config
 
@@ -27,6 +30,13 @@
   (evil-ex-define-cmd "lt"  'load-theme)
 
   (evil-mode 1))
+
+;; Vim-like keybindings everywhere in Emacs
+(use-package evil-collection
+  :after evil
+  :ensure t
+  :config
+  (evil-collection-init))
 
 (use-package evil-goggles
   :ensure t
