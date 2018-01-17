@@ -2,7 +2,7 @@
 (use-package evil
   :ensure t
   :config
-  (setq evil-want-fine-undo nil)
+  (setq evil-want-fine-undo t)
 
   ;; (setq evil-search-module 'evil-search)
   ;; (setq evil-magic 'very-magic)
