@@ -25,7 +25,7 @@
   (setq kaolin-hl-line-colored t)
   (setq kaolin-git-gutter-solid t)
   (setq kaolin-wave t)
-  ;; (setq kaolin-bold nil)
+  (setq kaolin-bold nil)
 
   ;; Set default theme
   ;; (defun load-my-theme (frame)

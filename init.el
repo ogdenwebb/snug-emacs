@@ -11,7 +11,7 @@
 (setq package-enable-at-startup nil)   ; To prevent initialising twice
 (setq package-archives
       '(("gnu"   . "https://elpa.gnu.org/packages/")
-        ("org"   . "http://orgmode.org/elpa/")
+        ("org"   . "https://orgmode.org/elpa/")
         ("melpa" . "https://melpa.org/packages/")))
 
 (package-initialize)
@@ -23,7 +23,6 @@
 
 (eval-when-compile
   (require 'use-package))
-
 
 (load (concat user-emacs-directory "env/env-boot"))
 
