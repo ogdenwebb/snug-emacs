@@ -85,5 +85,23 @@
 
 ;; Add "J" as the key that will launch the function
 ;; (define-key neotree-mode-map (kbd "J") 'neotree-open-xdg-on-point)
+;; function copied from spacemacs source code
+;; modified function from http://emacswiki.org/emacs/AlignCommands
+(defun align-repeat (start end regexp &optional justify-right after)
+  "Repeat alignment with respect to the given regular expression.
+  If JUSTIFY-RIGHT is non nil justify to the right instead of the
+  left. If AFTER is non-nil, add whitespace to the left instead of
+  the right."
+
+  (interactive "r\nsAlign repeat regexp: ")
+  (let* ((ws-regexp (if (string-empty-p regexp)
+                        "\\(\\s-+\\)"
+                      "\\(\\s-*\\)"))
+         (complete-regexp (if after
+                              (concat regexp ws-regexp)
+                            (concat ws-regexp regexp)))
+         (group (if justify-right -1 1)))
+    (message "complete-regexp: %S" complete-regexp)
+    (align-regexp start end complete-regexp group 1 t)))
 
 (provide 'env-fu)

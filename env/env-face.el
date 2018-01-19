@@ -38,14 +38,12 @@
 
   (load-theme 'kaolin-galaxy t)
 
-
   ;; Highlight t and nil in elisp-mode
   (font-lock-add-keywords
    'emacs-lisp-mode
    '(("\\<\\(nil\\|t\\)\\>" . 'kaolin-boolean))))
 
 ;; Set default font
-;; TODO: Error: highlight-indent-guides cannot auto set faces:
 ;; `default' face is not set properly
 (add-to-list 'default-frame-alist '(font . "Roboto Mono-11.5"))
 ;; (add-to-list 'default-frame-alist '(font . "Iosevka-13"))
@@ -168,7 +166,7 @@
 (use-package nlinum
   :ensure t
   :init
-  (setq nlinum-format "%4d ")
+  (setq nlinum-format "%5d ")
   (setq nlinum-highlight-current-line t)
   (add-hook 'prog-mode-hook 'nlinum-mode)
   (add-hook 'text-mode-hook 'nlinum-mode))
