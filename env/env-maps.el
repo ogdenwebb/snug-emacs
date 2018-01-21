@@ -1,12 +1,12 @@
 (use-package general
   :ensure t
   :config
-  (setq general-default-keymaps 'evil-normal-state-map)
 
   ;; Leader bindings
   (setq leader "SPC")
 
-  (general-define-key :prefix leader
+  (general-define-key :states 'normal
+                      :prefix leader
                       ;; TODO: add load-theme somewhere
                       ;; TODO: mb add configuration opt or smth
                       ;; TODO: (??) add second leader
@@ -95,6 +95,7 @@
 
   ;; Normal state
   (general-define-key
+   :states 'normal
    ;; TODO:
    ;; "*" (lambda () (interactive) (swiper (format "\\<%s\\>" (thing-at-point 'symbol))))
    ;; "#" (lambda () (interactive) (swiper (format "\\<%s\\>" (thing-at-point 'word))))
@@ -116,8 +117,8 @@
    :keymaps '(normal visual)
 
    ;; evil-commentary
-   "g c" 'evil-commentary
-   "g y" 'evil-commentary-yank
+   ;; "g c" 'evil-commentary
+   ;; "g y" 'evil-commentary-yank
 
    ;; evil-lion
    "g a"  'evil-lion-left
