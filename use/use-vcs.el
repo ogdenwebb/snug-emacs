@@ -43,13 +43,9 @@
   :config
   (use-package git-gutter-fringe
     :after git-gutter
-    :ensure t)
+    :ensure t))
     ;; :config
     ;; (setq git-gutter-fr:side 'right-fringe))
-  :general
-  (general-nvmap
-   "] h" 'git-gutter:next-hunk
-   "[ h" 'git-gutter:previous-hunk))
 
 ;; (use-package git-gutter
 ;;   :commands (global-git-gutter-mode git-gutter-mode)

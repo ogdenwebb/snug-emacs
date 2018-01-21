@@ -3,8 +3,6 @@
   :config
   (setq general-default-keymaps 'evil-normal-state-map)
 
-  (general-evil-setup)
-
   ;; Leader bindings
   (setq leader "SPC")
 
@@ -85,13 +83,15 @@
                       "p r" 'projectile-replace
                       "p t" 'projectile-regenerate-tags)
 
-  (general-nvmap :prefix leader
-                 "t"   'google-translate-smooth-translate
-                 ;; Narrowing
-                 "n r" 'narrow-to-region
-                 "n d" 'narrow-to-defun
-                 "n p" 'narrow-to-page
-                 "n w" 'widen)
+  (general-define-key
+   :keymaps '(normal visual)
+
+   "t"   'google-translate-smooth-translate
+   ;; Narrowing
+   "n r" 'narrow-to-region
+   "n d" 'narrow-to-defun
+   "n p" 'narrow-to-page
+   "n w" 'widen)
 
   ;; Normal state
   (general-define-key
@@ -111,22 +111,39 @@
    "C-k"  'drag-stuff-up
    "C-l"  'drag-stuff-down)
 
+  ;; nvmap
+  (general-define-key
+   :keymaps '(normal visual)
+
+   ;; evil-commentary
+   "g c" 'evil-commentary
+   "g y" 'evil-commentary-yank
+
+   ;; evil-lion
+   "g a"  'evil-lion-left
+   "g A"  'evil-lion-right
+
+   "j"   'evil-next-visual-line
+   "k"   'evil-previous-visual-line
+   "C-a" 'evil-numbers/inc-at-pt
+   "C-x" 'evil-numbers/dec-at-pt
+
+   ;; git-gutter
+   "] h" 'git-gutter:next-hunk
+   "[ h" 'git-gutter:previous-hunk)
+
   ;; Bind ESC to jk
-  (general-imap
+  (general-define-key
+   :keymaps '(insert)
    "j" (general-key-dispatch 'self-insert-command
          :name gl/evil-escape
          :timeout 0.25
          "k" 'evil-normal-state))
 
-  ;; Evil bindings normal and visual
-  (general-nvmap
-   "j"   'evil-next-visual-line
-   "k"   'evil-previous-visual-line
-   "C-a" 'evil-numbers/inc-at-pt
-   "C-x" 'evil-numbers/dec-at-pt)
 
   ;; Insert mode maps
-  (general-imap
+  (general-define-key
+   :keymaps '(insert)
    "TAB" 'company-indent-or-complete-common
    ;; "RET" 'evil-ret-and-indent
    "RET" 'reindent-then-newline-and-indent

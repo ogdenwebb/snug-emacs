@@ -64,11 +64,7 @@
 (use-package evil-commentary
   :ensure t
   :after evil
-  :commands (evil-commentary evil-commentary-yank)
-  :general
-  (general-nvmap
-   "gc" 'evil-commentary
-   "gy" 'evil-commentary-yank))
+  :commands (evil-commentary evil-commentary-yank))
 
 (use-package evil-surround
   :ensure t
@@ -94,11 +90,7 @@
   :ensure t
   :commands (evil-lion-mode evil-lion-left evil-lion-right)
   :config
-  (setq evil-lion-squeeze-spaces t)
-  :general
-  (general-nvmap
-   "ga"  'evil-lion-left
-   "gA"  'evil-lion-right))
+  (setq evil-lion-squeeze-spaces t))
 
 ;; Folding
 
