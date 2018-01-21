@@ -17,7 +17,7 @@
                       ;; counsel-unicode-char
                       ;; counsel-faces
                       "1" 'colorpicker
-                      ;; "2" 'undolist
+                      "2" 'undo-tree-visualize
                       "3" 'treemacs-toggle
                       "4" 'imenu-list-smart-toggle
                       "5" 'hydra-flyspell/body
