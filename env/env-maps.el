@@ -17,7 +17,6 @@
                       ;; counsel-unicode-char
                       ;; counsel-faces
                       "1" 'colorpicker
-                      ;; TODO: mapundolist
                       ;; "2" 'undolist
                       "3" 'treemacs-toggle
                       "4" 'imenu-list-smart-toggle
@@ -84,6 +83,7 @@
                       "p t" 'projectile-regenerate-tags)
 
   (general-define-key
+   :prefix leader
    :keymaps '(normal visual)
 
    "t"   'google-translate-smooth-translate
@@ -117,8 +117,8 @@
    :keymaps '(normal visual)
 
    ;; evil-commentary
-   ;; "g c" 'evil-commentary
-   ;; "g y" 'evil-commentary-yank
+   "g c" 'evil-commentary
+   "g y" 'evil-commentary-yank
 
    ;; evil-lion
    "g a"  'evil-lion-left
