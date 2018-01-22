@@ -132,7 +132,7 @@
                  ((eq 0 eol-type) "unix")
                  ((eq 1 eol-type) "dos")
                  ((eq 2 eol-type) "mac")
-                 (t ""))))
+                 (t "-"))))
       (concat eol " ")))
 
   ;; TODO:
