@@ -113,7 +113,7 @@
 
   ;; Display modified status
   (telephone-line-defsegment my-modified-status-segment ()
-    (when (and (buffer-modified-p) (not (member mode-name modeline-ignored-modes)))
+    (when (and (buffer-modified-p) (not (member mode-name modeline-ignored-modes)) (not buffer-read-only))
         (propertize "+" 'face `(:foreground "#85b654"))))
 
   ;; Display read-only status
