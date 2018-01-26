@@ -1,8 +1,4 @@
-;; Increase garbage collection for speedup
-(setq-default gc-cons-threshold 20000000) ; or even 1000000000
-              ;; gc-cons-percentage 0.2)
-
-;; encoding
+;; Encoding
 (set-charset-priority 'unicode)
 (prefer-coding-system 'utf-8)
 (set-language-environment 'utf-8)

@@ -8,7 +8,9 @@
 ;; (setq debug-on-error t)
 
 (require 'package)
-(setq package-enable-at-startup nil)   ; To prevent initialising twice
+(setq package-enable-at-startup nil   ; To prevent initialising twice
+      package--init-file-ensured t)
+
 (setq package-archives
       '(("gnu"   . "https://elpa.gnu.org/packages/")
         ("org"   . "https://orgmode.org/elpa/")

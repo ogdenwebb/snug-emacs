@@ -1,3 +1,12 @@
+;; Increase garbage collection for speedup
+(setq-default gc-cons-threshold 20000000 ; or even 1000000000
+              gc-cons-percentage 0.6)
+
+(add-hook 'emacs-startup-hook
+          #'(lambda ()
+              (setq gc-cons-threshold 16777216
+                    gc-cons-percentage 0.1)))
+
 ;; TODO:
 (defun byte-compile-config ()
   (interactive)
