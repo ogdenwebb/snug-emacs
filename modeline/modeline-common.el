@@ -52,23 +52,13 @@
 
 
   ;; Display major mode
-  ;; TODO: Rewrite using assoc and defvar #835d83
   (telephone-line-defsegment* my-major-mode-segment ()
     (let ((mode (cond
-                  ((string= mode-name "Fundamental") "text")
-                  ((string= mode-name "Emacs-Lisp") "elisp")
-                  ((string= mode-name "Javascript-IDE") "js")
-                  (t (downcase mode-name)))))
-          ;; (icon (all-the-icons-icon-for-buffer)))
-      ;; (concat
-      ;;   (unless (symbolp icon) ;; This implies it's the major mode
-      ;;     (format "%s "
-      ;;             (propertize icon
-      ;;                         'face `(:height 1.0 :family ,(all-the-icons-icon-family-for-buffer))
-      ;;                         'display '(raise -0.1))))
+                 ((string= mode-name "Fundamental") "text")
+                 ((string= mode-name "Emacs-Lisp") "elisp")
+                 ((string= mode-name "Javascript-IDE") "js")
+                 (t (downcase mode-name)))))
       (propertize mode 'face `(:foreground "#9d81ba"))))
-  ;; ;; Display name
-  ;;   (propertize mode 'face `(:foreground "#9d81ba")))))
 
   ;; Display evil state
   (telephone-line-defsegment my-evil-segment ()
