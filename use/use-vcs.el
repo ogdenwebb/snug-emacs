@@ -15,6 +15,11 @@
   (setenv "GIT_ASKPASS" "")
   (setenv "SSH_ASKPASS" ""))
 
+;; TODO:
+;; (use-package magithub
+;;   :after magit
+;;   :config (magithub-feature-autoinject t))
+
 (use-package gist
   :ensure t)
 

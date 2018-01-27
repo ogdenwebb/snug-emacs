@@ -5,6 +5,8 @@
 
 ;; General configation
 
+;; TODO: find a key for major mode related maps
+
 ;; (setq debug-on-error t)
 
 (require 'package)
