@@ -15,6 +15,18 @@
   (setq company-idle-delay nil) ; never start completions automatically
   (setq company-require-match nil)
 
+  (with-eval-after-load 'company
+    (define-key company-active-map (kbd "M-n") nil)
+    (define-key company-active-map (kbd "M-p") nil)
+    (define-key company-active-map (kbd "C-n") #'company-select-next)
+    (define-key company-active-map (kbd "C-p") #'company-select-previous))
+
+  ;; Additional backends and company related package
+  (use-package company-shell
+    :after company
+    :config
+    (add-to-list 'company-backends '(company-shell company-shell-env company-fish-shell))))
+
   ;; OCaml
   ;;;; Make company aware of merlin
   ;; (with-eval-after-load 'company
@@ -26,8 +38,6 @@
 
   ;; Complete filename
   (add-to-list 'company-backends 'company-files)
-
-  ;; Add fuzzy matching
 
   ;; Clojure
   (add-hook 'cider-repl-mode-hook #'company-mode)
@@ -74,10 +84,5 @@
   ;; (setq company-dabbrev-code-other-buffers 'all)
   ;; (setq company-dabbrev-ignore-buffers "\\`\\'")
 
-  (with-eval-after-load 'company
-    (define-key company-active-map (kbd "M-n") nil)
-    (define-key company-active-map (kbd "M-p") nil)
-    (define-key company-active-map (kbd "C-n") #'company-select-next)
-    (define-key company-active-map (kbd "C-p") #'company-select-previous)))
 
 (provide 'env-company)

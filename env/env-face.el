@@ -181,4 +181,12 @@
   :config
   (add-hook 'prog-mode-hook 'fic-mode))
 
+;; TODO
+;; Highlight surrounding parentheses in Emacs
+;; (use-package highlight-parentheses
+;;   :config
+;;   (global-highlight-parentheses-mode))
+
+
+
 (provide 'env-face)

@@ -144,7 +144,7 @@
 
   ;; Insert mode maps
   (general-define-key
-   :keymaps '(insert)
+   :states '(insert)
    "TAB" 'company-indent-or-complete-common
    ;; "RET" 'evil-ret-and-indent
    "RET" 'reindent-then-newline-and-indent
