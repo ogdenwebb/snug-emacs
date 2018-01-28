@@ -48,29 +48,70 @@
 
   ;; TODO: indicators in the corner of the sceen without padding
   ;; after window resize
-  (when (fboundp 'define-fringe-bitmap))
-  (define-fringe-bitmap 'elmax/flycheck-fringe-indicator
-    (vector #b00000000
-            #b00000000
-            #b00000000
-            #b00000000
-            #b00000000
-            #b00000000
-            #b00000000
-            #b00111000
-            #b01111100
-            #b01111100
-            #b01111100
-            #b00111000
-            #b00000000
-            #b00000000
-            #b00000000
-            #b00000000
-            #b00000000))
+  ;; (when (fboundp 'define-fringe-bitmap)
+  ;;   (define-fringe-bitmap 'elmax/flycheck-fringe-indicator
+  ;;     (vector #b00000000
+  ;;             #b00000000
+  ;;             #b00000000
+  ;;             #b00000000
+  ;;             #b00000000
+  ;;             #b00000000
+  ;;             #b00000000
+  ;;             #b00111000
+  ;;             #b01111100
+  ;;             #b01111100
+  ;;             #b01111100
+  ;;             #b00111000
+  ;;             #b00000000
+  ;;             #b00000000
+  ;;             #b00000000
+  ;;             #b00000000
+  ;;             #b00000000)))
+
+  (when (fboundp 'define-fringe-bitmap)
+    (define-fringe-bitmap 'elmax/flycheck-fringe-error
+      (vector #b00000000
+              #b00000000
+              #b00000000
+              #b00000000
+              #b00000000
+              #b11000011
+              #b11100111
+              #b01100110
+              #b00111100
+              #b00111100
+              #b01100110
+              #b11100111
+              #b11000011
+              #b00000000
+              #b00000000
+              #b00000000
+              #b00000000)))
+
+  (when (fboundp 'define-fringe-bitmap)
+    (define-fringe-bitmap 'elmax/flycheck-fringe-indicator
+      (vector #b00000000
+              #b00000000
+              #b00000000
+              #b00000000
+              #b00000001
+              #b00000111
+              #b00001111
+              #b00011111
+              #b00111111
+              #b00111111
+              #b00011111
+              #b00001111
+              #b00000111
+              #b00000001
+              #b00000000
+              #b00000000
+              #b00000000)))
+
 
   (flycheck-define-error-level 'error
     :overlay-category 'flycheck-error-overlay
-    :fringe-bitmap 'elmax/flycheck-fringe-indicator
+    :fringe-bitmap 'elmax/flycheck-fringe-error
     :fringe-face 'flycheck-fringe-error)
 
   (flycheck-define-error-level 'warning

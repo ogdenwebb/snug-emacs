@@ -6,6 +6,12 @@
 ;; General configation
 
 ;; TODO: find a key for major mode related maps
+;; TODO: add env/use-media for twitter, reddit, etc
+;;
+;; https://github.com/wcsmith/evil-args
+;; https://github.com/ninrod/evil-replace-with-char/
+
+;; org-mode https://github.com/tashrifsanil/org-easy-img-insert/
 
 ;; (setq debug-on-error t)
 

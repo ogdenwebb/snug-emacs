@@ -177,16 +177,16 @@
   (setq imenu-list-mode-line-format nil)
   (setq imenu-list-size 32))
 
-(use-package helpful
-  :ensure t
-  :general
-  (general-define-key :states 'normal
-                      :prefix leader
-                      "h k" 'helpful-key
-                      "h v" 'helpful-variable
-                      ;; "h f" 'helpful-function
-                      "h f" 'helpful-callable
-                      "h l" 'find-library
-                      "h ." 'helpful-at-point))
+;; (use-package helpful
+;;   :ensure t
+;;   :general
+;;   (general-define-key :states 'normal
+;;                       :prefix leader
+;;                       "h k" 'helpful-key
+;;                       "h v" 'helpful-variable
+;;                       ;; "h f" 'helpful-function
+;;                       "h f" 'helpful-callable
+;;                       "h l" 'find-library
+;;                       "h ." 'helpful-at-point))
 
 (provide 'env-plugins)

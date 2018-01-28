@@ -3,6 +3,9 @@
 ;;   :config
 ;;   (setq monky-process-type 'cmdserver))
 
+(setq vc-annotate-background nil
+      vc-annotate-very-old-color nil)
+
 (use-package ediff
   :defer t
   :config

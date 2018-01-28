@@ -7,7 +7,7 @@ https://www.reddit.com/r/emacs/comments/6s9ez3/package_management_under_emacs_25
 
 ;; auto insert command
 
-https://github.com/emacs-berlin/syntactic-close/t
+https://github.com/emacs-berlin/syntactic-close/
 
 # Read
  (eval-after-load 'nix-mode
@@ -100,8 +100,6 @@ https://github.com/felipeochoa/rjsx-mode
 let g:syntastic_error_symbol        = '✖'
 let g:syntastic_warning_symbol      = '►'
 
-Javascript Env
-
 * Global
 ** TODO add debug/minimal mode
  (setq debug-on-error t)
@@ -121,8 +119,6 @@ https://www.emacswiki.org/emacs/BufferSelection
 ** TODO find file recursively
 ** TODO sr-speedbar
 ** TODO yasnippet
-* Modules
-** TODO add use-ocaml or use-ml
 * Company
 ** TODO add dictionary
 ** dabbrev; dabbrev-expand
