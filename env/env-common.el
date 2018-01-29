@@ -74,6 +74,12 @@
 (setq visible-bell nil
  ring-bell-function 'ignore)
 
+;; Don't truncate lines
+(setq-default truncate-lines t)
+
+;; TODO:
+;; (setq-default global-visual-line-mode t)
+
 ;; VC settings
 (setq vc-follow-symlinks t)
 (remove-hook 'find-file-hooks 'vc-find-file-hook)

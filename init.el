@@ -1,12 +1,14 @@
 ;;;; Elmax - Emacs configuration with Evil
 ;; Kull Wahad! Kull Wahad! Kull Wahad!
 
-;; el-get
 
 ;; General configation
 
 ;; TODO: find a key for major mode related maps
 ;; TODO: add env/use-media for twitter, reddit, etc
+;; el-get
+;; TODO (!!!!!!) parinfer is very slow on big files
+;; (??) slime
 ;;
 ;; https://github.com/wcsmith/evil-args
 ;; https://github.com/ninrod/evil-replace-with-char/
