@@ -170,7 +170,7 @@
                       "N" 'evil-search-previous
                       "q" 'kill-this-buffer)
 
-  ;; Clojure mode
+  ;; Lisp modes
   (general-define-key :keymaps 'clojure-mode-map
                       :prefix leader
                       :states '(normal visual)
@@ -189,6 +189,13 @@
                       :prefix leader
                       :states '(visual)
                       "e r" 'eval-region)
+
+  (general-define-key :keymaps '(emacs-lisp-mode-map common-lisp-mode-map clojure-mode-map scheme-mode-map)
+                      :states '(normal visual)
+                      "g c" 'lispy-comment)
+
+   ;; evil-commentary
+   "g c" 'evil-commentary
   ;; Flycheck
   (general-define-key :keymaps 'flycheck-mode-map
                       :states '(normal)

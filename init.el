@@ -40,6 +40,7 @@
 
 (require 'env-common)
 (require 'env-maps)
+
 (require 'env-evil)
 (require 'env-check)
 (require 'env-company)
@@ -62,6 +63,7 @@
 (require 'use-nim)
 (require 'use-org)
 (require 'use-web)
+(require 'use-py)
 (require 'use-js)
 (require 'use-elixir)
 
