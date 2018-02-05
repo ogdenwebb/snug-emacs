@@ -190,9 +190,10 @@
                       :states '(visual)
                       "e r" 'eval-region)
 
-  (general-define-key :keymaps '(emacs-lisp-mode-map common-lisp-mode-map clojure-mode-map scheme-mode-map)
-                      :states '(normal visual)
-                      "g c" 'lispy-comment)
+  (general-define-key :keymaps 'python-mode-map
+                      :states '(insert)
+                      "RET" 'evil-ret-and-indent)
+
 
    ;; evil-commentary
    "g c" 'evil-commentary

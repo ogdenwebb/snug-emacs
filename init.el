@@ -1,10 +1,9 @@
 ;;;; Elmax - Emacs configuration with Evil
 ;; Kull Wahad! Kull Wahad! Kull Wahad!
 
-
 ;; General configation
 
-;; TODO: find a key for major mode related maps
+;; TODO: find a prefix key for major mode related maps
 ;; TODO: add env/use-media for twitter, reddit, etc
 ;; el-get
 ;; TODO (!!!!!!) parinfer is very slow on big files
@@ -14,6 +13,8 @@
 ;; https://github.com/ninrod/evil-replace-with-char/
 
 ;; org-mode https://github.com/tashrifsanil/org-easy-img-insert/
+;; https://github.com/rexim/org-cliplink/
+;; https://github.com/xuchunyang/grab-x-link/
 
 ;; (setq debug-on-error t)
 
