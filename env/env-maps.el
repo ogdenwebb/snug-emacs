@@ -141,7 +141,6 @@
          :timeout 0.25
          "k" 'evil-normal-state))
 
-
   ;; Insert mode maps
   (general-define-key
    :states '(insert)
@@ -154,6 +153,7 @@
    "C-a" 'beginning-of-line
    "C-w" 'evil-delete-backward-word
    "C-e" 'end-of-line)
+
 
   ;; Dired
   (general-define-key :keymaps 'dired-mode-map
@@ -194,14 +194,12 @@
                       :states '(insert)
                       "RET" 'evil-ret-and-indent)
 
-
-   ;; evil-commentary
-   "g c" 'evil-commentary
   ;; Flycheck
   (general-define-key :keymaps 'flycheck-mode-map
                       :states '(normal)
                       "] e" 'flycheck-next-error
                       "[ e" 'flycheck-previous-error)
+
 
   ;; EShell
   ;; (general-define-key :keymaps 'eshell-mode-map
