@@ -58,7 +58,8 @@
                  ((string= mode-name "Emacs-Lisp") "elisp")
                  ((string= mode-name "Javascript-IDE") "js")
                  (t (downcase mode-name)))))
-      (propertize mode 'face `(:foreground "#9d81ba"))))
+      ;; (propertize mode 'face `(:foreground "#9d81ba")))) ;; galaxy
+      (propertize mode 'face `(:foreground "#0d948d"))))
 
   ;; Display evil state
   (telephone-line-defsegment my-evil-segment ()
@@ -138,8 +139,9 @@
     ;; #6fb593 #4a858c
     (let (
           ;; (fg-color "#6fb593") ; kaolin-dark
-          (fg-color "#9f84ae")) ; kaolin-galaxy
+          ;; (fg-color "#9f84ae")) ; kaolin-galaxy
           ;; (fg-color "#709688")) ; kaolin-eclipse
+          (fg-color "#68f3ca")) ; kaolin-aurora
       (when vc-mode
         ;; double format to prevent warnings in '*Messages*' buffer
           (format "%s %s"
