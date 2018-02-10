@@ -22,7 +22,8 @@
 (setq package-enable-at-startup nil   ; To prevent initialising twice
       package--init-file-ensured t)
 
-(setq package-archives
+(setq package-user-dir (concat user-emacs-directory "elpa")
+      package-archives
       '(("gnu"   . "https://elpa.gnu.org/packages/")
         ("org"   . "https://orgmode.org/elpa/")
         ("melpa" . "https://melpa.org/packages/")))

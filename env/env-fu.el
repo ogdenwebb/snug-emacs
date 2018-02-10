@@ -56,6 +56,7 @@
     (beginning-of-line)
     (looking-at "[[:space:]]*$")))
 
+;; TODO: indent based languanges like Python
 (defun elmax/smart-backspace ()
   (interactive)
   (if (elmax/empty-line?)
