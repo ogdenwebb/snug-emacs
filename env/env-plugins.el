@@ -74,12 +74,6 @@
   (setq projectile-completion-system 'ivy)
   (projectile-mode +1))
 
-(use-package counsel-projectile
-  :ensure t
-  :after projectile
-  :config
-  (counsel-projectile-mode))
-
 ;; Quickrun
 (use-package quickrun
   :ensure t
@@ -95,9 +89,9 @@
   :ensure t
   :commands (markdown-mode gfm-mode)
   :mode (("README\\.md\\'" . gfm-mode)
-         ("\\.md\\'" . markdown-mode)
+         ("\\.md\\'"       . markdown-mode)
          ("\\.markdown\\'" . markdown-mode))
-  :init (setq markdown-command "multimarkdown"))
+  :config (setq markdown-command "multimarkdown"))
 
 
 ;; Integration with Chrome/Chromium
@@ -109,8 +103,8 @@
 ;; Move region or line
 (use-package drag-stuff
   :ensure t
-  :config
-  (drag-stuff-global-mode 1))
+  :commands (drag-stuff-left drag-stuff-up drag-stuff-down drag-stuff-right))
+  ;; :config (drag-stuff-global-mode 1))
 
 ;; Yasnippet
 ;; TODO:
@@ -132,7 +126,7 @@
 
 (use-package treemacs
   :ensure t
-  :commands treemacs-toggle
+  :commands (treemacs-toggle)
   :config
   (use-package treemacs-evil
     :after treemacs)
@@ -162,17 +156,22 @@
 ;; Simple Emacs minor mode for a nice writing environment.
 (use-package olivetti
   :ensure t
+  :commands (olivetti-mode olivetti-shrink olivetti-expand olivetti-toggle-hide-mode-line)
   :config
   (setq-default olivetti-body-width 80))
 
 (use-package google-translate
   :ensure t
+  :defer t
   :config
-  (use-package google-translate-smooth-ui)
+  (use-package google-translate-smooth-ui
+    :after google-translate
+    :commands google-translate-smooth-translate)
   (setq google-translate-translation-directions-alist '(("en" . "ru"))))
 
 (use-package imenu-list
   :ensure t
+  :commands (imenu-list-smart-toggle)
   :config
   (setq imenu-list-mode-line-format nil)
   (setq imenu-list-size 32))

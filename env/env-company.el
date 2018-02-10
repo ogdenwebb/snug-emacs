@@ -1,6 +1,7 @@
 ;; Autocomplete
 (use-package company
   :ensure t
+  :defer .1 ;; don't block emacs when starting, load evil immediately after startup
   :init
   (add-hook 'after-init-hook 'global-company-mode)
   (use-package company-flx

@@ -1,10 +1,11 @@
 (use-package anaconda-mode
+  :defer t
   :config
   (add-hook 'python-mode-hook 'anaconda-mode)
   (add-hook 'python-mode-hook 'anaconda-eldoc-mode))
 
 (use-package company-anaconda
-  :after company
+  :after anaconda-mode
   :config
   (add-to-list 'company-backends 'company-anaconda))
 

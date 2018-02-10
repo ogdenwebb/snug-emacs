@@ -28,15 +28,21 @@
   (setq ivy-extra-directories nil) ; default value: ("../" "./")
 
   (use-package swiper
+    :commands (swiper)
     :ensure t)
 
   (use-package counsel
     :ensure t
     :config
+    (use-package counsel-projectile
+      :ensure t
+      :after projectile
+      :commands (counsel-projectile-mode counsel-projectile-find-file))
     (setq counsel-find-file-ignore-regexp (regexp-opt '(".jpg" ".png" ".jpeg")))
     (define-key read-expression-map (kbd "C-r") 'counsel-expression-history)))
 
 (use-package ivy-rich
+  :after ivy
   :config
   (ivy-set-display-transformer 'ivy-switch-buffer 'ivy-rich-switch-buffer-transformer)
   (setq ivy-rich-path-style 'abbrev))

@@ -8,11 +8,13 @@
   (setq js2-bounce-indent-p t)
 
   (use-package tern
+    :after js2-mode
     :config
-    (add-hook 'js2-mode-hook (lambda () (tern-mode t)))))
+    (add-hook 'js2-mode-hook #'tern-mode)))
 
 (use-package indium
-  :init
+  :commands (indium-interaction-mode)
+  :config
   (add-hook 'js-mode-hook #'indium-interaction-mode))
 
 (provide 'use-js)

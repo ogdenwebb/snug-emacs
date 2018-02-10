@@ -1,5 +1,6 @@
 ;; On-the-fly evaluation/substitution of Emacs lisp code
-(use-package litable)
+(use-package litable
+  :mode ("\\.el\\'" . emacs-lisp-mode))
 
 ;; lispy + evil = lispyville
 ;; (use-package lispyville

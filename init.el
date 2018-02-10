@@ -28,13 +28,36 @@
         ("org"   . "https://orgmode.org/elpa/")
         ("melpa" . "https://melpa.org/packages/")))
 
-(package-initialize)
+;; See log while loading
+;; (setq use-package-verbose t)
+;; set use-package-verbose to t for interpreted .emacs,
+;; and to nil for byte-compiled .emacs.elc
+;; (eval-and-compile
+;;   (setq use-package-verbose (not (bound-and-true-p byte-compile-current-file))))
+;; Add the macro generated list of package.el loadpaths to load-path.
+(mapc #'(lambda (add) (add-to-list 'load-path add))
+  (eval-when-compile
+    ;; (require 'package)
+    (package-initialize)
+    ;; Install use-package if not installed yet.
+    (unless (package-installed-p 'use-package)
+      (package-refresh-contents)
+      (package-install 'use-package))
+    ;; (require 'use-package)
+    ;; (setq use-package-always-ensure t)
+    (let ((package-user-dir-real (file-truename package-user-dir)))
+      ;; The reverse is necessary, because outside we mapc
+      ;; add-to-list element-by-element, which reverses.
+      (nreverse (apply #'nconc
+           ;; Only keep package.el provided loadpaths.
+           (mapcar #'(lambda (path)
+                   (if (string-prefix-p package-user-dir-real path)
+                   (list path)
+                     nil))
+               load-path))))))
 
-;; Use-package
-(unless (package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package))
 
+;; Enable use-package
 (eval-when-compile
   (require 'use-package))
 

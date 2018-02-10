@@ -1,4 +1,5 @@
 (use-package hydra
+  :defer t
   :config
   (defhydra hydra-flyspell (:color teal)
     "Flyspell"
@@ -21,18 +22,17 @@
 
 ;; Package-lint
 (use-package package-lint
+  :defer t
   :ensure t
   :after flycheck)
 
 ;; Flycheck
 (use-package flycheck
   :ensure t
-  :init
-  (add-hook 'after-init-hook #'global-flycheck-mode)
-  ;; (use-package flycheck-clojure
-  ;;   :config
-  ;;   (eval-after-load 'flycheck '(flycheck-clojure-setup)))
+  ;; :commands (flycheck-mode global-flycheck-mode flycheck-list-errors flycheck-buffer)
   :config
+  (add-hook 'after-init-hook #'global-flycheck-mode)
+
   (setq flycheck-idle-change-delay
         (if flycheck-current-errors 0.3 3.0))
 
@@ -132,6 +132,7 @@
 ;; Spell checking
 (use-package flyspell
   :ensure t
+  :commands (flyspell-mode flyspell-buffer)
   :config
   ;; (add-hook 'prog-mode-hook 'flyspell-prog-mode)
   ;; (add-hook 'text-mode-hook 'flyspell-mode)
@@ -140,7 +141,7 @@
         ispell-dictionary "en_US"))
 
 ;; flyspell ivy corret
-(use-package flyspell-correct-ivy
-  :after flyspell)
+;; (use-package flyspell-correct-ivy
+;;   :after flyspell)
 
 (provide 'env-check)

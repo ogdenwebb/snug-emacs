@@ -8,6 +8,7 @@
 
 (use-package ediff
   :defer t
+  :commands (ediff)
   :config
   (use-package evil-ediff))
 
@@ -16,7 +17,9 @@
   :ensure t
   :init
   (setenv "GIT_ASKPASS" "")
-  (setenv "SSH_ASKPASS" ""))
+  (setenv "SSH_ASKPASS" "")
+  :commands (magit-status magit-diff))
+
 
 ;; TODO:
 ;; (use-package magithub
@@ -24,6 +27,7 @@
 ;;   :config (magithub-feature-autoinject t))
 
 (use-package gist
+  :commands (gist-list)
   :ensure t)
 
 ;; Highlight changes in git

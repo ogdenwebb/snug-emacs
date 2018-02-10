@@ -110,7 +110,7 @@
    "C-h"  'drag-stuff-left
    "C-j"  'drag-stuff-down
    "C-k"  'drag-stuff-up
-   "C-l"  'drag-stuff-down)
+   "C-l"  'drag-stuff-right)
 
   ;; nvmap
   (general-define-key
@@ -218,7 +218,18 @@
                       "M-h"  'evil-window-left
                       "M-j"  'evil-window-down
                       "M-k"  'evil-window-up
-                      "M-l"  'evil-window-right))
+                      "M-l"  'evil-window-right)
+
+  ;; Evil-surround
+  (general-define-key :keymaps '(operator)
+                      "s" 'evil-surround-edit
+                      "S" 'evil-Surround-edit)
+
+  (general-define-key :keymaps '(visual)
+                      "S"  'evil-surround-region
+                      "gS" 'evil-Surround-region)
+
+  )
 
 ;; (general-define-key :keymaps 'ivy-minibuffer-map
 ;;                     "C-n" 'ivy-previous-line-and-call

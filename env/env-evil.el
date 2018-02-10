@@ -40,6 +40,7 @@
 
 (use-package evil-goggles
   :ensure t
+  :after evil
   :config
   (defun evil-goggles--show-p (beg end)
     "Return t if the overlay should be displayed in region BEG to END."
@@ -66,10 +67,14 @@
   :after evil
   :commands (evil-commentary evil-commentary-yank))
 
+; TODO: maps
 (use-package evil-surround
   :ensure t
-  :init
-  (global-evil-surround-mode 1))
+  :commands (global-evil-surround-mode
+             evil-surround-edit
+             evil-Surround-edit
+             evil-surround-region)
+  :config (global-evil-surround-mode 1))
 
 ;; Magit
 (use-package evil-magit
@@ -78,18 +83,23 @@
 
 (use-package evil-matchit
   :ensure t
+  :commands (evilmi-jump-items evilmi-text-object global-evil-matchit-mode)
   :config
   (global-evil-matchit-mode t))
 
 (use-package evil-visualstar
   :ensure t
+  :commands (global-evil-visualstar-mode
+             evil-visualstar/begin-search
+             evil-visualstar/begin-search-forward
+             evil-visualstar/begin-search-backward)
   :config
   (global-evil-visualstar-mode))
 
 (use-package evil-lion
-  :ensure t
-  :commands (evil-lion-mode evil-lion-left evil-lion-right)
-  :config
+ :ensure t
+ :commands (evil-lion-mode evil-lion-left evil-lion-right)
+ :config
   (setq evil-lion-squeeze-spaces t))
 
 ;; Folding
@@ -99,11 +109,12 @@
   :config
   (use-package evil-vimish-fold
     :ensure t
-    :init
-    (evil-vimish-fold-mode 1))
-  (setq vimish-fold-header-width nil))
+    :config
+    (add-to-list 'after-init-hook #'evil-vimish-fold-mode))
+    (setq vimish-fold-header-width nil))
 
 (use-package evil-numbers
+  :commands (evil-numbers/inc-at-pt evil-numbers/dec-at-pt)
   :ensure t)
 
 

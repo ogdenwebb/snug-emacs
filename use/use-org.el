@@ -3,6 +3,7 @@
 (use-package org
   :config
   (use-package org-download
+    :after org
     :ensure t)
 
   ;; Fit image into the screen
