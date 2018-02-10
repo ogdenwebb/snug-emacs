@@ -23,11 +23,13 @@
   ;; Fontify
   (setq org-fontify-done-headline t)
   (setq org-fontify-quote-and-verse-blocks t)
-  ;; (setq org-fontify-whole-heading-line t)
   (setq org-src-fontify-natively t)
   (setq org-src-tab-acts-natively t)
   (setq org-ellipsis " ~ ")
   ;; (setq org-ellipsis " — ")
+
+  ;; Fontify the whole line for headings (with a background color).
+  (setq org-fontify-whole-heading-line t)
 
   (defun org-init-hook ()
     (interactive)

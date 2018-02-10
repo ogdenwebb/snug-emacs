@@ -39,39 +39,36 @@
 
 (load (concat user-emacs-directory "env/env-boot"))
 
-(require 'env-common)
-(require 'env-maps)
+(elmax/init
+  env-common
+  env-maps
 
-(require 'env-evil)
-(require 'env-check)
-(require 'env-company)
-(require 'env-face)
-;; (require 'env-dashboard)
-(require 'env-ivy)
-(require 'env-plugins)
-(require 'env-lisp)
-(require 'env-dev)
-(require 'use-vcs)
+  env-evil
+  env-check
+  env-company
+  env-face
+  ;; env-dashboard
+  env-ivy
+  env-plugins
+  env-lisp
+  env-local
+  use-vcs
 
-;; Mode-line
-(require 'modeline-common)
+  ;; Mode-line
+  modeline-common
 
-;; Specific modules and major modes
-(require 'use-eshell)
-(require 'use-grep)
+  ;; Specific modules and major modes
+  use-eshell
+  use-grep
 
-;; (require 'use-clj)
-(require 'use-nim)
-(require 'use-org)
-(require 'use-web)
-(require 'use-py)
-(require 'use-js)
-(require 'use-elixir)
+  ;; use-clj
+  use-nim
+  use-org
+  use-web
+  use-py
+  use-js
+  use-elixir
 
-(require 'env-fu)
-
-;; OLD stuff
-;; (require 'env-sp)
-;; (require 'use-multiedit)
+  env-fu)
 
 ;; (~ ^ . ^ ~)

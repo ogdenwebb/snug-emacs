@@ -164,7 +164,7 @@
                                    (if .error "errors" "warnings")
                                    (number-to-string sum))))
                      ;; TODO:
-                      " succesed"))
+                      " succeed"))
         ('running     " working...")
         ('no-checker  "")
         ('errored     " error")

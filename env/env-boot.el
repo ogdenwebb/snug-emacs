@@ -45,4 +45,9 @@
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file 'noerror)
 
+(defmacro elmax/init (&rest body)
+  (declare (indent defun))
+  (dolist (pkg body)
+    (require pkg)))
+
 (provide 'env-boot)
