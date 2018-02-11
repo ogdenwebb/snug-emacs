@@ -28,7 +28,7 @@
         ("org"   . "https://orgmode.org/elpa/")
         ("melpa" . "https://melpa.org/packages/")))
 
-;; See log while loading
+;; Print log while loading
 ;; (setq use-package-verbose t)
 ;; set use-package-verbose to t for interpreted .emacs,
 ;; and to nil for byte-compiled .emacs.elc

@@ -1,3 +1,5 @@
+;; Module with useful custom functions -*- lexical-binding: t; -*-
+
 ;; Rename file and buffer
 ;; source: http://steve.yegge.googlepages.com/my-dot-emacs-file
 (defun rename-file-and-buffer (new-name)
