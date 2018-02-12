@@ -13,6 +13,9 @@
 
 (setq yank-pop-change-selection t)
 
+;; Disable key bindging suggeestions
+(setq suggest-key-bindings nil)
+
 ;; Enable system clipboard in terminal Emacs
 ;; See: https://hugoheden.wordpress.com/2009/03/08/copypaste-with-emacs-in-terminal/
 ;; (setq select-enable-clipboard t)
@@ -149,8 +152,4 @@
 (put 'dired-find-alternate-file 'disabled nil)
 
 
-(use-package uniquify
-  :config
-  (setq uniquify-buffer-name-style 'forward))
-
-(provide 'env-common)
+(provide 'env-settings)

@@ -2,19 +2,24 @@
 ;; Kull Wahad! Kull Wahad! Kull Wahad!
 
 ;; General configation
-(load (concat user-emacs-directory "env/env-rc"))
+(load (concat user-emacs-directory "env/env-init"))
 
 (elmax/init
-  env-common
+  env-settings
   env-maps
 
   env-evil
-  env-check
   env-company
+  env-ivy
+
   env-face
   ;; env-dashboard
-  env-ivy
+
+  env-behavior
   env-plugins
+  ;; env-dev
+
+  env-check
   env-lisp
   env-local
   use-vcs
@@ -26,7 +31,7 @@
   use-eshell
   use-grep
 
-  ;; use-clj
+  use-clj
   use-nim
   use-org
   use-web

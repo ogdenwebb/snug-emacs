@@ -1,7 +1,7 @@
 ;; Dashboard
 ;; TODO: fix slow startup mb move it
 (use-package dashboard
-  :init
+  :config
   (dashboard-setup-startup-hook)
   ;; Set the title
   (setq dashboard-banner-logo-title "I know no Evil")

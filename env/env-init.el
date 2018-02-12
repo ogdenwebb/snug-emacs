@@ -1,3 +1,4 @@
+;; Initialize package system
 (setq package-enable-at-startup nil   ; To prevent initialising twice
       package--init-file-ensured t)
 
@@ -71,14 +72,14 @@
 (setq initial-major-mode 'text-mode)
 
 ;; Use Common Lisp library
-(use-package cl)
+(use-package cl-lib)
 
 (when window-system
   (require 'server)
   (unless (server-running-p)
     (server-start)))
 
-;; Load my configuration files
+;; Add configuration directories to `load-path'
 (add-to-list 'load-path "~/.emacs.d/env/")
 (add-to-list 'load-path "~/.emacs.d/use/")
 (add-to-list 'load-path "~/.emacs.d/lisp/")
@@ -92,4 +93,4 @@
   (dolist (pkg body)
     (require pkg)))
 
-(provide 'env-rc)
+(provide 'env-init)
