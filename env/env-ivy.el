@@ -1,4 +1,4 @@
-;; Use ivy for fuzzy matching
+;; Use ivy for fuzzy matching -*- lexical-binding: t -*-
 
 (use-package ivy
   :ensure t

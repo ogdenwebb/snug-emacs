@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t -*-
+
 ;; Custom theme load
 (defadvice load-theme (before clear-previous-themes activate)
   "Clear existing theme settings instead of layering them"

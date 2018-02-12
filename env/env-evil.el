@@ -59,7 +59,10 @@
         ;; don't show overlay when the region has nothing but whitespace
         (not (null (string-match-p "[^ \t\n]" (buffer-substring-no-properties beg end))))))
 
-  (setq evil-goggles-pulse t)
+  (setq evil-goggles-duration 0.1
+        evil-goggles-enable-delete nil
+        evil-goggles-pulse t)
+
   (evil-goggles-mode))
 
 (use-package evil-commentary

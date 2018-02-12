@@ -1,4 +1,4 @@
-;; Initialize package system
+;; Initialize package system -*- lexical-binding: t -*-
 (setq package-enable-at-startup nil   ; To prevent initialising twice
       package--init-file-ensured t)
 

@@ -1,3 +1,5 @@
+;; Custom modeline based on telephone-line package.  -*- lexical-binding: t; -*-
+
 ;; TODO: add icons
 ;; TODO: big modeline config
 ;; TODO: check if all-the-icons installed
