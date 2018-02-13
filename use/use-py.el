@@ -1,8 +1,8 @@
 (use-package anaconda-mode
-  :defer t
+  :after python
+  :hook python-mode
   :config
-  (add-hook 'python-mode-hook 'anaconda-mode)
-  (add-hook 'python-mode-hook 'anaconda-eldoc-mode))
+  (add-hook 'anaconda-mode-hook 'anaconda-eldoc-mode))
 
 (use-package company-anaconda
   :after anaconda-mode

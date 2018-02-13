@@ -26,9 +26,9 @@
 
   ;; Additional backends and company related package
   (use-package company-shell
-    :after company
+    :after sh-script
     :config
-    (add-to-list 'company-backends '(company-shell company-shell-env company-fish-shell))))
+    (add-to-list 'company-backends '(company-shell company-shell-env))))
 
   ;; OCaml
   ;;;; Make company aware of merlin
@@ -42,17 +42,16 @@
   ;; Complete filename
   (add-to-list 'company-backends 'company-files)
 
-  ;; Clojure
-  (add-hook 'cider-repl-mode-hook #'company-mode)
-  (add-hook 'cider-mode-hook #'company-mode)
 
   ;; Tern
   (use-package company-tern
+    :after tern
     :config
     (add-to-list 'company-backends 'company-tern))
 
   ;; Web-mode
   (use-package company-web-html
+    :after web-mode
     :config
     (add-to-list 'company-backends 'company-web-html))
 
