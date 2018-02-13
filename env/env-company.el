@@ -1,14 +1,17 @@
 ;; Autocomplete
 (use-package company
   :ensure t
-  :defer .1 ;; don't block emacs when starting, load evil immediately after startup
-  :init
-  (add-hook 'after-init-hook 'global-company-mode)
-  (use-package company-flx
-         :ensure t
-         :config
-         (company-flx-mode +1))
+  ;; :defer .1 ;; don't block emacs when starting, load evil immediately after startup
   :config
+  (add-hook 'after-init-hook 'global-company-mode)
+
+  ;; Use fuzzy completion
+  (use-package company-flx
+    :after company
+    :ensure t
+    :config
+    (company-flx-mode +1))
+
   ;; TODO:
   ;; dabbrev hides other normal condidats
   (add-to-list 'completion-styles 'initials t)
@@ -26,7 +29,7 @@
 
   ;; Additional backends and company related package
   (use-package company-shell
-    :after sh-script
+    :after (company sh-script)
     :config
     (add-to-list 'company-backends '(company-shell company-shell-env))))
 
@@ -40,18 +43,19 @@
   ;; (add-hook 'after-init-hook 'global-company-mode)
 
   ;; Complete filename
-  (add-to-list 'company-backends 'company-files)
+  (with-eval-after-load 'company
+    (add-to-list 'company-backends 'company-files))
 
 
   ;; Tern
   (use-package company-tern
-    :after tern
+    :after (company tern)
     :config
     (add-to-list 'company-backends 'company-tern))
 
   ;; Web-mode
   (use-package company-web-html
-    :after web-mode
+    :after (company web-mode)
     :config
     (add-to-list 'company-backends 'company-web-html))
 

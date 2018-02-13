@@ -5,7 +5,7 @@
   (add-hook 'anaconda-mode-hook 'anaconda-eldoc-mode))
 
 (use-package company-anaconda
-  :after anaconda-mode
+  :after (company anaconda-mode)
   :config
   (add-to-list 'company-backends 'company-anaconda))
 
