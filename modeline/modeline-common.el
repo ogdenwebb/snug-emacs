@@ -52,13 +52,14 @@
   ;; (telephone-line-defsegment* my-color-segment
   ;;   (propertize "some-string" 'face `(:foreground "green")))
 
-
   ;; Display major mode
   (telephone-line-defsegment* my-major-mode-segment ()
     (let ((mode (cond
                  ((string= mode-name "Fundamental") "text")
                  ((string= mode-name "Emacs-Lisp") "elisp")
                  ((string= mode-name "Javascript-IDE") "js")
+                 ((string= mode-name "Javascript-IDE") "js")
+                 ((string= mode-name "undo-tree-visualizer") "undo-tree")
                  (t (downcase mode-name)))))
       ;; (propertize mode 'face `(:foreground "#9d81ba")))) ;; galaxy
       (propertize mode 'face `(:foreground "#0d948d"))))

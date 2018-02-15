@@ -1,7 +1,10 @@
 ;;;; Elmax - Emacs configuration with Evil
 ;; Kull Wahad! Kull Wahad! Kull Wahad!
 
+;; (setq debug-on-error t)
+
 ;; General configation
+;; TODO: find a better name
 (load (concat user-emacs-directory "env/env-init"))
 
 (elmax/init

@@ -118,7 +118,12 @@
                       ;; "t" 'org-set-tags
                       "t"   'org-ctrl-c-ctrl-c
                       "p" 'org-priority-up
-                      "P" 'org-priority-down))
+                      "P" 'org-priority-down)
+
+  (general-define-key :keymaps 'org-mode-map
+                      :states '(insert)
+                      "RET" 'org-return))
+                      ;; "RET" 'org-return-indent))
 
 ;; (evil-define-key 'insert org-mode-map
 ;;   (kbd "M-j") 'org-shiftleft

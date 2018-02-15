@@ -190,7 +190,7 @@
                       :states '(visual)
                       "e r" 'eval-region)
 
-  (general-define-key :keymaps 'python-mode-map
+  (general-define-key :keymaps '(python-mode-map nim-mode-map haskell-mode-map)
                       :states '(insert)
                       "RET" 'evil-ret-and-indent)
 
