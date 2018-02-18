@@ -17,6 +17,7 @@
 
   (setq company-idle-delay nil) ; never start completions automatically
   (setq company-require-match nil)
+  (setq company-minimum-prefix-length 3)
 
   (with-eval-after-load 'company
     (define-key company-active-map (kbd "M-n") nil)
@@ -57,6 +58,27 @@
     :after (company web-mode)
     :config
     (add-to-list 'company-backends 'company-web-html))
+
+  ;; Indent empty string and enable TAB completion
+  (with-eval-after-load 'company
+    (define-key company-mode-map [remap indent-for-tab-command]
+      'company-indent-for-tab-command))
+
+  (setq tab-always-indent 'complete)
+
+  (defvar completion-at-point-functions-saved nil)
+
+  (defun company-indent-for-tab-command (&optional arg)
+    (interactive "P")
+    (let ((completion-at-point-functions-saved completion-at-point-functions)
+          (completion-at-point-functions '(company-complete-common-wrapper)))
+      (indent-for-tab-command arg)))
+
+  (defun company-complete-common-wrapper ()
+    (let ((completion-at-point-functions completion-at-point-functions-saved))
+      ;; (company-complete-common)))
+      (company-complete-common)))
+
 
   ;; weight by frequency
   ;; (setq company-transformers '(company-sort-by-occurrence))

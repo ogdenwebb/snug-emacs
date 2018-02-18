@@ -47,7 +47,9 @@
 ;; Indentation
 (setq evil-shift-width 2)
 (setq tab-width 2)
-(setq tab-always-indent t)
+;; t, nil or complete
+;; (setq tab-always-indent t)
+
 (setq-default indent-tabs-mode nil)
 
 ;; (setq indent-line-function 'insert-tab)
@@ -150,6 +152,9 @@
 (put 'erase-buffer 'disabled nil)
 (put 'scroll-left 'disabled nil)
 (put 'dired-find-alternate-file 'disabled nil)
+
+;; Disable eldoc autostart, enabled by default since 25
+(global-eldoc-mode -1)
 
 
 (provide 'env-settings)

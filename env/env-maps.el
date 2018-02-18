@@ -144,11 +144,11 @@
   ;; Insert mode maps
   (general-define-key
    :states '(insert)
-   "TAB" 'company-indent-or-complete-common
+   ;; "TAB" 'company-indent-or-complete-common
    ;; "RET" 'evil-ret-and-indent
+   ;; "TAB" 'company-indent-for-tab-command
    "RET" 'reindent-then-newline-and-indent
    "DEL" 'elmax/smart-backspace
-   "C-j" 'parinfer-toggle-mode
    "C-k" 'company-complete-common-or-cycle
    "C-a" 'beginning-of-line
    "C-w" 'evil-delete-backward-word

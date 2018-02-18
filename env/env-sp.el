@@ -43,27 +43,27 @@
 ;;     (">" sp-add-to-next-sexp "Add to next")
 ;;     ("q" nil "Quit")))
 
-(use-package smartparens
-  :init
-  (smartparens-global-mode 1)
-  :config
-  ;; (!!) Read: sp-cheat-sheet
-  (use-package smartparens-config)
-  ;; (sp-local-pair 'clojure-mode "(" ")" :actions nil)
-  ;; (sp-local-pair 'clojurescript-mode "(" ")" :actions nil)
-  ;; (sp-local-pair 'emacs-lisp-mode "(" ")" :actions nil)
+;; (use-package smartparens
+;;   :init
+;;   (smartparens-global-mode 1)
+;;   :config
+;;   ;; (!!) Read: sp-cheat-sheet
+;;   (use-package smartparens-config)
+;;   ;; (sp-local-pair 'clojure-mode "(" ")" :actions nil)
+;;   ;; (sp-local-pair 'clojurescript-mode "(" ")" :actions nil)
+;;   ;; (sp-local-pair 'emacs-lisp-mode "(" ")" :actions nil)
 
-  (sp-pair "{" nil :post-handlers '((my-create-newline-and-enter-sexp "RET")))
+;;   (sp-pair "{" nil :post-handlers '((my-create-newline-and-enter-sexp "RET")))
 
-  (defun my-create-newline-and-enter-sexp (&rest _ignored)
-    "Open a new brace or bracket expression, with relevant newlines and indent. "
-    (newline)
-    (indent-according-to-mode)
-    (forward-line -1)
-    (indent-according-to-mode))
+;;   (defun my-create-newline-and-enter-sexp (&rest _ignored)
+;;     "Open a new brace or bracket expression, with relevant newlines and indent. "
+;;     (newline)
+;;     (indent-according-to-mode)
+;;     (forward-line -1)
+;;     (indent-according-to-mode))
 
-  (setq-default sp-autoskip-closing-pair 'always-end))
+;;   (setq-default sp-autoskip-closing-pair 'always-end))
 
-  ;; (sp-pair "\"" nil :actions '(:rem escape)))
+;;   ;; (sp-pair "\"" nil :actions '(:rem escape)))
 
 (provide 'env-sp)

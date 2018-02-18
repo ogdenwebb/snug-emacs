@@ -25,6 +25,7 @@
   env-check
   env-lisp
   env-local
+
   use-vcs
 
   ;; Mode-line

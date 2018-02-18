@@ -52,7 +52,6 @@
 ;; (add-to-list 'default-frame-alist '(font . "Iosevka-13"))
 ;; (add-to-list 'default-frame-alist '(font . "Fira Mono-12"))
 ;; (add-to-list 'default-frame-alist '(font . "Fira Code-12"))
-;; (add-to-list 'default-frame-alist '(font . "Fantasque Sans Mono-13.5"))
 
 ;; Set the fringe size
 (setq-default left-fringe-width  6)
@@ -96,9 +95,12 @@
 
 (add-hook 'after-make-frame-functions 'my/disable-scroll-bars)
 
-;; Hide toolbar and menu
-(tool-bar-mode -1)
+;; Hide default UI stuff
+(tooltip-mode -1) ; relegate tooltips to echo area only
 (menu-bar-mode -1)
+(if (fboundp 'tool-bar-mode)   (tool-bar-mode -1))
+(if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
+
 
 ;; Disable startup/splash screen
 ;; TODO: disable scrollbar-mode
