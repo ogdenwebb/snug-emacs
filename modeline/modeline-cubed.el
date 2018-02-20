@@ -11,7 +11,8 @@
       '((evil   . (my-evil-segment))
         (nil    . (my-buffer-segment))
         (nil    . (my-modified-status-segment))
-        (nil    . (my-read-only-status-segment))))
+        (nil    . (my-read-only-status-segment))
+        (nil    . (selection-info))))
         ;; (nil    . (my-flycheck-segment))))
 
 ;; Right edge
