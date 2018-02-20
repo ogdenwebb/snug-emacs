@@ -28,6 +28,7 @@
   (setq kaolin-git-gutter-solid t)
   (setq kaolin-wave t)
   (setq kaolin-bold nil)
+  ;; (setq kaolin-italic-comments t)
 
   ;; Set default theme
   ;; (defun load-my-theme (frame)
@@ -101,9 +102,10 @@
 (if (fboundp 'tool-bar-mode)   (tool-bar-mode -1))
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
+;; Enable cursor blinking
+(blink-cursor-mode 1)
 
 ;; Disable startup/splash screen
-;; TODO: disable scrollbar-mode
 (setq initial-scratch-message nil)
 
 (setq inhibit-splash-screen t)

@@ -15,9 +15,10 @@
   ;; dabbrev hides other normal condidats
   (add-to-list 'completion-styles 'initials t)
 
-  (setq company-idle-delay nil) ; never start completions automatically
-  (setq company-require-match nil)
-  (setq company-minimum-prefix-length 3)
+  (setq company-idle-delay nil ; never start completions automatically
+        company-require-match nil
+        company-minimum-prefix-length 3
+        company-tooltip-align-annotations t)
 
   (with-eval-after-load 'company
     (define-key company-active-map (kbd "M-n") nil)
@@ -104,11 +105,12 @@
   ;; (add-to-list 'company-backends 'company-dabbrev-code)
   ;; (add-to-list 'company-backends '(company-capf company-dabbrev-code))
   (setq company-dabbrev-downcase nil)
+
   ;; (setq company-dabbrev-ignore-case nil)
   ;; (setq company-dabbrev-code-ignore-case nil)
   ;; (setq company-dabbrev-code-everywhere t)
   ;; (setq company-dabbrev-code-modes t)
-  ;; (setq company-dabbrev-code-other-buffers 'all)
+  ;; (setq company-dabbrev-code-other-buffers t)
   ;; (setq company-dabbrev-ignore-buffers "\\`\\'")
 
 
