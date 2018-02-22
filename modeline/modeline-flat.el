@@ -21,7 +21,7 @@
 (setq telephone-line-center-lhs
       '(
         (nil)
-        (accent . (my-flycheck-segment))
+        ;; (accent . ((my-flycheck-segment ))))
         (accent . ((my-major-mode-segment :active)))))
 
 (setq telephone-line-center-rhs

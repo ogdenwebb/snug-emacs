@@ -93,4 +93,6 @@
   (dolist (pkg body)
     (require pkg)))
 
+(require 'env-fu)
+
 (provide 'env-init)

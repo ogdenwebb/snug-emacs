@@ -32,6 +32,7 @@
   modeline-common
 
   ;; Specific modules and major modes
+  use-filetype
   use-eshell
   use-grep
 
@@ -41,8 +42,6 @@
   use-web
   use-py
   use-js
-  use-elixir
-
-  env-fu)
+  use-elixir)
 
 ;; (~ ^ . ^ ~)
