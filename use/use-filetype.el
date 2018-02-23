@@ -9,7 +9,12 @@
   (setq markdown-command "multimarkdown"))
 
 (use-package yaml-mode
-  :mode ("\\.yml\\'" . yaml-mode))
+  :mode ("\\.yml\\'" . yaml-mode)
+  :config
+  :general
+  (general-define-key :keymaps '(yaml-mode-map)
+                      :states '(insert)
+                      "RET" 'evil-ret-and-indent))
 
 
 (use-package vimrc-mode

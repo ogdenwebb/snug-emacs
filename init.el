@@ -42,6 +42,8 @@
   use-web
   use-py
   use-js
-  use-elixir)
+  use-elixir
+
+  env-fu)
 
 ;; (~ ^ . ^ ~)

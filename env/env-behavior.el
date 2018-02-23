@@ -9,7 +9,7 @@
 ;;   (add-to-list 'auto-indent-multiple-indent-modes 'nim-mode))
 
 ;; Electric indent
-;; (electric-indent-mode -1)
+(electric-indent-mode -1)
 (setq-default electric-indent-inhibit t)
 
 ;; Undotree
@@ -48,6 +48,10 @@
   (setq recentf-auto-cleanup 2)
   (setq recentf-max-menu-items 100)
   (setq recentf-max-saved-items 50))
+
+(use-package subword
+  :config
+  (global-subword-mode))
 
 (use-package uniquify
   :defer .1

@@ -23,7 +23,7 @@
                       "5" 'hydra-flyspell/body
                       "6" 'ivy-resume
                       "f" 'counsel-recentf
-                      "y" 'counsel-yank-pop
+                      ;; "y" 'counsel-yank-pop
                       "k" 'counsel-rg
                       "l" 'counsel-bookmark
                       ;; TODO: ?? i -> O
@@ -51,8 +51,9 @@
                       ;; TODO: maybe swap with magit(g - git)
                       "b p" 'previous-buffer
                       "b n" 'next-buffer
+                      "b l" 'ivy-switch-buffer
                       ;; "b l" 'list-buffers
-                      "b l" '(ibuffer nil)
+                      ;; "b l" '(ibuffer nil)
 
                       ;; Help
                       "h a" 'apropos
@@ -64,17 +65,31 @@
                       "h l" 'find-library
                       "h i" 'info
 
-                      ;; TODO: Add focus and swap
+                      ;; Window management
                       "w c" 'delete-window
                       "w s" 'split-window-below
                       "w v" 'split-window-right
                       "w d" 'kill-this-buffer
                       "w D" 'kill-buffer
 
+                      "w w" 'evil-window-next
+                      "w h" 'evil-window-left
+                      "w j" 'evil-window-down
+                      "w k" 'evil-window-up
+                      "w l" 'evil-window-right
+
+                      "w H" 'evil-window-move-far-left
+                      "w J" 'evil-window-move-far-down
+                      "w K" 'evil-window-move-far-up
+                      "w L" 'evil-window-move-far-right
+
+                      "w m" 'minimize-window
+                      "w M" 'maximize-window
+
+                      ;; Magit
                       "m d" 'magit-diff
                       "m m" 'magit-status
                       "m l" 'magit-log-current
-
 
                       ;; Projectile
                       "p f" 'counsel-projectile-find-file
@@ -145,8 +160,8 @@
   (general-define-key
    :states '(insert)
    ;; "TAB" 'company-indent-or-complete-common
-   ;; "RET" 'evil-ret-and-indent
    ;; "TAB" 'company-indent-for-tab-command
+   ;; "RET" 'evil-ret-and-indent
    "RET" 'reindent-then-newline-and-indent
    "DEL" 'elmax/smart-backspace
    "C-k" 'company-complete-common-or-cycle
@@ -227,9 +242,9 @@
 
   (general-define-key :keymaps '(visual)
                       "S"  'evil-surround-region
-                      "gS" 'evil-Surround-region)
+                      "gS" 'evil-Surround-region))
 
-  )
+
 
 ;; (general-define-key :keymaps 'ivy-minibuffer-map
 ;;                     "C-n" 'ivy-previous-line-and-call
