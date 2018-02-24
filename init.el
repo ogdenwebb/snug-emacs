@@ -9,6 +9,7 @@
 
 ;; TODO: exclude either symlink or real file from recentf
 ;; setup with profiles: minimal, dev, etc
+;; tools
 
 (elmax/init
   env-settings
