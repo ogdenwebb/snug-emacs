@@ -12,13 +12,6 @@
 
   (setq org-startup-with-inline-images t)
   ;; (setq org-image-actual-width (/ (display-pixel-width) 3))
-  ;; (use-package org-bullets
-  ;;   ;; :commands org-bullets-mode
-  ;;   :init
-  ;;   (add-hook 'org-mode-hook #'org-bullets-mode)
-  ;;   :config)
-  ;;   ;; | ┆ ┊
-  ;;   (setq org-bullets-bullet-list '("."))
 
   (setq org-startup-indented t)
   ;; Fontify
@@ -75,12 +68,11 @@
 
   (use-package evil-org
     :ensure t
-    :after org
+    :after (evil org)
     :config
     (add-hook 'org-mode-hook 'evil-org-mode)
     (add-hook 'evil-org-mode-hook
               (lambda ()
-                ;; (evil-org-set-key-theme)
                 (evil-org-set-key-theme '(navigation insert textobjects)))))
 
   :general

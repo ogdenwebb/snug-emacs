@@ -13,6 +13,7 @@
   :config
 
   ;; (setq evil-search-module 'evil-search)
+  (evil-select-search-module 'evil-search-module 'evil-search)
   ;; (setq evil-magic 'very-magic)
   ;; (setq evil-vim-regexp-replacements nil)
   ;; (setq evil-auto-indent nil)
@@ -113,8 +114,8 @@
   (use-package evil-vimish-fold
     :ensure t
     :config
-    (add-to-list 'after-init-hook #'evil-vimish-fold-mode))
-    (setq vimish-fold-header-width nil))
+    (add-to-list 'after-init-hook #'evil-vimish-fold-mode)
+    (setq vimish-fold-header-width nil)))
 
 (use-package evil-numbers
   :commands (evil-numbers/inc-at-pt evil-numbers/dec-at-pt)

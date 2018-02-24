@@ -181,8 +181,8 @@
                       "u" 'dired-unmark
                       "U" 'dired-unmark-all-marks
                       "c" 'dired-create-directory
-                      "n" 'evil-search-next
-                      "N" 'evil-search-previous
+                      ;; "n" 'evil-search-next
+                      ;; "N" 'evil-search-previous
                       "q" 'kill-this-buffer)
 
   ;; Lisp modes

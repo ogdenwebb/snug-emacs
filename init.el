@@ -7,6 +7,9 @@
 ;; TODO: find a better name
 (load (concat user-emacs-directory "env/env-init"))
 
+;; TODO: exclude either symlink or real file from recentf
+;; setup with profiles: minimal, dev, etc
+
 (elmax/init
   env-settings
   env-maps
@@ -35,6 +38,7 @@
   use-filetype
   use-eshell
   use-grep
+  ;; use-helm
 
   use-clj
   use-nim
