@@ -22,15 +22,16 @@
                       "4" 'imenu-list-smart-toggle
                       "5" 'hydra-flyspell/body
                       "6" 'ivy-resume
-                      "f" 'counsel-recentf
-                      ;; "y" 'counsel-yank-pop
                       "k" 'counsel-rg
-                      "l" 'counsel-bookmark
-                      ;; TODO: ?? i -> O
-                      "I" 'counsel-find-file
-                      "i" 'counsel-file-jump
-                      "o" 'switch-to-buffer
                       "r" 'quickrun
+
+                      ;; Open things quickly
+                      "o r" 'counsel-recentf
+                      "o f" 'counsel-file-jump
+                      "o F" 'counsel-find-file
+                      "o b" 'switch-to-buffer
+                      "o l" 'counsel-bookmark
+                      "o y" 'counsel-yank-pop
 
                       ;; TODO: (??) "c e" "c s" for list errors(i.e. check err, syn)
                       ;; "e" 'flycheck-list-errors
@@ -48,19 +49,18 @@
                       ". ]" 'olivetti-expand
                       ". m" 'olivetti-toggle-hide-mode-line
 
-                      ;; TODO: maybe swap with magit(g - git)
+                      ;; TODO: add erase-buffer revert-buffer
                       "b p" 'previous-buffer
                       "b n" 'next-buffer
                       "b l" 'ivy-switch-buffer
-                      ;; "b l" 'list-buffers
-                      ;; "b l" '(ibuffer nil)
 
                       ;; Help
                       "h a" 'apropos
                       "h k" 'describe-key
                       "h v" 'describe-variable
                       "h f" 'describe-function
-                      "h F" 'describe-face
+                      ;; "h F" 'describe-face
+                      "h F" 'counsel-faces
                       "h m" 'describe-mode
                       "h l" 'find-library
                       "h i" 'info
@@ -86,10 +86,10 @@
                       "w m" 'minimize-window
                       "w M" 'maximize-window
 
-                      ;; Magit
-                      "m d" 'magit-diff
-                      "m m" 'magit-status
-                      "m l" 'magit-log-current
+                      ;; Git/Magit
+                      "g d" 'magit-diff
+                      "g m" 'magit-status
+                      "g l" 'magit-log-current
 
                       ;; Projectile
                       "p f" 'counsel-projectile-find-file

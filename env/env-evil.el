@@ -1,13 +1,12 @@
 ;; Enable evil mode
 (use-package evil
   :ensure t
-  :defer .1 ;; don't block emacs when starting, load evil immediately after startup
   :init
   (setq evil-want-integration nil ;; required by evil-collection
         evil-want-fine-undo t
         evil-want-Y-yank-to-eol t
         evil-ex-search-vim-style-regexp t
-        evil-ex-search-persistent-highlight nil
+        ;; evil-ex-search-persistent-highlight nil
 
         evil-move-beyond-eol t
         evil-shift-round nil
@@ -18,7 +17,6 @@
         ;; evil-magic 'very-magic
         ;; evil-vim-regexp-replacements nil
 
-        ;; evil-search-module 'evil-search
         ;; evil-auto-indent nil
         evil-indent-convert-tabs t)
 
@@ -27,6 +25,7 @@
   (evil-select-search-module 'evil-search-module 'evil-search)
   (add-hook 'evil-insert-state-entry-hook #'evil-ex-nohighlight)
 
+  ;; TODO: check if higlight is active
   (defun evil-clear-hl-after-search ()
     (unless (memq last-command '(evil-search-next
                                  evil-search-previous

@@ -1,6 +1,6 @@
 ;;;; Elmax - Emacs configuration with Evil
-;; Kull Wahad! Kull Wahad! Kull Wahad!
 
+;; TODO: es stop server or save undo history before
 ;; (setq debug-on-error t)
 
 ;; General configation

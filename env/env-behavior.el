@@ -15,17 +15,17 @@
 ;; Undotree
 (use-package undo-tree
   :ensure t
-  :init
-  (global-undo-tree-mode 1)
-  (setq undo-tree-auto-save-history t)
-  ;; Persistent undo-tree history across emacs sessions
+  :config
+  ;; Persistent undo-tree history across Emacs sessions
+  (setq undo-tree-auto-save-history nil)
   (setq undo-tree-history-directory-alist '(("." . "~/.cache/emacs/undo")))
   (add-hook 'write-file-functions #'undo-tree-save-history-hook)
   (add-hook 'find-file-hook #'undo-tree-load-history-hook)
   (add-hook 'find-file-hook #'global-undo-tree-mode-check-buffers)
 
-  (setq undo-tree-visualizer-timestamps t))
+  (setq undo-tree-visualizer-timestamps t)
 ;; (setq undo-tree-visualizer-diff t))
+  (global-undo-tree-mode 1))
 
 ;; Recent files
 ;; TODO: auto cleanup
@@ -42,7 +42,9 @@
                           "[/\\]\\.emacs.d/recentf"
                           "[/\\]\\.emacs.d/bookmarks"
                           "[/\\]\\.emacs.d/url"
-                          "[/\\]\\.elpa/"))
+                          "^/usr/share/emacs"
+                          "[/\\]\\.emacs.d/elpa"))
+
   (recentf-mode 1)
   :config
   (setq recentf-auto-cleanup 2)
