@@ -59,8 +59,7 @@
                       "h k" 'describe-key
                       "h v" 'describe-variable
                       "h f" 'describe-function
-                      ;; "h F" 'describe-face
-                      "h F" 'counsel-faces
+                      "h F" 'describe-face
                       "h m" 'describe-mode
                       "h l" 'find-library
                       "h i" 'info
@@ -88,7 +87,7 @@
 
                       ;; Git/Magit
                       "g d" 'magit-diff
-                      "g m" 'magit-status
+                      "g s" 'magit-status
                       "g l" 'magit-log-current
 
                       ;; Projectile

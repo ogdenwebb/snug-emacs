@@ -1,6 +1,5 @@
 ;;;; Elmax - Emacs configuration with Evil
 
-;; TODO: es stop server or save undo history before
 ;; (setq debug-on-error t)
 
 ;; General configation
@@ -18,6 +17,7 @@
   env-evil
   env-company
   env-ivy
+  ;; env-helm
 
   env-face
   ;; env-dashboard
@@ -39,15 +39,16 @@
   use-filetype
   use-eshell
   use-grep
-  ;; use-helm
+  use-sp
 
   use-clj
+  use-crystal
+  use-elixir
+  use-js
   use-nim
   use-org
-  use-web
   use-py
-  use-js
-  use-elixir
+  use-web
 
   env-fu)
 

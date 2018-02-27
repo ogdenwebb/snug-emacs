@@ -1,5 +1,7 @@
 ;; Module with useful custom functions -*- lexical-binding: t; -*-
 
+(require 'cl-lib)
+
 ;; Rename file and buffer
 ;; source: http://steve.yegge.googlepages.com/my-dot-emacs-file
 (defun rename-file-and-buffer (new-name)
@@ -35,7 +37,7 @@
     (progn
       (or (ffap-file-remote-p guess)
           (setq guess
-            (abbreviate-file-name (expand-file-name guess))))
+                (abbreviate-file-name (expand-file-name guess))))
 
       (setq dir (file-name-directory guess)))
     ;; Do file substitution like (interactive "F"), suggested by MCOOK.

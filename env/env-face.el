@@ -134,9 +134,9 @@
   :ensure t
   :config
   (show-paren-mode 1)        ; Automatically highlight parenthesis pairs
-  (setq show-paren-style 'parenthesis)
   ;; (setq show-paren-style 'expression)
-  (setq show-paren-delay 0)) ; show the paren match immediately
+  ;; (setq show-paren-style 'expression)
+  (setq show-paren-delay 0.1))
 
 ;; Highlight quoted symbols
 (use-package highlight-quoted
