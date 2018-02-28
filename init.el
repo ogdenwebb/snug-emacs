@@ -4,7 +4,7 @@
 
 ;; General configation
 ;; TODO: find a better name
-(load (concat user-emacs-directory "env/env-init"))
+(load (concat user-emacs-directory "env/env-prep"))
 
 ;; TODO: exclude either symlink or real file from recentf
 ;; setup with profiles: minimal, dev, etc

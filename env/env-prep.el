@@ -72,7 +72,7 @@
 (setq initial-major-mode 'text-mode)
 
 ;; Use Common Lisp library
-(use-package cl-lib)
+(require 'cl-lib)
 
 (when window-system
   (require 'server)
@@ -93,5 +93,4 @@
   (dolist (pkg body)
     (require pkg)))
 
-
-(provide 'env-init)
+(provide 'env-prep)

@@ -1,14 +1,11 @@
 ;; Custom modeline based on telephone-line package.  -*- lexical-binding: t; -*-
 
-;; TODO: add icons
-;; TODO: big modeline config
 ;; TODO: check if all-the-icons installed
 ;; TODO: (??) disable mouse menu
 ;; TODO: add function to easy paste icons
-;; TODO: add segment based on vc-state
 ;; TODO: use colors vars
 ;; TODO: rename my* segments to ???
-  ;; Gray "#545c5e"
+;; Gray "#545c5e"
 
 ;; Telephone line
 (use-package telephone-line
