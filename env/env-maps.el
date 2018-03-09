@@ -5,6 +5,8 @@
   ;; Leader bindings
   (setq leader "SPC")
 
+  (general-evil-setup)
+
   (general-define-key :states 'normal
                       :prefix leader
                       ;; TODO: add load-theme somewhere
@@ -114,6 +116,7 @@
    ;; "*" (lambda () (interactive) (swiper (format "\\<%s\\>" (thing-at-point 'symbol))))
    ;; "#" (lambda () (interactive) (swiper (format "\\<%s\\>" (thing-at-point 'word))))
    "g x"  'browse-url-at-point
+   "g p" 'elmax/evil-select-pasted
    "/"    'swiper
    ;; Navigation between windows
    "M-h"  'evil-window-left
@@ -242,7 +245,6 @@
   (general-define-key :keymaps '(visual)
                       "S"  'evil-surround-region
                       "gS" 'evil-Surround-region))
-
 
 
 ;; (general-define-key :keymaps 'ivy-minibuffer-map

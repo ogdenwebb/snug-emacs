@@ -3,7 +3,6 @@
 ;; (setq debug-on-error t)
 
 ;; General configation
-;; TODO: find a better name
 (load (concat user-emacs-directory "env/env-prep"))
 
 ;; TODO: exclude either symlink or real file from recentf
@@ -14,10 +13,11 @@
   env-settings
   env-maps
 
-  env-evil
-  env-company
   env-ivy
   ;; env-helm
+
+  env-evil
+  env-company
 
   env-face
   ;; env-dashboard

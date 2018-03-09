@@ -8,6 +8,8 @@
         evil-ex-search-vim-style-regexp t
         ;; evil-ex-search-persistent-highlight nil
 
+        evil-ex-search-case 'sensitive
+        evil-ex-substitute-case t
         evil-move-beyond-eol t
         evil-shift-round nil
         evil-symbol-word-search t
@@ -138,5 +140,13 @@
   :commands (evil-numbers/inc-at-pt evil-numbers/dec-at-pt)
   :ensure t)
 
+(use-package evil-args
+  :after evil
+  :commands (evil-inner-arg evil-outer-arg
+             evil-forward-arg evil-backward-arg
+             evil-jump-out-args)
+  :general
+  (general-itomap "a" 'evil-inner-arg)
+  (general-otomap "a" 'evil-outer-arg))
 
 (provide 'env-evil)

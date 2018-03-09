@@ -1,4 +1,15 @@
-;; Initialize package system -*- lexical-binding: t -*-
+;;; -*- lexical-binding: t -*-
+
+;; Increase garbage collection for speedup
+(setq-default gc-cons-threshold 20000000 ; or even 1000000000
+              gc-cons-percentage 0.6)
+
+(add-hook 'emacs-startup-hook
+          #'(lambda ()
+              (setq gc-cons-threshold 16777216
+                    gc-cons-percentage 0.1)))
+
+;; Initialize package system
 (setq package-enable-at-startup nil   ; To prevent initialising twice
       package--init-file-ensured t)
 
@@ -10,10 +21,6 @@
 
 ;; Print log while loading
 ;; (setq use-package-verbose t)
-;; set use-package-verbose to t for interpreted .emacs,
-;; and to nil for byte-compiled .emacs.elc
-;; (eval-and-compile
-;;   (setq use-package-verbose (not (bound-and-true-p byte-compile-current-file))))
 ;; Add the macro generated list of package.el loadpaths to load-path.
 (mapc #'(lambda (add) (add-to-list 'load-path add))
   (eval-when-compile
@@ -41,14 +48,15 @@
 (eval-when-compile
   (require 'use-package))
 
-;; Increase garbage collection for speedup
-(setq-default gc-cons-threshold 20000000 ; or even 1000000000
-              gc-cons-percentage 0.6)
 
-(add-hook 'emacs-startup-hook
-          #'(lambda ()
-              (setq gc-cons-threshold 16777216
-                    gc-cons-percentage 0.1)))
+(with-eval-after-load "info"
+  (info-initialize)
+  (dolist (dir (directory-files package-user-dir))
+    (let ((fdir (concat (file-name-as-directory package-user-dir) dir)))
+      (unless (or (member dir '("." ".." "archives" "gnupg"))
+                  (not (file-directory-p fdir))
+                  (not (file-exists-p (concat (file-name-as-directory fdir) "dir"))))
+        (add-to-list 'Info-directory-list fdir)))))
 
 ;; TODO:
 (defun byte-compile-config ()

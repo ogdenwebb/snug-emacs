@@ -24,12 +24,14 @@
     :config
     (use-package counsel-projectile
       :ensure t
-      :after projectile
+      :after (counsel projectile)
       :commands (counsel-projectile-mode counsel-projectile-find-file))
+    (setq projectile-completion-system 'ivy)
     (setq counsel-find-file-ignore-regexp (regexp-opt '(".jpg" ".png" ".jpeg")))
     (define-key read-expression-map (kbd "C-r") 'counsel-expression-history)))
 
 (use-package ivy-rich
+  :ensure t
   :after ivy
   :config
   (ivy-set-display-transformer 'ivy-switch-buffer 'ivy-rich-switch-buffer-transformer)

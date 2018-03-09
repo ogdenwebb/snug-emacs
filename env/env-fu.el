@@ -109,4 +109,10 @@
     (message "complete-regexp: %S" complete-regexp)
     (align-regexp start end complete-regexp group 1 t)))
 
+(defun elmax/evil-select-pasted ()
+  (interactive)
+  (let ((start-marker (evil-get-marker ?\[))
+        (end-marker (evil-get-marker ?\])))
+        (evil-visual-select start-marker end-marker)))
+
 (provide 'env-fu)
