@@ -58,8 +58,8 @@
                  ((string= mode-name "Javascript-IDE") "js")
                  ((string= mode-name "undo-tree-visualizer") "undo-tree")
                  (t (downcase mode-name)))))
-      ;; (propertize mode 'face `(:foreground "#9d81ba")))) ;; galaxy
-      (propertize mode 'face `(:foreground "#0d948d"))))
+      (propertize mode 'face `(:foreground "#9d81ba")))) ;; galaxy
+      ;; (propertize mode 'face `(:foreground "#0d948d"))))
 
   ;; Display evil state
   (telephone-line-defsegment my-evil-segment ()

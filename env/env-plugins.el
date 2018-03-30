@@ -28,9 +28,9 @@
              quickrun-replace-region))
 
 ;; Integration with Chrome/Chromium
-; (use-package atomic-chrome
-;   :config
-;   (atomic-chrome-start-server))
+;; (use-package atomic-chrome
+;;   :config
+;;   (atomic-chrome-start-server))
 
 
 ;; Move region or line

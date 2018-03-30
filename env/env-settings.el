@@ -9,7 +9,7 @@
       locale-coding-system 'utf-8)
 
 ;; Replace the region
-;; (delete-selection-mode 1)
+(delete-selection-mode 1)
 
 (setq yank-pop-change-selection t)
 
