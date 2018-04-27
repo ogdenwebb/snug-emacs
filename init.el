@@ -8,6 +8,7 @@
 ;; TODO: exclude either symlink or real file from recentf
 ;; setup with profiles: minimal, dev, etc
 ;; tools
+;; use-latex
 
 (elmax/init
   env-settings

@@ -87,7 +87,8 @@
 
 
 ;; Highlight current line
-(global-hl-line-mode 1)
+;; (global-hl-line-mode 1)
+(add-hook 'prog-mode-hook #'hl-line-mode)
 
 ;; Disable scroll bars
 (defun my/disable-scroll-bars (frame)

@@ -8,7 +8,7 @@
 (setq buffer-file-coding-system 'utf-8
       locale-coding-system 'utf-8)
 
-;; Replace the region
+;; Replace the region while insert
 (delete-selection-mode 1)
 
 (setq yank-pop-change-selection t)
@@ -79,7 +79,7 @@
 (setq visible-bell nil
  ring-bell-function 'ignore)
 
-;; Don't truncate lines
+;; Truncate lines
 (setq-default truncate-lines t)
 
 ;; TODO:
