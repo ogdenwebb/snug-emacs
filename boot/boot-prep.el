@@ -59,11 +59,13 @@
         (add-to-list 'Info-directory-list fdir)))))
 
 ;; TODO:
-(defun byte-compile-config ()
+(defun elmax/byte-compile-config ()
   (interactive)
   ;; (async-byte-recompile-directory))
-  (byte-compile-file (concat user-emacs-directory "/" "init.el") 0)
+  ;; (byte-compile-file (concat user-emacs-directory "/" "init.el") 0)
   (byte-recompile-directory (concat user-emacs-directory "/env") 0)
+  (byte-recompile-directory (concat user-emacs-directory "/use") 0)
+  (byte-recompile-directory (concat user-emacs-directory "/modeline") 0)
   ;; (mapc (lambda (fname) (byte-compile-file (concat user-emacs-directory "/" fname)))
   ;;       '("init.el"
   ;;         "env/env-boot.el"
@@ -88,6 +90,7 @@
     (server-start)))
 
 ;; Add configuration directories to `load-path'
+(add-to-list 'load-path "~/.emacs.d/boot/")
 (add-to-list 'load-path "~/.emacs.d/env/")
 (add-to-list 'load-path "~/.emacs.d/use/")
 (add-to-list 'load-path "~/.emacs.d/lisp/")
@@ -101,4 +104,4 @@
   (dolist (pkg body)
     (require pkg)))
 
-(provide 'env-prep)
+(provide 'boot-prep)

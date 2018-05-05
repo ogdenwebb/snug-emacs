@@ -54,6 +54,7 @@
 ;; (add-to-list 'default-frame-alist '(font . "Iosevka-13"))
 ;; (add-to-list 'default-frame-alist '(font . "Fira Mono-12"))
 ;; (add-to-list 'default-frame-alist '(font . "Fira Code-12"))
+;; (add-to-list 'default-frame-alist '(font . "Input Mono-11.5"))
 
 ;; Set the fringe size
 (setq-default left-fringe-width  6)

@@ -20,7 +20,7 @@
                       ;; counsel-faces
                       "1" 'colorpicker
                       "2" 'undo-tree-visualize
-                      "3" 'treemacs-toggle
+                      "3" 'treemacs
                       "4" 'imenu-list-smart-toggle
                       "5" 'hydra-flyspell/body
                       "6" 'ivy-resume
@@ -99,9 +99,8 @@
                       "p t" 'projectile-regenerate-tags)
 
   (general-define-key
-   :prefix leader
    :keymaps '(normal visual)
-
+   :prefix leader
    "t"   'google-translate-smooth-translate
    ;; Narrowing
    "n r" 'narrow-to-region
@@ -244,8 +243,11 @@
 
   (general-define-key :keymaps '(visual)
                       "S"  'evil-surround-region
-                      "gS" 'evil-Surround-region))
+                      "gS" 'evil-Surround-region)
 
+  (general-define-key :keymaps '(haskell-mode-map)
+                      :state '(insert)
+                      "TAB"  'company-indent-or-complete-common))
 
 ;; (general-define-key :keymaps 'ivy-minibuffer-map
 ;;                     "C-n" 'ivy-previous-line-and-call

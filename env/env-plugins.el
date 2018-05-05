@@ -59,7 +59,7 @@
 
 (use-package treemacs
   :ensure t
-  :commands (treemacs-toggle)
+  :commands (treemacs)
   :config
   (use-package treemacs-evil
     :after treemacs)
@@ -76,10 +76,6 @@
                       "M-j"  'evil-window-down
                       "M-k"  'evil-window-up
                       "M-l"  'evil-window-right))
-
-(use-package colorpicker
-  :load-path "dev/emacs-colorpicker"
-  :commands (colorpicker))
 
 ;; (use-package which-key
 ;;   :init

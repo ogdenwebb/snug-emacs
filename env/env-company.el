@@ -1,8 +1,11 @@
 ;; Autocomplete
 (use-package company
   :ensure t
+  :commands (global-company-mode company-complete-common)
+  :init (add-hook 'prog-mode-hook 'global-company-mode)
+  :init
   :config
-  (add-hook 'after-init-hook 'global-company-mode)
+  ;; (add-hook 'after-init-hook 'global-company-mode)
 
   ;; Use fuzzy completion
   (use-package company-flx
@@ -31,6 +34,7 @@
   ;; Additional backends and company related package
   (use-package company-shell
     :after (company sh-script)
+    :commands (company-shell company-shell-env company-shell-rebuild-cache)
     :config
     (add-to-list 'company-backends '(company-shell company-shell-env))))
 
@@ -51,6 +55,7 @@
   ;; Tern
   (use-package company-tern
     :after (company tern)
+    :commands (company-tern)
     :config
     (add-to-list 'company-backends 'company-tern))
 
@@ -61,13 +66,14 @@
     (add-to-list 'company-backends 'company-web-html))
 
   ;; Indent empty string and enable TAB completion
-  (with-eval-after-load 'company
-    (define-key company-mode-map [remap indent-for-tab-command]
-      'company-indent-for-tab-command))
 
   (setq tab-always-indent 'complete)
 
   (defvar completion-at-point-functions-saved nil)
+
+  (defun company-complete-common-wrapper ()
+    (let ((completion-at-point-functions completion-at-point-functions-saved))
+      (company-complete-common)))
 
   (defun company-indent-for-tab-command (&optional arg)
     (interactive "P")
@@ -75,10 +81,9 @@
           (completion-at-point-functions '(company-complete-common-wrapper)))
       (indent-for-tab-command arg)))
 
-  (defun company-complete-common-wrapper ()
-    (let ((completion-at-point-functions completion-at-point-functions-saved))
-      ;; (company-complete-common)))
-      (company-complete-common)))
+  (with-eval-after-load 'company
+    (define-key company-mode-map [remap indent-for-tab-command]
+      'company-indent-for-tab-command))
 
 
   ;; weight by frequency

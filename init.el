@@ -3,11 +3,10 @@
 ;; (setq debug-on-error t)
 
 ;; General configation
-(load (concat user-emacs-directory "env/env-prep"))
+(load (concat user-emacs-directory "boot/boot-prep"))
 
 ;; TODO: exclude either symlink or real file from recentf
 ;; setup with profiles: minimal, dev, etc
-;; tools
 ;; use-latex
 
 (elmax/init
@@ -45,11 +44,14 @@
   use-clj
   use-crystal
   use-elixir
+  use-haskell
   use-js
   use-nim
   use-org
   use-py
   use-web
+
+  use-tools ; support for external apps
 
   env-fu)
 

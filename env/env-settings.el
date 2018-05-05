@@ -47,12 +47,15 @@
 ;; Indentation
 (setq tab-width 2)
 (setq evil-shift-width 2)
-;; t, nil or complete
-(setq tab-always-indent t)
 
 (setq-default indent-tabs-mode nil)
 
 ;; (setq indent-line-function 'insert-tab)
+
+;; http://stackoverflow.com/questions/354490/preventing-automatic-change-of-default-directory
+;; (add-hook 'find-file-hook
+;;           (lambda ()
+;;             (setq default-directory command-line-default-directory)))
 
 (defun lisp-indent-setup ()
   ;; Set tab-width to 2
@@ -155,6 +158,13 @@
 
 ;; Disable eldoc autostart, enabled by default since 25
 (global-eldoc-mode -1)
+
+;; Auto-indent when pasting
+(dolist (command '(yank yank-pop))
+   (eval `(defadvice ,command (after indent-region activate)
+            (and (not current-prefix-arg)
+                 (let ((mark-even-if-inactive transient-mark-mode))
+                   (indent-region (region-beginning) (region-end) nil))))))
 
 
 (provide 'env-settings)
