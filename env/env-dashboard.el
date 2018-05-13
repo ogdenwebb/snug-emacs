@@ -1,6 +1,7 @@
 ;; Dashboard
 ;; TODO: fix slow startup mb move it
 (use-package dashboard
+  :disabled t
   :config
   (dashboard-setup-startup-hook)
   ;; Set the title

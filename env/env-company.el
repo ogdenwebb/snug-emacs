@@ -36,7 +36,13 @@
     :after (company sh-script)
     :commands (company-shell company-shell-env company-shell-rebuild-cache)
     :config
-    (add-to-list 'company-backends '(company-shell company-shell-env))))
+    (add-to-list 'company-backends '(company-shell company-shell-env)))
+
+  ;; (use-package company-statistics
+  ;;   :after company
+  ;;   :config
+  ;;   (setq company-statistics-file "~/.cache/emacs/company-statistics-cache.el")
+  ;;   (company-statistics-mode +1))
 
   ;; OCaml
   ;;;; Make company aware of merlin
@@ -81,9 +87,9 @@
           (completion-at-point-functions '(company-complete-common-wrapper)))
       (indent-for-tab-command arg)))
 
-  (with-eval-after-load 'company
-    (define-key company-mode-map [remap indent-for-tab-command]
-      'company-indent-for-tab-command))
+  ;; (with-eval-after-load 'company
+  ;;   (define-key company-mode-map [remap indent-for-tab-command]
+  ;;     'company-indent-for-tab-command))
 
 
   ;; weight by frequency
@@ -109,7 +115,7 @@
   ;; (add-to-list 'company-backends 'company-dabbrev)
   ;; (add-to-list 'company-backends 'company-dabbrev-code)
   ;; (add-to-list 'company-backends '(company-capf company-dabbrev-code))
-  (setq company-dabbrev-downcase nil)
+  (setq company-dabbrev-downcase nil))
 
   ;; (setq company-dabbrev-ignore-case nil)
   ;; (setq company-dabbrev-code-ignore-case nil)

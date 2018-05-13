@@ -48,7 +48,9 @@
   use-js
   use-nim
   use-org
+  use-ocaml
   use-py
+  use-rust
   use-web
 
   use-tools ; support for external apps

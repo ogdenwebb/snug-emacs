@@ -160,7 +160,7 @@
   ;; Insert mode maps
   (general-define-key
    :states '(insert)
-   ;; "TAB" 'company-indent-or-complete-common
+   "TAB" 'company-indent-or-complete-common
    ;; "TAB" 'company-indent-for-tab-command
    ;; "RET" 'evil-ret-and-indent
    "RET" 'reindent-then-newline-and-indent

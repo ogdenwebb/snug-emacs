@@ -24,11 +24,11 @@
     :ensure t)
   :config
 
-  (setq kaolin-hl-line-colored t)
-  (setq kaolin-git-gutter-solid t)
-  (setq kaolin-wave t)
-  (setq kaolin-bold nil)
-  ;; (setq kaolin-italic-comments t)
+  (setq kaolin-themes-hl-line-colored t)
+  (setq kaolin-themes-git-gutter-solid t)
+  (setq kaolin-themes-underline-wave t)
+  (setq kaolin-themes-bold nil)
+  ;; (setq kaolin-themes-italic-comments nil)
 
   ;; Set default theme
   ;; (defun load-my-theme (frame)
@@ -46,7 +46,7 @@
   ;; Highlight t and nil in elisp-mode
   (font-lock-add-keywords
    'emacs-lisp-mode
-   '(("\\<\\(nil\\|t\\)\\>" . 'kaolin-boolean))))
+   '(("\\<\\(nil\\|t\\)\\>" . 'kaolin-themes-boolean))))
 
 ;; Set default font
 ;; `default' face is not set properly

@@ -1,7 +1,7 @@
 ;; Helm setup to test theme faces
 
 (use-package helm
-  :ensure helm
+  :disabled t
   :init
   (helm-mode +1))
 
