@@ -16,14 +16,14 @@
 ;; seti -- only basic faces
 
 ;; Load my theme
+(use-package autothemer
+  :ensure t)
+
 (use-package kaolin-themes
   ;; Delete the following line if you use MELPA package
+  :after autothemer
   :load-path "dev/emacs-kaolin-themes"
-  :init
-  (use-package autothemer
-    :ensure t)
   :config
-
   (setq kaolin-themes-hl-line-colored t)
   (setq kaolin-themes-git-gutter-solid t)
   (setq kaolin-themes-underline-wave t)
@@ -122,19 +122,17 @@
 
 ;; Highlight numbers
 (use-package highlight-numbers
-  :ensure t
   :config
-  (add-hook 'prog-mode-hook 'highlight-numbers-mode))
+  (add-hook 'prog-mode-hook #'highlight-numbers-mode))
 
 ;; Highlight defined Emacs Lisp symbols in source code
 (use-package highlight-defined
-  :ensure t
-  :config
-  (add-hook 'emacs-lisp-mode-hook 'highlight-defined-mode))
+  :commands (highlight-defined-mode)
+  :init
+  (add-hook 'emacs-lisp-mode-hook #'highlight-defined-mode))
 
 ;; Highlight parenthess
 (use-package paren
-  :ensure t
   :config
   (show-paren-mode 1)        ; Automatically highlight parenthesis pairs
   ;; (setq show-paren-style 'expression)
@@ -143,9 +141,9 @@
 
 ;; Highlight quoted symbols
 (use-package highlight-quoted
-  :ensure t
-  :config
-  (add-hook 'emacs-lisp-mode-hook 'highlight-quoted-mode))
+  :commands (highlight-quoted-mode)
+  :init
+  (add-hook 'emacs-lisp-mode-hook #'highlight-quoted-mode))
 
 ;; Dim innactive windows
 ;; (use-package auto-dim-other-buffers
@@ -154,8 +152,8 @@
 
 ;; Rainbow delimiters
 (use-package rainbow-delimiters
-  :ensure t
-  :config
+  :commands (rainbow-delimiters-mode)
+  :init
   (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
   (add-hook 'clojure-mode-hook #'rainbow-delimiters-mode))
 
@@ -170,18 +168,19 @@
 ;;   (setq highlight-indent-guides-character ?\┆))
 
 (use-package indent-guide
-  :ensure t
-  :config
-  (indent-guide-global-mode))
+  :commands (indent-guide-mode indent-guide-global-mode)
+  :init
+  (add-hook 'prog-mode-hook #'indent-guide-mode))
 
 ;; Line numbering
 (use-package nlinum
   :ensure t
   :init
-  (setq nlinum-format "%5d ")
-  (setq nlinum-highlight-current-line t)
   (add-hook 'prog-mode-hook 'nlinum-mode)
   (add-hook 'text-mode-hook 'nlinum-mode))
+  :config
+  (setq nlinum-format "%5d ")
+  (setq nlinum-highlight-current-line t)
 
 ;; Icons
 (use-package all-the-icons

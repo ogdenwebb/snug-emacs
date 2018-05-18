@@ -22,16 +22,14 @@
 
 ;; Package-lint
 (use-package package-lint
-  :defer t
-  :ensure t
-  :after flycheck)
+  :commands (package-lint-current-buffer))
 
 ;; Flycheck
 (use-package flycheck
   :ensure t
-  ;; :commands (flycheck-mode global-flycheck-mode flycheck-list-errors flycheck-buffer)
+  :commands (flycheck-mode global-flycheck-mode flycheck-list-errors flycheck-buffer)
   :config
-  (add-hook 'after-init-hook #'global-flycheck-mode)
+  (add-hook 'prog-mode-hook #'flycheck-mode)
 
   (setq flycheck-idle-change-delay
         (if flycheck-current-errors 0.3 3.0))
@@ -39,6 +37,7 @@
   ;; TODO: enable
   (setq-default flycheck-disabled-checkers '(emacs-lisp emacs-lisp-checkdoc))
 
+  ;; TODO: ????
   (make-variable-buffer-local 'flycheck-idle-change-delay)
   ;; Disable fringe markers
   ;; (setq flycheck-indication-mode nil)
@@ -131,7 +130,6 @@
 
 ;; Spell checking
 (use-package flyspell
-  :ensure t
   :commands (flyspell-mode flyspell-buffer)
   :config
   ;; (add-hook 'prog-mode-hook 'flyspell-prog-mode)

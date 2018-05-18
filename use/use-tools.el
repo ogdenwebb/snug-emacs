@@ -1,6 +1,6 @@
+;; TODO
 (use-package mpdel
-  :config
-  (mpdel-mode))
+  :commands (mpdel-mode mpd-playlist-open))
 
 (use-package colorpicker
   :load-path "dev/emacs-colorpicker"

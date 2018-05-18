@@ -82,7 +82,6 @@
   (setq-default olivetti-body-width 80))
 
 (use-package google-translate
-  :ensure t
   :defer t
   :config
   (use-package google-translate-smooth-ui

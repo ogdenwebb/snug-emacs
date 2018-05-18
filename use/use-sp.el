@@ -1,10 +1,10 @@
 (use-package smartparens
   :init
-  (smartparens-global-mode 1)
+  (add-hook 'after-init-hook #'smartparens-global-mode)
   :config
   (use-package smartparens-config)
-  (setq sp-autowrap-region nil ; let evil-surround handle this
-        sp-highlight-pair-overlay nil
+  ;; (setq sp-autowrap-region nil ; let evil-surround handle this
+  (setq sp-highlight-pair-overlay nil
         sp-cancel-autoskip-on-backward-movement nil)
 
   (setq-default sp-autoskip-closing-pair 'always-end)

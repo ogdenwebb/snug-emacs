@@ -7,7 +7,6 @@
       vc-annotate-very-old-color nil)
 
 (use-package ediff
-  :defer t
   :commands (ediff)
   :config
   (use-package evil-ediff))

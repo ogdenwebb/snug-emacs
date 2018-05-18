@@ -1,9 +1,10 @@
+;; Company completion settings.  -*- lexical-binding: t; -*-
+
 ;; Autocomplete
 (use-package company
   :ensure t
   :commands (global-company-mode company-complete-common)
   :init (add-hook 'prog-mode-hook 'global-company-mode)
-  :init
   :config
   ;; (add-hook 'after-init-hook 'global-company-mode)
 

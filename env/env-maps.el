@@ -162,8 +162,8 @@
    :states '(insert)
    "TAB" 'company-indent-or-complete-common
    ;; "TAB" 'company-indent-for-tab-command
-   ;; "RET" 'evil-ret-and-indent
-   "RET" 'reindent-then-newline-and-indent
+   "RET" 'evil-ret-and-indent
+   ;; "RET" 'reindent-then-newline-and-indent
    "DEL" 'elmax/smart-backspace
    "C-k" 'company-complete-common-or-cycle
    "C-a" 'beginning-of-line
@@ -185,6 +185,7 @@
                       ;; "n" 'evil-search-next
                       ;; "N" 'evil-search-previous
                       "q" 'kill-this-buffer)
+
 
   ;; Lisp modes
   (general-define-key :keymaps 'clojure-mode-map

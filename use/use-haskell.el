@@ -7,7 +7,6 @@
   (add-hook 'haskell-mode-hook (lambda () (setq electric-indent-inhibit t))))
 
 (use-package dante
-  :ensure t
   :after haskell-mode
   :commands 'dante-mode
   :init

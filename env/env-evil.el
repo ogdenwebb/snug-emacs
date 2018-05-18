@@ -122,16 +122,16 @@
 (use-package evil-lion
  :ensure t
  :commands (evil-lion-mode evil-lion-left evil-lion-right)
- :config
-  (setq evil-lion-squeeze-spaces t))
+ :config (setq evil-lion-squeeze-spaces t))
 
 ;; Folding
-
+;; TODO: maps
 (use-package vimish-fold
-  :ensure t
+  :after evil
   :config
   (use-package evil-vimish-fold
     :ensure t
+    :commands evil-vimish-fold-mode
     :config
     (add-to-list 'after-init-hook #'evil-vimish-fold-mode)
     (setq vimish-fold-header-width nil)))

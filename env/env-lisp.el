@@ -4,7 +4,7 @@
   (add-hook 'emacs-lisp-mode-hook #'eldoc-mode))
 
 (use-package litable
-  :mode ("\\.el\\'" . emacs-lisp-mode))
+  :disabled t)
 
 ;; (use-package adjust-parens
 ;;   :config

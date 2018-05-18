@@ -8,6 +8,7 @@
 ;; TODO: exclude either symlink or real file from recentf
 ;; setup with profiles: minimal, dev, etc
 ;; use-latex
+;; Deal with defer t and defer .1
 
 (elmax/init
   env-settings
