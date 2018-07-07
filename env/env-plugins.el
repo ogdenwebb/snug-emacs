@@ -96,6 +96,10 @@
   (setq imenu-list-mode-line-format nil)
   (setq imenu-list-size 32))
 
+(use-package restart-emacs
+  :commands (restart-emacs))
+
+
 ;; (use-package helpful
 ;;   :ensure t
 ;;   :general

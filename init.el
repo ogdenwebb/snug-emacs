@@ -9,6 +9,7 @@
 ;; setup with profiles: minimal, dev, etc
 ;; use-latex
 ;; Deal with defer t and defer .1
+;; package restart-emacs
 
 (elmax/init
   env-settings
@@ -21,7 +22,7 @@
   env-company
 
   env-face
-  ;; env-dashboard
+  env-dashboard
 
   env-behavior
   env-plugins

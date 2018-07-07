@@ -62,22 +62,22 @@
   :ensure t
   :after evil
   :config
-  (defun evil-goggles--show-p (beg end)
-    "Return t if the overlay should be displayed in region BEG to END."
-    (and (not evil-goggles--on)
-        (not evil-inhibit-operator-value)
-        (bound-and-true-p evil-mode)
-        (numberp beg)
-        (numberp end)
-        (> (- end beg) 1)
-        (<= (point-min) beg end)
-        (>= (point-max) end beg)
-        ;; (not (evil-visual-state-p))
-        (not (evil-insert-state-p))
-        ;; don't show overlay when evil-mc has multiple fake cursors
-        (not (and (fboundp 'evil-mc-has-cursors-p) (evil-mc-has-cursors-p)))
-        ;; don't show overlay when the region has nothing but whitespace
-        (not (null (string-match-p "[^ \t\n]" (buffer-substring-no-properties beg end))))))
+  ;; (defun evil-goggles--show-p (beg end)
+  ;;   "Return t if the overlay should be displayed in region BEG to END."
+  ;;   (and (not evil-goggles--on)
+  ;;       (not evil-inhibit-operator-value)
+  ;;       (bound-and-true-p evil-mode)
+  ;;       (numberp beg)
+  ;;       (numberp end)
+  ;;       (> (- end beg) 1)
+  ;;       (<= (point-min) beg end)
+  ;;       (>= (point-max) end beg)
+  ;;       ;; (not (evil-visual-state-p))
+  ;;       (not (evil-insert-state-p))
+  ;;       ;; don't show overlay when evil-mc has multiple fake cursors
+  ;;       (not (and (fboundp 'evil-mc-has-cursors-p) (evil-mc-has-cursors-p)))
+  ;;       ;; don't show overlay when the region has nothing but whitespace
+  ;;       (not (null (string-match-p "[^ \t\n]" (buffer-substring-no-properties beg end))))))
 
   (setq evil-goggles-duration 0.1
         evil-goggles-enable-delete nil

@@ -90,7 +90,7 @@
 
 ;; VC settings
 (setq vc-follow-symlinks t)
-(remove-hook 'find-file-hooks 'vc-find-file-hook)
+;; (remove-hook 'find-file-hooks 'vc-find-file-hook)
 ;; (setq vc-handled-backends nil)
 
 ;; Save last position
@@ -104,15 +104,17 @@
 
 ;; Save history
 (use-package savehist
-  :init (savehist-mode 1)
+  :init
+  (savehist-mode 1)
   :config
-  (setq savehist-additional-variables
-        '(search-ring
-          kill-ring
-          set-variable-value-history
-          shell-command-history
-          file-name-history
-          regexp-search-ring))
+  (setq
+   savehist-save-minibuffer-history t
+   savehist-additional-variables '(search-ring
+                                   kill-ring
+                                   set-variable-value-history
+                                   shell-command-history
+                                   file-name-history
+                                   regexp-search-ring))
   (setq history-length 1000))
 
 ;; Backup settings

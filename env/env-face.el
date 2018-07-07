@@ -42,6 +42,9 @@
   ;; (load-theme 'kaolin-galaxy t)
   ;; (load-theme 'kaolin-aurora t)
   (load-theme 'kaolin-valley-dark t)
+  ;; (load-theme 'kaolin-valley-light t)
+  ;; Set cursor for emacsclient
+  ;; (add-to-list 'default-frame-alist '(cursor-color . "#60696b"))
 
   ;; Highlight t and nil in elisp-mode
   (font-lock-add-keywords
@@ -54,7 +57,7 @@
 ;; (add-to-list 'default-frame-alist '(font . "Iosevka-13"))
 ;; (add-to-list 'default-frame-alist '(font . "Fira Mono-12"))
 ;; (add-to-list 'default-frame-alist '(font . "Fira Code-12"))
-;; (add-to-list 'default-frame-alist '(font . "Input Mono-11.5"))
+;; (add-to-list 'default-frame-alist '(font . "Input Mono-11"))
 
 ;; Set the fringe size
 (setq-default left-fringe-width  6)
@@ -173,14 +176,20 @@
   (add-hook 'prog-mode-hook #'indent-guide-mode))
 
 ;; Line numbering
-(use-package nlinum
-  :ensure t
+;; (use-package nlinum
+;;   :ensure t
+;;   :init
+;;   (add-hook 'prog-mode-hook 'nlinum-mode)
+;;   (add-hook 'text-mode-hook 'nlinum-mode))
+;;   :config
+;;   (setq nlinum-format "%5d ")
+;;   (setq nlinum-highlight-current-line t)
+
+(use-package display-line-numbers
+  ;; :when (bound-and-true-p display-line-numbers-mode)
   :init
-  (add-hook 'prog-mode-hook 'nlinum-mode)
-  (add-hook 'text-mode-hook 'nlinum-mode))
-  :config
-  (setq nlinum-format "%5d ")
-  (setq nlinum-highlight-current-line t)
+  (add-hook 'prog-mode-hook 'display-line-numbers-mode)
+  (add-hook 'text-mode-hook 'display-line-numbers-mode))
 
 ;; Icons
 (use-package all-the-icons

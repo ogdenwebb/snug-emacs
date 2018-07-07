@@ -5,17 +5,17 @@
     "Flyspell"
     ("r" (lambda ()
            (interactive)
-           (ispell-change-dictionary "ru_RU")
+           (ispell-change-dictionary "ru")
            (flyspell-buffer))
      "rus")
     ("e" (lambda ()
            (interactive)
-           (ispell-change-dictionary "en_US")
+           (ispell-change-dictionary "en")
            (flyspell-buffer))
      "en_US")
     ("d" (lambda ()
            (interactive)
-           (ispell-change-dictionary "de_DE")
+           (ispell-change-dictionary "de")
            (flyspell-buffer))
      "de")
     ("q" nil "cancel")))
@@ -135,7 +135,8 @@
   ;; (add-hook 'prog-mode-hook 'flyspell-prog-mode)
   ;; (add-hook 'text-mode-hook 'flyspell-mode)
   (setq flyspell-issue-message-flag nil)
-  (setq ispell-program-name (executable-find "hunspell")
+  ;; aspell, hunspell
+  (setq ispell-program-name (executable-find "aspell")
         ispell-dictionary "en_US"))
 
 ;; flyspell ivy corret

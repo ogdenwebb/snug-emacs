@@ -1,4 +1,4 @@
-;; Org-mode
+;;; Org-mode settings  -*- lexical-binding: t -*-
 
 (use-package org
   :config
@@ -27,7 +27,10 @@
 
   (defun org-init-hook ()
     (interactive)
-    (nlinum-mode -1)
+    (when (bound-and-true-p nlinum-mode)
+      (nlinum-mode -1))
+    (when (bound-and-true-p display-line-numbers-mode)
+      (display-line-numbers-mode -1))
     ;; TODO: disable git-gutter
     ;; Enable line wrapping
     (visual-line-mode t))
