@@ -99,6 +99,12 @@
 (use-package restart-emacs
   :commands (restart-emacs))
 
+(use-package deft
+  :config
+  (setq deft-extensions '("txt" "tex" "org"))
+  (setq deft-directory "~/Dropbox/org")
+  (setq deft-recursive t))
+
 
 ;; (use-package helpful
 ;;   :ensure t
