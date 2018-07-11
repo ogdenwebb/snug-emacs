@@ -102,7 +102,7 @@
 (use-package deft
   :config
   (setq deft-extensions '("txt" "tex" "org"))
-  (setq deft-directory "~/Dropbox/org")
+  (setq deft-directory "~/Drive/org")
   (setq deft-recursive t))
 
 

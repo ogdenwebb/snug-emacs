@@ -1,4 +1,4 @@
-;; Custom modeline based on telephone-line package.  -*- lexical-binding: t; -*-
+;;; Custom modeline based on telephone-line package.  -*- lexical-binding: t; -*-
 
 ;; TODO: check if all-the-icons installed
 ;; TODO: (??) disable mouse menu

@@ -1,23 +1,13 @@
+;;; -mode enable to on-the-fly spellchecking -*- lexical-binding: t; -*-
+
 (use-package hydra
   :defer t
   :config
   (defhydra hydra-flyspell (:color teal)
-    "Flyspell"
-    ("r" (lambda ()
-           (interactive)
-           (ispell-change-dictionary "ru")
-           (flyspell-buffer))
-     "rus")
-    ("e" (lambda ()
-           (interactive)
-           (ispell-change-dictionary "en")
-           (flyspell-buffer))
-     "en_US")
-    ("d" (lambda ()
-           (interactive)
-           (ispell-change-dictionary "de")
-           (flyspell-buffer))
-     "de")
+    "Flyspell dictionary"
+    ("r" (elmax/flyspell-set-dict "ru") "rus")
+    ("e" (elmax/flyspell-set-dict "en") "eng")
+    ("d" (elmax/flyspell-set-dict "de") "den")
     ("q" nil "cancel")))
 
 ;; Package-lint
@@ -138,6 +128,16 @@
   ;; aspell, hunspell
   (setq ispell-program-name (executable-find "aspell")
         ispell-dictionary "en_US"))
+
+(defun elmax/flyspell-set-dict (dict)
+  (if (bound-and-true-p flyspell-mode)
+      (progn
+        (ispell-change-dictionary dict)
+        (flyspell-buffer))
+    (progn
+      (flyspell-mode)
+      (ispell-change-dictionary dict)
+      (flyspell-buffer))))
 
 ;; flyspell ivy corret
 ;; (use-package flyspell-correct-ivy
