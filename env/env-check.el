@@ -130,14 +130,11 @@
         ispell-dictionary "en_US"))
 
 (defun elmax/flyspell-set-dict (dict)
-  (if (bound-and-true-p flyspell-mode)
-      (progn
-        (ispell-change-dictionary dict)
-        (flyspell-buffer))
     (progn
-      (flyspell-mode)
+      (if (not (bound-and-true-p flyspell-mode))
+        (flyspell-mode))
       (ispell-change-dictionary dict)
-      (flyspell-buffer))))
+      (flyspell-buffer)))
 
 ;; flyspell ivy corret
 ;; (use-package flyspell-correct-ivy
