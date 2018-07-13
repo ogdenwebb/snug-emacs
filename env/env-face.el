@@ -6,15 +6,6 @@
   (mapc #'disable-theme custom-enabled-themes))
 
 ;; Theme settings
-;; List of nice themes
-;; noctilux
-;; bliss
-;; boron
-;; base16-default-dark
-;; danneskjold-theme
-;; flatland-theme
-;; seti -- only basic faces
-
 ;; Load my theme
 (use-package autothemer
   :ensure t)
@@ -147,11 +138,6 @@
   :commands (highlight-quoted-mode)
   :init
   (add-hook 'emacs-lisp-mode-hook #'highlight-quoted-mode))
-
-;; Dim innactive windows
-;; (use-package auto-dim-other-buffers
-;;   :config
-;; (auto-dim-other-buffers-mode))
 
 ;; Rainbow delimiters
 (use-package rainbow-delimiters

@@ -73,26 +73,12 @@
 ;; TODO: Jump to defenition
 ;; https://github.com/syl20bnr/spacemacs/blob/master/core/core-jump.el
 
-;; -------------------------------------------------------------------------------------------------------------------------
-;; Neo tree open xdg on point helpers
-;; -------------------------------------------------------------------------------------------------------------------------
 ;; (defun xdg-open-from-kill-ring ()
 ;;   "Launch the default xdg appplication."
 ;;   (interactive)
 ;;   (shell-command (concat "xdg-open " (substring-no-properties (car kill-ring)))))
 ;; ;;change xdg-open to whatever launcher you have (xdg-open is the default on most linux systems)
 
-;; (defun neotree-open-xdg-on-point ()
-;;   "Open a file under point."
-;;   (interactive)
-;;   (progn
-;;     (neotree-copy-filepath-to-yank-ring)
-;;     (xdg-open-from-kill-ring)))
-
-;; Add "J" as the key that will launch the function
-;; (define-key neotree-mode-map (kbd "J") 'neotree-open-xdg-on-point)
-;; function copied from spacemacs source code
-;; modified function from http://emacswiki.org/emacs/AlignCommands
 (defun align-repeat (start end regexp &optional justify-right after)
   "Repeat alignment with respect to the given regular expression.
   If JUSTIFY-RIGHT is non nil justify to the right instead of the

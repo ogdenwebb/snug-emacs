@@ -44,7 +44,6 @@
    '(git-gutter:modified-sign "󠀠")
    '(git-gutter:deleted-sign "󠀠"))
 
-
   :config
   (use-package git-gutter-fringe
     :after git-gutter

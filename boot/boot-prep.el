@@ -48,7 +48,6 @@
 (eval-when-compile
   (require 'use-package))
 
-
 (with-eval-after-load "info"
   (info-initialize)
   (dolist (dir (directory-files package-user-dir))
@@ -59,26 +58,17 @@
         (add-to-list 'Info-directory-list fdir)))))
 
 ;; TODO:
-(defun elmax/byte-compile-config ()
-  (interactive)
-  ;; (async-byte-recompile-directory))
-  ;; (byte-compile-file (concat user-emacs-directory "/" "init.el") 0)
-  (byte-recompile-directory (concat user-emacs-directory "/env") 0)
-  (byte-recompile-directory (concat user-emacs-directory "/use") 0)
-  (byte-recompile-directory (concat user-emacs-directory "/modeline") 0)
-  ;; (mapc (lambda (fname) (byte-compile-file (concat user-emacs-directory "/" fname)))
-  ;;       '("init.el"
-  ;;         "env/env-boot.el"
-  ;;         "env/env-common.el"
-  ;;         "env/env-modeline.el"))
-
-  (message "Success!"))
+;; (defun elmax/byte-compile-config ()
+;;   (interactive)
+;;   (byte-recompile-directory (concat user-emacs-directory "/env") 0)
+;;   (byte-recompile-directory (concat user-emacs-directory "/use") 0)
+;;   (byte-recompile-directory (concat user-emacs-directory "/modeline") 0)
+;;   (message "Success!"))
 
 (setq byte-compile--use-old-handlers nil)
 (setq load-prefer-newer t)
 
-;; start scratch in text mode (usefull to get a faster Emacs load time
-;; because it avoids autoloads of elisp modes)
+;; start scratch in text mode
 (setq initial-major-mode 'text-mode)
 
 ;; Use Common Lisp library

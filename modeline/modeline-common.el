@@ -28,16 +28,8 @@
   (require 'telephone-line-utils)
 
 
-  ;; TODO: choose separator by name
-  ;; Set default separators: choose either of them
-  ;; (setq telephone-line-primary-left-separator 'telephone-line-flat)
-  ;; (setq telephone-line-primary-right-separator 'telephone-line-flat)
-  ;; OR
-  ;; (setq telephone-line-primary-left-separator 'telephone-line-identity-left)
-  ;; (setq telephone-line-primary-right-separator 'telephone-line-identity-right)
-  ;; OR
-
   ;; Set subseparator
+  ;; TODO: function to choose separator by name
   (if window-system
       (progn
         (setq telephone-line-secondary-left-separator 'telephone-line-identity-hollow-left)

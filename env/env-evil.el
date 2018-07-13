@@ -1,4 +1,4 @@
-;; Enable evil mode
+;;; Evil mode -*- lexical-binding: t -*-
 (use-package evil
   :ensure t
   :init

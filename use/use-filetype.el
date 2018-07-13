@@ -8,6 +8,7 @@
   :config
   (setq markdown-command "multimarkdown"))
 
+;; yaml support
 (use-package yaml-mode
   :mode ("\\.yml\\'" . yaml-mode)
   :config
@@ -17,6 +18,7 @@
                       :states '(insert)
                       "RET" 'evil-ret-and-indent))
 
+;; vimrc mode
 (use-package vimrc-mode
   :mode ("/\\.?g?vimrc$"
           "\\.vim$"

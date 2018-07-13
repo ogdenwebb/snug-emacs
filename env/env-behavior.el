@@ -1,13 +1,3 @@
-;; Auto-indent-mode
-;; (use-package auto-indent-mode
-;;   :init
-;;   ;; (add-hook 'prog-mode-hook 'auto-indent-mode)
-;;   (setq auto-indent-on-visit-file t)
-;;   (auto-indent-global-mode)
-;;   :config
-;;   (setq auto-indent-newline-function 'newline-and-indent)
-;;   (add-to-list 'auto-indent-multiple-indent-modes 'nim-mode))
-
 ;; Electric indent
 (electric-indent-mode -1)
 (setq-default electric-indent-inhibit t)

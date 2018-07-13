@@ -45,15 +45,6 @@
   ;;   (setq company-statistics-file "~/.cache/emacs/company-statistics-cache.el")
   ;;   (company-statistics-mode +1))
 
-  ;; OCaml
-  ;;;; Make company aware of merlin
-  ;; (with-eval-after-load 'company
-  ;;   (add-to-list 'company-backends 'merlin-company-backend))
-  ;; Enable company on merlin managed buffers
-  ;; (add-hook 'merlin-mode-hook 'company-mode)
-  ;; Or enable it globally:
-  ;; (add-hook 'after-init-hook 'global-company-mode)
-
   ;; Complete filename
   (with-eval-after-load 'company
     (add-to-list 'company-backends 'company-files))
@@ -73,7 +64,6 @@
     (add-to-list 'company-backends 'company-web-html))
 
   ;; Indent empty string and enable TAB completion
-
   (setq tab-always-indent 'complete)
 
   (defvar completion-at-point-functions-saved nil)
@@ -124,6 +114,5 @@
   ;; (setq company-dabbrev-code-modes t)
   ;; (setq company-dabbrev-code-other-buffers t)
   ;; (setq company-dabbrev-ignore-buffers "\\`\\'")
-
 
 (provide 'env-company)

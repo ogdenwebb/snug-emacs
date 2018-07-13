@@ -1,4 +1,4 @@
-;;; -mode enable to on-the-fly spellchecking -*- lexical-binding: t; -*-
+;;; Syntax & spell checking -*- lexical-binding: t; -*-
 
 (use-package hydra
   :defer t

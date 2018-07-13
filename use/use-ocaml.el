@@ -1,18 +1,4 @@
 ;; OCaml
-
-;; ;; -- opam and utop setup --------------------------------
-;; ;; Setup environment variables using opam
-;; (dolist
-;;     (var (car (read-from-string
-;;                (shell-command-to-string "opam config env --sexp"))))
-;;   (setenv (car var) (cadr var)))
-;; ;; Update the emacs path
-;; (setq exec-path (split-string (getenv "PATH") path-separator))
-;; ;; Update the emacs load path
-;; (push (concat (getenv "OCAML_TOPLEVEL_PATH")
-;;               "/../../share/emacs/site-lisp") load-path)
-
-
 (use-package tuareg
   :mode (("\\.ml[4ilpy]?$" . tuareg-mode)
          ("\\.topml$" . tuareg-mode)))

@@ -50,8 +50,6 @@
 
 (setq-default indent-tabs-mode nil)
 
-;; (setq indent-line-function 'insert-tab)
-
 ;; http://stackoverflow.com/questions/354490/preventing-automatic-change-of-default-directory
 ;; (add-hook 'find-file-hook
 ;;           (lambda ()
@@ -65,8 +63,6 @@
 
 (add-hook 'emacs-lisp-mode-hook 'lisp-indent-setup)
 (add-hook 'clojure-mode-hook 'lisp-indent-setup)
-
-;; (setq nim-indent-offset 2)
 
 ;; Clean whitespace
 (add-hook 'before-save-hook 'whitespace-cleanup)

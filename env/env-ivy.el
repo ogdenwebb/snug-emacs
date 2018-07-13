@@ -4,7 +4,6 @@
   :ensure t
   :init
   (ivy-mode 1)
-
   :config
 
   ;; (setq ivy-re-builders-alist '((t . ivy--regex-fuzzy)))

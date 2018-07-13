@@ -19,12 +19,6 @@
              quickrun-compile-only
              quickrun-replace-region))
 
-;; Integration with Chrome/Chromium
-;; (use-package atomic-chrome
-;;   :config
-;;   (atomic-chrome-start-server))
-
-
 ;; Move region or line
 (use-package drag-stuff
   :ensure t
@@ -38,17 +32,6 @@
 ;;   :config
 ;;   (yas-global-mode 1))
 
-;; (use-package neotree
-;;   :config
-;;   (setq neo-mode-line-type 'none)
-;;   :general
-;;   (general-define-key :keymaps 'neotree-mode-map
-;;                       :states '(normal)
-;;                       "SPC" 'neotree-enter
-;;                       "TAB" 'neotree-enter
-;;                       "RET" 'neotree-enter
-;;                       "q" 'neotree-hide))
-
 (use-package treemacs
   :ensure t
   :commands (treemacs)
@@ -57,7 +40,6 @@
     :after treemacs)
 
   ;; Disable mode-line in treemacs buffer
-  ;; see: https://github.com/Alexander-Miller/treemacs/blob/d5456233909a4f558d24056a5e53f15e9f2029f6/treemacs-mode.el#L202
   (defun treemacs--setup-mode-line ()
       (setq mode-line-format nil))
 
@@ -70,7 +52,7 @@
                       "M-l"  'evil-window-right))
 
 ;; (use-package which-key
-;;   :init
+;;   :config
 ;;   (which-key-mode)
 ;;   (which-key-setup-side-window-bottom))
 
@@ -90,7 +72,6 @@
   (setq google-translate-translation-directions-alist '(("en" . "ru"))))
 
 (use-package imenu-list
-  :ensure t
   :commands (imenu-list-smart-toggle)
   :config
   (setq imenu-list-mode-line-format nil)
@@ -100,11 +81,11 @@
   :commands (restart-emacs))
 
 (use-package deft
+  :commands (deft)
   :config
   (setq deft-extensions '("txt" "tex" "org"))
   (setq deft-directory "~/Drive/org")
   (setq deft-recursive t))
-
 
 ;; (use-package helpful
 ;;   :ensure t

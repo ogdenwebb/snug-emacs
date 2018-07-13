@@ -19,7 +19,7 @@
   ;; env-helm
 
   env-evil
-  env-company
+  env-company ; TODO: refact
 
   env-face
   env-dashboard
