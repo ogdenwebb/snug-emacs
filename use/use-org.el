@@ -7,8 +7,8 @@
     :ensure t)
 
   ;; Fit image into the screen
-  ;; TODO:
-  (setq org-image-actual-width '(200))
+  ;; (setq org-image-actual-width '(200))
+  (setq org-image-actual-width 200)
 
   (setq org-startup-with-inline-images t)
   ;; (setq org-image-actual-width (/ (display-pixel-width) 3))
@@ -48,7 +48,7 @@
   ;; export html/pdf; see C-c C-e
 
   (custom-theme-set-faces
-   'kaolin-valley-dark
+   'elmax/custom-theme
    '(org-done ((t (:foreground "dimgray" :bold t :strike-through t))))
    '(org-headline-done ((t (:foreground "dimgray" :bold nil :strike-through t)))))
 

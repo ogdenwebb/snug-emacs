@@ -7,6 +7,8 @@
 
 ;; Theme settings
 ;; Load my theme
+(setq elmax/custom-theme 'kaolin-valley-dark)
+
 (use-package autothemer
   :ensure t)
 
@@ -30,10 +32,7 @@
   ;;     (add-hook 'after-make-frame-functions #'load-my-theme)
   ;;   (load-theme 'kaolin-eclipse t))
 
-  ;; (load-theme 'kaolin-galaxy t)
-  ;; (load-theme 'kaolin-aurora t)
-  (load-theme 'kaolin-valley-dark t)
-  ;; (load-theme 'kaolin-valley-light t)
+  (load-theme elmax/custom-theme t)
   ;; Set cursor for emacsclient
   ;; (add-to-list 'default-frame-alist '(cursor-color . "#60696b"))
 
