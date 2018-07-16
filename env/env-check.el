@@ -137,7 +137,9 @@
       (flyspell-buffer)))
 
 ;; flyspell ivy corret
-;; (use-package flyspell-correct-ivy
-;;   :after flyspell)
+(use-package flyspell-correct
+  :after flyspell
+  :config
+  (use-package flyspell-correct-ivy))
 
 (provide 'env-check)

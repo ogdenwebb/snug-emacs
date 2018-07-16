@@ -48,7 +48,7 @@
   ;; export html/pdf; see C-c C-e
 
   (custom-theme-set-faces
-   'elmax/custom-theme
+   elmax/custom-theme
    '(org-done ((t (:foreground "dimgray" :bold t :strike-through t))))
    '(org-headline-done ((t (:foreground "dimgray" :bold nil :strike-through t)))))
 
