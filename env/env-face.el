@@ -21,7 +21,8 @@
   (setq kaolin-themes-git-gutter-solid t)
   (setq kaolin-themes-underline-wave t)
   (setq kaolin-themes-bold nil)
-  ;; (setq kaolin-themes-italic-comments nil)
+  ;; (setq kaolin-themes-distinct-company-scrollbar t)
+  ;; (setq kaolin-themes-italic-comments t)
 
   ;; Set default theme
   ;; (defun load-my-theme (frame)
@@ -161,17 +162,16 @@
   (add-hook 'prog-mode-hook #'indent-guide-mode))
 
 ;; Line numbering
-;; (use-package nlinum
-;;   :ensure t
-;;   :init
-;;   (add-hook 'prog-mode-hook 'nlinum-mode)
-;;   (add-hook 'text-mode-hook 'nlinum-mode))
-;;   :config
-;;   (setq nlinum-format "%5d ")
-;;   (setq nlinum-highlight-current-line t)
+(use-package nlinum
+  :if (version< emacs-version "26.0")
+  :config
+  (add-hook 'prog-mode-hook 'nlinum-mode)
+  (add-hook 'text-mode-hook 'nlinum-mode)
+  (setq nlinum-format "%5d ")
+  (setq nlinum-highlight-current-line t))
 
 (use-package display-line-numbers
-  ;; :when (bound-and-true-p display-line-numbers-mode)
+  :if (not (version< emacs-version "26.0"))
   :init
   (add-hook 'prog-mode-hook 'display-line-numbers-mode)
   (add-hook 'text-mode-hook 'display-line-numbers-mode))
@@ -186,8 +186,9 @@
 ;; Highlight TODO and FIXME
 (use-package fic-mode
   :ensure t
+  :defer .1
   :config
-  (add-hook 'prog-mode-hook 'fic-mode))
+  (add-hook 'prog-mode-hook #'fic-mode))
 
 ;; TODO
 ;; Highlight surrounding parentheses in Emacs

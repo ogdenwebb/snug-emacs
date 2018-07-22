@@ -62,28 +62,11 @@
   :ensure t
   :after evil
   :config
-  ;; (defun evil-goggles--show-p (beg end)
-  ;;   "Return t if the overlay should be displayed in region BEG to END."
-  ;;   (and (not evil-goggles--on)
-  ;;       (not evil-inhibit-operator-value)
-  ;;       (bound-and-true-p evil-mode)
-  ;;       (numberp beg)
-  ;;       (numberp end)
-  ;;       (> (- end beg) 1)
-  ;;       (<= (point-min) beg end)
-  ;;       (>= (point-max) end beg)
-  ;;       ;; (not (evil-visual-state-p))
-  ;;       (not (evil-insert-state-p))
-  ;;       ;; don't show overlay when evil-mc has multiple fake cursors
-  ;;       (not (and (fboundp 'evil-mc-has-cursors-p) (evil-mc-has-cursors-p)))
-  ;;       ;; don't show overlay when the region has nothing but whitespace
-  ;;       (not (null (string-match-p "[^ \t\n]" (buffer-substring-no-properties beg end))))))
-
   (setq evil-goggles-duration 0.1
         evil-goggles-enable-delete nil
         evil-goggles-pulse t)
 
-  (evil-goggles-mode))
+  (add-hook 'after-init-hook 'evil-goggles-mode))
 
 (use-package evil-commentary
   :ensure t
@@ -126,15 +109,12 @@
 
 ;; Folding
 ;; TODO: maps
-(use-package vimish-fold
-  :after evil
+(use-package evil-vimish-fold
+  :ensure t
+  :commands evil-vimish-fold-mode
   :config
-  (use-package evil-vimish-fold
-    :ensure t
-    :commands evil-vimish-fold-mode
-    :config
-    (add-to-list 'after-init-hook #'evil-vimish-fold-mode)
-    (setq vimish-fold-header-width nil)))
+  (add-to-list 'after-init-hook #'evil-vimish-fold-mode)
+  (setq vimish-fold-header-width nil))
 
 (use-package evil-numbers
   :commands (evil-numbers/inc-at-pt evil-numbers/dec-at-pt)

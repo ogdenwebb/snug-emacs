@@ -11,6 +11,8 @@
 ;; Deal with defer t and defer .1
 ;; package restart-emacs
 
+;; TODO: company-box
+
 (elmax/init
   env-settings
   env-maps

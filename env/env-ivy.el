@@ -13,6 +13,9 @@
 
   ;; Do not show "./" and "../" in the `counsel-find-file' completion list
   (setq ivy-extra-directories nil) ; default value: ("../" "./")
+  ;; (setq ivy-count-format "[%d/%d] ")
+  ;; TODO: read
+  ;; (setq enable-recursive-minibuffers t)
 
   (use-package swiper
     :commands (swiper)

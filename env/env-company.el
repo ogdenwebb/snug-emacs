@@ -115,4 +115,7 @@
   ;; (setq company-dabbrev-code-other-buffers t)
   ;; (setq company-dabbrev-ignore-buffers "\\`\\'")
 
+(use-package company-box
+  :hook (company-mode . company-box-mode))
+
 (provide 'env-company)

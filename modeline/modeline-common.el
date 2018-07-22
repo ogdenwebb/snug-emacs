@@ -11,6 +11,7 @@
 (use-package telephone-line
   ;; :load-path "dev/telephone-line"
   :ensure t
+  :defer t
   :init
   ;; Need to display telephone-line in *Messages* buffer
   (defun recreate-message-buffer ()
@@ -22,11 +23,11 @@
         (message msg))))
 
   (add-hook 'after-init-hook #'recreate-message-buffer)
+  :hook (after-init . telephone-line-mode)
   :config
 
   ;; To create custom segments
   (require 'telephone-line-utils)
-
 
   ;; Set subseparator
   ;; TODO: function to choose separator by name
@@ -190,6 +191,6 @@
   (require 'modeline-cubed)
   ;; (require 'modeline-flat)
 
-  (telephone-line-mode 1))
+  )
 
 (provide 'modeline-common)
