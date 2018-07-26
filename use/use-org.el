@@ -10,7 +10,7 @@
   ;; (setq org-image-actual-width '(200))
   (setq org-image-actual-width 200)
 
-  (setq org-startup-with-inline-images t)
+  (setq org-startup-with-inline-images nil)
   ;; (setq org-image-actual-width (/ (display-pixel-width) 3))
 
   (setq org-startup-indented t)
@@ -23,7 +23,7 @@
   ;; (setq org-ellipsis " — ")
 
   ;; Fontify the whole line for headings (with a background color).
-  (setq org-fontify-whole-heading-line t)
+  ;; (setq org-fontify-whole-heading-line t)
 
   (defun org-init-hook ()
     (interactive)
@@ -33,7 +33,10 @@
       (display-line-numbers-mode -1))
     ;; TODO: disable git-gutter
     ;; Enable line wrapping
-    (visual-line-mode t))
+    (visual-line-mode t)
+    (visual-line-mode t)
+    (turn-off-smartparens-mode)
+    (show-paren-mode -1))
 
   (add-hook 'org-mode-hook 'org-init-hook)
 
@@ -77,7 +80,6 @@
     (add-hook 'evil-org-mode-hook
               (lambda ()
                 (evil-org-set-key-theme '(navigation insert textobjects)))))
-
   :general
   (general-define-key :keymaps 'org-mode-map
                       :states '(normal)

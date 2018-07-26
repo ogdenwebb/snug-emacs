@@ -10,8 +10,13 @@
 ;; use-latex
 ;; Deal with defer t and defer .1
 ;; package restart-emacs
+;; TODO: read featurep func
 
 ;; TODO: company-box
+;; TODO: make region more distinct/colored
+
+;; TODO: tests
+;; TODO: maps with russian layout in input
 
 (elmax/init
   env-settings
