@@ -24,6 +24,8 @@
   ;; (setq kaolin-themes-distinct-company-scrollbar t)
   ;; (setq kaolin-themes-italic-comments t)
 
+  ;; (setq kaolin-themes-comments-style 'color)
+
   ;; Set default theme
   ;; (defun load-my-theme (frame)
   ;;   (with-selected-frame frame

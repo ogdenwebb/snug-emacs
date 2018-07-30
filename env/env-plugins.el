@@ -70,9 +70,41 @@
   (use-package treemacs-evil
     :after treemacs)
 
+  (use-package treemacs-projectile
+    :after treemacs)
+
   ;; Disable mode-line in treemacs buffer
   (defun treemacs--setup-mode-line ()
       (setq mode-line-format nil))
+
+  (setq treemacs-show-hidden-files nil
+        treemacs-indentation 2
+        ;; treemacs-indentation-string (propertize "|" 'face 'font-lock-comment-face)
+        treemacs-follow-after-init t
+        treemacs-filewatch-mode t
+        treemacs-tag-follow-mode t
+        treemacs-file-event-delay 1000)
+
+  (setq treemacs-icon-root-png
+        (concat " " (all-the-icons-octicon "repo" :v-adjust -0.1 :height 1.6
+                                           :face  'font-lock-constant-face)
+                " "))
+  (treemacs-define-custom-icon (all-the-icons-alltheicon "csharp-line") "cs")
+  (treemacs-define-custom-icon (all-the-icons-alltheicon "csharp-line") "cs")
+  (treemacs-define-custom-icon (all-the-icons-alltheicon "css3") "css")
+  (treemacs-define-custom-icon (all-the-icons-alltheicon "git") "gitignore")
+  (treemacs-define-custom-icon (all-the-icons-alltheicon "html5") "html" "htm")
+  (treemacs-define-custom-icon (all-the-icons-alltheicon "java") "java")
+  (treemacs-define-custom-icon (all-the-icons-alltheicon "javascript") "js")
+  (treemacs-define-custom-icon (all-the-icons-fileicon "elisp") "el" "elc")
+  (treemacs-define-custom-icon (all-the-icons-fileicon "jsx-2") "jsx")
+  (treemacs-define-custom-icon (all-the-icons-fileicon "org") "org")
+  (treemacs-define-custom-icon (all-the-icons-fileicon "typescript") "ts")
+  (treemacs-define-custom-icon (all-the-icons-octicon "markdown") "md")
+  (treemacs-define-custom-icon (all-the-icons-octicon "settings") "json" "yaml" "yml" "ini")
+  (treemacs-define-custom-icon (all-the-icons-octicon "file-media") "ico" "png" "jpg" "jpeg" "svg")
+
+  ;; TODO: treemacs git mode
 
   :general
   (general-define-key :keymaps 'treemacs-mode-map

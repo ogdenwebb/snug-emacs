@@ -36,11 +36,7 @@
         (setq telephone-line-secondary-left-separator 'telephone-line-identity-hollow-left)
         (setq telephone-line-secondary-right-separator 'telephone-line-identity-hollow-right)))
 
-  ;;;; Custom segments
-
-  ;; Example of color string segment
-  ;; (telephone-line-defsegment* my-color-segment
-  ;;   (propertize "some-string" 'face `(:foreground "green")))
+  ;;; Custom segments
 
   ;; Display major mode
   (telephone-line-defsegment* my-major-mode-segment ()
