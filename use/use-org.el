@@ -9,18 +9,17 @@
   ;; Fit image into the screen
   ;; (setq org-image-actual-width '(200))
   (setq org-image-actual-width 200)
-
   (setq org-startup-with-inline-images nil)
   ;; (setq org-image-actual-width (/ (display-pixel-width) 3))
+  (setq org-startup-indented t
+        org-imenu-depth 4)
 
-  (setq org-startup-indented t)
   ;; Fontify
-  (setq org-fontify-done-headline t)
-  (setq org-fontify-quote-and-verse-blocks t)
-  (setq org-src-fontify-natively t)
-  (setq org-src-tab-acts-natively t)
-  (setq org-ellipsis " ~ ")
-  ;; (setq org-ellipsis " — ")
+  (setq org-fontify-done-headline t
+        org-fontify-quote-and-verse-blocks t
+        org-src-fontify-natively t
+        org-src-tab-acts-natively t
+        org-ellipsis " ~ ")
 
   ;; Fontify the whole line for headings (with a background color).
   ;; (setq org-fontify-whole-heading-line t)
@@ -40,9 +39,9 @@
 
   (add-hook 'org-mode-hook 'org-init-hook)
 
-  (setq org-highest-priority ?A)
-  (setq org-lowest-priority ?D)
-  (setq org-default-priority ?B)
+  (setq org-highest-priority ?A
+        org-lowest-priority ?D
+        org-default-priority ?B)
 
   ;; TODO:
   ;; org-todo-keywords

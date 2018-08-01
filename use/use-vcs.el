@@ -19,7 +19,6 @@
   (setenv "SSH_ASKPASS" "")
   :commands (magit-status magit-diff))
 
-
 ;; TODO:
 ;; (use-package magithub
 ;;   :after magit

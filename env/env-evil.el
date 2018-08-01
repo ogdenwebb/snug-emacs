@@ -6,6 +6,7 @@
         evil-want-fine-undo t
         evil-want-Y-yank-to-eol t
         evil-ex-search-vim-style-regexp t
+        evil-want-C-u-scroll t
         ;; evil-ex-search-persistent-highlight nil
 
         evil-ex-search-case 'sensitive

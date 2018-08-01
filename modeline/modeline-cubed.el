@@ -10,6 +10,7 @@
 (setq telephone-line-lhs
       '((evil   . (my-evil-segment))
         (nil    . (my-buffer-segment))
+        ;; (nil    . (telephone-line-projectile-buffer-segment))
         (nil    . (my-modified-status-segment))
         (nil    . (my-read-only-status-segment))
         (nil    . (selection-info))))

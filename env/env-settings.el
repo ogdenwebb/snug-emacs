@@ -143,7 +143,7 @@
 
 ;; Set default browser
 (setq browse-url-browser-function 'browse-url-generic
-          browse-url-generic-program "firefox-bin")
+      browse-url-generic-program "firefox-bin")
 
 ;; Enable some features
 (put 'narrow-to-region 'disabled nil)

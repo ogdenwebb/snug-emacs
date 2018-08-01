@@ -39,6 +39,7 @@
   ;;; Custom segments
 
   ;; Display major mode
+  ;; TODO: rewrite with var/macro
   (telephone-line-defsegment* my-major-mode-segment ()
     (let ((mode (cond
                  ((string= mode-name "Fundamental") "text")
