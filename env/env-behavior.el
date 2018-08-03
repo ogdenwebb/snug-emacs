@@ -7,7 +7,7 @@
   :ensure t
   :config
   ;; Persistent undo-tree history across Emacs sessions
-  (setq undo-tree-auto-save-history nil)
+  (setq undo-tree-auto-save-history t)
   (setq undo-tree-history-directory-alist '(("." . "~/.cache/emacs/undo")))
   (add-hook 'write-file-functions #'undo-tree-save-history-hook)
   (add-hook 'find-file-hook #'undo-tree-load-history-hook)

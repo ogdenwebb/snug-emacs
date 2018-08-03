@@ -76,7 +76,7 @@
 
 ;; Disable bell
 (setq visible-bell nil
- ring-bell-function 'ignore)
+      ring-bell-function 'ignore)
 
 ;; Truncate lines
 (setq-default truncate-lines t)

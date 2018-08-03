@@ -17,14 +17,14 @@
   :after autothemer
   :load-path "dev/emacs-kaolin-themes"
   :config
-  (setq kaolin-themes-hl-line-colored t)
-  (setq kaolin-themes-git-gutter-solid t)
-  (setq kaolin-themes-underline-wave t)
-  (setq kaolin-themes-bold nil)
+  (setq kaolin-themes-hl-line-colored t
+        kaolin-themes-git-gutter-solid t
+        kaolin-themes-underline-wave t
+        kaolin-themes-bold nil)
   ;; (setq kaolin-themes-distinct-company-scrollbar t)
   ;; (setq kaolin-themes-italic-comments t)
 
-  ;; (setq kaolin-themes-comments-style 'bright)
+  ;; (setq kaolin-themes-comments-style 'normal)
 
   ;; Set default theme
   ;; (defun load-my-theme (frame)
@@ -47,14 +47,13 @@
 ;; Set default font
 ;; `default' face is not set properly
 (add-to-list 'default-frame-alist '(font . "Roboto Mono-11.5"))
-;; (add-to-list 'default-frame-alist '(font . "Iosevka-13"))
 ;; (add-to-list 'default-frame-alist '(font . "Fira Mono-12"))
 ;; (add-to-list 'default-frame-alist '(font . "Fira Code-12"))
 ;; (add-to-list 'default-frame-alist '(font . "Input Mono-11"))
 
 ;; Set the fringe size
-(setq-default left-fringe-width  6)
-(setq-default right-fringe-width 8)
+(setq-default left-fringe-width  6
+              right-fringe-width 8)
 
 ;; Disable newline markers in fringe
 ;; (setq overflow-newline-into-fringe nil)
@@ -97,6 +96,8 @@
 
 ;; Hide default UI stuff
 (tooltip-mode -1) ; relegate tooltips to echo area only
+(setq show-help-function nil)
+
 (menu-bar-mode -1)
 (if (fboundp 'tool-bar-mode)   (tool-bar-mode -1))
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))

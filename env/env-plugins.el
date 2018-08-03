@@ -75,6 +75,7 @@
       (setq mode-line-format nil))
 
   (setq treemacs-show-hidden-files nil
+        treemacs-width 30
         treemacs-indentation 2
         ;; treemacs-indentation-string (propertize "|" 'face 'font-lock-comment-face)
         treemacs-follow-after-init t

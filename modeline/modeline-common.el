@@ -7,9 +7,11 @@
 ;; TODO: rename my* segments to ???
 ;; Gray "#545c5e"
 
+(setq mode-line-default-help-echo nil)
+
 ;; Telephone line
 (use-package telephone-line
-  ;; :load-path "dev/telephone-line"
+  :load-path "dev/telephone-line"
   :ensure t
   :defer t
   :init
@@ -46,7 +48,7 @@
                  ((string= mode-name "Emacs-Lisp") "elisp")
                  ((string= mode-name "Javascript-IDE") "js")
                  ((string= mode-name "Javascript-IDE") "js")
-                 ((string= mode-name "undo-tree-visualizer") "undo-tree")
+                 ((string= mode-name "undo-tree-visualizer") "undotree")
                  (t (downcase mode-name)))))
       (propertize mode 'face `(:foreground "#9d81ba")))) ;; galaxy
       ;; (propertize mode 'face `(:foreground "#0d948d"))))
@@ -72,7 +74,7 @@
 
 
   ;; Display current position in a buffer
-  (telephone-line-defsegment* my-position-segment ()
+  (telephone-line-defsegment my-position-segment ()
     (if (telephone-line-selected-window-active)
         (if (eq major-mode 'paradox-menu-mode)
             (telephone-line-trim (format-mode-line mode-line-front-space))
@@ -184,6 +186,9 @@
         ('no-checker  "")
         ('errored     " error")
         ('interrupted " interrupted"))))
+
+  (telephone-line-defsegment my-words-count-segment ()
+    (format "%d" (count-words (point-min) (point-max))))
 
   (require 'modeline-cubed)
   ;; (require 'modeline-flat)
