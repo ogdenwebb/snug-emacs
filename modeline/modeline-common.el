@@ -11,7 +11,7 @@
 
 ;; Telephone line
 (use-package telephone-line
-  :load-path "dev/telephone-line"
+  ;; :load-path "dev/telephone-line"
   :ensure t
   :defer t
   :init
@@ -74,11 +74,16 @@
 
 
   ;; Display current position in a buffer
+  ;; (telephone-line-defsegment my-position-segment ()
+  ;;   (if (telephone-line-selected-window-active)
+  ;;       (if (eq major-mode 'paradox-menu-mode)
+  ;;           (telephone-line-trim (format-mode-line mode-line-front-space))
+  ;;         '(" %3l,%2c "))))
+
   (telephone-line-defsegment my-position-segment ()
-    (if (telephone-line-selected-window-active)
-        (if (eq major-mode 'paradox-menu-mode)
-            (telephone-line-trim (format-mode-line mode-line-front-space))
-          '(" %3l,%2c "))))
+    (let ((line (line-number-at-pos (point)))
+          (column (column-num-at-pos (point))))
+      (format " %3d,%2d " line column)))
 
   ;; Exclude some buffers in modeline
   (defvar modeline-ignored-modes nil

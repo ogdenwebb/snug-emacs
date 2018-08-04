@@ -50,6 +50,10 @@
 
 (setq-default indent-tabs-mode nil)
 
+;; Make the backspace properly erase the tab instead of
+;; removing 1 space at a time.
+(setq backward-delete-char-untabify-method 'hungry)
+
 ;; http://stackoverflow.com/questions/354490/preventing-automatic-change-of-default-directory
 ;; (add-hook 'find-file-hook
 ;;           (lambda ()

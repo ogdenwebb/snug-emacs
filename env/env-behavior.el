@@ -24,7 +24,7 @@
 ;; TODO: disable message in minibuffer after auto-save
 (use-package recentf
   :init
-  (run-at-time nil (* 5 60) 'recentf-save-list)
+  ;; (run-at-time nil (* 5 60) 'recentf-save-list)
   ;; Recentf blacklist
   (setq recentf-exclude '("^/var/folders\\.*"
                           "COMMIT_EDITMSG\\'"

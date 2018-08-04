@@ -2,8 +2,13 @@
 
 ;; (setq debug-on-error t)
 
+;; kaolin-sunflower
+;; TODO: rename boot-prep to bootstrap
+;; TODO: color test
+;; TODO: fix tab in terminal within org-mode
+
 ;; General configation
-(load (concat user-emacs-directory "boot/boot-prep"))
+(require 'boot-prep (concat user-emacs-directory "boot/boot-prep"))
 
 (elmax/init
   env-settings

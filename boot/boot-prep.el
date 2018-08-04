@@ -87,7 +87,7 @@
 (add-to-list 'load-path "~/.emacs.d/modeline/")
 
 (setq custom-file "~/.emacs.d/custom.el")
-(load custom-file 'noerror)
+(load custom-file t t)
 
 (defmacro elmax/init (&rest body)
   (declare (indent defun))
