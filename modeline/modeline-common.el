@@ -72,7 +72,6 @@
     `(""
       ,(telephone-line-raw mode-line-buffer-identification t)))
 
-
   ;; Display current position in a buffer
   ;; (telephone-line-defsegment my-position-segment ()
   ;;   (if (telephone-line-selected-window-active)
@@ -82,7 +81,7 @@
 
   (telephone-line-defsegment my-position-segment ()
     (let ((line (line-number-at-pos (point)))
-          (column (column-num-at-pos (point))))
+          (column (column-number-at-pos (point))))
       (format " %3d,%2d " line column)))
 
   ;; Exclude some buffers in modeline
@@ -150,7 +149,7 @@
                       (telephone-line-raw vc-mode t))
                     'face `(:foreground ,fg-color))))))
 
-  (defun column-num-at-pos (pos)
+  (defun column-number-at-pos (pos)
     (save-excursion
       (goto-char pos)
       (current-column)))
@@ -163,8 +162,8 @@
                    (eq 'visual evil-state)))
       (let* ((lines (count-lines (region-beginning) (min (1+ (region-end)) (point-max))))
              (chars (- (1+ (region-end)) (region-beginning)))
-             (cols (1+ (abs (- (column-num-at-pos (region-end))
-                               (column-num-at-pos (region-beginning))))))
+             (cols (1+ (abs (- (column-number-at-pos (region-end))
+                               (column-number-at-pos (region-beginning))))))
              (evil (and (bound-and-true-p evil-state) (eq 'visual evil-state)))
              (rect (or (bound-and-true-p rectangle-mark-mode)
                        (and evil (eq 'block evil-visual-selection))))
