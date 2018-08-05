@@ -149,10 +149,7 @@
                       (telephone-line-raw vc-mode t))
                     'face `(:foreground ,fg-color))))))
 
-  (defun column-number-at-pos (pos)
-    (save-excursion
-      (goto-char pos)
-      (current-column)))
+  (declare-function column-number-at-pos "env-fu")
 
   (telephone-line-defsegment selection-info ()
     "Information about the size of the current selection, when applicable.
