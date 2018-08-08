@@ -35,7 +35,8 @@
 
                       ;; Open things quickly
                       "o r" 'counsel-recentf
-                      "o f" 'counsel-file-jump
+                      ;; "o f" 'counsel-file-jump
+                      "o f" 'counsel-fzf
                       "o F" 'counsel-find-file
                       "o b" 'switch-to-buffer
                       "o l" 'counsel-bookmark

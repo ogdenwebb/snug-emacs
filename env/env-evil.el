@@ -51,6 +51,11 @@
   (evil-ex-define-cmd "pd[elete]"  'package-delete)
   (evil-ex-define-cmd "lt"  'load-theme)
 
+  (with-eval-after-load 'evil
+    (evil-add-command-properties #'find-file-at-point :jump t)
+    (evil-add-command-properties #'counsel-rg :jump t)
+    (evil-add-command-properties #'counsel-fzf :jump t))
+
   (evil-mode 1))
 
 ;; Vim-like keybindings everywhere in Emacs

@@ -56,9 +56,6 @@
     (or (ffap-url-p guess)
   (substitute-in-file-name guess)))
 
-(with-eval-after-load 'evil
-  (evil-add-command-properties #'find-file-at-point :jump t))
-
 (defun line-length (n)
   "Length of the Nth line."
   (save-excursion

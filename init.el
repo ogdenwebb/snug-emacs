@@ -7,7 +7,7 @@
 ;; TODO: color test
 ;; TODO: fix tab in terminal within org-mode
 ;; TODO: make undotree buffer vim-like
-;; TODO: kaolim match/search style bg or fg
+;; TODO: Kaolin match/search style bg or fg
 
 ;; General configation
 (require 'boot-prep (concat user-emacs-directory "boot/boot-prep"))
@@ -32,6 +32,7 @@
   env-lisp
   env-local
 
+  ;; Autocompletion
   completion-company ; TODO: refact
   completion-lsp
 
