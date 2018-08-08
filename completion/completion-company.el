@@ -118,4 +118,11 @@
 ;; (use-package company-box
 ;;   :hook (company-mode . company-box-mode))
 
-(provide 'env-company)
+(use-package company-lsp
+  :after lsp-mode
+  :config
+  (add-to-list 'company-backends 'company-lsp)
+  (setq company-lsp-async t)
+  (setq company-lsp-enable-recompletion t))
+
+(provide 'completion-company)

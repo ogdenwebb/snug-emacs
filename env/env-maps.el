@@ -4,7 +4,6 @@
   (add-to-list 'reverse-im-input-methods "russian-computer")
   (reverse-im-mode t))
 
-
 (use-package general
   :ensure t
   :config

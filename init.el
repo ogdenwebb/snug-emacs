@@ -6,6 +6,8 @@
 ;; TODO: rename boot-prep to bootstrap
 ;; TODO: color test
 ;; TODO: fix tab in terminal within org-mode
+;; TODO: make undotree buffer vim-like
+;; TODO: kaolim match/search style bg or fg
 
 ;; General configation
 (require 'boot-prep (concat user-emacs-directory "boot/boot-prep"))
@@ -18,7 +20,6 @@
   ;; env-helm
 
   env-evil
-  env-company ; TODO: refact
 
   env-face
   env-dashboard
@@ -31,7 +32,8 @@
   env-lisp
   env-local
 
-  use-vcs
+  completion-company ; TODO: refact
+  completion-lsp
 
   ;; Mode-line
   modeline-common
@@ -52,6 +54,7 @@
   use-ocaml
   use-py
   use-rust
+  use-vcs
   use-web
 
   use-tools ; support for external apps

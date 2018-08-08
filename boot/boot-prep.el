@@ -84,6 +84,7 @@
 (add-to-list 'load-path "~/.emacs.d/env/")
 (add-to-list 'load-path "~/.emacs.d/use/")
 (add-to-list 'load-path "~/.emacs.d/lisp/")
+(add-to-list 'load-path "~/.emacs.d/completion/")
 (add-to-list 'load-path "~/.emacs.d/modeline/")
 
 (setq custom-file "~/.emacs.d/custom.el")
