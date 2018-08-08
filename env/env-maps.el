@@ -1,3 +1,10 @@
+(use-package reverse-im
+  :config
+  ;; (add-to-list 'reverse-im-modifiers 'super)
+  (add-to-list 'reverse-im-input-methods "russian-computer")
+  (reverse-im-mode t))
+
+
 (use-package general
   :ensure t
   :config

@@ -126,6 +126,19 @@
   (treemacs-define-custom-icon (all-the-icons-octicon "settings") "json" "yaml" "yml" "ini")
   (treemacs-define-custom-icon (all-the-icons-octicon "file-media") "ico" "png" "jpg" "jpeg" "svg")
 
+  (treemacs-define-custom-icon (all-the-icons-octicon "file-media" :height 1.2)
+                               "png" "jpg" "jpeg" "gif" "ico" "tif" "tiff" "svg" "bmp"
+                               "psd" "ai" "eps" "indd" "mov" "avi" "mp4" "webm" "mkv"
+                               "wav" "mp3" "ogg" "midi")
+
+  (treemacs-define-custom-icon (all-the-icons-octicon "file-text" :height 1.2)
+                               "md" "markdown" "rst" "log" "org" "txt"
+                               "CONTRIBUTE" "LICENSE" "README" "CHANGELOG")
+
+  (treemacs-define-custom-icon (all-the-icons-octicon "file-code" :height 1.2)
+                               "yaml" "yml" "json" "xml" "toml" "cson" "ini"
+                               "tpl" "erb" "mustache" "twig" "ejs" "mk" "haml" "pug" "jade")
+
   ;; TODO: treemacs git mode
 
   :general
