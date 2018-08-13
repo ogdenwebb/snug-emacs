@@ -7,7 +7,6 @@
 ;; TODO: color test
 ;; TODO: fix tab in terminal within org-mode
 ;; TODO: make undotree buffer vim-like
-;; TODO: Kaolin match/search style bg or fg
 
 ;; General configation
 (require 'boot-prep (concat user-emacs-directory "boot/boot-prep"))
@@ -22,7 +21,7 @@
   env-evil
 
   env-face
-  env-dashboard
+  ;; env-dashboard
 
   env-behavior
   env-plugins
@@ -34,14 +33,14 @@
 
   ;; Autocompletion
   completion-company ; TODO: refact
-  completion-lsp
+  ;; completion-lsp ; TODO: lsp isn't only completion
 
   ;; Mode-line
   modeline-common
 
   ;; Specific modules and major modes
-  use-filetype
   use-eshell
+  use-filetype
   use-grep
   use-sp
 
@@ -51,14 +50,13 @@
   use-haskell
   use-js
   use-nim
-  use-org
   use-ocaml
+  use-org
   use-py
   use-rust
+  use-tools ; support for external apps
   use-vcs
   use-web
-
-  use-tools ; support for external apps
 
   env-fu)
 

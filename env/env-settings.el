@@ -149,7 +149,7 @@
 (setq browse-url-browser-function 'browse-url-generic
       browse-url-generic-program "firefox-bin")
 
-;; Enable some features
+;; Allow commands
 (put 'narrow-to-region 'disabled nil)
 (put 'narrow-to-page 'disabled nil)
 (put 'upcase-region 'disabled nil)

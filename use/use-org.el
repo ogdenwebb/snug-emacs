@@ -33,7 +33,6 @@
     ;; TODO: disable git-gutter
     ;; Enable line wrapping
     (visual-line-mode t)
-    (visual-line-mode t)
     (turn-off-smartparens-mode)
     (show-paren-mode -1))
 

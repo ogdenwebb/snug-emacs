@@ -36,12 +36,12 @@
   (with-eval-after-load 'git-gutter
     (require 'git-gutter-fringe))
 
-  (custom-set-variables
-   ;; WARNING: "" contains tag space character to display line
-   '(git-gutter:unchanged-sign "󠀠")
-   '(git-gutter:added-sign "󠀠")
-   '(git-gutter:modified-sign "󠀠")
-   '(git-gutter:deleted-sign "󠀠"))
+  ;; (custom-set-variables
+  ;;  ;; WARNING: "" contains tag space character to display line
+  ;;  '(git-gutter:unchanged-sign "󠀠")
+  ;;  '(git-gutter:added-sign "󠀠")
+  ;;  '(git-gutter:modified-sign "󠀠")
+  ;;  '(git-gutter:deleted-sign "󠀠"))
 
   :config
   (use-package git-gutter-fringe

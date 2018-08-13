@@ -1,3 +1,4 @@
+;; Reverse mapping for keyboard layouts other than english
 (use-package reverse-im
   :config
   ;; (add-to-list 'reverse-im-modifiers 'super)
@@ -7,11 +8,8 @@
 (use-package general
   :ensure t
   :config
-
-  ;; Leader bindings
-  (setq leader "SPC")
-
   (general-evil-setup)
+  (setq leader "SPC") ; set leader key
 
   (general-define-key :states 'normal
                       :prefix leader
@@ -149,8 +147,8 @@
 
    "j"   'evil-next-visual-line
    "k"   'evil-previous-visual-line
-   "C-a" 'evil-numbers/inc-at-pt
-   "C-x" 'evil-numbers/dec-at-pt
+   ;; "C-a" 'evil-numbers/inc-at-pt
+   ;; "C-x" 'evil-numbers/dec-at-pt
 
    ;; git-gutter
    "] h" 'git-gutter:next-hunk
@@ -171,7 +169,7 @@
    ;; "TAB" 'company-indent-for-tab-command
    "RET" 'evil-ret-and-indent
    ;; "RET" 'reindent-then-newline-and-indent
-   "DEL" 'elmax/smart-backspace
+   ;; "DEL" 'elmax/smart-backspace
    "C-k" 'company-complete-common-or-cycle
    "C-a" 'beginning-of-line
    "C-w" 'evil-delete-backward-word

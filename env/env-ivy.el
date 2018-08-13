@@ -12,7 +12,7 @@
   (setq ivy-use-virtual-buffers nil)
 
   ;; Do not show "./" and "../" in the `counsel-find-file' completion list
-  ;; (setq ivy-extra-directories nil) ; default value: ("../" "./")
+  (setq ivy-extra-directories nil) ; default value: ("../" "./")
   ;; (setq ivy-count-format "[%d/%d] ")
   ;; TODO: read
   ;; (setq enable-recursive-minibuffers t)

@@ -60,19 +60,25 @@
 ;;   (yas-global-mode 1))
 
 (use-package treemacs
-  :ensure t
   :defer t
   :commands (treemacs)
   :config
   (use-package treemacs-evil
-    :after treemacs)
+    :after (treemacs evil))
 
   (use-package treemacs-projectile
-    :after treemacs)
+    :after (treemacs projectile))
 
   ;; Disable mode-line in treemacs buffer
   (defun treemacs--setup-mode-line ()
       (setq mode-line-format nil))
+
+  (pcase (cons (not (null (executable-find "git")))
+               (not (null (executable-find "python3"))))
+    (`(t . t)
+     (treemacs-git-mode 'extended))
+    (`(t . _)
+     (treemacs-git-mode 'simple)))
 
   (setq treemacs-show-hidden-files nil
         treemacs-width 30
@@ -89,10 +95,10 @@
 
       treemacs-icon-open-png
       ;; (format "%s " (all-the-icons-faicon "folder-open" :v-adjust 0 :height 1.15 :face 'font-lock-function-name-face))
-      (format "%s " (all-the-icons-material "folder_open" :v-adjust 0 :height 1.15 'font-lock-doc-face))
+      (format "%s " (all-the-icons-material "folder_open" :v-adjust -0.2 :height 1.15 'font-lock-doc-face))
 
       treemacs-icon-closed-png
-      (format "%s " (all-the-icons-material "folder" :v-adjust 0 :height 1.15))
+      (format "%s " (all-the-icons-material "folder" :v-adjust -0.2 :height 1.15))
 
 
       treemacs-icon-tag-open-png
@@ -111,7 +117,6 @@
       )
 
   (treemacs-define-custom-icon (all-the-icons-alltheicon "csharp-line") "cs")
-  (treemacs-define-custom-icon (all-the-icons-alltheicon "csharp-line") "cs")
   (treemacs-define-custom-icon (all-the-icons-alltheicon "css3") "css")
   (treemacs-define-custom-icon (all-the-icons-alltheicon "git") "gitignore")
   (treemacs-define-custom-icon (all-the-icons-alltheicon "html5") "html" "htm")
@@ -123,16 +128,14 @@
   (treemacs-define-custom-icon (all-the-icons-fileicon "org") "org")
   (treemacs-define-custom-icon (all-the-icons-fileicon "typescript") "ts")
   (treemacs-define-custom-icon (all-the-icons-octicon "markdown") "md")
-  (treemacs-define-custom-icon (all-the-icons-octicon "settings") "json" "yaml" "yml" "ini")
-  (treemacs-define-custom-icon (all-the-icons-octicon "file-media") "ico" "png" "jpg" "jpeg" "svg")
 
   (treemacs-define-custom-icon (all-the-icons-octicon "file-media" :height 1.2)
-                               "png" "jpg" "jpeg" "gif" "ico" "tif" "tiff" "svg" "bmp"
+                               "jpg" "jpeg" "png" "gif" "ico" "tif" "tiff" "svg" "bmp"
                                "psd" "ai" "eps" "indd" "mov" "avi" "mp4" "webm" "mkv"
                                "wav" "mp3" "ogg" "midi")
 
   (treemacs-define-custom-icon (all-the-icons-octicon "file-text" :height 1.2)
-                               "md" "markdown" "rst" "log" "org" "txt"
+                               "md" "markdown" "rst" "log" "txt"
                                "CONTRIBUTE" "LICENSE" "README" "CHANGELOG")
 
   (treemacs-define-custom-icon (all-the-icons-octicon "file-code" :height 1.2)
