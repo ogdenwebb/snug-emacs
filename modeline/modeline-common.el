@@ -65,7 +65,7 @@
                   ((string= evil-state "motion")    "m")
                   ((string= evil-state "emacs")     "Emacs")
                   (t "-"))))
-        (concat " " tag))))
+        (format " %s" tag))))
 
   ;; Display buffer name
   (telephone-line-defsegment my-buffer-segment ()
@@ -120,7 +120,7 @@
                  ((eq 1 eol-type) "dos")
                  ((eq 2 eol-type) "mac")
                  (t "-"))))
-      (concat eol " ")))
+      (format  "%s " eol)))
 
   ;; TODO:
   ;; Hide vc backend in modeline
@@ -151,6 +151,7 @@
 
   (declare-function column-number-at-pos "env-fu")
 
+  ;; TODO: freee visual selection
   (telephone-line-defsegment selection-info ()
     "Information about the size of the current selection, when applicable.
   Supports both Emacs and Evil cursor conventions."

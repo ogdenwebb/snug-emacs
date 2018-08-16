@@ -28,13 +28,13 @@
   (evil-select-search-module 'evil-search-module 'evil-search)
   (add-hook 'evil-insert-state-entry-hook #'evil-ex-nohighlight)
 
-  ;; TODO: check if higlight is active
   (defun evil-clear-hl-after-search ()
-    (unless (memq last-command '(evil-search-next
-                                 evil-search-previous
-                                 evil-ex-search-next
-                                 evil-ex-search-previous))
-      (evil-ex-nohighlight)))
+    (when evil-ex-active-highlights-alist
+      (unless (memq last-command '(evil-search-next
+                                   evil-search-previous
+                                   evil-ex-search-next
+                                   evil-ex-search-previous))
+        (evil-ex-nohighlight))))
 
   (add-hook 'post-command-hook #'evil-clear-hl-after-search)
 
@@ -45,7 +45,6 @@
   (evil-declare-change-repeat 'company-complete)
 
   ;; Evil ex
-  ;; (evil-ex-define-cmd "pu[pgrade]" 'package-utils-upgrade-all)
   (evil-ex-define-cmd "pu[pgrade]" 'package-upgrade-all)
   (evil-ex-define-cmd "pi[stall]"  'package-install)
   (evil-ex-define-cmd "pd[elete]"  'package-delete)

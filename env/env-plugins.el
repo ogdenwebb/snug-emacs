@@ -108,10 +108,10 @@
       (all-the-icons-octicon "chevron-right" :v-adjust 0.1)
 
       treemacs-icon-tag-node-open-png
-      (format "%s\t" (all-the-icons-octicon "chevron-down"  :height 0.75 :face 'font-lock-keyword-face))
+      (format "%s " (all-the-icons-octicon "chevron-down"  :height 0.75 :face 'font-lock-keyword-face))
 
       treemacs-icon-tag-node-closed-png
-      (format "%s\t" (all-the-icons-octicon "chevron-right" :height 0.9  :face 'font-lock-keyword-face))
+      (format "%s " (all-the-icons-octicon "chevron-right" :height 0.9  :face 'font-lock-keyword-face))
 
       treemacs-icon-tag-leaf-png "- "
       )
@@ -147,8 +147,10 @@
   :general
   (general-define-key :keymaps 'treemacs-mode-map
                       :states  '(normal visual treemacs)
-                      "g j"  'treemacs-next-neighbour
-                      "g k"  'treemacs-previous-neighbour
+                      ;; "g j"  'treemacs-next-neighbour
+                      ;; "g k"  'treemacs-previous-neighbour
+                      "g j"  'treemacs-next-project
+                      "g k"  'treemacs-previous-project
                       "M-h"  'evil-window-left
                       "M-j"  'evil-window-down
                       "M-k"  'evil-window-up
@@ -183,6 +185,7 @@
         imenu-list-focus-after-activation t
         imenu-list-size 32))
 
+;; TODO: server restart
 (use-package restart-emacs
   :commands (restart-emacs))
 
