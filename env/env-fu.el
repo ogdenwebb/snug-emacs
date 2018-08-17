@@ -2,8 +2,23 @@
 
 (require 'cl-lib)
 
+;;;###autoload
+(defun elmax/newline-and-indent ()
+  "Inserts a newline and possibly indents it. Also continues comments if
+executed from a commented line"
+  (interactive)
+  (cond ((sp-point-in-string)
+         (newline))
+        ((and (sp-point-in-comment)
+              comment-line-break-function)
+         (funcall comment-line-break-function))
+        (t
+         (newline nil t)
+         (indent-according-to-mode))))
+
 ;; Rename file and buffer
 ;; source: http://steve.yegge.googlepages.com/my-dot-emacs-file
+;;;###autoload
 (defun rename-file-and-buffer (new-name)
   "Renames both current buffer and file it's visiting to NEW-NAME."
   (interactive "sNew name: ")
@@ -20,6 +35,7 @@
           (set-buffer-modified-p nil))))))
 
 ;; Display face under cursor
+;;;###autoload
 (defun what-face (pos)
   (interactive "d")
   (let ((face (or (get-char-property (point) 'read-face-name)
@@ -29,6 +45,7 @@
 ;; Disable prompt in find file at point
 ;; TODO: add to evil jump list
 
+;;;###autoload
 (defun ffap-read-file-or-url (prompt guess)
   "Read file or URL from minibuffer, with PROMPT and initial GUESS."
   (or guess (setq guess default-directory))
@@ -56,6 +73,7 @@
     (or (ffap-url-p guess)
   (substitute-in-file-name guess)))
 
+;;;###autoload
 (defun line-length (n)
   "Length of the Nth line."
   (save-excursion
@@ -87,6 +105,7 @@
 ;;   (shell-command (concat "xdg-open " (substring-no-properties (car kill-ring)))))
 ;; ;;change xdg-open to whatever launcher you have (xdg-open is the default on most linux systems)
 
+;;;###autoload
 (defun align-repeat (start end regexp &optional justify-right after)
   "Repeat alignment with respect to the given regular expression.
   If JUSTIFY-RIGHT is non nil justify to the right instead of the
@@ -104,12 +123,14 @@
     (message "complete-regexp: %S" complete-regexp)
     (align-regexp start end complete-regexp group 1 t)))
 
+;;;###autoload
 (defun elmax/evil-select-pasted ()
   (interactive)
   (let ((start-marker (evil-get-marker ?\[))
         (end-marker (evil-get-marker ?\])))
         (evil-visual-select start-marker end-marker)))
 
+;;;###autoload
 (defun column-number-at-pos (pos)
   (save-excursion
     (goto-char pos)

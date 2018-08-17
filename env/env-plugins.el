@@ -61,6 +61,7 @@
 
 (use-package treemacs
   :defer t
+  ;; :load-path "dev/treemacs"
   :commands (treemacs)
   :config
   (use-package treemacs-evil

@@ -167,14 +167,16 @@
    :states '(insert)
    "TAB" 'company-indent-or-complete-common
    ;; "TAB" 'company-indent-for-tab-command
-   "RET" 'evil-ret-and-indent
-   ;; "RET" 'reindent-then-newline-and-indent
    ;; "DEL" 'elmax/smart-backspace
    "C-k" 'company-complete-common-or-cycle
    "C-a" 'beginning-of-line
    "C-w" 'evil-delete-backward-word
    "C-e" 'end-of-line)
 
+  (general-define-key
+   :keymaps 'prog-mode-map
+   :states '(insert)
+   "RET" 'elmax/newline-and-indent)
 
   ;; Dired
   (general-define-key :keymaps 'dired-mode-map
@@ -212,9 +214,9 @@
                       :states '(visual)
                       "e r" 'eval-region)
 
-  (general-define-key :keymaps '(python-mode-map nim-mode-map haskell-mode-map)
-                      :states '(insert)
-                      "RET" 'evil-ret-and-indent)
+  ;; (general-define-key :keymaps '(python-mode-map nim-mode-map haskell-mode-map)
+  ;;                     :states '(insert)
+  ;;                     "RET" 'evil-ret-and-indent)
 
   ;; Flycheck
   (general-define-key :keymaps 'flycheck-mode-map
@@ -230,9 +232,9 @@
 
   ;; Term-mode
   ;; TODO:
-  (general-define-key :keymaps 'term-mode-map
-                      :states  '(insert)
-                      "RET" 'term-send-input)
+  ;; (general-define-key :keymaps 'term-mode-map
+  ;;                     :states  '(insert)
+  ;;                     "RET" 'term-send-input)
 
   ;; Org-mode
   (general-define-key :keymaps 'org-mode-map

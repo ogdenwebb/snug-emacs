@@ -7,6 +7,7 @@
 ;; TODO: color test
 ;; TODO: fix tab in terminal within org-mode
 ;; TODO: make undotree buffer vim-like
+;; TODO: imenu; imenu-generic-expression for html/css
 
 ;; General configation
 (require 'boot-prep (concat user-emacs-directory "boot/boot-prep"))
@@ -44,6 +45,7 @@
   use-grep
   use-sp
 
+  use-cl ; common lisp
   use-clj
   use-crystal
   use-elixir
