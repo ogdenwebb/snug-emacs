@@ -60,8 +60,7 @@
   use-rust
   use-tools ; support for external apps
   use-vcs
-  use-web
+  use-web)
 
-  env-fu)
 
 ;; (~ ^ . ^ ~)

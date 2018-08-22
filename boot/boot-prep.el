@@ -92,6 +92,7 @@
 
 (defmacro elmax/init (&rest body)
   (declare (indent defun))
+  (add-to-list 'body 'env-fu t)
   (dolist (pkg body)
     (require pkg)))
 
