@@ -14,8 +14,8 @@
                ;; Hoplon functions and macros
                (dolist (pair '((page . 'defun)
                                (loop-tpl . 'defun)
-                               (if-tpl . '1)
-                               (for-tpl . '1)
+                               (if-tpl   . '1)
+                               (for-tpl  . '1)
                                (case-tpl . '1)
                                (cond-tpl . 'defun)))
                  (put-clojure-indent (car pair)

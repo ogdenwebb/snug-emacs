@@ -177,7 +177,9 @@
   :if (not (version< emacs-version "26.0"))
   :init
   (add-hook 'prog-mode-hook 'display-line-numbers-mode)
-  (add-hook 'text-mode-hook 'display-line-numbers-mode))
+  (add-hook 'text-mode-hook 'display-line-numbers-mode)
+  :config
+  (setq display-line-numbers-grow-only t))
 
 ;; Icons
 (use-package all-the-icons

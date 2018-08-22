@@ -69,8 +69,14 @@
 
   ;; Display buffer name
   (telephone-line-defsegment my-buffer-segment ()
-    `(""
-      ,(telephone-line-raw mode-line-buffer-identification t)))
+     (format "%s %s"
+             (propertize (all-the-icons-fileicon "elisp")
+                         'face `(:family ,(all-the-icons-fileicon-family) :height 1.0)
+                         'display '(raise 0.0))
+             (propertize
+              (format "%s"
+                      (telephone-line-raw mode-line-buffer-identification t)))))
+              ;; 'face `(:foreground ,fg-color))))
 
   ;; Display current position in a buffer
   ;; (telephone-line-defsegment my-position-segment ()
@@ -82,7 +88,7 @@
   (telephone-line-defsegment my-position-segment ()
     (let ((line (line-number-at-pos (point)))
           (column (column-number-at-pos (point))))
-      (format " %3d,%2d " line column)))
+      (format " %3d:%2d " line column)))
 
   ;; Exclude some buffers in modeline
   (defvar modeline-ignored-modes nil

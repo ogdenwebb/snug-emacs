@@ -104,18 +104,19 @@
 
 ;; Save history
 (use-package savehist
-  :init
-  (savehist-mode 1)
   :config
-  (setq
-   savehist-save-minibuffer-history t
-   savehist-additional-variables '(search-ring
-                                   kill-ring
-                                   set-variable-value-history
-                                   shell-command-history
-                                   file-name-history
-                                   regexp-search-ring))
-  (setq history-length 1000))
+  (savehist-mode t)
+  :config
+  (setq savehist-autosave-interval 60
+        history-delete-duplicates t
+        history-length 1000
+        savehist-save-minibuffer-history t
+        savehist-additional-variables '(search-ring
+                                        kill-ring
+                                        set-variable-value-history
+                                        shell-command-history
+                                        file-name-history
+                                        regexp-search-ring)))
 
 ;; Backup settings
 (setq backup-by-copying t      ; don't clobber symlinks

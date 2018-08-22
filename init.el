@@ -8,6 +8,7 @@
 ;; TODO: fix tab in terminal within org-mode
 ;; TODO: make undotree buffer vim-like
 ;; TODO: imenu; imenu-generic-expression for html/css
+;; TODO: mode-line text scale
 
 ;; General configation
 (require 'boot-prep (concat user-emacs-directory "boot/boot-prep"))

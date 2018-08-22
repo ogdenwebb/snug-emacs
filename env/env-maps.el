@@ -147,8 +147,8 @@
 
    "j"   'evil-next-visual-line
    "k"   'evil-previous-visual-line
-   ;; "C-a" 'evil-numbers/inc-at-pt
-   ;; "C-x" 'evil-numbers/dec-at-pt
+   "C-a" 'evil-numbers/inc-at-pt
+   "C-x" 'evil-numbers/dec-at-pt
 
    ;; git-gutter
    "] h" 'git-gutter:next-hunk

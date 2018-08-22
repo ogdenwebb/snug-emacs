@@ -23,8 +23,10 @@
 ;; see: https://gist.github.com/masutaka/1325654/955277113028eb7b968453a5b7802b74b51b393d
 ;; TODO: disable message in minibuffer after auto-save
 (use-package recentf
-  :init
-  ;; (run-at-time nil (* 5 60) 'recentf-save-list)
+  :no-require t
+  :defer 1
+  :config
+  (run-at-time nil (* 5 60) 'recentf-save-list)
   ;; Recentf blacklist
   (setq recentf-exclude '("^/var/folders\\.*"
                           "COMMIT_EDITMSG\\'"
@@ -34,12 +36,11 @@
                           "[/\\]\\.emacs.d/url"
                           "^/usr/share/emacs"
                           "[/\\]\\.emacs.d/elpa"))
-
-  (recentf-mode 1)
-  :config
   (setq recentf-auto-cleanup 2)
-  (setq recentf-max-menu-items 100)
-  (setq recentf-max-saved-items 50))
+  (recentf-mode 1)
+  :custom
+  (recentf-max-menu-items 100)
+  (recentf-max-saved-items 50))
 
 (use-package subword
   :config

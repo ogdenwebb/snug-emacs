@@ -113,10 +113,16 @@
     :fringe-bitmap 'elmax/flycheck-fringe-indicator
     :fringe-face 'flycheck-fringe-info))
 
-;;   (use-package flycheck-pos-tip
-;;     :config
-;;     (with-eval-after-load 'flycheck
-;;       (flycheck-pos-tip-mode))))
+;; TODO:
+;; (use-package flycheck-pos-tip
+;;   :after flycheck
+;;   :config
+;;   (flycheck-pos-tip-mode))
+
+;; (use-package flycheck-posframe
+;;   :ensure t
+;;   :after flycheck
+;;   :config (add-hook 'flycheck-mode-hook #'flycheck-posframe-mode))
 
 ;; Spell checking
 (use-package flyspell
@@ -139,6 +145,9 @@
 ;; flyspell ivy corret
 (use-package flyspell-correct
   :after flyspell
+  :commands (flyspell-correct-at-point flyspell-correct-next-word-generic
+             flyspell-correct-previous flyspell-correct-previous-word-generic
+             flyspell-correct-word flyspell-correct-word-generic)
   :config
   (use-package flyspell-correct-ivy))
 

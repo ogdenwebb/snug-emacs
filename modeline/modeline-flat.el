@@ -7,7 +7,7 @@
 (setq telephone-line-height 28)
 
 
-(set-face-bold 'mode-line nil)
+;; (set-face-bold 'mode-line nil)
 ;; (set-face-attribute 'mode-line-inactive nil (:box (:line-width 1)))
 
 ;; Left edge
