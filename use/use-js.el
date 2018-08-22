@@ -8,6 +8,7 @@
   (setq js2-bounce-indent-p t))
 
 (use-package tern
+  :disabled t
   :after js2-mode
   :config
   (add-hook 'js2-mode-hook #'tern-mode))

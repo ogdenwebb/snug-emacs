@@ -36,7 +36,7 @@
                           "[/\\]\\.emacs.d/url"
                           "^/usr/share/emacs"
                           "[/\\]\\.emacs.d/elpa"))
-  (setq recentf-auto-cleanup 2)
+  ;; (setq recentf-auto-cleanup 2)
   (recentf-mode 1)
   :custom
   (recentf-max-menu-items 100)

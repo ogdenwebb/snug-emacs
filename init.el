@@ -9,6 +9,7 @@
 ;; TODO: make undotree buffer vim-like
 ;; TODO: imenu; imenu-generic-expression for html/css
 ;; TODO: mode-line text scale
+;; TODO: org-mode code and etc in valley theme
 
 ;; General configation
 (require 'boot-prep (concat user-emacs-directory "boot/boot-prep"))

@@ -9,7 +9,7 @@
         evil-want-C-u-scroll t
         ;; evil-ex-search-persistent-highlight nil
 
-        evil-ex-search-case 'sensitive
+        evil-ex-search-case 'smart
         evil-ex-substitute-case t
         evil-move-beyond-eol t
         evil-shift-round nil

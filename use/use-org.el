@@ -6,6 +6,11 @@
     :after org
     :ensure t)
 
+  (use-package org-bullets
+    :after org
+    :config
+    (add-hook 'org-mode-hook 'org-bullets-mode))
+
   ;; Fit image into the screen
   ;; (setq org-image-actual-width '(200))
   (setq org-image-actual-width 200)
