@@ -13,7 +13,7 @@
     :after company
     :ensure t
     :config
-    (company-flx-mode +1))
+    (company-flx-mode t))
 
   ;; TODO:
   ;; dabbrev hides other normal condidats
@@ -43,7 +43,7 @@
   ;;   :after company
   ;;   :config
   ;;   (setq company-statistics-file "~/.cache/emacs/company-statistics-cache.el")
-  ;;   (company-statistics-mode +1))
+  ;;   (company-statistics-mode t))
 
   ;; Complete filename
   (with-eval-after-load 'company

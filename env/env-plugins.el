@@ -34,7 +34,7 @@
 (use-package projectile
   :ensure t
   :config
-  (projectile-mode +1))
+  (projectile-mode t))
 
 ;; Quickrun
 (use-package quickrun
@@ -102,6 +102,7 @@
       (format "%s " (all-the-icons-material "folder" :v-adjust -0.2 :height 1.15))
 
 
+      ;; TODO:
       treemacs-icon-tag-open-png
       (all-the-icons-octicon "chevron-down" :v-adjust 0.1)
 
@@ -130,16 +131,16 @@
   (treemacs-define-custom-icon (all-the-icons-fileicon "typescript") "ts")
   (treemacs-define-custom-icon (all-the-icons-octicon "markdown") "md")
 
-  (treemacs-define-custom-icon (all-the-icons-octicon "file-media" :height 1.2)
+  (treemacs-define-custom-icon (all-the-icons-octicon "file-media")
                                "jpg" "jpeg" "png" "gif" "ico" "tif" "tiff" "svg" "bmp"
                                "psd" "ai" "eps" "indd" "mov" "avi" "mp4" "webm" "mkv"
                                "wav" "mp3" "ogg" "midi")
 
-  (treemacs-define-custom-icon (all-the-icons-octicon "file-text" :height 1.2)
+  (treemacs-define-custom-icon (all-the-icons-octicon "file-text")
                                "md" "markdown" "rst" "log" "txt"
                                "CONTRIBUTE" "LICENSE" "README" "CHANGELOG")
 
-  (treemacs-define-custom-icon (all-the-icons-octicon "file-code" :height 1.2)
+  (treemacs-define-custom-icon (all-the-icons-octicon "file-code")
                                "yaml" "yml" "json" "xml" "toml" "cson" "ini"
                                "tpl" "erb" "mustache" "twig" "ejs" "mk" "haml" "pug" "jade")
 

@@ -2,15 +2,6 @@
 
 ;; (setq debug-on-error t)
 
-;; kaolin-sunflower
-;; TODO: rename boot-prep to bootstrap
-;; TODO: color test
-;; TODO: fix tab in terminal within org-mode
-;; TODO: make undotree buffer vim-like
-;; TODO: imenu; imenu-generic-expression for html/css
-;; TODO: mode-line text scale
-;; TODO: org-mode code and etc in valley theme
-
 ;; General configation
 (require 'boot-prep (concat user-emacs-directory "boot/boot-prep"))
 
@@ -61,6 +52,5 @@
   use-tools ; support for external apps
   use-vcs
   use-web)
-
 
 ;; (~ ^ . ^ ~)

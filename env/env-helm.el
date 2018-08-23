@@ -3,7 +3,7 @@
 (use-package helm
   :disabled t
   :init
-  (helm-mode +1))
+  (helm-mode t))
 
   ;; No idea why here find-file is set to nil (so it uses the native find-file
   ;; for Emacs. This makes stuff like (find-file (read-file-name ...)) work with

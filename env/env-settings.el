@@ -8,6 +8,9 @@
 (setq buffer-file-coding-system 'utf-8
       locale-coding-system 'utf-8)
 
+;; Disable wrote file message
+(setq save-silently t)
+
 ;; Replace the region while insert
 (delete-selection-mode 1)
 
@@ -52,7 +55,7 @@
 
 ;; Make the backspace properly erase the tab instead of
 ;; removing 1 space at a time.
-(setq backward-delete-char-untabify-method 'hungry)
+;; (setq backward-delete-char-untabify-method 'hungry)
 
 ;; http://stackoverflow.com/questions/354490/preventing-automatic-change-of-default-directory
 ;; (add-hook 'find-file-hook
