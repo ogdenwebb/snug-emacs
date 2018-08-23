@@ -7,14 +7,15 @@
 
 ;; Theme settings
 ;; Load my theme
-(setq elmax/custom-theme 'kaolin-valley-dark)
+(defvar elmax/custom-theme 'kaolin-valley-dark
+  "Default custom theme.")
 
 (use-package autothemer
   :ensure t)
 
 (use-package kaolin-themes
-  ;; Delete the following line if you use MELPA package
   :after autothemer
+  ;; Delete or comment the following line if you use MELPA package
   :load-path "dev/emacs-kaolin-themes"
   :config
   (setq kaolin-themes-hl-line-colored t
@@ -22,7 +23,7 @@
         kaolin-themes-underline-wave t
         kaolin-themes-bold nil)
   ;; (setq kaolin-themes-distinct-company-scrollbar t)
-  ;; (setq kaolin-themes-italic-comments t)
+  ;; (setq kaolin-themes-italic-comments nil)
 
   ;; (setq kaolin-themes-comments-style 'normal)
 
@@ -36,8 +37,6 @@
   ;;   (load-theme 'kaolin-eclipse t))
 
   (load-theme elmax/custom-theme t)
-  ;; Set cursor for emacsclient
-  ;; (add-to-list 'default-frame-alist '(cursor-color . "#60696b"))
 
   ;; Highlight t and nil in elisp-mode
   (font-lock-add-keywords
