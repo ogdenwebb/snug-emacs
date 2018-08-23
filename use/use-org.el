@@ -9,6 +9,9 @@
   (use-package org-bullets
     :after org
     :config
+    ;; (setq org-bullets-bullet-list '("•"))
+    (setq org-bullets-bullet-list
+          '("◉" "✸" "⚫" "○" "•"))
     (add-hook 'org-mode-hook 'org-bullets-mode))
 
   ;; Fit image into the screen
