@@ -1,3 +1,6 @@
+;; TODO:
+;; (setq x-stretch-cursor t)
+
 ;; Encoding
 (set-charset-priority 'unicode)
 (prefer-coding-system 'utf-8)
@@ -40,12 +43,18 @@
 ;;     (setq interprogram-cut-function 'xsel-cut-function)
 ;;     (setq interprogram-paste-function 'xsel-paste-function)))
 
-;; Replacing yes/no to y/n.
+
+(setq use-dialog-box nil)
+
+;; Replacing yes/no with y/n.
 (defalias 'yes-or-no-p 'y-or-n-p)
 
 (setq-default indicate-buffer-boundaries nil)  ; don't show where buffer starts/ends
 
 (setq-default sentence-end-double-space nil)
+
+;; reduce point movement lag, see https://emacs.stackexchange.com/questions/28736/emacs-pointcursor-movement-lag/28746
+(setq auto-window-vscroll nil)
 
 ;; Indentation
 (setq tab-width 2)
@@ -123,6 +132,7 @@
 
 ;; Backup settings
 (setq backup-by-copying t      ; don't clobber symlinks
+      backup-by-copying-when-linked t
       backup-directory-alist '(("." . "~/.cache/emacs/backup"))
       delete-old-versions t
       kept-new-versions 6

@@ -36,6 +36,14 @@
   :config
   (projectile-mode t))
 
+;; TODO: enable
+;; (use-package backup-each-save
+;;   :hook (after-save-hook . backup-each-save))
+
+;; ;;TODO: ensure backups are being created
+;; (use-package backup-walker
+;;   :commands backup-walker-start)
+
 ;; Quickrun
 (use-package quickrun
   :ensure t
