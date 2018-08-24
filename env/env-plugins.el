@@ -112,32 +112,52 @@
 
       ;; TODO:
       treemacs-icon-tag-open-png
-      (all-the-icons-octicon "chevron-down" :v-adjust 0.1)
+      (all-the-icons-faicon "chevron-down" :v-adjust 0.1)
 
       treemacs-icon-tag-closed-png
-      (all-the-icons-octicon "chevron-right" :v-adjust 0.1)
+      (all-the-icons-faicon "location-arrow" :v-adjust 0.1)
 
       treemacs-icon-tag-node-open-png
-      (format "%s " (all-the-icons-octicon "chevron-down"  :height 0.75 :face 'font-lock-keyword-face))
+      (format "%s " (all-the-icons-faicon "chevron-down"  :height 0.75 :face 'font-lock-keyword-face))
 
       treemacs-icon-tag-node-closed-png
-      (format "%s " (all-the-icons-octicon "chevron-right" :height 0.9  :face 'font-lock-keyword-face))
+      (format "%s " (all-the-icons-faicon "location-arrow" :height 0.9  :face 'font-lock-keyword-face))
 
-      treemacs-icon-tag-leaf-png "- "
+      treemacs-icon-tag-leaf-png
+      ;; "- "
+      (format "%s " (all-the-icons-faicon "tag" :height 0.9 :face 'font-lock-type-face))
       )
 
+  ;; TODO: add macro
   (treemacs-define-custom-icon (all-the-icons-alltheicon "csharp-line") "cs")
   (treemacs-define-custom-icon (all-the-icons-alltheicon "css3") "css")
   (treemacs-define-custom-icon (all-the-icons-alltheicon "git") "gitignore")
   (treemacs-define-custom-icon (all-the-icons-alltheicon "html5") "html" "htm")
   (treemacs-define-custom-icon (all-the-icons-alltheicon "java") "java")
   (treemacs-define-custom-icon (all-the-icons-alltheicon "javascript") "js")
-  ;; (treemacs-define-custom-icon (all-the-icons-fileicon "elisp" :face `font-lock-function-name-face) "el" "elc")
+  (treemacs-define-custom-icon (all-the-icons-alltheicon "python") "py")
+  (treemacs-define-custom-icon (all-the-icons-alltheicon "rust") "rs")
+  (treemacs-define-custom-icon (all-the-icons-alltheicon "haskell") "hs")
+  (treemacs-define-custom-icon (all-the-icons-alltheicon "c") "c")
+  (treemacs-define-custom-icon (all-the-icons-alltheicon "cplusplus") "cpp")
+  (treemacs-define-custom-icon (all-the-icons-alltheicon "ruby-alt") "rb")
+  (treemacs-define-custom-icon (all-the-icons-alltheicon "scala") "scala")
+  (treemacs-define-custom-icon (all-the-icons-alltheicon "elixir") "ex" "exs")
+  (treemacs-define-custom-icon (all-the-icons-alltheicon "erlang") "erl" "hrl")
+  (treemacs-define-custom-icon (all-the-icons-fileicon "clisp") "lisp")
+  (treemacs-define-custom-icon (all-the-icons-fileicon "go") "go")
   (treemacs-define-custom-icon (all-the-icons-fileicon "elisp") "el" "elc")
   (treemacs-define-custom-icon (all-the-icons-fileicon "jsx-2") "jsx")
+  (treemacs-define-custom-icon (all-the-icons-fileicon "ocaml") "ml" "mli")
   (treemacs-define-custom-icon (all-the-icons-fileicon "org") "org")
+  (treemacs-define-custom-icon (all-the-icons-fileicon "php") "php")
+  (treemacs-define-custom-icon (all-the-icons-fileicon "powershell") "sh" "zsh")
   (treemacs-define-custom-icon (all-the-icons-fileicon "typescript") "ts")
-  (treemacs-define-custom-icon (all-the-icons-octicon "markdown") "md")
+  (treemacs-define-custom-icon (all-the-icons-fileicon "nimrod") "nim" "nims")
+  (treemacs-define-custom-icon (all-the-icons-fileicon "perl6") "pm6")
+  (treemacs-define-custom-icon (all-the-icons-fileicon "tex") "tex")
+  (treemacs-define-custom-icon (all-the-icons-fileicon "rst") "rst")
+  (treemacs-define-custom-icon (all-the-icons-octicon  "markdown") "md")
 
   (treemacs-define-custom-icon (all-the-icons-octicon "file-media")
                                "jpg" "jpeg" "png" "gif" "ico" "tif" "tiff" "svg" "bmp"

@@ -1,5 +1,19 @@
 ;;; Org-mode settings  -*- lexical-binding: t -*-
 
+;; TODO:
+;; org-todo-keywords
+;; org-todo-state-tags-triggers
+;; :tangle yes
+;; export html/pdf; see C-c C-e
+;;
+;; TODO: bind
+;; C-c C-z
+;; C-c C-x f
+;; M-S-ret
+;; M-S-left,right
+;; M-S-up,down
+;; S-left S-right
+
 (use-package org
   :config
   (use-package org-download
@@ -27,12 +41,14 @@
         org-fontify-quote-and-verse-blocks t
         org-src-fontify-natively t
         org-src-tab-acts-natively t
+        org-hide-leading-stars t
+        org-hide-leading-stars-before-indent-mode t
         org-ellipsis " ~ ")
 
   ;; Fontify the whole line for headings (with a background color).
   ;; (setq org-fontify-whole-heading-line t)
 
-  (defun org-init-hook ()
+  (defun elmax/org-init-hook ()
     (interactive)
     (when (bound-and-true-p nlinum-mode)
       (nlinum-mode -1))
@@ -44,17 +60,11 @@
     (turn-off-smartparens-mode)
     (show-paren-mode -1))
 
-  (add-hook 'org-mode-hook 'org-init-hook)
+  (add-hook 'org-mode-hook 'elmax/org-init-hook)
 
   (setq org-highest-priority ?A
         org-lowest-priority ?D
         org-default-priority ?B)
-
-  ;; TODO:
-  ;; org-todo-keywords
-  ;; org-todo-state-tags-triggers
-  ;; :tangle yes
-  ;; export html/pdf; see C-c C-e
 
   (custom-theme-set-faces
    elmax/custom-theme
@@ -89,13 +99,6 @@
   :general
   (general-define-key :keymaps 'org-mode-map
                       :states '(normal)
-                      ;; TODO: (??) bind M-ret to O/o
-                      ;; C-c C-z
-                      ;; C-c C-x f
-                      ;; M-S-ret
-                      ;; M-S-left,right
-                      ;; M-S-up,down
-                      ;; S-left S-right
                       "RET" 'org-open-at-point
                       "gx"  'org-open-at-point
                       "t"   'org-todo
