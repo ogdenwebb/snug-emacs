@@ -99,7 +99,7 @@
         treemacs-file-event-delay 1000)
 
   (setq treemacs-icon-root-png
-        (format " %s " (all-the-icons-material "subject" :v-adjust -0.2 :height 1.5
+        (format " %s " (all-the-icons-material "subject" :v-adjust -0.2 :height 1.4
                                                :face 'font-lock-variable-name-face))
 
       treemacs-icon-open-png
@@ -147,7 +147,7 @@
   (treemacs-define-custom-icon (all-the-icons-fileicon "clisp") "lisp")
   (treemacs-define-custom-icon (all-the-icons-fileicon "go") "go")
   (treemacs-define-custom-icon (all-the-icons-fileicon "elisp") "el" "elc")
-  (treemacs-define-custom-icon (all-the-icons-fileicon "jsx-2") "jsx")
+  (treemacs-define-custom-icon (all-the-icons-fileicon "jsx2-alt") "jsx")
   (treemacs-define-custom-icon (all-the-icons-fileicon "ocaml") "ml" "mli")
   (treemacs-define-custom-icon (all-the-icons-fileicon "org") "org")
   (treemacs-define-custom-icon (all-the-icons-fileicon "php") "php")

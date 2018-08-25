@@ -46,7 +46,7 @@
         org-ellipsis " ~ ")
 
   ;; Fontify the whole line for headings (with a background color).
-  ;; (setq org-fontify-whole-heading-line t)
+  (setq org-fontify-whole-heading-line t)
 
   (defun elmax/org-init-hook ()
     (interactive)
