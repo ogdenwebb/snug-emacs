@@ -17,7 +17,9 @@
   :init
   (setenv "GIT_ASKPASS" "")
   (setenv "SSH_ASKPASS" "")
-  :commands (magit-status magit-diff))
+  :commands (magit-status magit-diff)
+  :config
+  (setq magit-diff-refine-hunk 'all))
 
 ;; TODO:
 ;; (use-package magithub
