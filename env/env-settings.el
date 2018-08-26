@@ -175,12 +175,13 @@
 ;; Disable eldoc autostart, enabled by default since 25
 (global-eldoc-mode -1)
 
+;; TODO: add var
 ;; Auto-indent when pasting
-(dolist (command '(yank yank-pop))
-  (eval `(defadvice ,command (after indent-region activate)
-           (and (not current-prefix-arg)
-                (let ((mark-even-if-inactive transient-mark-mode))
-                  (indent-region (region-beginning) (region-end) nil))))))
+;; (dolist (command '(yank yank-pop))
+;;   (eval `(defadvice ,command (after indent-region activate)
+;;            (and (not current-prefix-arg)
+;;                 (let ((mark-even-if-inactive transient-mark-mode))
+;;                   (indent-region (region-beginning) (region-end) nil))))))
 
 
 (provide 'env-settings)

@@ -11,7 +11,9 @@
   (general-evil-setup)
   (setq leader "SPC") ; set leader key
 
-  (general-define-key :states 'normal
+  ;; TODO: add treemacs
+  (general-define-key ; :keymaps '(override)
+                      :states '(normal)
                       :prefix leader
                       ;; TODO: add load-theme somewhere
                       ;; TODO: mb add configuration opt or smth
@@ -254,7 +256,7 @@
                       "gS" 'evil-Surround-region)
 
   (general-define-key :keymaps '(haskell-mode-map)
-                      :state '(insert)
+                      :states '(insert)
                       "TAB"  'company-indent-or-complete-common))
 
 ;; (general-define-key :keymaps 'ivy-minibuffer-map

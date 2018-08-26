@@ -122,9 +122,9 @@
                       :states '(normal)
                       "c"   'org-ctrl-c-ctrl-c
                       ;; "t" 'org-set-tags
-                      "t"   'org-ctrl-c-ctrl-c
-                      "p" 'org-priority-up
-                      "P" 'org-priority-down)
+                      "t"   'org-ctrl-c-ctrl-c)
+                      ;; "p" 'org-priority-up
+                      ;; "P" 'org-priority-down)
 
   (general-define-key :keymaps 'org-mode-map
                       :states '(insert)

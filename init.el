@@ -1,6 +1,9 @@
 ;;;; Elmax - Emacs configuration with Evil
 
 ;; (setq debug-on-error t)
+;; TODO: rust
+;; TODO: adjust valley-light across dark theme
+;; TODO: hl-line foreground in treemacs
 
 ;; General configation
 (require 'boot-prep (concat user-emacs-directory "boot/boot-prep"))

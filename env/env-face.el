@@ -7,7 +7,7 @@
 
 ;; Theme settings
 ;; Load my theme
-(defvar elmax/custom-theme 'kaolin-valley-dark
+(defvar elmax/custom-theme 'kaolin-valley-light
   "Default custom theme.")
 
 (use-package autothemer
@@ -49,6 +49,7 @@
 ;; (add-to-list 'default-frame-alist '(font . "Fira Mono-12"))
 ;; (add-to-list 'default-frame-alist '(font . "Fira Code-12"))
 ;; (add-to-list 'default-frame-alist '(font . "Input Mono-11"))
+;; (add-to-list 'default-frame-alist '(font . "Noto Mono-12"))
 
 ;; Set the fringe size
 (setq-default left-fringe-width  6
@@ -200,6 +201,21 @@
 ;;   :config
 ;;   (global-highlight-parentheses-mode))
 
+(use-package solaire-mode
+  :disabled
+  ;; :hook ((change-major-mode after-revert ediff-prepare-buffer) . turn-on-solaire-mode)
+  :config
+  ;; (setq solaire-mode-remap-modeline nil)
+  (add-hook 'treemacs-mode-hook #'solaire-mode)
+  (add-hook 'imenu-list-hook #'solaire-mode)
+  (add-hook 'minibuffer-setup-hook #'solaire-mode-in-minibuffer))
+  ;; (add-hook 'minibuffer-setup-hook #'solaire-mode-in-minibuffer)
+  ;; (solaire-mode-swap-bg))
 
+;; (defun no-fringes-in-minibuffer ()
+;;   "Disable fringes in the minibuffer window."
+;;   (set-window-fringes (minibuffer-window) 0 0 nil))
+
+;; (add-hook 'minibuffer-setup-hook #'no-fringes-in-minibuffer)
 
 (provide 'env-face)

@@ -82,12 +82,14 @@
   (defun treemacs--setup-mode-line ()
       (setq mode-line-format nil))
 
-  (pcase (cons (not (null (executable-find "git")))
-               (not (null (executable-find "python3"))))
-    (`(t . t)
-     (treemacs-git-mode 'extended))
-    (`(t . _)
-     (treemacs-git-mode 'simple)))
+  ;; (pcase (cons (not (null (executable-find "git")))
+  ;;              (not (null (executable-find "python3"))))
+  ;;   (`(t . t)
+  ;;    (treemacs-git-mode 'extended))
+  ;;   (`(t . _)
+  ;;    (treemacs-git-mode 'simple)))
+
+  (setq treemacs-git-mode nil)
 
   (setq treemacs-show-hidden-files nil
         treemacs-width 30
