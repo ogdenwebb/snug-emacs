@@ -11,7 +11,7 @@
 
 ;; Telephone line
 (use-package telephone-line
-  ;; :load-path "dev/telephone-line"
+  :load-path "dev/telephone-line"
   :ensure t
   :defer t
   :init

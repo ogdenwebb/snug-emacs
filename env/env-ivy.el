@@ -44,11 +44,12 @@
   :ensure t
   :after ivy
   :config
-  (dolist (cmd
-           '(ivy-switch-buffer
-             ivy-switch-buffer-other-window
-             counsel-projectile-switch-to-buffer))
-    (ivy-set-display-transformer cmd #'ivy-rich-switch-buffer-transformer))
-  (setq ivy-rich-path-style 'abbrev))
+  ;; (dolist (cmd
+  ;;          '(ivy-switch-buffer
+  ;;            ivy-switch-buffer-other-window
+  ;;            counsel-projectile-switch-to-buffer))
+  ;;   (ivy-set-display-transformer cmd #'ivy-rich-switch-buffer-transformer))
+  (setq ivy-rich-path-style 'abbrev)
+  (ivy-rich-mode t))
 
 (provide 'env-ivy)

@@ -7,7 +7,7 @@
 
 ;; Theme settings
 ;; Load my theme
-(defvar elmax/custom-theme 'kaolin-valley-light
+(defvar elmax/custom-theme 'kaolin-valley-dark
   "Default custom theme.")
 
 (use-package autothemer

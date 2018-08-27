@@ -40,7 +40,7 @@
   (recentf-mode 1)
   :custom
   (recentf-max-menu-items 100)
-  (recentf-max-saved-items 50))
+  (recentf-max-saved-items 75))
 
 (use-package subword
   :config

@@ -159,7 +159,7 @@
   (treemacs-define-custom-icon (all-the-icons-fileicon "perl6") "pm6")
   (treemacs-define-custom-icon (all-the-icons-fileicon "tex") "tex")
   (treemacs-define-custom-icon (all-the-icons-fileicon "rst") "rst")
-  (treemacs-define-custom-icon (all-the-icons-octicon  "markdown") "md")
+  (treemacs-define-custom-icon (all-the-icons-octicon "markdown") "md" "markdown")
 
   (treemacs-define-custom-icon (all-the-icons-octicon "file-media")
                                "jpg" "jpeg" "png" "gif" "ico" "tif" "tiff" "svg" "bmp"
@@ -167,11 +167,10 @@
                                "wav" "mp3" "ogg" "midi")
 
   (treemacs-define-custom-icon (all-the-icons-octicon "file-text")
-                               "md" "markdown" "rst" "log" "txt"
-                               "CONTRIBUTE" "LICENSE" "README" "CHANGELOG")
+                               "rst" "log" "txt" "CONTRIBUTE" "LICENSE" "README" "CHANGELOG")
 
   (treemacs-define-custom-icon (all-the-icons-octicon "file-code")
-                               "yaml" "yml" "json" "xml" "toml" "cson" "ini"
+                               "conf" "cfg" "yaml" "yml" "json" "xml" "toml" "cson" "ini"
                                "tpl" "erb" "mustache" "twig" "ejs" "mk" "haml" "pug" "jade")
 
   ;; TODO: treemacs git mode
