@@ -3,8 +3,8 @@
 ;; Autocomplete
 (use-package company
   :ensure t
-  :commands (global-company-mode company-complete-common)
-  :init (add-hook 'prog-mode-hook 'global-company-mode)
+  :defer 5
+  :commands (company-mode global-company-mode company-complete-common company-indent-or-complete-common)
   :config
   ;; (add-hook 'after-init-hook 'global-company-mode)
 
@@ -106,7 +106,9 @@
   ;; (add-to-list 'company-backends 'company-dabbrev)
   ;; (add-to-list 'company-backends 'company-dabbrev-code)
   ;; (add-to-list 'company-backends '(company-capf company-dabbrev-code))
-  (setq company-dabbrev-downcase nil))
+  (setq company-dabbrev-downcase nil)
+
+  (global-company-mode t))
 
   ;; (setq company-dabbrev-ignore-case nil)
   ;; (setq company-dabbrev-code-ignore-case nil)

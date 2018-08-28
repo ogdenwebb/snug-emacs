@@ -33,8 +33,9 @@
 ;; Project management
 (use-package projectile
   :ensure t
+  :defer 5
   :config
-  (projectile-mode t))
+  (projectile-global-mode t))
 
 ;; TODO: enable
 ;; (use-package backup-each-save
