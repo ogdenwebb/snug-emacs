@@ -131,8 +131,7 @@
 ;; Highlight parenthess
 (use-package paren
   :config
-  (show-paren-mode 1)        ; Automatically highlight parenthesis pairs
-  ;; (setq show-paren-style 'expression)
+  (show-paren-mode 1)
   ;; (setq show-paren-style 'expression)
   (setq show-paren-delay 0.1))
 

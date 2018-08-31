@@ -2,8 +2,13 @@
   :mode (("\\.nim\\'" . nim-mode)
          ("\\.nims\\'" . nimscript-mode))
   :config
-  (add-hook 'nim-mode-hook 'flycheck-mode)
+  ;; (add-hook 'nim-mode-hook 'flycheck-mode)
   (add-hook 'nim-mode-hook 'nimsuggest-mode))
+
+;; (add-hook 'nim-mode-hook 'nimsuggest-mode)
+
+  ;; (add-hook 'nim-mode-hook
+  ;;         '(lambda () (setq-local electric-indent-chars '(?\s)))))
 
 (defun nimsuggest-delete-home-logfile ()
   "Delete nimsuggest log file in $HOME directory."
@@ -12,8 +17,8 @@
     (when (file-exists-p nimsuggest-file)
       (delete-file nimsuggest-file))))
 
-(add-hook 'nim-mode-hook 'nimsuggest-delete-home-logfile)
-(add-hook 'nimscript-mode-hook 'nimsuggest-delete-home-logfile)
+;; (add-hook 'nim-mode-hook 'nimsuggest-delete-home-logfile)
+;; (add-hook 'nimscript-mode-hook 'nimsuggest-delete-home-logfile)
 
 (add-hook 'nim-mode-hook
           (lambda ()

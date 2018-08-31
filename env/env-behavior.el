@@ -1,5 +1,5 @@
 ;; Electric indent
-(electric-indent-mode -1)
+(electric-indent-mode t)
 (setq-default electric-indent-inhibit t)
 
 ;; Undotree
@@ -13,8 +13,8 @@
   (add-hook 'find-file-hook #'undo-tree-load-history-hook)
   (add-hook 'find-file-hook #'global-undo-tree-mode-check-buffers)
 
-  (setq undo-tree-visualizer-timestamps t)
-;; (setq undo-tree-visualizer-diff t))
+  (setq-default undo-tree-visualizer-timestamps t)
+  (setq-default undo-tree-visualizer-diff t)
   (global-undo-tree-mode 1))
 
 

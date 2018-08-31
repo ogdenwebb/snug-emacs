@@ -128,6 +128,7 @@
 
 (use-package evil-args
   :after evil
+  :ensure t
   :commands (evil-inner-arg evil-outer-arg
              evil-forward-arg evil-backward-arg
              evil-jump-out-args)

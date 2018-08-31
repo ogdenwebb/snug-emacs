@@ -36,6 +36,7 @@
   (setq org-startup-indented t
         org-imenu-depth 4)
 
+
   ;; Fontify
   (setq org-fontify-done-headline t
         org-fontify-quote-and-verse-blocks t
@@ -138,5 +139,6 @@
 ;;   (kbd "M-J") 'org-metadown
 ;;   (kbd "M-K") 'org-metaup
 ;;   (kbd "M-L") 'org-metaright)
+
 
 (provide 'use-org)

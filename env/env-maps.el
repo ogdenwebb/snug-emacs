@@ -117,12 +117,11 @@
 
   ;; Normal state
   (general-define-key
-   :states 'normal
+   :states '(normal visual)
    ;; TODO:
    ;; "*" (lambda () (interactive) (swiper (format "\\<%s\\>" (thing-at-point 'symbol))))
    ;; "#" (lambda () (interactive) (swiper (format "\\<%s\\>" (thing-at-point 'word))))
    "g x"  'browse-url-at-point
-   "g p" 'elmax/evil-select-pasted
    "/"    'swiper
    ;; Navigation between windows
    "M-h"  'evil-window-left
@@ -142,6 +141,7 @@
    ;; evil-commentary
    "g c" 'evil-commentary
    "g y" 'evil-commentary-yank
+   "g p" 'elmax/evil-select-pasted
 
    ;; evil-lion
    "g a"  'evil-lion-left

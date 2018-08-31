@@ -11,7 +11,7 @@
 
 ;; Telephone line
 (use-package telephone-line
-  :load-path "dev/telephone-line"
+  ;; :load-path "dev/telephone-line"
   :ensure t
   :defer t
   :init
@@ -157,7 +157,7 @@
 
   (declare-function column-number-at-pos "env-fu")
 
-  ;; TODO: freee visual selection
+  ;; TODO: free visual selection
   (telephone-line-defsegment selection-info ()
     "Information about the size of the current selection, when applicable.
   Supports both Emacs and Evil cursor conventions."

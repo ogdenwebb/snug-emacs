@@ -4,7 +4,8 @@
 (use-package company
   :ensure t
   :defer 5
-  :commands (company-mode global-company-mode company-complete-common company-indent-or-complete-common)
+  :commands (company-mode global-company-mode company-complete-common company-indent-or-complete-common
+                          company-manual-begin company-grab-line)
   :config
   ;; (add-hook 'after-init-hook 'global-company-mode)
 
@@ -23,6 +24,11 @@
         company-require-match nil
         company-minimum-prefix-length 3
         company-tooltip-align-annotations t)
+
+  (eval-after-load 'company-etags
+    '(progn (add-to-list 'company-etags-modes 'web-mode)))
+  ;; (setq company-etags-everywhere t)
+  (setq company-etags-everywhere '(php-mode html-mode web-mode nxml-mode))
 
   (with-eval-after-load 'company
     (define-key company-active-map (kbd "M-n") nil)
@@ -49,7 +55,6 @@
   (with-eval-after-load 'company
     (add-to-list 'company-backends 'company-files))
 
-
   ;; Tern
   (use-package company-tern
     :after (company tern)
@@ -61,7 +66,7 @@
   (use-package company-web-html
     :after (company web-mode)
     :config
-    (add-to-list 'company-backends 'company-web-html))
+    (add-to-list 'company-backends '(company-web-html :with company-etags)))
 
   ;; Indent empty string and enable TAB completion
   (setq tab-always-indent 'complete)
@@ -120,11 +125,16 @@
 ;; (use-package company-box
 ;;   :hook (company-mode . company-box-mode))
 
-(use-package company-lsp
-  :after lsp-mode
+(use-package company-elisp
+  :after company
   :config
-  (add-to-list 'company-backends 'company-lsp)
-  (setq company-lsp-async t)
-  (setq company-lsp-enable-recompletion t))
+  (push 'company-elisp company-backends))
+
+;; TODO: how to specify mode
+(defun elmax/company-local-backend (mode backends)
+  "Add BACKENDS to a buffer-local version of `company-backends'."
+  (make-local-variable 'company-backends)
+  (dolist (name backends)
+    (cl-pushnew name company-backends)))
 
 (provide 'completion-company)

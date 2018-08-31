@@ -7,9 +7,11 @@
       vc-annotate-very-old-color nil)
 
 (use-package ediff
+  :defer t
   :commands (ediff)
   :config
-  (use-package evil-ediff))
+  (use-package evil-ediff
+    :after ediff))
 
 ; Git
 (use-package magit
@@ -18,8 +20,8 @@
   (setenv "GIT_ASKPASS" "")
   (setenv "SSH_ASKPASS" "")
   :commands (magit-status magit-diff)
-  :config
-  (setq magit-diff-refine-hunk 'all))
+  :config)
+  ;; (setq magit-diff-refine-hunk 'all))
 
 ;; TODO:
 ;; (use-package magithub
@@ -27,16 +29,13 @@
 ;;   :config (magithub-feature-autoinject t))
 
 (use-package gist
-  :commands (gist-list)
-  :ensure t)
+  :commands (gist-list))
 
 ;; Highlight changes in git
 (use-package git-gutter
   :ensure t
-  :init
-  (global-git-gutter-mode)
-  (with-eval-after-load 'git-gutter
-    (require 'git-gutter-fringe))
+  :config
+  (global-git-gutter-mode t)
 
   ;; (custom-set-variables
   ;;  ;; WARNING: "" contains tag space character to display line
@@ -45,7 +44,6 @@
   ;;  '(git-gutter:modified-sign "󠀠")
   ;;  '(git-gutter:deleted-sign "󠀠"))
 
-  :config
   (use-package git-gutter-fringe
     :after git-gutter
     :ensure t))
