@@ -1,13 +1,20 @@
 ;;; -*- lexical-binding: t -*-
 
+(defvar file-name-handler-alist-old file-name-handler-alist)
+
 ;; Increase garbage collection for speedup
 (setq-default gc-cons-threshold 20000000 ; or even 1000000000
-              gc-cons-percentage 0.6)
+              gc-cons-percentage 0.6
+              package-enable-at-startup nil
+              message-log-max 16384
+              auto-window-vscroll nil)
 
 (add-hook 'emacs-startup-hook
           #'(lambda ()
-              (setq gc-cons-threshold 16777216
-                    gc-cons-percentage 0.1)))
+              (setq file-name-handler-alist file-name-handler-alist-old
+                    gc-cons-threshold 16777216
+                    gc-cons-percentage 0.1)
+              (garbage-collect)) t)
 
 ;; Initialize package system
 (setq package-enable-at-startup nil   ; To prevent initialising twice

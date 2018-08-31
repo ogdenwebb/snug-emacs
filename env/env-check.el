@@ -126,6 +126,7 @@
 
 ;; Spell checking
 (use-package flyspell
+  :defer 5
   :commands (flyspell-mode flyspell-buffer)
   :config
   ;; (add-hook 'prog-mode-hook 'flyspell-prog-mode)
