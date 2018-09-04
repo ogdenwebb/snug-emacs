@@ -9,19 +9,13 @@
   :config
   ;; (add-hook 'after-init-hook 'global-company-mode)
 
-  ;; Use fuzzy completion
-  (use-package company-flx
-    :after company
-    :ensure t
-    :config
-    (company-flx-mode t))
-
   ;; TODO:
   ;; dabbrev hides other normal condidats
   (add-to-list 'completion-styles 'initials t)
 
   (setq company-idle-delay nil ; never start completions automatically
         company-require-match nil
+        ;; company-show-numbers t
         company-minimum-prefix-length 3
         company-tooltip-align-annotations t)
 
@@ -54,19 +48,6 @@
   ;; Complete filename
   (with-eval-after-load 'company
     (add-to-list 'company-backends 'company-files))
-
-  ;; Tern
-  (use-package company-tern
-    :after (company tern)
-    :commands (company-tern)
-    :config
-    (add-to-list 'company-backends 'company-tern))
-
-  ;; Web-mode
-  (use-package company-web-html
-    :after (company web-mode)
-    :config
-    (add-to-list 'company-backends '(company-web-html :with company-etags)))
 
   ;; Indent empty string and enable TAB completion
   (setq tab-always-indent 'complete)
@@ -121,6 +102,13 @@
   ;; (setq company-dabbrev-code-modes t)
   ;; (setq company-dabbrev-code-other-buffers t)
   ;; (setq company-dabbrev-ignore-buffers "\\`\\'")
+
+;; Use fuzzy completion
+(use-package company-flx
+  :after company
+  :ensure t
+  :config
+  (company-flx-mode t))
 
 ;; (use-package company-box
 ;;   :hook (company-mode . company-box-mode))

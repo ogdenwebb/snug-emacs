@@ -40,4 +40,11 @@
          :timeout 0.25
          "j" 'emmet-expand-line)))
 
+;; Web-mode
+(use-package company-web-html
+  :after (company web-mode)
+  :config
+  (add-to-list 'company-backends '(company-web-html :with company-etags)))
+
+
 (provide 'use-web)

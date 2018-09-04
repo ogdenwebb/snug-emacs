@@ -48,7 +48,8 @@
   (evil-ex-define-cmd "pu[pgrade]" 'package-upgrade-all)
   (evil-ex-define-cmd "pi[stall]"  'package-install)
   (evil-ex-define-cmd "pd[elete]"  'package-delete)
-  (evil-ex-define-cmd "lt"  'load-theme)
+  (evil-ex-define-cmd "pc[lean]"   'package-autoremove)
+  (evil-ex-define-cmd "lt"         'load-theme)
 
   (with-eval-after-load 'evil
     (evil-add-command-properties #'find-file-at-point :jump t)
@@ -91,7 +92,7 @@
 ;; Magit
 (use-package evil-magit
   :ensure t
-  :after magit)
+  :after evil magit)
 
 (use-package evil-matchit
   :ensure t
@@ -110,6 +111,7 @@
 
 (use-package evil-lion
  :ensure t
+ :after evil
  :commands (evil-lion-mode evil-lion-left evil-lion-right)
  :config (setq evil-lion-squeeze-spaces t))
 
@@ -123,12 +125,13 @@
   (setq vimish-fold-header-width nil))
 
 (use-package evil-numbers
+  :after evil
   :commands (evil-numbers/inc-at-pt evil-numbers/dec-at-pt)
   :ensure t)
 
 (use-package evil-args
-  :after evil
   :ensure t
+  :after evil
   :commands (evil-inner-arg evil-outer-arg
              evil-forward-arg evil-backward-arg
              evil-jump-out-args)

@@ -13,6 +13,14 @@
   :config
   (add-hook 'js2-mode-hook #'tern-mode))
 
+;; Tern
+(use-package company-tern
+  :after (company tern)
+  :commands (company-tern)
+  :config
+  (add-to-list 'company-backends 'company-tern))
+
+
 (use-package indium
   :commands (indium-interaction-mode)
   :config

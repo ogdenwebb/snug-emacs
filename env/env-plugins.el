@@ -68,6 +68,11 @@
 ;;   :config
 ;;   (yas-global-mode 1))
 
+(defun treemacs-face-modify ()
+  (face-remap-add-relative 'hl-line `(:background "nil" :foreground ,(face-foreground 'font-lock-preprocessor-face))))
+
+(add-hook 'treemacs-mode-hook 'treemacs-face-modify)
+
 (use-package treemacs
   :defer t
   ;; :load-path "dev/treemacs"
@@ -170,7 +175,7 @@
   (treemacs-define-custom-icon (all-the-icons-octicon "file-text")
                                "rst" "log" "txt" "CONTRIBUTE" "LICENSE" "README" "CHANGELOG")
 
-  (treemacs-define-custom-icon (all-the-icons-octicon "file-code")
+  (treemacs-define-custom-icon (all-the-icons-octicon "file-text")
                                "conf" "cfg" "yaml" "yml" "json" "xml" "toml" "cson" "ini"
                                "tpl" "erb" "mustache" "twig" "ejs" "mk" "haml" "pug" "jade")
 

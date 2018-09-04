@@ -49,11 +49,13 @@
 ;; Replacing yes/no with y/n.
 (defalias 'yes-or-no-p 'y-or-n-p)
 
-(setq-default indicate-buffer-boundaries nil)  ; don't show where buffer starts/ends
+;;  Don't show where buffer starts/ends
+(setq-default indicate-buffer-boundaries nil)
 
 (setq-default sentence-end-double-space nil)
 
-;; reduce point movement lag, see https://emacs.stackexchange.com/questions/28736/emacs-pointcursor-movement-lag/28746
+;; reduce point movement lag, see
+;; https://emacs.stackexchange.com/questions/28736/emacs-pointcursor-movement-lag/28746
 (setq auto-window-vscroll nil)
 
 ;; Indentation
@@ -140,7 +142,7 @@
       version-control t)       ; use versioned backups
 
 ;; Autosave
-(setq auto-save-default nil) ; because of low load speed
+(setq auto-save-default nil)
 
 ;; (setq auto-save-file-name-transforms
 ;; `((".*" "~/.cache/emacs/saves/" t)))
