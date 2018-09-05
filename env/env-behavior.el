@@ -32,6 +32,7 @@
                           "COMMIT_EDITMSG\\'"
                           ".*-autoloads\\.el\\'"
                           "[/\\]\\.emacs.d/recentf"
+                          "[/\\]\\.emacs.d/.cache"
                           "[/\\]\\.emacs.d/bookmarks"
                           "[/\\]\\.emacs.d/url"
                           "^/usr/share/emacs"

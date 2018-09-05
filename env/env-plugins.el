@@ -100,6 +100,7 @@
   (setq treemacs-show-hidden-files nil
         treemacs-width 30
         treemacs-indentation 2
+        treemacs-indentation-string " "
         ;; treemacs-indentation-string (propertize "|" 'face 'font-lock-comment-face)
         treemacs-follow-after-init t
         treemacs-filewatch-mode t
@@ -111,14 +112,11 @@
                                                :face 'font-lock-variable-name-face))
 
       treemacs-icon-open-png
-      ;; (format "%s " (all-the-icons-faicon "folder-open" :v-adjust 0 :height 1.15 :face 'font-lock-function-name-face))
       (format "%s " (all-the-icons-material "folder_open" :v-adjust -0.2 :height 1.15 'font-lock-doc-face))
 
       treemacs-icon-closed-png
       (format "%s " (all-the-icons-material "folder" :v-adjust -0.2 :height 1.15))
 
-
-      ;; TODO:
       treemacs-icon-tag-open-png
       (all-the-icons-faicon "chevron-down" :v-adjust 0.1)
 
@@ -132,11 +130,14 @@
       (format "%s " (all-the-icons-faicon "location-arrow" :height 0.9  :face 'font-lock-keyword-face))
 
       treemacs-icon-tag-leaf-png
-      ;; "- "
       (format "%s " (all-the-icons-faicon "tag" :height 0.9 :face 'font-lock-type-face))
       )
 
-  ;; TODO: add macro
+  (setq treemacs-icons-hash (make-hash-table :size 200 :test #'equal)
+        treemacs-icon-fallback (format "%s " (all-the-icons-octicon "file-text" :height 1.05))
+        treemacs-icon-text treemacs-icon-fallback)
+
+  ;; TODO: mb add macro
   (treemacs-define-custom-icon (all-the-icons-alltheicon "csharp-line") "cs")
   (treemacs-define-custom-icon (all-the-icons-alltheicon "css3") "css")
   (treemacs-define-custom-icon (all-the-icons-alltheicon "git") "gitignore")
@@ -171,6 +172,7 @@
   (treemacs-define-custom-icon (all-the-icons-fileicon "vue") "vue")
   (treemacs-define-custom-icon (all-the-icons-octicon "markdown") "md" "markdown")
   (treemacs-define-custom-icon (all-the-icons-octicon "file-pdf") "pdf")
+  (treemacs-define-custom-icon (all-the-icons-octicon "database") "sql")
 
   (treemacs-define-custom-icon (all-the-icons-octicon "file-media")
                                "jpg" "jpeg" "png" "gif" "ico" "tif" "tiff" "svg" "bmp"
@@ -180,11 +182,13 @@
   (treemacs-define-custom-icon (all-the-icons-octicon "file-text")
                                "rst" "log" "txt" "CONTRIBUTE" "LICENSE" "README" "CHANGELOG")
 
-  (treemacs-define-custom-icon (all-the-icons-octicon "file-text")
-                               "conf" "cfg" "yaml" "yml" "json" "xml" "toml" "cson" "ini"
+  (treemacs-define-custom-icon (all-the-icons-faicon "cogs")
+                               "conf" "cfg" "yaml" "yml" "json" "xml" "toml" "cson" "ini")
+
+  (treemacs-define-custom-icon (all-the-icons-octicon "code")
                                "tpl" "erb" "mustache" "twig" "ejs" "mk" "haml" "pug" "jade")
 
-  (treemacs-define-custom-icon (all-the-icons-faicon "file-archive-o")
+  (treemacs-define-custom-icon (all-the-icons-octicon "file-zip")
                                "zip" "xz" "tar" "7z" "rar")
 
   ;; TODO: treemacs git mode
