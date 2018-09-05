@@ -155,6 +155,9 @@
   (treemacs-define-custom-icon (all-the-icons-fileicon "clisp") "lisp")
   (treemacs-define-custom-icon (all-the-icons-fileicon "go") "go")
   (treemacs-define-custom-icon (all-the-icons-fileicon "elisp") "el" "elc")
+  (treemacs-define-custom-icon (all-the-icons-fileicon "julia") "jl")
+  (treemacs-define-custom-icon (all-the-icons-fileicon "kotlin") "kt" "kts")
+  (treemacs-define-custom-icon (all-the-icons-fileicon "hy") "hy")
   (treemacs-define-custom-icon (all-the-icons-fileicon "jsx2-alt") "jsx")
   (treemacs-define-custom-icon (all-the-icons-fileicon "ocaml") "ml" "mli")
   (treemacs-define-custom-icon (all-the-icons-fileicon "org") "org")
@@ -165,7 +168,9 @@
   (treemacs-define-custom-icon (all-the-icons-fileicon "perl6") "pm6")
   (treemacs-define-custom-icon (all-the-icons-fileicon "tex") "tex")
   (treemacs-define-custom-icon (all-the-icons-fileicon "rst") "rst")
+  (treemacs-define-custom-icon (all-the-icons-fileicon "vue") "vue")
   (treemacs-define-custom-icon (all-the-icons-octicon "markdown") "md" "markdown")
+  (treemacs-define-custom-icon (all-the-icons-octicon "file-pdf") "pdf")
 
   (treemacs-define-custom-icon (all-the-icons-octicon "file-media")
                                "jpg" "jpeg" "png" "gif" "ico" "tif" "tiff" "svg" "bmp"
@@ -178,6 +183,9 @@
   (treemacs-define-custom-icon (all-the-icons-octicon "file-text")
                                "conf" "cfg" "yaml" "yml" "json" "xml" "toml" "cson" "ini"
                                "tpl" "erb" "mustache" "twig" "ejs" "mk" "haml" "pug" "jade")
+
+  (treemacs-define-custom-icon (all-the-icons-faicon "file-archive-o")
+                               "zip" "xz" "tar" "7z" "rar")
 
   ;; TODO: treemacs git mode
 
