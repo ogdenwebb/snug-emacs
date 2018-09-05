@@ -19,9 +19,9 @@
     (if upgrades
         (when (yes-or-no-p
                (format "Upgrade %d package%s (%s)? "
-                        (length upgrades)
-                        (if (= (length upgrades) 1) "" "s")
-                        (mapconcat #'package-desc-full-name upgrades ", ")))
+                       (length upgrades)
+                       (if (= (length upgrades) 1) "" "s")
+                       (mapconcat #'package-desc-full-name upgrades ", ")))
           (save-window-excursion
             (dolist (package-desc upgrades)
               (let ((old-package (cadr (assq (package-desc-name package-desc)
@@ -59,7 +59,7 @@
 (use-package drag-stuff
   :ensure t
   :commands (drag-stuff-left drag-stuff-up drag-stuff-down drag-stuff-right))
-  ;; :config (drag-stuff-global-mode 1))
+;; :config (drag-stuff-global-mode 1))
 
 ;; Yasnippet
 ;; TODO:
@@ -69,7 +69,8 @@
 ;;   (yas-global-mode 1))
 
 (defun treemacs-face-modify ()
-  (face-remap-add-relative 'hl-line `(:background "nil" :foreground ,(face-foreground 'font-lock-preprocessor-face))))
+  (face-remap-add-relative 'hl-line `(:background "nil" :foreground ,(face-foreground 'font-lock-preprocessor-face)))
+  (setq-local line-spacing 1))
 
 (add-hook 'treemacs-mode-hook 'treemacs-face-modify)
 
@@ -86,7 +87,7 @@
 
   ;; Disable mode-line in treemacs buffer
   (defun treemacs--setup-mode-line ()
-      (setq mode-line-format nil))
+    (setq mode-line-format nil))
 
   ;; (pcase (cons (not (null (executable-find "git")))
   ;;              (not (null (executable-find "python3"))))
@@ -111,27 +112,27 @@
         (format " %s " (all-the-icons-material "subject" :v-adjust -0.2 :height 1.4
                                                :face 'font-lock-variable-name-face))
 
-      treemacs-icon-open-png
-      (format "%s " (all-the-icons-material "folder_open" :v-adjust -0.2 :height 1.15 'font-lock-doc-face))
+        treemacs-icon-open-png
+        (format "%s " (all-the-icons-material "folder_open" :v-adjust -0.2 :height 1.15 'font-lock-doc-face))
 
-      treemacs-icon-closed-png
-      (format "%s " (all-the-icons-material "folder" :v-adjust -0.2 :height 1.15))
+        treemacs-icon-closed-png
+        (format "%s " (all-the-icons-material "folder" :v-adjust -0.2 :height 1.15))
 
-      treemacs-icon-tag-open-png
-      (all-the-icons-faicon "chevron-down" :v-adjust 0.1)
+        treemacs-icon-tag-open-png
+        (all-the-icons-faicon "chevron-down" :v-adjust 0.1)
 
-      treemacs-icon-tag-closed-png
-      (all-the-icons-faicon "location-arrow" :v-adjust 0.1)
+        treemacs-icon-tag-closed-png
+        (all-the-icons-faicon "location-arrow" :v-adjust 0.1)
 
-      treemacs-icon-tag-node-open-png
-      (format "%s " (all-the-icons-faicon "chevron-down"  :height 0.75 :face 'font-lock-keyword-face))
+        treemacs-icon-tag-node-open-png
+        (format "%s " (all-the-icons-faicon "chevron-down"  :height 0.75 :face 'font-lock-keyword-face))
 
-      treemacs-icon-tag-node-closed-png
-      (format "%s " (all-the-icons-faicon "location-arrow" :height 0.9  :face 'font-lock-keyword-face))
+        treemacs-icon-tag-node-closed-png
+        (format "%s " (all-the-icons-faicon "location-arrow" :height 0.9  :face 'font-lock-keyword-face))
 
-      treemacs-icon-tag-leaf-png
-      (format "%s " (all-the-icons-faicon "tag" :height 0.9 :face 'font-lock-type-face))
-      )
+        treemacs-icon-tag-leaf-png
+        (format "%s " (all-the-icons-faicon "tag" :height 0.9 :face 'font-lock-type-face))
+        )
 
   (setq treemacs-icons-hash (make-hash-table :size 200 :test #'equal)
         treemacs-icon-fallback (format "%s " (all-the-icons-octicon "file-text" :height 1.05))
@@ -173,6 +174,7 @@
   (treemacs-define-custom-icon (all-the-icons-octicon "markdown") "md" "markdown")
   (treemacs-define-custom-icon (all-the-icons-octicon "file-pdf") "pdf")
   (treemacs-define-custom-icon (all-the-icons-octicon "database") "sql")
+  (treemacs-define-custom-icon (all-the-icons-material "style") "styles")
 
   (treemacs-define-custom-icon (all-the-icons-octicon "file-media")
                                "jpg" "jpeg" "png" "gif" "ico" "tif" "tiff" "svg" "bmp"
