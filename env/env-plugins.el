@@ -1,4 +1,4 @@
-;; TODO: split to basic plugin and dev plugin  -*- lexical-binding: t -*-
+;; TODO: split  -*- lexical-binding: t -*-
 
 (defun package-upgrade-all ()
   "Upgrade all packages automatically without showing *Packages* buffer."
@@ -135,7 +135,7 @@
         )
 
   (setq treemacs-icons-hash (make-hash-table :size 200 :test #'equal)
-        treemacs-icon-fallback (format "%s " (all-the-icons-octicon "file-text" :height 1.05))
+        treemacs-icon-fallback (format "%s " (all-the-icons-faicon "file-text-o"))
         treemacs-icon-text treemacs-icon-fallback)
 
   ;; TODO: mb add macro
@@ -181,7 +181,7 @@
                                "psd" "ai" "eps" "indd" "mov" "avi" "mp4" "webm" "mkv"
                                "wav" "mp3" "ogg" "midi")
 
-  (treemacs-define-custom-icon (all-the-icons-octicon "file-text")
+  (treemacs-define-custom-icon (all-the-icons-faicon "file-text-o")
                                "rst" "log" "txt" "CONTRIBUTE" "LICENSE" "README" "CHANGELOG")
 
   (treemacs-define-custom-icon (all-the-icons-faicon "cogs")
@@ -192,8 +192,6 @@
 
   (treemacs-define-custom-icon (all-the-icons-octicon "file-zip")
                                "zip" "xz" "tar" "7z" "rar")
-
-  ;; TODO: treemacs git mode
 
   :general
   (general-define-key :keymaps 'treemacs-mode-map
