@@ -50,36 +50,50 @@
                  ((string= mode-name "Javascript-IDE") "js")
                  ((string= mode-name "undo-tree-visualizer") "undotree")
                  (t (downcase mode-name)))))
-      (propertize mode 'face `(:foreground "#9d81ba")))) ;; galaxy
-      ;; (propertize mode 'face `(:foreground "#0d948d"))))
+      ;; (propertize mode 'face `(:foreground "#9d81ba")))) ;; galaxy
+      (propertize mode 'face `font-lock-string-face)))
+
+  ;; TODO: add raise or v-adjust
+  (telephone-line-defsegment* my-major-mode-segment-icon ()
+    (let ((mode (cond
+                 ((string= mode-name "Fundamental") "text")
+                 ((string= mode-name "Emacs-Lisp") "elisp")
+                 ((string= mode-name "Javascript-IDE") "js")
+                 ((string= mode-name "Javascript-IDE") "js")
+                 ((string= mode-name "undo-tree-visualizer") "undotree")
+                 (t (downcase mode-name)))))
+      (concat
+       (when (not (eq major-mode (all-the-icons-icon-for-mode major-mode)))
+         (format "%s " (all-the-icons-icon-for-mode major-mode :face 'font-lock-string-face :height 0.95)))
+       (propertize mode 'face `font-lock-string-face))))
+
+
 
   ;; Display evil state
-  ;; (telephone-line-defsegment my-evil-segment ()
-  ;;   (if (telephone-line-selected-window-active)
-  ;;     (let ((tag (cond
-  ;;                 ((string= evil-state "normal")    ":")
-  ;;                 ((string= evil-state "insert")    ">")
-  ;;                 ((string= evil-state "replace")   "r")
-  ;;                 ((string= evil-state "visual")    "!")
-  ;;                 ((string= evil-state "operator")  "=")
-  ;;                 ((string= evil-state "motion")    "m")
-  ;;                 ((string= evil-state "emacs")     "Emacs")
-  ;;                 (t "-"))))
-  ;;       (format " %s" tag))))
+  (telephone-line-defsegment my-evil-segment ()
+    (let ((tag (cond
+                ((string= evil-state "normal")    ":")
+                ((string= evil-state "insert")    ">")
+                ((string= evil-state "replace")   "r")
+                ((string= evil-state "visual")    "!")
+                ((string= evil-state "operator")  "=")
+                ((string= evil-state "motion")    "m")
+                ((string= evil-state "emacs")     "Emacs")
+                (t "-"))))
+      (format " %s" tag)))
 
   (telephone-line-defsegment my-evil-segment-icons ()
-    (if (telephone-line-selected-window-active)
-      (let ((tag (cond
-                  ((string= evil-state "normal")    (all-the-icons-faicon "vimeo"))
-                  ((string= evil-state "insert")    (all-the-icons-faicon "pencil"))
-                  ;; ((string= evil-state "replace")   (all-the-icons-faicon "refresh"))
-                  ((string= evil-state "replace")   (all-the-icons-faicon "eraser"))
-                  ((string= evil-state "visual")    (all-the-icons-faicon "clipboard"))
-                  ((string= evil-state "operator")  (all-the-icons-faicon "dot-circle-o"))
-                  ((string= evil-state "motion")    (all-the-icons-faicon "angle-double-right"))
-                  ((string= evil-state "emacs")     (all-the-icons-fileicon "org"))
-                  (t "-"))))
-        (format " %s" tag))))
+    (let ((tag (cond
+                ((string= evil-state "normal")    (all-the-icons-faicon "vimeo"))
+                ((string= evil-state "insert")    (all-the-icons-faicon "pencil"))
+                ;; ((string= evil-state "replace")   (all-the-icons-faicon "refresh"))
+                ((string= evil-state "replace")   (all-the-icons-faicon "eraser"))
+                ((string= evil-state "visual")    (all-the-icons-faicon "clipboard"))
+                ((string= evil-state "operator")  (all-the-icons-faicon "dot-circle-o"))
+                ((string= evil-state "motion")    (all-the-icons-faicon "angle-double-right"))
+                ((string= evil-state "emacs")     (all-the-icons-fileicon "org"))
+                (t "-"))))
+      (format " %s" tag)))
 
   ;; Display buffer name
   (telephone-line-defsegment my-buffer-segment ()

@@ -19,7 +19,7 @@
 (setq telephone-line-rhs
       '((nil    . (my-vc-segment))
         (accent . (my-position-segment))
-        (nil    . (my-major-mode-segment))
+        (nil    . (my-major-mode-segment-icon))
         (accent . ((my-coding-segment :active)))))
 
 (provide 'modeline-cubed)
