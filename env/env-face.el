@@ -83,8 +83,8 @@
 
 
 ;; Highlight current line
-;; (global-hl-line-mode 1)
-(add-hook 'prog-mode-hook #'hl-line-mode)
+(use-package hl-line
+  :hook (prog-mode . hl-line-mode))
 
 ;; Disable scroll bars
 (defun my/disable-scroll-bars (frame)
@@ -119,34 +119,28 @@
 
 ;; Highlight numbers
 (use-package highlight-numbers
-  :config
-  (add-hook 'prog-mode-hook #'highlight-numbers-mode))
+  :hook (prog-mode . highlight-numbers-mode))
 
 ;; Highlight defined Emacs Lisp symbols in source code
 (use-package highlight-defined
   :commands (highlight-defined-mode)
-  :init
-  (add-hook 'emacs-lisp-mode-hook #'highlight-defined-mode))
+  :hook (emacs-lisp-mode . highlight-defined-mode))
 
 ;; Highlight parenthess
 (use-package paren
-  :config
-  (show-paren-mode 1)
+  :config (show-paren-mode t)
   ;; (setq show-paren-style 'expression)
   (setq show-paren-delay 0.1))
 
 ;; Highlight quoted symbols
 (use-package highlight-quoted
   :commands (highlight-quoted-mode)
-  :init
-  (add-hook 'emacs-lisp-mode-hook #'highlight-quoted-mode))
+  :hook (emacs-lisp-mode . highlight-quoted-mode))
 
 ;; Rainbow delimiters
 (use-package rainbow-delimiters
   :commands (rainbow-delimiters-mode)
-  :init
-  (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
-  (add-hook 'clojure-mode-hook #'rainbow-delimiters-mode))
+  :hook ((prog-mode clojure-mode) . rainbow-delimiters-mode))
 
 ;; Show indent line
 ;; TODO: (??) disable in swiper
@@ -160,23 +154,19 @@
 
 (use-package indent-guide
   :commands (indent-guide-mode indent-guide-global-mode)
-  :init
-  (add-hook 'prog-mode-hook #'indent-guide-mode))
+  :hook (prog-mode . indent-guide-mode))
 
 ;; Line numbering
 (use-package nlinum
   :if (version< emacs-version "26.0")
+  :hook ((prog-mode text-mode) . nlinum-mode)
   :config
-  (add-hook 'prog-mode-hook 'nlinum-mode)
-  (add-hook 'text-mode-hook 'nlinum-mode)
   (setq nlinum-format "%5d ")
   (setq nlinum-highlight-current-line t))
 
 (use-package display-line-numbers
   :if (not (version< emacs-version "26.0"))
-  :init
-  (add-hook 'prog-mode-hook 'display-line-numbers-mode)
-  (add-hook 'text-mode-hook 'display-line-numbers-mode)
+  :hook ((prog-mode text-mode) . display-line-numbers-mode)
   :config
   (setq display-line-numbers-grow-only t))
 
@@ -191,8 +181,7 @@
 (use-package fic-mode
   :ensure t
   :defer .1
-  :config
-  (add-hook 'prog-mode-hook #'fic-mode))
+  :hook (prog-mode . fic-mode))
 
 ;; TODO
 ;; Highlight surrounding parentheses in Emacs

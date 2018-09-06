@@ -44,9 +44,8 @@
   (recentf-max-saved-items 75))
 
 (use-package subword
-  ;; :commands (subword-mode global-subword-mode)
-  :config
-  (global-subword-mode t))
+  :commands (subword-mode global-subword-mode)
+  :hook (after-init . global-subword-mode))
 
 (use-package uniquify
   :defer .1
