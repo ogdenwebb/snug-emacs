@@ -14,7 +14,7 @@
   ;; :load-path "dev/telephone-line"
   :ensure t
   :defer t
-  :init
+  :preface
   ;; Need to display telephone-line in *Messages* buffer
   (defun recreate-message-buffer ()
     (cl-flet ((buffer-string* (buffer)

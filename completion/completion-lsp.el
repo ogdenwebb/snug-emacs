@@ -20,18 +20,15 @@
 (use-package lsp-html
   :disabled t
   ;; :ensure t
-  :init
-  (add-hook 'html-mode-hook #'lsp-html-enable)
-  (add-hook 'web-mode-hook #'lsp-html-enable))
+  :hook ((html-mode web-mode) . lsp-html-enable))
 
 (use-package lsp-css
   :disabled t
   ;; :ensure t
-  :init
-  (add-hook 'css-mode-hook #'lsp-css-enable)
-  (add-hook 'less-mode-hook #'lsp-less-enable)
-  (add-hook 'sass-mode-hook #'lsp-scss-enable)
-  (add-hook 'scss-mode-hook #'lsp-scss-enable))
+  :hook ((css-mode-hook  . lsp-css-enable)
+         (less-mode-hook . lsp-less-enable)
+         (sass-mode-hook . lsp-scss-enable
+         (scss-mode-hook . lsp-scss-enable)))
 
 (use-package company-lsp
   :after (company lsp-mode)
