@@ -26,7 +26,10 @@
   :no-require t
   :defer 1
   :config
-  (run-at-time nil (* 5 60) 'recentf-save-list)
+  (defun recentf-save-list-silently ()
+    (let ((inhibit-message t))
+      (recentf-save-list)))
+  (run-at-time nil (* 5 60) 'recentf-save-list-silently)
   ;; Recentf blacklist
   (setq recentf-exclude '("^/var/folders\\.*"
                           "COMMIT_EDITMSG\\'"

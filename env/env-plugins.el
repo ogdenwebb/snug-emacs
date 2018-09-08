@@ -32,8 +32,7 @@
 
 ;; Project management
 (use-package projectile
-  :ensure t
-  :defer 5
+  :defer 1
   :config
   (projectile-global-mode t))
 
@@ -68,11 +67,18 @@
 ;;   :config
 ;;   (yas-global-mode 1))
 
-(defun treemacs-face-modify ()
-  (face-remap-add-relative 'hl-line `(:background "nil" :foreground ,(face-foreground 'font-lock-preprocessor-face)))
-  (setq-local line-spacing 1))
+(defun my-treemacs-no-fringes ()
+  "Remove fringes in treemacs. They get reset each time you select the neotree
+pane and are highlighted incorrectly when used with `solaire-mode'."
+  (when (display-graphic-p)
+    (set-window-fringes nil 0 0)))
 
-(add-hook 'treemacs-mode-hook 'treemacs-face-modify)
+(defun my-treemacs-hook ()
+  (face-remap-add-relative 'hl-line `(:background "nil" :foreground ,(face-foreground 'font-lock-preprocessor-face)))
+  (setq-local line-spacing 1)
+  (my-treemacs-no-fringes))
+
+(add-hook 'treemacs-mode-hook 'my-treemacs-hook)
 
 (use-package treemacs
   :defer t

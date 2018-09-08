@@ -5,6 +5,15 @@
 (use-package litable
   :disabled t)
 
+(defun lisp-indent-setup ()
+  ;; Set tab-width to 2
+  (setq-local tab-width 2)
+  ;; Set evil-shift-width to 2
+  (setq-local evil-shift-width 2))
+
+(add-hook 'emacs-lisp-mode-hook 'lisp-indent-setup)
+(add-hook 'clojure-mode-hook 'lisp-indent-setup)
+
 ;; (add-hook 'after-save-hook
 ;;           (lambda ()
 ;;             (if (and (equal major-mode 'emacs-lisp-mode)

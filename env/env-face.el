@@ -195,7 +195,7 @@
   :config
   ;; (setq solaire-mode-remap-modeline nil)
   (add-hook 'treemacs-mode-hook #'solaire-mode)
-  (add-hook 'imenu-list-hook #'solaire-mode)
+  (add-hook 'imenu-list-major-mode-hook #'solaire-mode)
   (add-hook 'minibuffer-setup-hook #'solaire-mode-in-minibuffer))
   ;; (add-hook 'minibuffer-setup-hook #'solaire-mode-in-minibuffer)
   ;; (solaire-mode-swap-bg))
