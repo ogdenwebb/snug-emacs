@@ -9,6 +9,7 @@
 ;; TODO: gray background for buffer and mode segment in inactive line
 (setq telephone-line-lhs
       '((evil   . (my-evil-segment-icons))
+        ;; (accent . (telephone-line-filesize-segment))
         (nil    . (telephone-line-projectile-buffer-segment))
         (nil    . (my-modified-status-segment))
         (nil    . (my-read-only-status-segment))

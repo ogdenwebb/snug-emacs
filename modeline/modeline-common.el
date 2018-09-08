@@ -61,16 +61,23 @@
                  ((string= mode-name "Javascript-IDE") "js")
                  ((string= mode-name "Javascript-IDE") "js")
                  ((string= mode-name "undo-tree-visualizer") "undotree")
-                 (t (downcase mode-name)))))
+                 (t (downcase mode-name))))
+          (icon (all-the-icons-icon-for-mode major-mode)))
       (concat
        (when (not (eq major-mode (all-the-icons-icon-for-mode major-mode)))
-         (format "%s " (all-the-icons-icon-for-mode major-mode :face 'font-lock-string-face :height 0.95)))
+         (format "%s "
+                 (propertize icon
+                             'help-echo (format "Major-mode: `%s'" major-mode)
+                             'display '(raise 0)
+                             'face `(:height 1.0
+                                             :family ,(all-the-icons-icon-family-for-mode major-mode)
+                                             :inherit font-lock-string-face))))
        (propertize mode 'face `font-lock-string-face))))
 
 
 
-  ;; Display evil state
   (telephone-line-defsegment my-evil-segment ()
+    "Display evil state as text symbol."
     (let ((tag (cond
                 ((string= evil-state "normal")    ":")
                 ((string= evil-state "insert")    ">")
@@ -83,10 +90,10 @@
       (format " %s" tag)))
 
   (telephone-line-defsegment my-evil-segment-icons ()
+    "Display evil state as icon with all-the-icons."
     (let ((tag (cond
-                ((string= evil-state "normal")    (all-the-icons-faicon "vimeo"))
+                ((string= evil-state "normal")    (all-the-icons-faicon "magic"))
                 ((string= evil-state "insert")    (all-the-icons-faicon "pencil"))
-                ;; ((string= evil-state "replace")   (all-the-icons-faicon "refresh"))
                 ((string= evil-state "replace")   (all-the-icons-faicon "eraser"))
                 ((string= evil-state "visual")    (all-the-icons-faicon "clipboard"))
                 ((string= evil-state "operator")  (all-the-icons-faicon "dot-circle-o"))
@@ -112,6 +119,8 @@
   ;;       (if (eq major-mode 'paradox-menu-mode)
   ;;           (telephone-line-trim (format-mode-line mode-line-front-space))
   ;;         '(" %3l,%2c "))))
+
+  (declare-function column-number-at-pos "env-fu")
 
   (telephone-line-defsegment my-position-segment ()
     (let ((line (line-number-at-pos (point)))
@@ -168,9 +177,6 @@
   (telephone-line-defsegment my-vc-segment ()
     ;; #6fb593 #4a858c
     (let (
-          ;; (fg-color "#6fb593") ; kaolin-dark
-          ;; (fg-color "#9f84ae")) ; kaolin-galaxy
-          ;; (fg-color "#709688")) ; kaolin-eclipse
           (fg-color "#68f3ca")) ; kaolin-aurora
       (when vc-mode
         ;; double format to prevent warnings in '*Messages*' buffer
@@ -183,16 +189,18 @@
                       (telephone-line-raw vc-mode t))
                     'face `(:foreground ,fg-color))))))
 
-  (declare-function column-number-at-pos "env-fu")
 
-  ;; TODO: free visual selection
+  ;; ;; TODO: free visual selection
+  ;; ;; TODO: the segment doesn't update in real-time
   (telephone-line-defsegment selection-info ()
     "Information about the size of the current selection, when applicable.
   Supports both Emacs and Evil cursor conventions."
     (when (or mark-active
               (and (bound-and-true-p evil-local-mode)
                    (eq 'visual evil-state)))
-      (let* ((lines (count-lines (region-beginning) (min (1+ (region-end)) (point-max))))
+      (let* (
+             ;; (lines (count-lines (region-beginning) (min (1+ (region-end)) (point-max))))
+             (lines (count-lines (region-beginning) (region-end)))
              (chars (- (1+ (region-end)) (region-beginning)))
              (cols (1+ (abs (- (column-number-at-pos (region-end))
                                (column-number-at-pos (region-beginning))))))
@@ -228,7 +236,6 @@
 
   (require 'modeline-cubed)
   ;; (require 'modeline-flat)
-
   )
 
 (provide 'modeline-common)
