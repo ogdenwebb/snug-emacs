@@ -10,7 +10,8 @@
         ivy-re-builders-alist
         ;; allow input not in order
         '((read-file-name-internal . ivy--regex-fuzzy)
-          (t . ivy--regex-ignore-order)))
+          (t . ivy--regex-ignore-order))
+        )
 
 
   ;; Add ‘recentf-mode’ and bookmarks to ‘ivy-switch-buffer’.

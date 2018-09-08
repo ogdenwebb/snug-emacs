@@ -85,6 +85,7 @@ pane and are highlighted incorrectly when used with `solaire-mode'."
   ;; :load-path "dev/treemacs"
   :commands (treemacs)
   :config
+  (setq-default treemacs-fringe-indicator-mode nil)
   (use-package treemacs-evil
     :after (treemacs evil))
 
@@ -106,8 +107,8 @@ pane and are highlighted incorrectly when used with `solaire-mode'."
 
   (setq treemacs-show-hidden-files nil
         treemacs-width 30
-        treemacs-indentation 2
-        treemacs-indentation-string " "
+        treemacs-indentation 1
+        treemacs-indentation-string "  "
         ;; treemacs-indentation-string (propertize "|" 'face 'font-lock-comment-face)
         treemacs-follow-after-init t
         treemacs-filewatch-mode t
@@ -170,7 +171,7 @@ pane and are highlighted incorrectly when used with `solaire-mode'."
   (treemacs-define-custom-icon (all-the-icons-fileicon "ocaml") "ml" "mli")
   (treemacs-define-custom-icon (all-the-icons-fileicon "org") "org")
   (treemacs-define-custom-icon (all-the-icons-fileicon "php") "php")
-  (treemacs-define-custom-icon (all-the-icons-fileicon "powershell") "sh" "zsh")
+  (treemacs-define-custom-icon (all-the-icons-alltheicon "terminal") "sh" "zsh")
   (treemacs-define-custom-icon (all-the-icons-fileicon "typescript") "ts")
   (treemacs-define-custom-icon (all-the-icons-fileicon "nimrod") "nim" "nims")
   (treemacs-define-custom-icon (all-the-icons-fileicon "perl6") "pm6")
