@@ -68,8 +68,7 @@
 ;;   (yas-global-mode 1))
 
 (defun my-treemacs-no-fringes ()
-  "Remove fringes in treemacs. They get reset each time you select the neotree
-pane and are highlighted incorrectly when used with `solaire-mode'."
+  "Remove fringes in treemacs."
   (when (display-graphic-p)
     (set-window-fringes nil 0 0)))
 
