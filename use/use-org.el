@@ -16,18 +16,6 @@
 
 (use-package org
   :config
-  (use-package org-download
-    :after org
-    :ensure t)
-
-  (use-package org-bullets
-    :after org
-    :config
-    ;; (setq org-bullets-bullet-list '("•"))
-    (setq org-bullets-bullet-list
-          '("◉" "✸" "⚫" "○" "•"))
-    (add-hook 'org-mode-hook 'org-bullets-mode))
-
   ;; Fit image into the screen
   ;; (setq org-image-actual-width '(200))
   (setq org-image-actual-width 200)
@@ -89,14 +77,6 @@
   (setq org-todo-keywords '((sequence "TODO(t)" "EXPLORE(e)" "ACTIVE(a)" "|" "DONE(d)" "CANCELED(c)")))
   ;; (setq org-fast-tag-selection-include-todo t)
 
-  (use-package evil-org
-    :ensure t
-    :after (evil org)
-    :config
-    (add-hook 'org-mode-hook 'evil-org-mode)
-    (add-hook 'evil-org-mode-hook
-              (lambda ()
-                (evil-org-set-key-theme '(navigation insert textobjects)))))
   :general
   (general-define-key :keymaps 'org-mode-map
                       :states '(normal)
@@ -140,5 +120,24 @@
 ;;   (kbd "M-K") 'org-metaup
 ;;   (kbd "M-L") 'org-metaright)
 
+(use-package org-bullets
+  :after org
+  :hook (org-mode . org-bullets-mode)
+  :config
+  (setq org-bullets-bullet-list
+        '("◉" "✸" "⚫" "○" "•")))
+
+(use-package evil-org
+  :ensure t
+  :after (evil org)
+  :hook (org-mode . evil-org-mode)
+  :config
+  (add-hook 'evil-org-mode-hook
+            (lambda ()
+              (evil-org-set-key-theme '(navigation insert textobjects)))))
+
+(use-package org-download
+  :after org
+  :ensure t)
 
 (provide 'use-org)

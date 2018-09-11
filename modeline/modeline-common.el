@@ -29,7 +29,8 @@
   :config
 
   ;; To create custom segments
-  (require 'telephone-line-utils)
+  (use-package telephone-line-utils
+    :defer t)
 
   ;; Set subseparator
   ;; TODO: function to choose separator by name

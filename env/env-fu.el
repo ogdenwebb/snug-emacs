@@ -1,7 +1,5 @@
 ;; Module with useful custom functions -*- lexical-binding: t; -*-
 
-(require 'cl-lib)
-
 ;;;###autoload
 (defun elmax/newline-and-indent ()
   "Inserts a newline and possibly indents it. Also continues comments if

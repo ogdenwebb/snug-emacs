@@ -1,6 +1,7 @@
 ;;; -*- lexical-binding: t -*-
 
 (defvar file-name-handler-alist-old file-name-handler-alist)
+(setq file-name-handler-alist nil)
 
 ;; Increase garbage collection for speedup
 (setq-default gc-cons-threshold 20000000 ; or even 1000000000
@@ -81,10 +82,10 @@
 ;; Use Common Lisp library
 (require 'cl-lib)
 
-(when window-system
-  (require 'server)
-  (unless (server-running-p)
-    (server-start)))
+;; (when window-system
+;;   (require 'server)
+;;   (unless (server-running-p)
+;;     (server-start)))
 
 ;; Add configuration directories to `load-path'
 (add-to-list 'load-path "~/.emacs.d/boot/")
@@ -102,5 +103,14 @@
   (add-to-list 'body 'env-fu t)
   (dolist (pkg body)
     (require pkg)))
+
+;; Use a hook so the message doesn't get clobbered by other messages.
+(add-hook 'emacs-startup-hook
+          (lambda ()
+            (message "Emacs ready in %s with %d garbage collections."
+                     (format "%.2f seconds"
+                             (float-time
+                              (time-subtract after-init-time before-init-time)))
+                     gcs-done)))
 
 (provide 'boot-prep)
