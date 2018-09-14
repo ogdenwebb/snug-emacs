@@ -29,8 +29,7 @@
   :config
 
   ;; To create custom segments
-  (use-package telephone-line-utils
-    :defer t)
+  (require 'telephone-line-utils)
 
   ;; Set subseparator
   ;; TODO: function to choose separator by name
@@ -97,7 +96,8 @@
                 ((string= evil-state "insert")    (all-the-icons-faicon "pencil"))
                 ((string= evil-state "replace")   (all-the-icons-faicon "eraser"))
                 ((string= evil-state "visual")    (all-the-icons-faicon "clipboard"))
-                ((string= evil-state "operator")  (all-the-icons-faicon "dot-circle-o"))
+                ;; TODO:
+                ;; ((string= evil-state "operator")  (all-the-icons-faicon "dot-circle-o"))
                 ((string= evil-state "motion")    (all-the-icons-faicon "angle-double-right"))
                 ((string= evil-state "emacs")     (all-the-icons-fileicon "org"))
                 (t "-"))))
@@ -178,7 +178,8 @@
   (telephone-line-defsegment my-vc-segment ()
     ;; #6fb593 #4a858c
     (let (
-          (fg-color "#68f3ca")) ; kaolin-aurora
+          ;; (fg-color "#68f3ca")) ; kaolin-aurora
+          (fg-color "#10948D")) ; kaolin-valley-light
       (when vc-mode
         ;; double format to prevent warnings in '*Messages*' buffer
           (format "%s %s"

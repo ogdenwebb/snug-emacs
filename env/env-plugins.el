@@ -73,7 +73,7 @@
     (set-window-fringes nil 0 0)))
 
 (defun my-treemacs-hook ()
-  (face-remap-add-relative 'hl-line `(:background "nil" :foreground ,(face-foreground 'font-lock-preprocessor-face)))
+  (face-remap-add-relative 'hl-line `(:background ,(face-background 'default) :foreground ,(face-foreground 'font-lock-preprocessor-face)))
   (setq-local line-spacing 1)
   (my-treemacs-no-fringes))
 
@@ -81,15 +81,9 @@
 
 (use-package treemacs
   :defer t
-  ;; :load-path "dev/treemacs"
   :commands (treemacs)
   :config
   (setq-default treemacs-fringe-indicator-mode nil)
-  (use-package treemacs-evil
-    :after (treemacs evil))
-
-  (use-package treemacs-projectile
-    :after (treemacs projectile))
 
   ;; Disable mode-line in treemacs buffer
   (defun treemacs--setup-mode-line ()
@@ -113,6 +107,11 @@
         treemacs-filewatch-mode t
         treemacs-tag-follow-mode t
         treemacs-file-event-delay 1000)
+
+
+  (setq treemacs-icons-hash (make-hash-table :size 200 :test #'equal)
+        treemacs-icon-fallback (format "%s " (all-the-icons-faicon "file-text-o"))
+        treemacs-icon-text treemacs-icon-fallback)
 
   (setq treemacs-icon-root-png
         (format " %s " (all-the-icons-material "subject" :v-adjust -0.2 :height 1.4
@@ -139,10 +138,6 @@
         treemacs-icon-tag-leaf-png
         (format "%s " (all-the-icons-faicon "tag" :height 0.9 :face 'font-lock-type-face))
         )
-
-  (setq treemacs-icons-hash (make-hash-table :size 200 :test #'equal)
-        treemacs-icon-fallback (format "%s " (all-the-icons-faicon "file-text-o"))
-        treemacs-icon-text treemacs-icon-fallback)
 
   ;; TODO: mb add macro
   (treemacs-define-custom-icon (all-the-icons-alltheicon "csharp-line") "cs")
@@ -210,6 +205,13 @@
                       "M-j"  'evil-window-down
                       "M-k"  'evil-window-up
                       "M-l"  'evil-window-right))
+;; Treemacs extensions
+(use-package treemacs-evil
+  :after (treemacs evil))
+
+(use-package treemacs-projectile
+  :after (treemacs projectile))
+
 
 ;; (use-package which-key
 ;;   :config

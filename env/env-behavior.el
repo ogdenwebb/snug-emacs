@@ -23,7 +23,7 @@
 ;; see: https://gist.github.com/masutaka/1325654/955277113028eb7b968453a5b7802b74b51b393d
 ;; TODO: disable message in minibuffer after auto-save
 (use-package recentf
-  :no-require t
+  ;; :no-require t
   :defer 1
   :config
   (defun recentf-save-list-silently ()
@@ -51,7 +51,7 @@
   :hook (after-init . global-subword-mode))
 
 (use-package uniquify
-  :defer .1
+  :defer 2
   :config
   (setq uniquify-buffer-name-style 'forward))
 

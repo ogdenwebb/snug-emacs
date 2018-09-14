@@ -2,7 +2,8 @@
 (use-package evil
   :ensure t
   :init
-  (setq evil-want-integration nil ;; required by evil-collection
+  (setq evil-want-integration t ;; required by evil-collection
+        evil-want-keybinding nil
         evil-want-fine-undo t
         evil-want-Y-yank-to-eol t
         evil-ex-search-vim-style-regexp t

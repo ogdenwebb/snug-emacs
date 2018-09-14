@@ -13,33 +13,33 @@
           (t . ivy--regex-ignore-order))
         )
 
-
-  ;; Add ‘recentf-mode’ and bookmarks to ‘ivy-switch-buffer’.
-  (setq ivy-use-virtual-buffers nil)
-
-  ;; Do not show "./" and "../" in the `counsel-find-file' completion list
-  ;; (setq ivy-extra-directories nil) ; default value: ("../" "./")
-  (setq ivy-count-format "[%d/%d] ")
+  (setq ivy-use-virtual-buffers nil ;; Add ‘recentf-mode’ and bookmarks to ‘ivy-switch-buffer’.
+        ;; Do not show "./" and "../" in the `counsel-find-file' completion list
+        ;; ivy-extra-directories nil ; default value: ("../" "./")`'
+        ivy-count-format "[%d/%d] ")
+  (with-eval-after-load 'projectile
+    (setq projectile-completion-system 'ivy))
   ;; TODO: read
   ;; (setq enable-recursive-minibuffers t)
+  )
 
-  (use-package swiper
-    :commands (swiper)
-    :ensure t)
+(use-package swiper
+  :commands (swiper)
+  :ensure t)
 
-  (use-package counsel
-    :ensure t
-    :config
-    (use-package counsel-projectile
-      :ensure t
-      :after (counsel projectile)
-      :commands (counsel-projectile-mode counsel-projectile-find-file))
-    (setq projectile-completion-system 'ivy)
-    (setq counsel-find-file-ignore-regexp (regexp-opt '(".jpg" ".png" ".jpeg")))
-    (setq counsel-git-cmd "rg --files")
-    (setq counsel-grep-base-command "rg -i -M 120 --no-heading --line-number --color never '%s' %s")
-    (setq counsel-rg-base-command "rg -i -M 120 --no-heading --line-number --color never %s .")
-    (define-key read-expression-map (kbd "C-r") 'counsel-expression-history)))
+(use-package counsel
+  :ensure t
+  :config
+  (setq counsel-find-file-ignore-regexp (regexp-opt '(".jpg" ".png" ".jpeg"))
+        counsel-git-cmd "rg --files"
+        counsel-grep-base-command "rg -i -M 120 --no-heading --line-number --color never '%s' %s"
+        counsel-rg-base-command "rg -i -M 120 --no-heading --line-number --color never %s .")
+  (define-key read-expression-map (kbd "C-r") 'counsel-expression-history))
+
+(use-package counsel-projectile
+  :ensure t
+  :after (counsel projectile)
+  :commands (counsel-projectile-mode counsel-projectile-find-file))
 
 (use-package ivy-rich
   :ensure t
