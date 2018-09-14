@@ -128,7 +128,6 @@
         '("◉" "✸" "⚫" "○" "•")))
 
 (use-package evil-org
-  :ensure t
   :after (evil org)
   :hook (org-mode . evil-org-mode)
   :config
@@ -138,6 +137,5 @@
 
 (use-package org-download
   :after org
-  :ensure t)
 
 (provide 'use-org)

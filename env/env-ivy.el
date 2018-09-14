@@ -1,7 +1,6 @@
 ;; Use ivy -*- lexical-binding: t -*-
 
 (use-package ivy
-  :ensure t
   :init
   (ivy-mode t)
   :config
@@ -24,11 +23,9 @@
   )
 
 (use-package swiper
-  :commands (swiper)
-  :ensure t)
+  :commands (swiper))
 
 (use-package counsel
-  :ensure t
   :config
   (setq counsel-find-file-ignore-regexp (regexp-opt '(".jpg" ".png" ".jpeg"))
         counsel-git-cmd "rg --files"
@@ -37,12 +34,10 @@
   (define-key read-expression-map (kbd "C-r") 'counsel-expression-history))
 
 (use-package counsel-projectile
-  :ensure t
   :after (counsel projectile)
   :commands (counsel-projectile-mode counsel-projectile-find-file))
 
 (use-package ivy-rich
-  :ensure t
   :after ivy
   :config
   ;; (dolist (cmd

@@ -46,7 +46,6 @@
 
 ;; Quickrun
 (use-package quickrun
-  :ensure t
   :commands (quickrun
              quickrun-region
              quickrun-with-arg
@@ -56,14 +55,12 @@
 
 ;; Move region or line
 (use-package drag-stuff
-  :ensure t
   :commands (drag-stuff-left drag-stuff-up drag-stuff-down drag-stuff-right))
 ;; :config (drag-stuff-global-mode 1))
 
 ;; Yasnippet
 ;; TODO:
 ;; (use-package yasnippet
-;;   :ensure t
 ;;   :config
 ;;   (yas-global-mode 1))
 
@@ -220,7 +217,6 @@
 
 ;; Simple Emacs minor mode for a nice writing environment.
 (use-package olivetti
-  :ensure t
   :commands (olivetti-mode olivetti-shrink olivetti-expand olivetti-toggle-hide-mode-line)
   :config
   (setq-default olivetti-body-width 80))
@@ -254,7 +250,6 @@
         deft-recursive t))
 
 ;; (use-package helpful
-;;   :ensure t
 ;;   :general
 ;;   (general-define-key :states 'normal
 ;;                       :prefix leader

@@ -12,7 +12,6 @@
 ;; Telephone line
 (use-package telephone-line
   ;; :load-path "dev/telephone-line"
-  :ensure t
   :defer t
   :preface
   ;; Need to display telephone-line in *Messages* buffer
@@ -176,20 +175,16 @@
   ;; Display current branch
   ;; TODO: move raise and etc into var
   (telephone-line-defsegment my-vc-segment ()
-    ;; #6fb593 #4a858c
-    (let (
-          ;; (fg-color "#68f3ca")) ; kaolin-aurora
-          (fg-color "#10948D")) ; kaolin-valley-light
-      (when vc-mode
-        ;; double format to prevent warnings in '*Messages*' buffer
-          (format "%s %s"
-                  (propertize (all-the-icons-octicon "git-branch")
-                              'face `(:family ,(all-the-icons-octicon-family) :height 1.0 :foreground ,fg-color)
-                              'display '(raise 0.0))
-                  (propertize
-                    (format "%s"
-                      (telephone-line-raw vc-mode t))
-                    'face `(:foreground ,fg-color))))))
+    (when vc-mode
+      ;; double format to prevent warnings in '*Messages*' buffer
+      (format "%s %s"
+              (propertize (all-the-icons-octicon "git-branch")
+                          'face `(:family ,(all-the-icons-octicon-family) :height 1.0 :foreground ,(face-foreground 'font-lock-variable-name-face))
+                          'display '(raise 0.0))
+      (propertize
+       (format "%s"
+               (telephone-line-raw vc-mode t))
+       'face `(:foreground ,(face-foreground 'font-lock-variable-name-face))))))
 
 
   ;; ;; TODO: free visual selection

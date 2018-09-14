@@ -16,7 +16,6 @@
 
 ;; Flycheck
 (use-package flycheck
-  :ensure t
   :commands (flycheck-mode global-flycheck-mode flycheck-list-errors flycheck-buffer)
   :config
   (add-hook 'prog-mode-hook #'flycheck-mode)
@@ -120,7 +119,6 @@
 ;;   (flycheck-pos-tip-mode))
 
 ;; (use-package flycheck-posframe
-;;   :ensure t
 ;;   :after flycheck
 ;;   :config (add-hook 'flycheck-mode-hook #'flycheck-posframe-mode))
 

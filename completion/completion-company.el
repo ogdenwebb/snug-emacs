@@ -2,7 +2,6 @@
 
 ;; Autocomplete
 (use-package company
-  :ensure t
   :defer 5
   :commands (company-mode global-company-mode company-complete-common company-indent-or-complete-common
                           company-manual-begin company-grab-line)
@@ -106,7 +105,6 @@
 ;; Use fuzzy completion
 (use-package company-flx
   :after company
-  :ensure t
   :config
   (company-flx-mode t))
 

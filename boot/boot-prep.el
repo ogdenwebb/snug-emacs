@@ -19,6 +19,7 @@
 
 ;; Initialize package system
 (setq package-enable-at-startup nil   ; To prevent initialising twice
+      ;; don't add that `custom-set-variables' block to init
       package--init-file-ensured t)
 
 (setq package-user-dir (concat user-emacs-directory "elpa")

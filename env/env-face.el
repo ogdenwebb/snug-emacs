@@ -7,11 +7,10 @@
 
 ;; Theme settings
 ;; Load my theme
-(defvar elmax/custom-theme 'kaolin-valley-dark
+(defvar elmax/custom-theme 'kaolin-fusion
   "Default custom theme.")
 
-(use-package autothemer
-  :ensure t)
+(use-package autothemer)
 
 (use-package kaolin-themes
   :after autothemer
@@ -174,12 +173,10 @@
 (use-package all-the-icons
   :commands (all-the-icons-octicon all-the-icons-faicon all-the-icons-fileicon
              all-the-icons-wicon all-the-icons-material all-the-icons-alltheicon
-             all-the-icons-install-fonts)
-  :ensure t)
+             all-the-icons-install-fonts))
 
 ;; Highlight TODO and FIXME
 (use-package fic-mode
-  :ensure t
   :defer .1
   :hook (prog-mode . fic-mode))
 

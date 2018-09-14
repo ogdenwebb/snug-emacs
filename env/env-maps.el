@@ -6,7 +6,6 @@
   (reverse-im-mode t))
 
 (use-package general
-  :ensure t
   :config
   (general-evil-setup)
   (setq leader "SPC") ; set leader key

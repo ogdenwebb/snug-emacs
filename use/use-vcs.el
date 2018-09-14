@@ -15,7 +15,6 @@
 
 ; Git
 (use-package magit
-  :ensure t
   :init
   (setenv "GIT_ASKPASS" "")
   (setenv "SSH_ASKPASS" "")
@@ -33,9 +32,8 @@
 
 ;; Highlight changes in git
 (use-package git-gutter
-  :ensure t
   :config
-  (global-git-gutter-mode t)
+  (global-git-gutter-mode t))
 
   ;; (custom-set-variables
   ;;  ;; WARNING: "" contains tag space character to display line
@@ -45,8 +43,7 @@
   ;;  '(git-gutter:deleted-sign "󠀠"))
 
   (use-package git-gutter-fringe
-    :after git-gutter
-    :ensure t))
+    :after git-gutter)
     ;; :config
     ;; (setq git-gutter-fr:side 'right-fringe))
 
