@@ -20,9 +20,9 @@
 ;; vimrc mode
 (use-package vimrc-mode
   :mode ("/\\.?g?vimrc$"
-          "\\.vim$"
-          "\\.?vimperatorrc$"
-          "\\.vimp$"))
+         "\\.vim$"
+         "\\.?vimperatorrc$"
+         "\\.vimp$"))
 
 
 (provide 'use-filetype)

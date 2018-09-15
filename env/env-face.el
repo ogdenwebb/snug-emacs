@@ -43,12 +43,12 @@
    '(("\\<\\(nil\\|t\\)\\>" . 'kaolin-themes-boolean))))
 
 ;; Set default font
-(add-to-list 'default-frame-alist '(font . "Roboto Mono-11.5"))
+;; (add-to-list 'default-frame-alist '(font . "Roboto Mono-11.5"))
 ;; (add-to-list 'default-frame-alist '(font . "Hasklig-12.5"))
 ;; (add-to-list 'default-frame-alist '(font . "Fira Mono-12"))
 ;; (add-to-list 'default-frame-alist '(font . "Fira Code-12"))
 ;; (add-to-list 'default-frame-alist '(font . "Input Mono-11"))
-;; (add-to-list 'default-frame-alist '(font . "Noto Mono-12"))
+(add-to-list 'default-frame-alist '(font . "Noto Mono-12"))
 
 ;; Set the fringe size
 (setq-default left-fringe-width  6
@@ -127,7 +127,8 @@
 
 ;; Highlight parenthess
 (use-package paren
-  :config (show-paren-mode t)
+  :hook (after-init . show-paren-mode)
+  :config
   ;; (setq show-paren-style 'expression)
   (setq show-paren-delay 0.1))
 
@@ -172,8 +173,8 @@
 ;; Icons
 (use-package all-the-icons
   :commands (all-the-icons-octicon all-the-icons-faicon all-the-icons-fileicon
-             all-the-icons-wicon all-the-icons-material all-the-icons-alltheicon
-             all-the-icons-install-fonts))
+                                   all-the-icons-wicon all-the-icons-material all-the-icons-alltheicon
+                                   all-the-icons-install-fonts))
 
 ;; Highlight TODO and FIXME
 (use-package fic-mode
@@ -194,8 +195,8 @@
   (add-hook 'treemacs-mode-hook #'solaire-mode)
   (add-hook 'imenu-list-major-mode-hook #'solaire-mode)
   (add-hook 'minibuffer-setup-hook #'solaire-mode-in-minibuffer))
-  ;; (add-hook 'minibuffer-setup-hook #'solaire-mode-in-minibuffer)
-  ;; (solaire-mode-swap-bg))
+;; (add-hook 'minibuffer-setup-hook #'solaire-mode-in-minibuffer)
+;; (solaire-mode-swap-bg))
 
 ;; (defun no-fringes-in-minibuffer ()
 ;;   "Disable fringes in the minibuffer window."

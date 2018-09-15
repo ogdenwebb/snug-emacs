@@ -1,5 +1,7 @@
 ;;;; Elmax - Emacs configuration with Evil
 
+;; TODO: generate autoloads
+
 ;; (setq debug-on-error t)
 
 ;; General configation

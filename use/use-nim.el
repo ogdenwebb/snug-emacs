@@ -7,8 +7,8 @@
 
 ;; (add-hook 'nim-mode-hook 'nimsuggest-mode)
 
-  ;; (add-hook 'nim-mode-hook
-  ;;         '(lambda () (setq-local electric-indent-chars '(?\s)))))
+;; (add-hook 'nim-mode-hook
+;;         '(lambda () (setq-local electric-indent-chars '(?\s)))))
 
 (defun nimsuggest-delete-home-logfile ()
   "Delete nimsuggest log file in $HOME directory."

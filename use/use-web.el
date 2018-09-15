@@ -33,10 +33,10 @@
   ;; Maps
   :general
   (general-imap
-   "k" (general-key-dispatch 'self-insert-command
-         :name gl/evil-emmet
-         :timeout 0.25
-         "j" 'emmet-expand-line)))
+    "k" (general-key-dispatch 'self-insert-command
+          :name gl/evil-emmet
+          :timeout 0.25
+          "j" 'emmet-expand-line)))
 
 ;; Web-mode
 (use-package company-web-html

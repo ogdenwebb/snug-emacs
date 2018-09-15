@@ -66,18 +66,18 @@
 
 (use-package evil-goggles
   :after evil
+  :hook (after-init . evil-goggles-mode)
   :config
   (setq evil-goggles-duration 0.1
         evil-goggles-enable-delete nil
-        evil-goggles-pulse t)
+        evil-goggles-pulse t))
 
-  (add-hook 'after-init-hook 'evil-goggles-mode))
 
 (use-package evil-commentary
   :after evil
   :commands (evil-commentary evil-commentary-yank))
 
-; TODO: maps
+                                        ; TODO: maps
 (use-package evil-surround
   :commands (global-evil-surround-mode
              evil-surround-edit
@@ -103,16 +103,17 @@
   (global-evil-visualstar-mode))
 
 (use-package evil-lion
- :after evil
- :commands (evil-lion-mode evil-lion-left evil-lion-right)
- :config (setq evil-lion-squeeze-spaces t))
+  :after evil
+  :commands (evil-lion-mode evil-lion-left evil-lion-right)
+  :config (setq evil-lion-squeeze-spaces t))
 
 ;; Folding
 ;; TODO: maps
 (use-package evil-vimish-fold
+  :disabled t
+  :hook (after-init . evil-vimish-fold-mode)
   :commands evil-vimish-fold-mode
   :config
-  (add-to-list 'after-init-hook #'evil-vimish-fold-mode)
   (setq vimish-fold-header-width nil))
 
 (use-package evil-numbers
@@ -122,8 +123,8 @@
 (use-package evil-args
   :after evil
   :commands (evil-inner-arg evil-outer-arg
-             evil-forward-arg evil-backward-arg
-             evil-jump-out-args)
+                            evil-forward-arg evil-backward-arg
+                            evil-jump-out-args)
   :general
   (general-itomap "a" 'evil-inner-arg)
   (general-otomap "a" 'evil-outer-arg))

@@ -142,7 +142,7 @@
   (treemacs-define-custom-icon (all-the-icons-alltheicon "git") "gitignore")
   (treemacs-define-custom-icon (all-the-icons-alltheicon "html5") "html" "htm")
   (treemacs-define-custom-icon (all-the-icons-alltheicon "java") "java")
-  (treemacs-define-custom-icon (all-the-icons-alltheicon "javascript") "js")
+  (treemacs-define-custom-icon (all-the-icons-alltheicon "javascript-badge") "js")
   (treemacs-define-custom-icon (all-the-icons-alltheicon "python") "py")
   (treemacs-define-custom-icon (all-the-icons-alltheicon "rust") "rs")
   (treemacs-define-custom-icon (all-the-icons-alltheicon "haskell") "hs")

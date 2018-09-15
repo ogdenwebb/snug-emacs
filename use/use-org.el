@@ -136,6 +136,6 @@
               (evil-org-set-key-theme '(navigation insert textobjects)))))
 
 (use-package org-download
-  :after org
+  :after org)
 
 (provide 'use-org)

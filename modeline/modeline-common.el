@@ -17,8 +17,8 @@
   ;; Need to display telephone-line in *Messages* buffer
   (defun recreate-message-buffer ()
     (cl-flet ((buffer-string* (buffer)
-                (with-current-buffer buffer
-                  (buffer-string))))
+                              (with-current-buffer buffer
+                                (buffer-string))))
       (let ((msg (buffer-string* "*Messages*")))
         (kill-buffer "*Messages*")
         (message msg))))
@@ -63,7 +63,9 @@
                  (t (downcase mode-name))))
           (icon (all-the-icons-icon-for-mode major-mode)))
       (concat
-       (when (not (eq major-mode (all-the-icons-icon-for-mode major-mode)))
+       (when
+           (and (not (eq major-mode (all-the-icons-icon-for-mode major-mode)))
+                (telephone-line-selected-window-active))
          (format "%s "
                  (propertize icon
                              'help-echo (format "Major-mode: `%s'" major-mode)
@@ -104,14 +106,14 @@
 
   ;; Display buffer name
   (telephone-line-defsegment my-buffer-segment ()
-     (format "%s %s"
-             (propertize (all-the-icons-fileicon "elisp")
-                         'face `(:family ,(all-the-icons-fileicon-family) :height 1.0)
-                         'display '(raise 0.0))
-             (propertize
-              (format "%s"
-                      (telephone-line-raw mode-line-buffer-identification t)))))
-              ;; 'face `(:foreground ,fg-color))))
+    (format "%s %s"
+            (propertize (all-the-icons-fileicon "elisp")
+                        'face `(:family ,(all-the-icons-fileicon-family) :height 1.0)
+                        'display '(raise 0.0))
+            (propertize
+             (format "%s"
+                     (telephone-line-raw mode-line-buffer-identification t)))))
+  ;; 'face `(:foreground ,fg-color))))
 
   ;; Display current position in a buffer
   ;; (telephone-line-defsegment my-position-segment ()
@@ -144,7 +146,7 @@
   ;; Display modified status
   (telephone-line-defsegment my-modified-status-segment ()
     (when (and (buffer-modified-p) (not (member mode-name modeline-ignored-modes)) (not buffer-read-only))
-        (propertize "+" 'face `(:foreground "#85b654"))))
+      (propertize "+" 'face `(:foreground "#85b654"))))
 
   ;; Display read-only status
   (telephone-line-defsegment my-read-only-status-segment ()
@@ -168,23 +170,23 @@
   ;; TODO:
   ;; Hide vc backend in modeline
   (defadvice vc-mode-line (after strip-backend () activate)
-      (when (stringp vc-mode)
-        (let ((my-vc (replace-regexp-in-string "^ Git." "" vc-mode)))
-          (setq vc-mode my-vc))))
+    (when (stringp vc-mode)
+      (let ((my-vc (replace-regexp-in-string "^ Git." "" vc-mode)))
+        (setq vc-mode my-vc))))
 
   ;; Display current branch
   ;; TODO: move raise and etc into var
   (telephone-line-defsegment my-vc-segment ()
-    (when vc-mode
+    (when (and vc-mode (telephone-line-selected-window-active))
       ;; double format to prevent warnings in '*Messages*' buffer
       (format "%s %s"
               (propertize (all-the-icons-octicon "git-branch")
                           'face `(:family ,(all-the-icons-octicon-family) :height 1.0 :foreground ,(face-foreground 'font-lock-variable-name-face))
                           'display '(raise 0.0))
-      (propertize
-       (format "%s"
-               (telephone-line-raw vc-mode t))
-       'face `(:foreground ,(face-foreground 'font-lock-variable-name-face))))))
+              (propertize
+               (format "%s"
+                       (telephone-line-raw vc-mode t))
+               'face `(:foreground ,(face-foreground 'font-lock-variable-name-face))))))
 
 
   ;; ;; TODO: free visual selection
@@ -211,22 +213,22 @@
          (t (format "%d" (if evil chars (1- chars))))))))
 
 
-  (telephone-line-defsegment my-flycheck-segment ()
-    ;; TODO: split errors and warnings
-    (when (boundp 'flycheck-last-status-change)
-      (pcase flycheck-last-status-change
-        ('finished (if flycheck-current-errors
-                       (let-alist (flycheck-count-errors flycheck-current-errors)
-                         (let ((sum (+ (or .error 0) (or .warning 0))))
-                           (format " %s: %s"
-                                   (if .error "errors" "warnings")
-                                   (number-to-string sum))))
-                     ;; TODO:
-                      " succeed"))
-        ('running     " working...")
-        ('no-checker  "")
-        ('errored     " error")
-        ('interrupted " interrupted"))))
+  ;; (telephone-line-defsegment my-flycheck-segment ()
+  ;;   ;; TODO: split errors and warnings
+  ;;   (when (boundp 'flycheck-last-status-change)
+  ;;     (pcase flycheck-last-status-change
+  ;;       ('finished (if flycheck-current-errors
+  ;;                      (let-alist (flycheck-count-errors flycheck-current-errors)
+  ;;                        (let ((sum (+ (or .error 0) (or .warning 0))))
+  ;;                          (format " %s: %s"
+  ;;                                  (if .error "errors" "warnings")
+  ;;                                  (number-to-string sum))))
+  ;;                    ;; TODO:
+  ;;                    " succeed"))
+  ;;       ('running     " working...")
+  ;;       ('no-checker  "")
+  ;;       ('errored     " error")
+  ;;       ('interrupted " interrupted"))))
 
   (telephone-line-defsegment my-words-count-segment ()
     (format "%d" (count-words (point-min) (point-max))))

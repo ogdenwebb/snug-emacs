@@ -8,12 +8,12 @@
 
 (use-package ediff
   :defer t
-  :commands (ediff)
-  :config
-  (use-package evil-ediff
-    :after ediff))
+  :commands (ediff))
 
-; Git
+(use-package evil-ediff
+  :after ediff)
+
+;; Git
 (use-package magit
   :init
   (setenv "GIT_ASKPASS" "")
@@ -42,9 +42,9 @@
   ;;  '(git-gutter:modified-sign "󠀠")
   ;;  '(git-gutter:deleted-sign "󠀠"))
 
-  (use-package git-gutter-fringe
-    :after git-gutter)
-    ;; :config
-    ;; (setq git-gutter-fr:side 'right-fringe))
+(use-package git-gutter-fringe
+  :after git-gutter)
+;; :config
+;; (setq git-gutter-fr:side 'right-fringe))
 
 (provide 'use-vcs)

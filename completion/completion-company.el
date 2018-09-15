@@ -95,12 +95,12 @@
 
   (global-company-mode t))
 
-  ;; (setq company-dabbrev-ignore-case nil)
-  ;; (setq company-dabbrev-code-ignore-case nil)
-  ;; (setq company-dabbrev-code-everywhere t)
-  ;; (setq company-dabbrev-code-modes t)
-  ;; (setq company-dabbrev-code-other-buffers t)
-  ;; (setq company-dabbrev-ignore-buffers "\\`\\'")
+;; (setq company-dabbrev-ignore-case nil)
+;; (setq company-dabbrev-code-ignore-case nil)
+;; (setq company-dabbrev-code-everywhere t)
+;; (setq company-dabbrev-code-modes t)
+;; (setq company-dabbrev-code-other-buffers t)
+;; (setq company-dabbrev-ignore-buffers "\\`\\'")
 
 ;; Use fuzzy completion
 (use-package company-flx

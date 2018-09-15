@@ -1,7 +1,20 @@
 ;;; -*- lexical-binding: t -*-
 
+;; Disable certain byte compiler warnings to cut down on the noise.
+(setq byte-compile-warnings '(not free-vars unresolved noruntime lexical make-local))
+
 (defvar file-name-handler-alist-old file-name-handler-alist)
-(setq file-name-handler-alist nil)
+(setq file-name-handler-alist nil
+      byte-compile--use-old-handlers nil
+      package-user-dir "~/.emacs.d/elpa"
+      load-prefer-newer t
+      package-enable-at-startup nil   ; To prevent initialising twice
+      ;; don't add that `custom-set-variables' block to init
+      package--init-file-ensured t)
+
+;; Default directories
+(unless (file-directory-p package-user-dir)
+  (make-directory package-user-dir t))
 
 ;; Increase garbage collection for speedup
 (setq-default gc-cons-threshold 20000000 ; or even 1000000000
@@ -17,10 +30,6 @@
                     gc-cons-percentage 0.1)
               (garbage-collect)) t)
 
-;; Initialize package system
-(setq package-enable-at-startup nil   ; To prevent initialising twice
-      ;; don't add that `custom-set-variables' block to init
-      package--init-file-ensured t)
 
 (setq package-user-dir (concat user-emacs-directory "elpa")
       package-archives
@@ -52,7 +61,6 @@
                      nil))
                load-path))))))
 
-
 ;; Enable use-package
 (eval-when-compile
   (require 'use-package))
@@ -74,9 +82,6 @@
 ;;   (byte-recompile-directory (concat user-emacs-directory "/modeline") 0)
 ;;   (message "Success!"))
 
-(setq byte-compile--use-old-handlers nil)
-(setq load-prefer-newer t)
-
 ;; start scratch in text mode
 (setq initial-major-mode 'text-mode)
 
@@ -95,7 +100,7 @@
 (add-to-list 'load-path "~/.emacs.d/completion/")
 (add-to-list 'load-path "~/.emacs.d/modeline/")
 
-(setq custom-file "~/.emacs.d/custom.el")
+(setq custom-file (concat user-emacs-directory "custom.el"))
 (load custom-file t t)
 
 (defmacro elmax/init (&rest body)

@@ -13,7 +13,7 @@
   :after tuareg
   :config
   (setq utop-command "opam config exec -- utop -emacs"))
-  ;; (setq merlin-command 'opam))
+;; (setq merlin-command 'opam))
 
 (use-package ocp-indent
   :after (tuareg)

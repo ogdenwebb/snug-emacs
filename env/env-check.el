@@ -135,18 +135,18 @@
         ispell-dictionary "en_US"))
 
 (defun elmax/flyspell-set-dict (dict)
-    (progn
-      (if (not (bound-and-true-p flyspell-mode))
+  (progn
+    (if (not (bound-and-true-p flyspell-mode))
         (flyspell-mode))
-      (ispell-change-dictionary dict)
-      (flyspell-buffer)))
+    (ispell-change-dictionary dict)
+    (flyspell-buffer)))
 
 ;; flyspell ivy corret
 (use-package flyspell-correct
   :after flyspell
   :commands (flyspell-correct-at-point flyspell-correct-next-word-generic
-             flyspell-correct-previous flyspell-correct-previous-word-generic
-             flyspell-correct-word flyspell-correct-word-generic)
+                                       flyspell-correct-previous flyspell-correct-previous-word-generic
+                                       flyspell-correct-word flyspell-correct-word-generic)
   :config
   (use-package flyspell-correct-ivy))
 

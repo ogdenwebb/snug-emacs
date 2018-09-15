@@ -2,8 +2,8 @@
   :mode (("\\.cr\\'" . crystal-mode))
   :config
   (progn
-      (add-hook 'crystal-mode-hook
-                (lambda () (add-hook 'before-save-hook 'crystal-tool-format nil 'local)))))
+    (add-hook 'crystal-mode-hook
+              (lambda () (add-hook 'before-save-hook 'crystal-tool-format nil 'local)))))
 
 (use-package flycheck-crystal
   :after (crystal-mode flycheck))
