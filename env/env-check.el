@@ -17,9 +17,8 @@
 ;; Flycheck
 (use-package flycheck
   :commands (flycheck-mode global-flycheck-mode flycheck-list-errors flycheck-buffer)
+  :hook (prog-mode . flycheck-mode)
   :config
-  (add-hook 'prog-mode-hook #'flycheck-mode)
-
   (setq flycheck-idle-change-delay
         (if flycheck-current-errors 0.3 3.0))
 
@@ -146,8 +145,9 @@
   :after flyspell
   :commands (flyspell-correct-at-point flyspell-correct-next-word-generic
                                        flyspell-correct-previous flyspell-correct-previous-word-generic
-                                       flyspell-correct-word flyspell-correct-word-generic)
-  :config
-  (use-package flyspell-correct-ivy))
+                                       flyspell-correct-word flyspell-correct-word-generic))
+
+(use-package flyspell-correct-ivy
+  :after flyspell-correct)
 
 (provide 'env-check)

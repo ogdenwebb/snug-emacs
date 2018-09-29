@@ -41,12 +41,10 @@
   ;; Initial states
   (evil-set-initial-state 'nrepl-mode 'insert)
 
-  ;; fix for company
-  (evil-declare-change-repeat 'company-complete)
-
-  ;; Evil ex
+  ;; Evil ex commands
   (evil-ex-define-cmd "pu[pgrade]" 'package-upgrade-all)
   (evil-ex-define-cmd "pi[stall]"  'package-install)
+  (evil-ex-define-cmd "pf[orce]"   'package-reinstall)
   (evil-ex-define-cmd "pd[elete]"  'package-delete)
   (evil-ex-define-cmd "pc[lean]"   'package-autoremove)
   (evil-ex-define-cmd "lt"         'load-theme)

@@ -13,8 +13,6 @@
       package--init-file-ensured t)
 
 ;; Default directories
-(unless (file-directory-p package-user-dir)
-  (make-directory package-user-dir t))
 
 ;; Increase garbage collection for speedup
 (setq-default gc-cons-threshold 20000000 ; or even 1000000000
@@ -39,7 +37,7 @@
 
 ;; Print log while loading
 ;; (setq use-package-verbose t)
-;; Add the macro generated list of package.el loadpaths to load-path.
+;; Add the macro generated list of `package.el' loadpaths to `load-path'.
 (mapc #'(lambda (add) (add-to-list 'load-path add))
   (eval-when-compile
     ;; (require 'package)

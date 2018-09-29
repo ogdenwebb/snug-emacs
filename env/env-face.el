@@ -7,7 +7,7 @@
 
 ;; Theme settings
 ;; Load my theme
-(defvar elmax/custom-theme 'kaolin-fusion
+(defvar elmax/custom-theme 'kaolin-galaxy
   "Default custom theme.")
 
 (use-package autothemer)
@@ -37,6 +37,8 @@
 
   (load-theme elmax/custom-theme t)
 
+  (kaolin-treemacs-theme)
+
   ;; Highlight t and nil in elisp-mode
   (font-lock-add-keywords
    'emacs-lisp-mode
@@ -48,7 +50,8 @@
 ;; (add-to-list 'default-frame-alist '(font . "Fira Mono-12"))
 ;; (add-to-list 'default-frame-alist '(font . "Fira Code-12"))
 ;; (add-to-list 'default-frame-alist '(font . "Input Mono-11"))
-(add-to-list 'default-frame-alist '(font . "Noto Mono-12"))
+(add-to-list 'default-frame-alist '(font . "Noto Mono-12")) ; <-
+;; (add-to-list 'default-frame-alist '(font . "iosevka-13"))
 
 ;; Set the fringe size
 (setq-default left-fringe-width  6
@@ -203,5 +206,24 @@
 ;;   (set-window-fringes (minibuffer-window) 0 0 nil))
 
 ;; (add-hook 'minibuffer-setup-hook #'no-fringes-in-minibuffer)
+
+;; (defun remap-echo-background ()
+;;   (with-current-buffer " *Echo Area 0*" (face-remap-add-relative 'default '(:background "red")))
+;;   (with-current-buffer " *Echo Area 1*" (face-remap-add-relative 'default '(:background "red"))))
+
+
+;; TODO:
+;; https://groups.google.com/forum/#!topic/gnu.emacs.help/-_x4WLfQPps
+;; (defun remap-echo-background ()
+;;   (dolist (b (buffer-list))
+;;     (when (or (string= (buffer-name b) " *Echo Area 0*")
+;;               (string= (buffer-name b) " *Echo Area 1*")
+;;               (minibufferp b))
+;;       (with-current-buffer b
+;;         (face-remap-add-relative 'default '(:background "red"))))))
+
+;; (add-hook 'after-init-hook #'remap-echo-background)
+;; (add-hook 'echo-area-clear-hook #'remap-echo-background)
+
 
 (provide 'env-face)

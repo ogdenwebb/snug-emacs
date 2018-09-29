@@ -7,6 +7,7 @@
 ;; TODO: rename my* segments to ???
 ;; Gray "#545c5e"
 
+;; To disable mouse menu
 (setq mode-line-default-help-echo nil)
 
 ;; Telephone line
@@ -213,22 +214,22 @@
          (t (format "%d" (if evil chars (1- chars))))))))
 
 
-  ;; (telephone-line-defsegment my-flycheck-segment ()
-  ;;   ;; TODO: split errors and warnings
-  ;;   (when (boundp 'flycheck-last-status-change)
-  ;;     (pcase flycheck-last-status-change
-  ;;       ('finished (if flycheck-current-errors
-  ;;                      (let-alist (flycheck-count-errors flycheck-current-errors)
-  ;;                        (let ((sum (+ (or .error 0) (or .warning 0))))
-  ;;                          (format " %s: %s"
-  ;;                                  (if .error "errors" "warnings")
-  ;;                                  (number-to-string sum))))
-  ;;                    ;; TODO:
-  ;;                    " succeed"))
-  ;;       ('running     " working...")
-  ;;       ('no-checker  "")
-  ;;       ('errored     " error")
-  ;;       ('interrupted " interrupted"))))
+  (telephone-line-defsegment my-flycheck-segment ()
+    ;; TODO: split errors and warnings
+    (when (boundp 'flycheck-last-status-change)
+      (pcase flycheck-last-status-change
+        ('finished (if flycheck-current-errors
+                       (let-alist (flycheck-count-errors flycheck-current-errors)
+                         (let ((sum (+ (or .error 0) (or .warning 0))))
+                           (format " %s: %s"
+                                   (if .error "errors" "warnings")
+                                   (number-to-string sum))))
+                     ;; TODO:
+                     " succeed"))
+        ('running     " working...")
+        ('no-checker  "")
+        ('errored     " error")
+        ('interrupted " interrupted"))))
 
   (telephone-line-defsegment my-words-count-segment ()
     (format "%d" (count-words (point-min) (point-max))))

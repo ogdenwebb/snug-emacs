@@ -7,7 +7,6 @@
   :after haskell-mode
   :disabled t
   :commands (dante-mode)
-  :config
-  (add-hook 'haskell-mode-hook 'dante-mode))
+  :hook (haskell-mode . dante-mode))
 
 (provide 'use-haskell)

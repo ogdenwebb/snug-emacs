@@ -5,6 +5,7 @@
 (use-package litable
   :disabled t)
 
+;; TODO:
 (defun lisp-indent-setup ()
   ;; Set tab-width to 2
   (setq-local tab-width 2)
