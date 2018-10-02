@@ -7,7 +7,7 @@
 
 ;; Theme settings
 ;; Load my theme
-(defvar elmax/custom-theme 'kaolin-galaxy
+(defvar elmax/custom-theme 'kaolin-valley-dark
   "Default custom theme.")
 
 (use-package autothemer)
@@ -50,8 +50,9 @@
 ;; (add-to-list 'default-frame-alist '(font . "Fira Mono-12"))
 ;; (add-to-list 'default-frame-alist '(font . "Fira Code-12"))
 ;; (add-to-list 'default-frame-alist '(font . "Input Mono-11"))
-(add-to-list 'default-frame-alist '(font . "Noto Mono-12")) ; <-
+;; (add-to-list 'default-frame-alist '(font . "Noto Mono-12")) ; <-
 ;; (add-to-list 'default-frame-alist '(font . "iosevka-13"))
+(add-to-list 'default-frame-alist '(font . "D2Coding-13"))
 
 ;; Set the fringe size
 (setq-default left-fringe-width  6
