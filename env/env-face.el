@@ -228,5 +228,9 @@
 ;; (add-hook 'after-init-hook #'remap-echo-background)
 ;; (add-hook 'echo-area-clear-hook #'remap-echo-background)
 
+;; Hide mode-line in certain buffers
+(use-package hide-mode-line
+  :hook (magit-status-mode . hide-mode-line-mode))
+
 
 (provide 'env-face)
