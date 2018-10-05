@@ -62,20 +62,13 @@
                  ((string= mode-name "Javascript-IDE") "js")
                  ((string= mode-name "undo-tree-visualizer") "undotree")
                  (t (downcase mode-name))))
-          (icon (all-the-icons-icon-for-mode major-mode)))
+          (icon (all-the-icons-icon-for-mode major-mode :v-adjust 0.0 :height 0.8 :face font-lock-string-face)))
       (concat
        (when
            (and (not (eq major-mode (all-the-icons-icon-for-mode major-mode)))
                 (telephone-line-selected-window-active))
-         (format "%s "
-                 (propertize icon
-                             'help-echo (format "Major-mode: `%s'" major-mode)
-                             'display '(raise 0)
-                             'face `(:height 1.0
-                                             :family ,(all-the-icons-icon-family-for-mode major-mode)
-                                             :inherit font-lock-string-face))))
+         (format "%s " icon))
        (propertize mode 'face `font-lock-string-face))))
-
 
 
   (telephone-line-defsegment my-evil-segment ()
@@ -83,7 +76,7 @@
     (let ((tag (cond
                 ((string= evil-state "normal")    ":")
                 ((string= evil-state "insert")    ">")
-                ((string= evil-state "replace")   "r")
+                ((string= evil-state "replace")   "~")
                 ((string= evil-state "visual")    "!")
                 ((string= evil-state "operator")  "=")
                 ((string= evil-state "motion")    "m")
@@ -91,7 +84,7 @@
                 (t "-"))))
       (format " %s" tag)))
 
-  (telephone-line-defsegment my-evil-segment-icons ()
+  (telephone-line-defsegment my-evil-segment-icon ()
     "Display evil state as icon with all-the-icons."
     (let ((tag (cond
                 ((string= evil-state "normal")    (all-the-icons-faicon "magic"))

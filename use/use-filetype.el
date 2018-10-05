@@ -17,6 +17,9 @@
                       :states '(insert)
                       "RET" 'evil-ret-and-indent))
 
+(use-package json-mode
+  :mode ("\\.json\\'" . json-mode))
+
 ;; vimrc mode
 (use-package vimrc-mode
   :mode ("/\\.?g?vimrc$"

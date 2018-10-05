@@ -123,12 +123,6 @@
 ;;   (which-key-mode)
 ;;   (which-key-setup-side-window-bottom))
 
-;; Simple Emacs minor mode for a nice writing environment.
-(use-package olivetti
-  :commands (olivetti-mode olivetti-shrink olivetti-expand olivetti-toggle-hide-mode-line)
-  :config
-  (setq-default olivetti-body-width 80))
-
 (use-package google-translate
   :defer t
   :config

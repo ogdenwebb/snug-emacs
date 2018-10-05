@@ -21,6 +21,8 @@
         kaolin-themes-git-gutter-solid t
         kaolin-themes-underline-wave t
         kaolin-themes-bold nil)
+
+  ;; (setq kaolin-valley-light-alt-bg t)
   ;; (setq kaolin-themes-distinct-company-scrollbar t)
   ;; (setq kaolin-themes-italic-comments nil)
 
