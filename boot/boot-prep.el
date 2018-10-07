@@ -72,6 +72,18 @@
                   (not (file-exists-p (concat (file-name-as-directory fdir) "dir"))))
         (add-to-list 'Info-directory-list fdir)))))
 
+;; Help keeping ~/.emacs.d clean
+(use-package no-littering
+  :init
+  (with-eval-after-load 'recentf
+    (add-to-list 'recentf-exclude no-littering-var-directory)
+    (add-to-list 'recentf-exclude no-littering-etc-directory)))
+
+;; Define directories
+(setq home-directory (getenv "HOME"))
+(defvar elmax-dir (file-truename user-emacs-directory)
+  "Root of the elmax configuration.")
+
 ;; TODO:
 ;; (defun elmax/byte-compile-config ()
 ;;   (interactive)
