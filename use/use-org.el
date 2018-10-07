@@ -138,4 +138,11 @@
 (use-package org-download
   :after org)
 
+(use-package org-variable-pitch
+  :disabled
+  :after org
+  :config
+  (setq org-variable-pitch-fixed-font "Philosopher")
+  (add-hook 'org-mode-hook 'org-variable-pitch-minor-mode))
+
 (provide 'use-org)

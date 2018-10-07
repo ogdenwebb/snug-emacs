@@ -8,7 +8,7 @@
 ;; Left edge
 ;; TODO: gray background for buffer and mode segment in inactive line
 (setq telephone-line-lhs
-      '((evil   . (my-evil-segment))
+      '((evil   . ((my-evil-segment :active)))
         ;; (accent . (telephone-line-filesize-segment))
         (nil    . (telephone-line-projectile-buffer-segment))
         (nil    . (my-modified-status-segment))
@@ -19,8 +19,8 @@
 ;; Right edge
 (setq telephone-line-rhs
       '((nil    . (my-vc-segment))
-        (accent . (my-position-segment))
-        (nil    . (my-major-mode-segment-icon))
+        (accent . ((my-position-segment :active)))
+        (nil    . ((my-major-mode-segment-icon :active)))
         ;; (nil    . (my-major-mode-segment-icon))
         (accent . ((my-coding-segment :active)))))
 

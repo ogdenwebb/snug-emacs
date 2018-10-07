@@ -125,10 +125,12 @@
 
 (use-package google-translate
   :defer t
+  :config)
+
+(use-package google-translate-smooth-ui
+  ;; :after google-translate
+  :commands google-translate-smooth-translate
   :config
-  (use-package google-translate-smooth-ui
-    :after google-translate
-    :commands google-translate-smooth-translate)
   (setq google-translate-translation-directions-alist '(("en" . "ru"))))
 
 (use-package imenu-list
