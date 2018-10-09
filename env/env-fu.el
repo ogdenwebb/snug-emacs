@@ -81,6 +81,7 @@ executed from a commented line"
            (line-beginning-position)))))
 
 (defun elmax/empty-line? ()
+  (interactive)
   (save-excursion
     (beginning-of-line)
     (looking-at "[[:space:]]*$")))

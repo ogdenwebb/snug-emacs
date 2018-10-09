@@ -1,7 +1,5 @@
 ;;;; Elmax - Emacs configuration with Evil
 
-;; TODO: generate autoloads
-
 ;; (setq debug-on-error t)
 
 ;; General configation
@@ -38,7 +36,7 @@
   use-eshell
   use-filetype
   use-grep
-  use-sp
+  use-sp ; smartparens
 
   use-cl ; common lisp
   use-clj
@@ -49,11 +47,13 @@
   use-nim
   use-ocaml
   use-org
+  use-org-capture
   use-py
   use-perl6
   use-rust
   use-tools ; support for external apps
   use-vcs
+  use-writter
   use-web)
 
 ;; (~ ^ . ^ ~)

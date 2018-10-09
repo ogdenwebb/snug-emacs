@@ -99,6 +99,7 @@
                       "g l" 'magit-log-current
 
                       ;; Projectile
+                      "p p" 'projectile-switch-project
                       "p f" 'counsel-projectile-find-file
                       "p k" 'projectile-grep
                       "p r" 'projectile-replace

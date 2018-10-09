@@ -42,6 +42,8 @@
                           "[/\\]\\.emacs.d/url"
                           "^/usr/share/emacs"
                           "[/\\]\\.emacs.d/elpa"))
+  (add-to-list 'recentf-exclude no-littering-var-directory)
+  (add-to-list 'recentf-exclude no-littering-etc-directory)
 
   ;; TODO: Do it when open file
   ;; Exclude a real file if there's a symlink for that in recentf
@@ -65,7 +67,7 @@
   (recentf-mode 1)
   :custom
   (recentf-max-menu-items 100)
-  (recentf-max-saved-items 75))
+  (recentf-max-saved-items 100))
 
 (use-package subword
   :commands (subword-mode global-subword-mode)

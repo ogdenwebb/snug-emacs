@@ -6,9 +6,12 @@
 (defvar file-name-handler-alist-old file-name-handler-alist)
 (setq file-name-handler-alist nil
       byte-compile--use-old-handlers nil
-      package-user-dir "~/.emacs.d/elpa"
       load-prefer-newer t
       package-enable-at-startup nil   ; To prevent initialising twice
+      package-user-dir (concat user-emacs-directory "elpa")
+      package-archives '(("gnu"   . "https://elpa.gnu.org/packages/")
+                         ("org"   . "https://orgmode.org/elpa/")
+                         ("melpa" . "https://melpa.org/packages/"))
       ;; don't add that `custom-set-variables' block to init
       package--init-file-ensured t)
 
@@ -27,13 +30,6 @@
                     gc-cons-threshold 16777216
                     gc-cons-percentage 0.1)
               (garbage-collect)) t)
-
-
-(setq package-user-dir (concat user-emacs-directory "elpa")
-      package-archives
-      '(("gnu"   . "https://elpa.gnu.org/packages/")
-        ("org"   . "https://orgmode.org/elpa/")
-        ("melpa" . "https://melpa.org/packages/")))
 
 ;; Print log while loading
 ;; (setq use-package-verbose t)
@@ -73,11 +69,9 @@
         (add-to-list 'Info-directory-list fdir)))))
 
 ;; Help keeping ~/.emacs.d clean
-(use-package no-littering
-  :init
-  (with-eval-after-load 'recentf
-    (add-to-list 'recentf-exclude no-littering-var-directory)
-    (add-to-list 'recentf-exclude no-littering-etc-directory)))
+(use-package no-littering)
+
+;; TODO: Generate autoloads
 
 ;; Define directories
 (setq home-directory (getenv "HOME"))
@@ -98,11 +92,6 @@
 ;; Use Common Lisp library
 (require 'cl-lib)
 
-;; (when window-system
-;;   (require 'server)
-;;   (unless (server-running-p)
-;;     (server-start)))
-
 ;; Add configuration directories to `load-path'
 (add-to-list 'load-path "~/.emacs.d/boot/")
 (add-to-list 'load-path "~/.emacs.d/env/")
@@ -112,6 +101,11 @@
 
 (setq custom-file (concat user-emacs-directory "custom.el"))
 (load custom-file t t)
+
+(when window-system
+  (require 'server)
+  (unless (server-running-p)
+    (server-start)))
 
 (defmacro elmax/init (&rest body)
   (declare (indent defun))
