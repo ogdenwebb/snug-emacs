@@ -1,5 +1,5 @@
 (use-package clojure-mode
-  :mode (("\\.clj\\'" . clojure-mode)
+  :mode (("\\.clj\\'"  . clojure-mode)
          ("\\.cljc\\'" . clojure-mode)
          ("\\.cljs\\'" . clojurescript-mode))
   :config

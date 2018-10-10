@@ -47,7 +47,7 @@
    '(("\\<\\(nil\\|t\\)\\>" . 'kaolin-themes-boolean))))
 
 ;; Set default font
-;; (add-to-list 'default-frame-alist '(font . "Roboto Mono-11.5"))
+;; (add-to-list 'default-frame-alist '(font . "Roboto Mono-12:style=regular"))
 ;; (add-to-list 'default-frame-alist '(font . "Hasklig-12.5"))
 ;; (add-to-list 'default-frame-alist '(font . "Fira Mono-12"))
 ;; (add-to-list 'default-frame-alist '(font . "Fira Code-12"))

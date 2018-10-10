@@ -41,6 +41,7 @@
   use-cl ; common lisp
   use-clj
   use-crystal
+  use-calendar
   use-elixir
   use-haskell
   use-js
