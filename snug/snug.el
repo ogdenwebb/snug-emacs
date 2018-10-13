@@ -93,7 +93,6 @@
 (require 'cl-lib)
 
 ;; Add configuration directories to `load-path'
-(add-to-list 'load-path "~/.emacs.d/boot/")
 (add-to-list 'load-path "~/.emacs.d/env/")
 (add-to-list 'load-path "~/.emacs.d/use/")
 (add-to-list 'load-path "~/.emacs.d/completion/")
@@ -122,4 +121,4 @@
 ;;                               (time-subtract after-init-time before-init-time)))
 ;;                      gcs-done)))
 
-(provide 'boot-prep)
+(provide 'snug)

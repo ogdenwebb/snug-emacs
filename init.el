@@ -3,7 +3,7 @@
 ;; (setq debug-on-error t)
 
 ;; General configation
-(require 'boot-prep (concat user-emacs-directory "boot/boot-prep"))
+(require 'snug (concat user-emacs-directory "snug/snug"))
 
 (snug/init
   env-settings
@@ -27,7 +27,6 @@
 
   ;; Autocompletion
   completion-company ; TODO: refact
-  ;; completion-lsp ; TODO: lsp isn't only completion
 
   ;; Mode-line
   modeline-common
@@ -37,6 +36,7 @@
   use-filetype
   use-grep
   use-sp ; smartparens
+  ;; use-lsp
 
   use-cl ; common lisp
   use-clj

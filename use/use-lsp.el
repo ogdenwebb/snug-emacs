@@ -33,4 +33,4 @@
   (setq company-lsp-async t)
   (setq company-lsp-enable-recompletion t))
 
-(provide 'completion-lsp)
+(provide 'use-lsp)

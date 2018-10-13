@@ -1,1 +1,3 @@
 *.elc
+network-security.data
+custom.el

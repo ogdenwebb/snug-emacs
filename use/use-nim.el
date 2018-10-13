@@ -1,12 +1,14 @@
 (use-package nim-mode
   :mode (("\\.nim\\'" . nim-mode)
          ("\\.nims\\'" . nimscript-mode))
-  :config
+  :hook ((nim-mode . nimsuggest-mode)
+         (nimsuggest-mode . flycheck-mode))
+  :init
   (add-hook 'nim-mode-hook (lambda () (electric-indent-mode -1)))
-  (add-hook 'nim-mode-hook 'flycheck-mode)
-  (add-hook 'nim-mode-hook 'nimsuggest-mode))
-
-;; (add-hook 'nim-mode-hook 'nimsuggest-mode)
+  :general
+  (general-define-key :keymaps 'nim-mode-map
+                      :states  '(normal)
+                      "K"  'nimsuggest-show-doc))
 
 ;; (add-hook 'nim-mode-hook
 ;;         '(lambda () (setq-local electric-indent-chars '(?\s)))))
@@ -17,9 +19,6 @@
   (let ((nimsuggest-file (concat (getenv "HOME") "/nimsuggest.log")))
     (when (file-exists-p nimsuggest-file)
       (delete-file nimsuggest-file))))
-
-;; (add-hook 'nim-mode-hook 'nimsuggest-delete-home-logfile)
-;; (add-hook 'nimscript-mode-hook 'nimsuggest-delete-home-logfile)
 
 (add-hook 'nim-mode-hook
           (lambda ()
