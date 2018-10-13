@@ -141,7 +141,7 @@
    ;; evil-commentary
    "g c" 'evil-commentary
    "g y" 'evil-commentary-yank
-   "g p" 'elmax/evil-select-pasted
+   "g p" 'snug/evil-select-pasted
 
    ;; evil-lion
    "g a"  'evil-lion-left
@@ -169,7 +169,7 @@
    :states '(insert)
    "TAB" 'company-indent-or-complete-common
    ;; "TAB" 'company-indent-for-tab-command
-   ;; "DEL" 'elmax/smart-backspace
+   ;; "DEL" 'snug/smart-backspace
    "C-k" 'company-complete-common-or-cycle
    "C-a" 'beginning-of-line
    "C-w" 'evil-delete-backward-word
@@ -178,7 +178,7 @@
   (general-define-key
    :keymaps 'prog-mode-map
    :states '(insert)
-   "RET" 'elmax/newline-and-indent)
+   "RET" 'snug/newline-and-indent)
 
   ;; Dired
   (general-define-key :keymaps 'dired-mode-map

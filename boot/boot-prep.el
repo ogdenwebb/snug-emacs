@@ -75,11 +75,11 @@
 
 ;; Define directories
 (setq home-directory (getenv "HOME"))
-(defvar elmax-dir (file-truename user-emacs-directory)
-  "Root of the elmax configuration.")
+(defvar snug-dir (file-truename user-emacs-directory)
+  "Root of the snug configuration.")
 
 ;; TODO:
-;; (defun elmax/byte-compile-config ()
+;; (defun snug/byte-compile-config ()
 ;;   (interactive)
 ;;   (byte-recompile-directory (concat user-emacs-directory "/env") 0)
 ;;   (byte-recompile-directory (concat user-emacs-directory "/use") 0)
@@ -107,7 +107,7 @@
   (unless (server-running-p)
     (server-start)))
 
-(defmacro elmax/init (&rest body)
+(defmacro snug/init (&rest body)
   (declare (indent defun))
   (add-to-list 'body 'env-fu t)
   (dolist (pkg body)

@@ -37,7 +37,7 @@
   ;; Fontify the whole line for headings (with a background color).
   (setq org-fontify-whole-heading-line t)
 
-  (defun elmax/org-init-hook ()
+  (defun snug/org-init-hook ()
     (interactive)
     (when (bound-and-true-p nlinum-mode)
       (nlinum-mode -1))
@@ -49,14 +49,14 @@
     (turn-off-smartparens-mode)
     (show-paren-mode -1))
 
-  (add-hook 'org-mode-hook 'elmax/org-init-hook)
+  (add-hook 'org-mode-hook 'snug/org-init-hook)
 
   (setq org-highest-priority ?A
         org-lowest-priority ?D
         org-default-priority ?B)
 
   (custom-theme-set-faces
-   elmax/custom-theme
+   snug/custom-theme
    '(org-done ((t (:foreground "dimgray" :bold t :strike-through t))))
    '(org-headline-done ((t (:foreground "dimgray" :bold nil :strike-through t)))))
 

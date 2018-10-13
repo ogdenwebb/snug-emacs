@@ -7,7 +7,7 @@
 
 ;; Theme settings
 ;; Load my theme
-(defvar elmax/custom-theme 'kaolin-valley-dark
+(defvar snug/custom-theme 'kaolin-valley-dark
   "Default custom theme.")
 
 (use-package autothemer)
@@ -37,7 +37,7 @@
   ;;     (add-hook 'after-make-frame-functions #'load-my-theme)
   ;;   (load-theme 'kaolin-eclipse t))
 
-  (load-theme elmax/custom-theme t)
+  (load-theme snug/custom-theme t)
 
   (kaolin-treemacs-theme)
 
@@ -50,7 +50,7 @@
 ;; (add-to-list 'default-frame-alist '(font . "Roboto Mono-12:style=regular"))
 ;; (add-to-list 'default-frame-alist '(font . "Hasklig-12.5"))
 ;; (add-to-list 'default-frame-alist '(font . "Fira Mono-12"))
-;; (add-to-list 'default-frame-alist '(font . "Fira Code-12"))
+;; (add-to-list 'default-frame-alist '(font . "Fira Code-12.5:style=regular"))
 ;; (add-to-list 'default-frame-alist '(font . "Input Mono-11"))
 ;; (add-to-list 'default-frame-alist '(font . "Noto Mono-12")) ; <-
 ;; (add-to-list 'default-frame-alist '(font . "iosevka-13"))

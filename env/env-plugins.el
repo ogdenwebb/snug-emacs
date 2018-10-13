@@ -67,7 +67,7 @@
 ;;   :config
 ;;   (yas-global-mode 1))
 
-(defun elmax/set-no-fringes ()
+(defun snug/set-no-fringes ()
   "Remove fringes in window. Mainly uses as hook."
   (when (display-graphic-p)
     (setq left-fringe-width 0)
@@ -134,7 +134,7 @@
   (setq google-translate-translation-directions-alist '(("en" . "ru"))))
 
 (use-package imenu-list
-  :hook (imenu-list-major-mode . elmax/set-no-fringes)
+  :hook (imenu-list-major-mode . snug/set-no-fringes)
   :commands (imenu-list-smart-toggle)
   :config
   ;; (imenu-list-minor-mode t)

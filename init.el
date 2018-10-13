@@ -1,11 +1,11 @@
-;;;; Elmax - Emacs configuration with Evil
+;;;; Snug - Emacs configuration with Evil
 
 ;; (setq debug-on-error t)
 
 ;; General configation
 (require 'boot-prep (concat user-emacs-directory "boot/boot-prep"))
 
-(elmax/init
+(snug/init
   env-settings
   env-maps
 

@@ -5,9 +5,9 @@
   :config
   (defhydra hydra-flyspell (:color teal)
     "Flyspell dictionary"
-    ("r" (elmax/flyspell-set-dict "ru") "rus")
-    ("e" (elmax/flyspell-set-dict "en") "eng")
-    ("d" (elmax/flyspell-set-dict "de") "den")
+    ("r" (snug/flyspell-set-dict "ru") "rus")
+    ("e" (snug/flyspell-set-dict "en") "eng")
+    ("d" (snug/flyspell-set-dict "de") "den")
     ("q" nil "cancel")))
 
 ;; Package-lint
@@ -36,7 +36,7 @@
   ;; TODO: indicators in the corner of the sceen without padding
   ;; after window resize
   ;; (when (fboundp 'define-fringe-bitmap)
-  ;;   (define-fringe-bitmap 'elmax/flycheck-fringe-indicator
+  ;;   (define-fringe-bitmap 'snug/flycheck-fringe-indicator
   ;;     (vector #b00000000
   ;;             #b00000000
   ;;             #b00000000
@@ -56,7 +56,7 @@
   ;;             #b00000000)))
 
   (when (fboundp 'define-fringe-bitmap)
-    (define-fringe-bitmap 'elmax/flycheck-fringe-error
+    (define-fringe-bitmap 'snug/flycheck-fringe-error
       (vector #b00000000
               #b00000000
               #b00000000
@@ -76,7 +76,7 @@
               #b00000000)))
 
   (when (fboundp 'define-fringe-bitmap)
-    (define-fringe-bitmap 'elmax/flycheck-fringe-indicator
+    (define-fringe-bitmap 'snug/flycheck-fringe-indicator
       (vector #b00000000
               #b00000000
               #b00000000
@@ -98,17 +98,17 @@
 
   (flycheck-define-error-level 'error
     :overlay-category 'flycheck-error-overlay
-    :fringe-bitmap 'elmax/flycheck-fringe-error
+    :fringe-bitmap 'snug/flycheck-fringe-error
     :fringe-face 'flycheck-fringe-error)
 
   (flycheck-define-error-level 'warning
     :overlay-category 'flycheck-warning-overlay
-    :fringe-bitmap 'elmax/flycheck-fringe-indicator
+    :fringe-bitmap 'snug/flycheck-fringe-indicator
     :fringe-face 'flycheck-fringe-warning)
 
   (flycheck-define-error-level 'info
     :overlay-category 'flycheck-info-overlay
-    :fringe-bitmap 'elmax/flycheck-fringe-indicator
+    :fringe-bitmap 'snug/flycheck-fringe-indicator
     :fringe-face 'flycheck-fringe-info))
 
 ;; TODO:
@@ -133,7 +133,7 @@
   (setq ispell-program-name (executable-find "aspell")
         ispell-dictionary "en_US"))
 
-(defun elmax/flyspell-set-dict (dict)
+(defun snug/flyspell-set-dict (dict)
   (progn
     (if (not (bound-and-true-p flyspell-mode))
         (flyspell-mode))

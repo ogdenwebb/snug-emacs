@@ -1,7 +1,7 @@
 ;; Module with useful custom functions -*- lexical-binding: t; -*-
 
 ;;;###autoload
-(defun elmax/newline-and-indent ()
+(defun snug/newline-and-indent ()
   "Inserts a newline and possibly indents it. Also continues comments if
 executed from a commented line"
   (interactive)
@@ -80,16 +80,16 @@ executed from a commented line"
         (- (line-end-position)
            (line-beginning-position)))))
 
-(defun elmax/empty-line? ()
+(defun snug/empty-line? ()
   (interactive)
   (save-excursion
     (beginning-of-line)
     (looking-at "[[:space:]]*$")))
 
 ;; TODO: indent based languanges like Python
-(defun elmax/smart-backspace ()
+(defun snug/smart-backspace ()
   (interactive)
-  (if (elmax/empty-line?)
+  (if (snug/empty-line?)
       (if (= (line-length (line-number-at-pos)) 0)
           (delete-indentation)
         (delete-horizontal-space))
@@ -123,7 +123,7 @@ executed from a commented line"
     (align-regexp start end complete-regexp group 1 t)))
 
 ;;;###autoload
-(defun elmax/evil-select-pasted ()
+(defun snug/evil-select-pasted ()
   (interactive)
   (let ((start-marker (evil-get-marker ?\[))
         (end-marker (evil-get-marker ?\])))

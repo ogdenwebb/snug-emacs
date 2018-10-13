@@ -47,21 +47,21 @@
 
   ;; TODO: Do it when open file
   ;; Exclude a real file if there's a symlink for that in recentf
-  ;; (defvar elmax/recentf-remote-regexp "\\/\\w*?:\\w*?@\\w*?:\\/")
-  ;; (defun elmax/recentf-file-has-symlink (file)
+  ;; (defvar snug/recentf-remote-regexp "\\/\\w*?:\\w*?@\\w*?:\\/")
+  ;; (defun snug/recentf-file-has-symlink (file)
   ;;   "Test whether there's a symbolic parent of FILE in `recentf-list'."
   ;;   (cl-some (lambda (x)
   ;;              (and (not (string= (file-truename x) file))
   ;;                   (string= x file)))
   ;;            recentf-list))
 
-  ;; (defun elmax/recentf-keep-symlinks (file)
+  ;; (defun snug/recentf-keep-symlinks (file)
   ;;   "Exclude local FILE that has a symbolic parent in `recentf-list'."
   ;;   ;; Unless the file is local
-  ;;   (unless (string-match elmax/recentf-remote-regexp file)
-  ;;     (elmax/recentf-file-has-symlink file)))
+  ;;   (unless (string-match snug/recentf-remote-regexp file)
+  ;;     (snug/recentf-file-has-symlink file)))
 
-  ;; (add-to-list 'recentf-exclude #'elmax/recentf-keep-symlinks)
+  ;; (add-to-list 'recentf-exclude #'snug/recentf-keep-symlinks)
 
   ;; (setq recentf-auto-cleanup 2)
   (recentf-mode 1)

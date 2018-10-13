@@ -117,7 +117,7 @@
   (push 'company-elisp company-backends))
 
 ;; TODO: how to specify mode
-(defun elmax/company-local-backend (mode backends)
+(defun snug/company-local-backend (mode backends)
   "Add BACKENDS to a buffer-local version of `company-backends'."
   (make-local-variable 'company-backends)
   (dolist (name backends)
