@@ -6,7 +6,6 @@
 (require 'snug (concat user-emacs-directory "snug/snug"))
 
 (snug/init
-  env-settings
   env-maps
 
   env-ivy

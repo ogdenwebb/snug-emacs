@@ -42,8 +42,6 @@
     (unless (package-installed-p 'use-package)
       (package-refresh-contents)
       (package-install 'use-package))
-    ;; (require 'use-package)
-    ;; (setq use-package-always-ensure t)
     (let ((package-user-dir-real (file-truename package-user-dir)))
       ;; The reverse is necessary, because outside we mapc
       ;; add-to-list element-by-element, which reverses.
@@ -78,21 +76,14 @@
 (defvar snug-dir (file-truename user-emacs-directory)
   "Root of the snug configuration.")
 
-;; TODO:
-;; (defun snug/byte-compile-config ()
-;;   (interactive)
-;;   (byte-recompile-directory (concat user-emacs-directory "/env") 0)
-;;   (byte-recompile-directory (concat user-emacs-directory "/use") 0)
-;;   (byte-recompile-directory (concat user-emacs-directory "/modeline") 0)
-;;   (message "Success!"))
-
-;; start scratch in text mode
+;; Start scratch in text mode
 (setq initial-major-mode 'text-mode)
 
 ;; Use Common Lisp library
 (require 'cl-lib)
 
 ;; Add configuration directories to `load-path'
+(add-to-list 'load-path "~/.emacs.d/snug/")
 (add-to-list 'load-path "~/.emacs.d/env/")
 (add-to-list 'load-path "~/.emacs.d/use/")
 (add-to-list 'load-path "~/.emacs.d/completion/")
@@ -120,5 +111,7 @@
 ;;                              (float-time
 ;;                               (time-subtract after-init-time before-init-time)))
 ;;                      gcs-done)))
+
+(require 'snug-settings)
 
 (provide 'snug)

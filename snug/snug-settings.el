@@ -176,4 +176,4 @@
 ;;                 (let ((mark-even-if-inactive transient-mark-mode))
 ;;                   (indent-region (region-beginning) (region-end) nil))))))
 
-(provide 'env-settings)
+(provide 'snug-settings)
