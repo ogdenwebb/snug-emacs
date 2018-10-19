@@ -1,4 +1,5 @@
 ;;; Evil mode -*- lexical-binding: t -*-
+;; TODO: (??)  shift-select-mode set to nil
 (use-package evil
   :init
   (setq evil-want-integration t ;; required by evil-collection
@@ -9,14 +10,18 @@
         evil-want-C-u-scroll t
         ;; evil-ex-search-persistent-highlight nil
 
+        evil-visual-state-cursor 'hollow
+        evil-mode-line-format 'nil
+
         evil-ex-search-case 'smart
         evil-ex-substitute-case t
         evil-move-beyond-eol t
         evil-shift-round nil
+        ;; more vim-like behavior
         evil-symbol-word-search t
         evil-insert-skip-empty-lines t
 
-        ;; evil-magic t
+        evil-magic t
         ;; evil-magic 'very-magic
         ;; evil-vim-regexp-replacements nil
 
