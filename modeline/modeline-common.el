@@ -81,6 +81,7 @@
                 ((string= evil-state "operator")  "=")
                 ((string= evil-state "motion")    "m")
                 ((string= evil-state "emacs")     "Emacs")
+                ((string= evil-state "multiedit") "ME")
                 (t "-"))))
       (format " %s" tag)))
 

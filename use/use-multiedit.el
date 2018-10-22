@@ -1,6 +1,6 @@
 ;; Multiedit
 (use-package evil-multiedit
-  :disabled t
+  ;; :disabled t
   :config
   ;; Ex command that allows you to invoke evil-multiedit with a regular expression, e.g.
   (evil-ex-define-cmd "ie[dit]" 'evil-multiedit-ex-match)
@@ -22,6 +22,5 @@
   (general-define-key :keymaps 'evil-multiedit-insert-state-map
                       "C-p" 'evil-multiedit-prev
                       "C-n" 'evil-multiedit-next))
-
 
 (provide 'use-multiedit)

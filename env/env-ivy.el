@@ -19,7 +19,6 @@
   (with-eval-after-load 'projectile
     (setq projectile-completion-system 'ivy))
   ;; TODO: read
-  ;; (setq enable-recursive-minibuffers t)
   )
 
 (use-package swiper

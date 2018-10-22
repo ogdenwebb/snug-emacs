@@ -168,6 +168,9 @@
 ;; Disable eldoc autostart, enabled by default since 25
 (global-eldoc-mode -1)
 
+;; Enable recursive minibuffers
+(setq enable-recursive-minibuffers t)
+
 ;; TODO: add var
 ;; Auto-indent when pasting
 ;; (dolist (command '(yank yank-pop))
