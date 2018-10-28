@@ -90,7 +90,8 @@
 (add-to-list 'load-path "~/.emacs.d/modeline/")
 
 (setq custom-file (concat user-emacs-directory "custom.el"))
-(load custom-file t t)
+(when (file-exists-p custom-file)
+  (load custom-file t t))
 
 (when window-system
   (require 'server)

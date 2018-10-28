@@ -33,8 +33,7 @@
   (define-key read-expression-map (kbd "C-r") 'counsel-expression-history))
 
 (use-package counsel-projectile
-  :after (counsel projectile)
-  :commands (counsel-projectile-mode counsel-projectile-find-file))
+  :after (counsel projectile))
 
 (use-package ivy-rich
   :after ivy

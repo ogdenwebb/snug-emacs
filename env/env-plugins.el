@@ -49,8 +49,7 @@
 
 ;; Quickrun
 (use-package quickrun
-  :commands (quickrun
-             quickrun-region
+  :commands (quickrun quickrun-region
              quickrun-with-arg
              quickrun-shell
              quickrun-compile-only

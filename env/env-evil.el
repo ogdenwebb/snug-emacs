@@ -80,8 +80,9 @@
   :after evil
   :commands (evil-commentary evil-commentary-yank))
 
-                                        ; TODO: maps
+;; TODO: maps
 (use-package evil-surround
+  :after evil
   :commands (global-evil-surround-mode
              evil-surround-edit
              evil-Surround-edit
@@ -114,6 +115,7 @@
 ;; Folding
 ;; TODO: maps
 (use-package evil-vimish-fold
+  :after evil
   :disabled t
   :hook (after-init . evil-vimish-fold-mode)
   :commands evil-vimish-fold-mode

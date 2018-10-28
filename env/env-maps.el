@@ -128,6 +128,8 @@
    "M-j"  'evil-window-down
    "M-k"  'evil-window-up
    "M-l"  'evil-window-right
+
+   "M-x"  'counsel-M-x
    ;; Drag stuff
    "C-h"  'drag-stuff-left
    "C-j"  'drag-stuff-down
