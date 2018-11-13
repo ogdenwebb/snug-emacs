@@ -50,7 +50,6 @@
                  ((string= mode-name "Javascript-IDE") "js")
                  ((string= mode-name "undo-tree-visualizer") "undotree")
                  (t (downcase mode-name)))))
-      ;; (propertize mode 'face `(:foreground "#9d81ba")))) ;; galaxy
       (propertize mode 'face `font-lock-string-face)))
 
   ;; TODO: add raise or v-adjust

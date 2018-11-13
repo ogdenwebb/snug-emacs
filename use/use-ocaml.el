@@ -1,13 +1,18 @@
 ;; OCaml
 (use-package tuareg
   :mode (("\\.ml[4ilpy]?$" . tuareg-mode)
-         ("\\.topml$" . tuareg-mode)))
+         ("\\.topml$" . tuareg-mode))
+  :config
+  (setq tuareg-support-metaocaml t))
 
 (use-package merlin
-  :after (company tuareg)
+  ;; :after (company tuareg)
   :hook (tuareg-mode . merlin-mode)
   :config
   (add-to-list 'company-backends 'merlin-company-backend))
+
+(use-package merlin-eldoc
+  :hook ((reason-mode tuareg-mode caml-mode) . merlin-eldoc-setup))
 
 (use-package utop
   :after tuareg
@@ -16,9 +21,10 @@
 ;; (setq merlin-command 'opam))
 
 (use-package ocp-indent
-  :after (tuareg)
-  :config
-  (add-hook 'tuareg-mode-hook 'ocp-indent-caml-mode-setup))
+  :hook (tuareg-mode . ocp-indent-caml-mode-setup))
+
+(use-package flycheck-ocaml
+  :after (tuareg flycheck))
 
 (defun ocaml/post-init-smartparens ()
   (with-eval-after-load 'smartparens

@@ -7,7 +7,7 @@
 
 ;; Theme settings
 ;; Load my theme
-(defvar snug/custom-theme 'kaolin-valley-dark
+(defvar snug/custom-theme 'kaolin-breeze
   "Default custom theme.")
 
 (use-package autothemer)
@@ -120,7 +120,7 @@
 ;; Disable cursor in non selected windows
 (setq-default cursor-in-non-selected-windows nil)
 
-;;;; Packages
+;;; Packages
 
 ;; Highlight numbers
 (use-package highlight-numbers
@@ -129,7 +129,9 @@
 ;; Highlight defined Emacs Lisp symbols in source code
 (use-package highlight-defined
   :commands (highlight-defined-mode)
-  :hook (emacs-lisp-mode . highlight-defined-mode))
+  :hook (emacs-lisp-mode . highlight-defined-mode)
+  :config
+  (setq highlight-defined-face-use-itself t))
 
 ;; Highlight parenthess
 (use-package paren

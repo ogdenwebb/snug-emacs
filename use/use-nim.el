@@ -2,6 +2,7 @@
   :mode (("\\.nim\\'" . nim-mode)
          ("\\.nims\\'" . nimscript-mode))
   :hook ((nim-mode . nimsuggest-mode)
+         (nim-mode . eldoc-mode)
          (nimsuggest-mode . flycheck-mode))
   :init
   (add-hook 'nim-mode-hook (lambda () (electric-indent-mode -1)))
