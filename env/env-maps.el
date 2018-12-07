@@ -29,7 +29,7 @@
                       "4" 'imenu-list-smart-toggle
                       "5" 'hydra-flyspell/body
                       "6" 'ivy-resume
-                      "k" 'counsel-rg
+                      "k" 'counsel-ag
                       "r" 'quickrun
 
                       ;; Open things quickly
@@ -172,6 +172,7 @@
    "TAB" 'company-indent-or-complete-common
    ;; "TAB" 'company-indent-for-tab-command
    ;; "DEL" 'snug/smart-backspace
+   "C-v" 'clipboard-yank
    "C-k" 'company-complete-common-or-cycle
    "C-a" 'beginning-of-line
    "C-w" 'evil-delete-backward-word

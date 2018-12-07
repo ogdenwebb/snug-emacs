@@ -104,9 +104,7 @@
 
 ;; Use fuzzy completion
 (use-package company-flx
-  :after company
-  :config
-  (company-flx-mode t))
+  :hook (company-mode . company-flx-mode))
 
 ;; (use-package company-box
 ;;   :hook (company-mode . company-box-mode))
