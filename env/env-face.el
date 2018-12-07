@@ -7,7 +7,7 @@
 
 ;; Theme settings
 ;; Load my theme
-(defvar snug/custom-theme 'kaolin-breeze
+(defvar snug/custom-theme 'kaolin-valley-dark
   "Default custom theme.")
 
 (use-package autothemer)
