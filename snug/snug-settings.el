@@ -93,6 +93,7 @@
 ;; TODO:
 ;; (setq-default global-visual-line-mode t)
 
+(setq find-file-visit-truename t)
 ;; VC settings
 (setq vc-follow-symlinks t)
 ;; (remove-hook 'find-file-hooks 'vc-find-file-hook)

@@ -25,6 +25,7 @@
   :commands (swiper))
 
 (use-package counsel
+  :hook (after-init . counsel-mode)
   :config
   (setq counsel-find-file-ignore-regexp (regexp-opt '(".jpg" ".png" ".jpeg"))
         counsel-git-cmd "rg --files"

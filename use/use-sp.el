@@ -9,6 +9,9 @@
 
   (add-hook 'prog-mode-hook #'smartparens-mode)
 
+  (sp-with-modes '(c-mode c++-mode objc-mode java-mode go-mode)
+    (sp-local-pair "{" nil :post-handlers '(:add ("||\n[i]" "RET"))))
+
   ;; disable smartparens in evil-mode's replace state (they conflict)
   (add-hook 'evil-replace-state-entry-hook #'turn-off-smartparens-mode)
   (add-hook 'evil-replace-state-exit-hook #'turn-on-smartparens-mode))

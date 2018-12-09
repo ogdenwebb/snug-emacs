@@ -9,7 +9,11 @@
   :init
   (add-hook 'go-mode-hook (lambda ()
                           (company-mode)
-                          (set (make-local-variable 'company-backends) '(company-go)))))
+                          (set (make-local-variable 'company-backends) '(company-go))
+                          (add-hook 'before-save-hook #'gofmt-before-save nil t)
+                          ))
+  :config
+  (setq gofmt-command "goimports"))
 
 (use-package company-go
   :after (company go-mode)

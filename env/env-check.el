@@ -5,8 +5,8 @@
   :config
   (defhydra hydra-flyspell (:color teal)
     "Flyspell dictionary"
-    ("r" (snug/flyspell-set-dict "ru") "rus")
     ("e" (snug/flyspell-set-dict "en") "eng")
+    ("r" (snug/flyspell-set-dict "ru") "rus")
     ("d" (snug/flyspell-set-dict "de") "den")
     ("q" nil "cancel")))
 
