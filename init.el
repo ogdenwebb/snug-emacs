@@ -9,7 +9,7 @@
   env-maps
 
   env-ivy
-  ;; env-helm
+  ;; env-helm ; only for testing purpose
 
   env-evil
 
@@ -28,7 +28,8 @@
   completion-company ; TODO: refact
 
   ;; Mode-line
-  modeline-common
+  ;; modeline-common
+  modeline-doom
 
   ;; Specific modules and major modes
   use-eshell
@@ -36,24 +37,28 @@
   use-grep
   use-sp ; smartparens
   ;; use-lsp
+  use-multiedit
 
-  use-cl ; common lisp
-  use-clj
+  use-cc          ; c/c++
+  use-cl          ; common lisp
+  use-clj         ; clojure
   use-crystal
   use-calendar
   use-elixir
   use-haskell
-  use-js
+  use-go
+  use-js          ; javascript
   use-nim
   use-ocaml
-  use-org
-  use-org-capture
-  use-py
-  use-perl6
+  use-org         ; basic org setup
+  use-org-capture ; capture things with org-mode
+  use-py          ; python
+  use-perl6       ;
   use-rust
-  use-tools ; support for external apps
-  use-vcs
-  use-writter
+  use-tools       ; support for external apps such as colorpicker
+  use-vcs         ; version control
+  use-writter     ; write in Emacs with a couple of tea
+  use-yasnippet
   use-web)
 
 ;; (~ ^ . ^ ~)

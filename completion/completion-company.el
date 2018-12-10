@@ -20,7 +20,6 @@
 
   (eval-after-load 'company-etags
     '(progn (add-to-list 'company-etags-modes 'web-mode)))
-  ;; (setq company-etags-everywhere t)
   (setq company-etags-everywhere '(php-mode html-mode web-mode nxml-mode))
 
   (with-eval-after-load 'company
@@ -75,12 +74,15 @@
   ;; https://github.com/syl20bnr/spacemacs/pull/179
   ;; (defvar company-mode/enable-yas t
   ;;   "Enable yasnippet for all backends.")
+  (defvar company-mode-enable-yas t
+    "Enable yasnippet for all backends.")
 
-  ;; (defun company-mode/backend-with-yas (backend)
-  ;;   (if (or (not company-mode/enable-yas) (and (listp backend) (member 'company-yasnippet backend)))
-  ;;       backend
-  ;;     (append (if (consp backend) backend (list backend))
-  ;;             '(:with company-yasnippet))))
+  (defun company-backend-with-yas (backend)
+    (if (or (not company-mode-enable-yas)
+            (and (listp backend) (member 'company-yasnippet backend)))
+        backend
+      (append (if (consp backend) backend (list backend))
+              '(:with company-yasnippet))))
 
   ;; (setq company-backends (mapcar #'company-mode/backend-with-yas company-backends))
 
@@ -91,16 +93,20 @@
   ;; (add-to-list 'company-backends 'company-dabbrev)
   ;; (add-to-list 'company-backends 'company-dabbrev-code)
   ;; (add-to-list 'company-backends '(company-capf company-dabbrev-code))
+  (setq company-dabbrev-ignore-case nil)
   (setq company-dabbrev-downcase nil)
 
-  (global-company-mode t))
-
-  ;; (setq company-dabbrev-ignore-case nil)
   ;; (setq company-dabbrev-code-ignore-case nil)
   ;; (setq company-dabbrev-code-everywhere t)
   ;; (setq company-dabbrev-code-modes t)
   ;; (setq company-dabbrev-code-other-buffers t)
   ;; (setq company-dabbrev-ignore-buffers "\\`\\'")
+
+  (global-company-mode t)
+
+  ;; Support yas in commpany
+  ;; Note: Must be the last to involve all backends
+  (setq company-backends (mapcar #'company-backend-with-yas company-backends)))
 
 ;; Use fuzzy completion
 (use-package company-flx

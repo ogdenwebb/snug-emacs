@@ -60,12 +60,6 @@
   :commands (drag-stuff-left drag-stuff-up drag-stuff-down drag-stuff-right))
 ;; :config (drag-stuff-global-mode 1))
 
-;; Yasnippet
-;; TODO:
-;; (use-package yasnippet
-;;   :config
-;;   (yas-global-mode 1))
-
 (defun snug/set-no-fringes ()
   "Remove fringes in window. Mainly uses as hook."
   (when (display-graphic-p)
