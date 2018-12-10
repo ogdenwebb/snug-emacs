@@ -9,9 +9,9 @@
 (use-package undo-tree
   :config
   ;; Persistent undo-tree history across Emacs sessions
-  (setq undo-tree-auto-save-history t)
-  (setq undo-tree-history-directory-alist '(("." . "~/.cache/emacs/undo")))
-  (setq undo-tree-enable-undo-in-region nil)
+  (setq undo-tree-auto-save-history t
+        undo-tree-history-directory-alist '(("." . "~/.cache/emacs/undo"))
+        undo-tree-enable-undo-in-region nil)
   (add-hook 'write-file-functions #'undo-tree-save-history-hook)
   (add-hook 'find-file-hook #'undo-tree-load-history-hook)
   (add-hook 'find-file-hook #'global-undo-tree-mode-check-buffers)
@@ -41,6 +41,9 @@
                           "[/\\]\\.emacs.d/.cache"
                           "[/\\]\\.emacs.d/bookmarks"
                           "[/\\]\\.emacs.d/url"
+                          ".*.jpg$"
+                          ".*.png$"
+                          ".*.gif$"
                           "^/usr/share/emacs"
                           "[/\\]\\.emacs.d/elpa"))
   (add-to-list 'recentf-exclude no-littering-var-directory)

@@ -17,13 +17,15 @@
 (use-package org
   :config
   ;; Fit image into the screen
-  ;; (setq org-image-actual-width '(200))
-  (setq org-image-actual-width 200)
-  (setq org-startup-with-inline-images nil)
+  ;; (setq org-image-actual-width '(600))
+  (setq org-image-actual-width nil)
+  ;; (setq org-image-actual-width 200)
+  (setq org-startup-with-inline-images t)
   ;; (setq org-image-actual-width (/ (display-pixel-width) 3))
   (setq org-startup-indented t
-        org-imenu-depth 4)
-
+        org-startup-folded t
+        org-imenu-depth 4
+        org-tags-column 0)
 
   ;; Fontify
   (setq org-fontify-done-headline t
@@ -34,6 +36,7 @@
         org-hide-leading-stars-before-indent-mode t
         org-ellipsis " ~ ")
 
+  (setq org-adapt-indentation nil)
   ;; Fontify the whole line for headings (with a background color).
   (setq org-fontify-whole-heading-line t)
 
