@@ -12,8 +12,7 @@
   ;; Set evil-shift-width to 2
   (setq-local evil-shift-width 2))
 
-(add-hook 'emacs-lisp-mode-hook 'lisp-indent-setup)
-(add-hook 'clojure-mode-hook 'lisp-indent-setup)
+(add-hook 'lisp-mode-hook 'lisp-indent-setup)
 
 ;; (add-hook 'after-save-hook
 ;;           (lambda ()

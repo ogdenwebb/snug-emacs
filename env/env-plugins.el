@@ -66,6 +66,9 @@
     (setq left-fringe-width 0)
     (setq right-fringe-width 0)))
 
+(use-package bug-hunter
+  :commands (bug-hunter-init-file bug-hunter-file))
+
 (use-package treemacs
   :defer t
   :commands (treemacs)

@@ -180,4 +180,14 @@
 ;;                 (let ((mark-even-if-inactive transient-mark-mode))
 ;;                   (indent-region (region-beginning) (region-end) nil))))))
 
+;; Make Emacs use the $PATH set up by the user's shell
+(use-package exec-path-from-shell
+  :ensure t
+  :if (memq window-system '(mac ns x))
+  :defer  2
+  :config
+  (dolist (var '("GOPATH"  "NVM_BIN"))
+    (add-to-list 'exec-path-from-shell-variables var))
+  (exec-path-from-shell-initialize))
+
 (provide 'snug-settings)
