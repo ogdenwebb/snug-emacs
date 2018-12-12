@@ -20,7 +20,16 @@
   :hook (prog-mode . flycheck-mode)
   :config
   (setq flycheck-idle-change-delay
-        (if flycheck-current-errors 0.3 3.0))
+        (if flycheck-current-errors 0.3 3.0)
+        flycheck-emacs-lisp-load-path 'inherit)
+
+   ;; Display Flycheck errors in GUI tooltips
+  (if (display-graphic-p)
+      (use-package flycheck-pos-tip
+        :hook ((global-flycheck-mode flycheck-mode) . flycheck-pos-tip-mode)
+        :config (setq flycheck-pos-tip-timeout 30))
+    (use-package flycheck-popup-tip
+      :hook ((global-flycheck-mode flycheck-mode) . flycheck-popup-tip-mode)))
 
   ;; TODO: enable
   (setq-default flycheck-disabled-checkers '(emacs-lisp emacs-lisp-checkdoc))

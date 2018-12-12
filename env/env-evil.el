@@ -135,4 +135,12 @@
   (general-itomap "a" 'evil-inner-arg)
   (general-otomap "a" 'evil-outer-arg))
 
+(use-package evil-embrace
+  :after evil-surround
+  :config
+  (add-hook 'LaTeX-mode-hook #'embrace-LaTeX-mode-hook)
+  (add-hook 'org-mode-hook 'embrace-org-mode-hook)
+  (setq evil-embrace-show-help-p nil)
+  (evil-embrace-enable-evil-surround-integration))
+
 (provide 'env-evil)

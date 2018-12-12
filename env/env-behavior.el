@@ -45,6 +45,7 @@
                           ".*.png$"
                           ".*.gif$"
                           "^/usr/share/emacs"
+                          "^/usr/lib64/go/src"
                           "[/\\]\\.emacs.d/elpa"))
   (add-to-list 'recentf-exclude no-littering-var-directory)
   (add-to-list 'recentf-exclude no-littering-etc-directory)
