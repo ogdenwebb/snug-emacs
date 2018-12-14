@@ -11,8 +11,8 @@
         '((read-file-name-internal . ivy--regex-fuzzy)
           (t . ivy--regex-ignore-order))
         )
-
-  (setq ivy-use-virtual-buffers nil ;; Add ‘recentf-mode’ and bookmarks to ‘ivy-switch-buffer’.
+  ;; Add ‘recentf-mode’ and bookmarks to ‘ivy-switch-buffer’.
+  (setq ivy-use-virtual-buffers t
         ;; Do not show "./" and "../" in the `counsel-find-file' completion list
         ;; ivy-extra-directories nil ; default value: ("../" "./")`'
         ivy-count-format "[%d/%d] ")

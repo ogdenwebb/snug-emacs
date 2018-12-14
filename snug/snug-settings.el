@@ -196,7 +196,7 @@
 ;;                      exec-path))
 ;;                  exec-path)))
 
-;; (setq x-gtk-use-system-tooltips nil)
+(setq x-gtk-use-system-tooltips nil)
 
 ;; (use-package exec-path-from-shell
 ;;   :disabled

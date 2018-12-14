@@ -208,7 +208,6 @@
 (use-package popup         :defer t)
 (use-package popup-pos-tip :defer t)
 (use-package popwin        :defer t)
-(use-package pos-tip       :defer t)
 (use-package request       :defer t)
 (use-package rich-minority :defer t)
 (use-package s             :defer t)
@@ -223,5 +222,11 @@
 (use-package with-editor   :defer t)
 (use-package xml-rpc       :defer t)
 (use-package zoutline      :defer t)
+(use-package pos-tip       :defer t
+  :config
+  (setq pos-tip-border-width 1
+        pos-tip-internal-border-width 2))
+        ;; pos-tip-background-color (face-background 'tooltip)
+        ;; pos-tip-foreground-color (face-foreground 'tooltip)))
 
 (provide 'env-plugins)

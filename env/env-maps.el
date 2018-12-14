@@ -158,7 +158,7 @@
    "] h" 'git-gutter:next-hunk
    "[ h" 'git-gutter:previous-hunk)
 
-  ;; Bind ESC to jk
+  ;; Bind ESC to jk in insert mode
   (general-define-key
    :keymaps '(insert)
    "j" (general-key-dispatch 'self-insert-command
