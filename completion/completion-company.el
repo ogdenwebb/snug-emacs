@@ -24,11 +24,7 @@
 
   (with-eval-after-load 'company
     (define-key company-active-map (kbd "M-n") nil)
-    (define-key company-active-map (kbd "M-p") nil)
-    (define-key company-active-map (kbd "C-n") #'company-select-next)
-    (define-key company-active-map (kbd "C-p") #'company-select-previous)
-    (define-key company-active-map (kbd "RET") #'company-complete-selection)
-    (define-key company-active-map [return]    #'company-complete-selection))
+    (define-key company-active-map (kbd "M-p") nil))
 
   ;; Additional backends and company related package
   (use-package company-shell
@@ -110,7 +106,7 @@
 
 ;; Use fuzzy completion
 (use-package company-flx
-  :hook (company-mode . company-flx-mode))
+  :hook ((company-mode global-company-mode) . company-flx-mode))
 
 ;; (use-package company-box
 ;;   :hook (company-mode . company-box-mode))
@@ -119,6 +115,11 @@
   :after company
   :config
   (push 'company-elisp company-backends))
+
+(use-package company-quickhelp
+  :hook ((company-mode global-company-mode) . company-quickhelp-mode)
+  :config
+  (setq company-quickhelp-delay nil))
 
 ;; TODO: how to specify mode
 (defun snug/company-local-backend (mode backends)

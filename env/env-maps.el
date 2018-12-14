@@ -166,6 +166,30 @@
          :timeout 0.25
          "k" 'evil-normal-state))
 
+  ;; Company maps
+  (general-define-key
+   :keymaps '(company-active-map)
+   "C-w"        nil
+   "C-h"        #'company-quickhelp-manual-begin
+   "C-n"        #'company-select-next
+   "C-o"        #'company-search-kill-others
+   "C-p"        #'company-select-previous
+   "C-s"        #'company-filter-candidates
+   "C-S-h"      #'company-show-doc-buffer
+   "C-S-s"      #'company-search-candidates
+   "C-SPC"      #'company-complete-common
+   [return]     #'company-complete-selection
+   [tab]        #'company-complete-common-or-cycle
+   [backtab]    #'company-select-previous)
+
+  (general-define-key
+   :keymaps '(company-search-map)
+   "C-n"    #'company-search-repeat-forward
+   "C-p"    #'company-search-repeat-backward
+   "C-s"    (lambda () (company-search-abort) (company-filter-candidates))
+   [escape] #'company-search-abort)
+
+
   ;; Insert mode maps
   (general-define-key
    :states '(insert)

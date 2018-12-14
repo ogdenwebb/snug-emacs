@@ -180,14 +180,30 @@
 ;;                 (let ((mark-even-if-inactive transient-mark-mode))
 ;;                   (indent-region (region-beginning) (region-end) nil))))))
 
+;; Use zsh
+;; (setq shell-file-name "zsh")
+;; (setq shell-command-switch "-ic")
+
 ;; Make Emacs use the $PATH set up by the user's shell
-(use-package exec-path-from-shell
-  :ensure t
-  :if (memq window-system '(mac ns x))
-  :defer  2
-  :config
-  (dolist (var '("GOPATH"  "NVM_BIN"))
-    (add-to-list 'exec-path-from-shell-variables var))
-  (exec-path-from-shell-initialize))
+;; (when (display-graphic-p)
+;;        (setq exec-path
+;;              (or (eval-when-compile
+;;                    (when (require 'exec-path-from-shell nil t)
+;;                      (setq exec-path-from-shell-check-startup-files nil
+;;                            exec-path-from-shell-arguments (delete "-i" exec-path-from-shell-arguments))
+;;                      (nconc exec-path-from-shell-variables '("GOPATH" "GOROOT" "PYTHONPATH"))
+;;                      (exec-path-from-shell-initialize)
+;;                      exec-path))
+;;                  exec-path)))
+
+;; (setq x-gtk-use-system-tooltips nil)
+
+;; (use-package exec-path-from-shell
+;;   :disabled
+;;   :defer  2
+;;   :config
+;;   (dolist (var '("GOPATH"  "NVM_BIN"))
+;;     (add-to-list 'exec-path-from-shell-variables var))
+;;   (exec-path-from-shell-initialize))
 
 (provide 'snug-settings)
