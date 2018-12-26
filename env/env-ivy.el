@@ -18,7 +18,6 @@
         ivy-count-format "[%d/%d] ")
   (with-eval-after-load 'projectile
     (setq projectile-completion-system 'ivy))
-  ;; TODO: read
   )
 
 (use-package swiper

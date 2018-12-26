@@ -19,7 +19,8 @@
   (setenv "GIT_ASKPASS" "")
   (setenv "SSH_ASKPASS" "")
   :commands (magit-status magit-diff)
-  :config)
+  :config
+  (setq magit-section-visibility-indicator nil))
   ;; (setq magit-diff-refine-hunk 'all))
 
 ;; TODO:
