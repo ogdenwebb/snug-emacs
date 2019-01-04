@@ -1,7 +1,6 @@
 ;;; Org-mode settings  -*- lexical-binding: t -*-
 
 ;; TODO:
-;; org-todo-keywords
 ;; org-todo-state-tags-triggers
 ;; :tangle yes
 ;; export html/pdf; see C-c C-e
@@ -32,6 +31,7 @@
         org-fontify-quote-and-verse-blocks t
         org-src-fontify-natively t
         org-src-tab-acts-natively t
+        org-hide-emphasis-markers t
         org-hide-leading-stars t
         org-hide-leading-stars-before-indent-mode t
         org-ellipsis " ~ ")
@@ -143,9 +143,8 @@
 
 (use-package org-variable-pitch
   :disabled
-  :after org
+  :hook (org-mode . org-variable-pitch-minor-mode)
   :config
-  (setq org-variable-pitch-fixed-font "Philosopher")
-  (add-hook 'org-mode-hook 'org-variable-pitch-minor-mode))
+  (setq org-variable-pitch-fixed-font "Literata"))
 
 (provide 'use-org)

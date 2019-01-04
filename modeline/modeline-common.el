@@ -1,7 +1,6 @@
 ;;; Custom modeline based on telephone-line package.  -*- lexical-binding: t; -*-
 
 ;; TODO: check if all-the-icons installed
-;; TODO: (??) disable mouse menu
 ;; TODO: add function to easy paste icons
 ;; TODO: use colors vars
 ;; TODO: rename my* segments to ???

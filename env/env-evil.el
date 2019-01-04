@@ -59,7 +59,7 @@
     (evil-add-command-properties #'counsel-rg :jump t)
     (evil-add-command-properties #'counsel-fzf :jump t))
 
-  (evil-mode 1))
+  (evil-mode t))
 
 ;; Vim-like keybindings everywhere in Emacs
 (use-package evil-collection

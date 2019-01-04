@@ -36,6 +36,7 @@
   :after (counsel projectile))
 
 (use-package ivy-rich
+  :disabled t
   :after ivy
   :config
   ;; (dolist (cmd

@@ -20,6 +20,7 @@
   (setenv "SSH_ASKPASS" "")
   :commands (magit-status magit-diff)
   :config
+  ;; Disable arrows in section heading
   (setq magit-section-visibility-indicator nil))
   ;; (setq magit-diff-refine-hunk 'all))
 
