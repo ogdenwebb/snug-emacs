@@ -86,14 +86,20 @@ executed from a commented line"
     (beginning-of-line)
     (looking-at "[[:space:]]*$")))
 
-;; TODO: indent based languanges like Python
+;; ;; TODO: indent based languanges like Python
+;; (defun snug/smart-backspace ()
+;;   (interactive)
+;;   (if (snug/empty-line?)
+;;       (if (= (line-length (line-number-at-pos)) 0)
+;;           (delete-indentation)
+;;         (delete-horizontal-space))
+;;     (backward-delete-char-untabify 1 nil)))
+
 (defun snug/smart-backspace ()
   (interactive)
-  (if (snug/empty-line?)
-      (if (= (line-length (line-number-at-pos)) 0)
-          (delete-indentation)
-        (delete-horizontal-space))
-    (backward-delete-char-untabify 1 nil)))
+  (if (string-match "^[[:space:]]*$" (thing-at-point 'line))
+      (delete-indentation)
+    (backward-delete-char-untabify 1)))
 
 ;; TODO: Jump to defenition
 ;; https://github.com/syl20bnr/spacemacs/blob/master/core/core-jump.el

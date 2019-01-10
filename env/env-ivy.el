@@ -47,4 +47,9 @@
   (setq ivy-rich-path-style 'abbrev)
   (ivy-rich-mode t))
 
+(use-package ivy-xref
+  :after ivy
+  :init
+  (setq xref-show-xrefs-function #'ivy-xref-show-xrefs))
+
 (provide 'env-ivy)

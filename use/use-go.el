@@ -14,6 +14,7 @@
                           ))
   :config
   (setq gofmt-command "goimports"))
+        ;; godoc-at-point-function 'godoc-gogetdoc))
 
 (use-package company-go
   :after (company go-mode)

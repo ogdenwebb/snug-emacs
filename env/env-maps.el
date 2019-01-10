@@ -113,7 +113,12 @@
    "n r" 'narrow-to-region
    "n d" 'narrow-to-defun
    "n p" 'narrow-to-page
-   "n w" 'widen)
+   "n w" 'widen
+
+   ;; Insert
+   "i y" 'counsel-yank-pop
+   "i s" 'yas-insert-snippet
+   )
 
   ;; Normal state
   (general-define-key

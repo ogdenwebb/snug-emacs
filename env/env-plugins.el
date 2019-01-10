@@ -150,16 +150,16 @@
         deft-directory "~/Drive/org"
         deft-recursive t))
 
-;; (use-package helpful
-;;   :general
-;;   (general-define-key :states 'normal
-;;                       :prefix leader
-;;                       "h k" 'helpful-key
-;;                       "h v" 'helpful-variable
-;;                       ;; "h f" 'helpful-function
-;;                       "h f" 'helpful-callable
-;;                       "h l" 'find-library
-;;                       "h ." 'helpful-at-point))
+(use-package helpful
+  :general
+  (general-define-key :states 'normal
+                      :prefix leader
+                      "h k" 'helpful-key
+                      "h v" 'helpful-variable
+                      ;; "h f" 'helpful-function
+                      "h f" 'helpful-callable
+                      "h l" 'find-library
+                      "h ." 'helpful-at-point))
 
 ;;; Libraries
 

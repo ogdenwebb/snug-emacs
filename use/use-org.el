@@ -15,6 +15,8 @@
 
 (use-package org
   :config
+
+
   ;; Fit image into the screen
   ;; (setq org-image-actual-width '(600))
   (setq org-image-actual-width nil)
@@ -26,11 +28,16 @@
         org-imenu-depth 4
         org-tags-column 0)
 
+  ;; Agenda
+  (setq org-log-done t)
+  (setq org-agenda-files '("~/agenda.org"))
+
   ;; Fontify
   (setq org-fontify-done-headline t
         org-fontify-quote-and-verse-blocks t
         org-src-fontify-natively t
         org-src-tab-acts-natively t
+        ;; org-pretty-entities nil
         org-hide-emphasis-markers t
         org-hide-leading-stars t
         org-hide-leading-stars-before-indent-mode t
@@ -128,7 +135,8 @@
   :hook (org-mode . org-bullets-mode)
   :config
   (setq org-bullets-bullet-list
-        '("◉" "✸" "⚫" "○" "•")))
+        '("◉" "✸" "⚫" "○" "•"))
+  )
 
 (use-package evil-org
   :after (evil org)
@@ -136,7 +144,10 @@
   :config
   (add-hook 'evil-org-mode-hook
             (lambda ()
-              (evil-org-set-key-theme '(navigation insert textobjects)))))
+              (evil-org-set-key-theme '(navigation insert textobjects))))
+  (require 'evil-org-agenda)
+  (evil-org-agenda-set-keys))
+
 
 (use-package org-download
   :after org)
@@ -145,6 +156,6 @@
   :disabled
   :hook (org-mode . org-variable-pitch-minor-mode)
   :config
-  (setq org-variable-pitch-fixed-font "Literata"))
+  (setq org-variable-pitch-fixed-font "Fira Sans"))
 
 (provide 'use-org)

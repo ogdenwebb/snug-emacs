@@ -57,6 +57,25 @@
 ;; (add-to-list 'default-frame-alist '(font . "iosevka-13"))
 (add-to-list 'default-frame-alist '(font . "D2Coding-13"))
 
+(custom-theme-set-faces
+ 'user
+ ;; '(variable-pitch ((t (:family "Literata"))))
+ '(variable-pitch ((t (:family "Fira Sans"))))
+ '(fixed-pitch ((t (:family "D2Coding" :slant normal :weight normal :height 1.0 :width normal)))))
+
+;; (defun set-buffer-variable-pitch ()
+;;   (interactive)
+;;   (variable-pitch-mode t)
+;;   (setq line-spacing 0.1)
+;;   (set-face-attribute 'org-table nil :inherit 'fixed-pitch)
+;;   (set-face-attribute 'org-code nil :inherit 'fixed-pitch)
+;;   (set-face-attribute 'org-formula nil :inherit 'fixed-pitch)
+;;   (set-face-attribute 'org-block nil :inherit 'fixed-pitch)
+;;   (set-face-attribute 'org-checkbox nil :inherit 'fixed-pitch)
+;;   )
+
+;; (add-hook 'org-mode-hook 'set-buffer-variable-pitch)
+
 ;; Set the fringe size
 (setq-default left-fringe-width  6
               right-fringe-width 8)
@@ -175,7 +194,7 @@
 
 (use-package display-line-numbers
   :if (not (version< emacs-version "26.0"))
-  :hook ((prog-mode text-mode) . display-line-numbers-mode)
+  :hook ((prog-mode text-mode conf-mode) . display-line-numbers-mode)
   :config
   (setq display-line-numbers-grow-only t))
 
