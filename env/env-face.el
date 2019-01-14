@@ -47,6 +47,14 @@
    'emacs-lisp-mode
    '(("\\<\\(nil\\|t\\)\\>" . 'kaolin-themes-boolean))))
 
+(use-package pos-tip
+  :defer t
+  :config
+  (setq pos-tip-border-width 1
+        pos-tip-internal-border-width 2))
+        ;; pos-tip-background-color (face-background 'tooltip)
+        ;; pos-tip-foreground-color (face-foreground 'tooltip)))
+
 ;; Set default font
 ;; (add-to-list 'default-frame-alist '(font . "Roboto Mono-12:style=regular"))
 ;; (add-to-list 'default-frame-alist '(font . "Hasklig-12.5"))
@@ -55,6 +63,7 @@
 ;; (add-to-list 'default-frame-alist '(font . "Input Mono-11"))
 ;; (add-to-list 'default-frame-alist '(font . "Noto Mono-12")) ; <-
 ;; (add-to-list 'default-frame-alist '(font . "iosevka-13"))
+;; (add-to-list 'default-frame-alist '(font . "IBM Plex Mono-12"))
 (add-to-list 'default-frame-alist '(font . "D2Coding-13"))
 
 (custom-theme-set-faces
@@ -131,10 +140,12 @@
 (blink-cursor-mode 1)
 
 ;; Disable startup/splash screen
-(setq initial-scratch-message nil)
+(setq initial-scratch-message nil
+      inhibit-startup-echo-area-message t
+      inhibit-splash-screen t
+      inhibit-startup-message t)
 
-(setq inhibit-splash-screen t)
-(setq inhibit-startup-message t)
+;; Startup echo message
 (defalias 'display-startup-echo-area-message #'ignore)
 
 ;; Disable cursor in non selected windows

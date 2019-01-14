@@ -125,7 +125,8 @@
                                         regexp-search-ring)))
 
 ;; Backup settings
-(setq backup-by-copying t      ; don't clobber symlinks
+(setq make-backup-files t
+      backup-by-copying t      ; don't clobber symlinks
       backup-by-copying-when-linked t
       backup-directory-alist '(("." . "~/.cache/emacs/backup"))
       delete-old-versions t

@@ -113,6 +113,8 @@
 (use-package treemacs-projectile
   :after (treemacs projectile))
 
+;; (use-package treemacs-icons-dired
+;;   :hook (dired-mode . treemacs-icons-dired-mode))
 
 ;; (use-package which-key
 ;;   :config
@@ -162,7 +164,6 @@
                       "h ." 'helpful-at-point))
 
 ;;; Libraries
-
 (use-package anaphora      :defer t)
 (use-package apiwrap       :defer t)
 (use-package asoc          :defer t)
@@ -222,11 +223,5 @@
 (use-package with-editor   :defer t)
 (use-package xml-rpc       :defer t)
 (use-package zoutline      :defer t)
-(use-package pos-tip       :defer t
-  :config
-  (setq pos-tip-border-width 1
-        pos-tip-internal-border-width 2))
-        ;; pos-tip-background-color (face-background 'tooltip)
-        ;; pos-tip-foreground-color (face-foreground 'tooltip)))
 
 (provide 'env-plugins)

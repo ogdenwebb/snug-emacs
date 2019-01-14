@@ -10,9 +10,9 @@
         ivy-re-builders-alist
         '((read-file-name-internal . ivy--regex-fuzzy)
           (t . ivy--regex-ignore-order))
-        )
-  ;; Add ‘recentf-mode’ and bookmarks to ‘ivy-switch-buffer’.
-  (setq ivy-use-virtual-buffers t
+
+        ;; Add ‘recentf-mode’ and bookmarks to ‘ivy-switch-buffer’.
+        ivy-use-virtual-buffers t
         ;; Do not show "./" and "../" in the `counsel-find-file' completion list
         ;; ivy-extra-directories nil ; default value: ("../" "./")`'
         ivy-count-format "[%d/%d] ")
@@ -30,6 +30,8 @@
         counsel-git-cmd "rg --files"
         counsel-grep-base-command "rg -i -M 120 --no-heading --line-number --color never '%s' %s"
         counsel-rg-base-command "rg -i -M 120 --no-heading --line-number --color never %s .")
+  (global-set-key (kbd "M-x") 'counsel-M-x)
+  (global-set-key (kbd "C-x C-f") 'counsel-find-file)
   (define-key read-expression-map (kbd "C-r") 'counsel-expression-history))
 
 (use-package counsel-projectile
