@@ -152,7 +152,12 @@
         deft-directory "~/Drive/org"
         deft-recursive t))
 
+;; Better help
 (use-package helpful
+  :config
+  (with-eval-after-load "counsel"
+    (setq counsel-describe-function-function #'helpful-callable
+          counsel-describe-variable-function #'helpful-variable))
   :general
   (general-define-key :states 'normal
                       :prefix leader

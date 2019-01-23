@@ -54,6 +54,8 @@
     (when (bound-and-true-p display-line-numbers-mode)
       (display-line-numbers-mode -1))
     ;; TODO: disable git-gutter
+    ;; Top padding
+    ;; (setq header-line-format " ")
     ;; Enable line wrapping
     (visual-line-mode t)
     (turn-off-smartparens-mode)

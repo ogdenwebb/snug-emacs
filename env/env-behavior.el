@@ -15,9 +15,10 @@
   (add-hook 'write-file-functions #'undo-tree-save-history-hook)
   (add-hook 'find-file-hook #'undo-tree-load-history-hook)
   (add-hook 'find-file-hook #'global-undo-tree-mode-check-buffers)
+  ;; (add-hook 'undo-tree-visualizer-mode-hook #'undo-tree-visualizer-toggle-diff)
 
   (setq-default undo-tree-visualizer-timestamps t)
-  (setq-default undo-tree-visualizer-diff t)
+  (setq-default undo-tree-visualizer-diff nil)
   (global-undo-tree-mode 1))
 
 

@@ -51,9 +51,9 @@
   :defer t
   :config
   (setq pos-tip-border-width 1
-        pos-tip-internal-border-width 2))
-        ;; pos-tip-background-color (face-background 'tooltip)
-        ;; pos-tip-foreground-color (face-foreground 'tooltip)))
+        pos-tip-internal-border-width 2
+        pos-tip-background-color (face-background 'tooltip)
+        pos-tip-foreground-color (face-foreground 'tooltip)))
 
 ;; Set default font
 ;; (add-to-list 'default-frame-alist '(font . "Roboto Mono-12:style=regular"))
@@ -121,12 +121,12 @@
   :hook (prog-mode . hl-line-mode))
 
 ;; Disable scroll bars
-(defun my/disable-scroll-bars (frame)
+(defun snug/disable-scroll-bars (frame)
   (modify-frame-parameters frame
                            '((vertical-scroll-bars . nil)
                              (horizontal-scroll-bars . nil))))
 
-(add-hook 'after-make-frame-functions 'my/disable-scroll-bars)
+(add-hook 'after-make-frame-functions 'snug/disable-scroll-bars)
 
 ;; Hide default UI stuff
 (tooltip-mode -1) ; relegate tooltips to echo area only

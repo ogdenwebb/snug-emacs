@@ -1,6 +1,7 @@
 ;;; Evil mode -*- lexical-binding: t -*-
 ;; TODO: (??)  shift-select-mode set to nil
 (use-package evil
+  :defer .1
   :init
   (setq evil-want-integration t ;; required by evil-collection
         evil-want-keybinding nil
