@@ -123,6 +123,7 @@
   :config
   (setq vimish-fold-header-width nil))
 
+;; C-a C-x from vim to inc/dec numbers
 (use-package evil-numbers
   :after evil
   :commands (evil-numbers/inc-at-pt evil-numbers/dec-at-pt))
@@ -135,6 +136,21 @@
   :general
   (general-itomap "a" 'evil-inner-arg)
   (general-otomap "a" 'evil-outer-arg))
+
+
+;; gr operator, like vim's ReplaceWithRegister
+(use-package evil-replace-with-register
+  :bind (:map evil-normal-state-map
+              ("gr" . evil-replace-with-register)
+              :map evil-visual-state-map
+              ("gr" . evil-replace-with-register)))
+
+;; gx operator, like vim-exchange
+;; NOTE using cx like vim-exchange is possible but not as straightforward
+(use-package evil-exchange
+  :bind (:map evil-normal-state-map
+              ("gx" . evil-exchange)
+              ("gX" . evil-exchange-cancel)))
 
 (use-package evil-embrace
   :after evil-surround
