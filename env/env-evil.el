@@ -145,12 +145,11 @@
               :map evil-visual-state-map
               ("gr" . evil-replace-with-register)))
 
-;; gx operator, like vim-exchange
-;; NOTE using cx like vim-exchange is possible but not as straightforward
+;; Easy text exchange operator for Evil.
 (use-package evil-exchange
-  :bind (:map evil-normal-state-map
-              ("gx" . evil-exchange)
-              ("gX" . evil-exchange-cancel)))
+  :after evil
+  :config
+  (evil-exchange-cx-install))
 
 (use-package evil-embrace
   :after evil-surround
