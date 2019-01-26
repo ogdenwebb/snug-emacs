@@ -140,10 +140,9 @@
 
 ;; gr operator, like vim's ReplaceWithRegister
 (use-package evil-replace-with-register
-  :bind (:map evil-normal-state-map
-              ("gr" . evil-replace-with-register)
-              :map evil-visual-state-map
-              ("gr" . evil-replace-with-register)))
+  :after evil
+  :general
+  (general-nvmap "gr" 'evil-replace-with-register))
 
 ;; Easy text exchange operator for Evil.
 (use-package evil-exchange
