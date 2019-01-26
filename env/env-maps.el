@@ -183,6 +183,7 @@
    "C-S-h"      #'company-show-doc-buffer
    "C-S-s"      #'company-search-candidates
    "C-SPC"      #'company-complete-common
+   "RET"        #'company-complete-selection
    [return]     #'company-complete-selection
    [tab]        #'company-complete-common-or-cycle
    [backtab]    #'company-select-previous)
