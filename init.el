@@ -36,7 +36,7 @@
   use-filetype
   use-grep
   use-sp ; smartparens
-  ;; use-lsp
+  use-lsp
   use-multiedit
 
   use-cc          ; c/c++
@@ -48,8 +48,8 @@
   use-haskell
   use-go
   use-js          ; javascript
-  use-nim
-  use-ocaml
+  ;; use-nim
+  ;; use-ocaml
   use-org         ; basic org setup
   use-org-capture ; capture things with org-mode
   use-py          ; python

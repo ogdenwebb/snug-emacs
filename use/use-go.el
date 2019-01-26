@@ -9,7 +9,7 @@
   :init
   (add-hook 'go-mode-hook (lambda ()
                           (company-mode)
-                          (set (make-local-variable 'company-backends) '((company-go company-keywords)))
+                          ;; (set (make-local-variable 'company-backends) '((company-go company-keywords)))
                           (add-hook 'before-save-hook #'gofmt-before-save nil t)
                           ))
   :config
@@ -17,6 +17,7 @@
         ;; godoc-at-point-function 'godoc-gogetdoc))
 
 (use-package company-go
+  :disabled
   :after (company go-mode)
   :config
   (setq company-go-show-annotation t))
