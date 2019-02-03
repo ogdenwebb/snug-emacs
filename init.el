@@ -2,6 +2,8 @@
 
 ;; (setq debug-on-error t)
 
+;; TODO: fix RET in company-active-map
+
 ;; General configation
 (require 'snug (concat user-emacs-directory "snug/snug"))
 
@@ -59,6 +61,9 @@
   use-vcs         ; version control
   use-writter     ; write in Emacs with a couple of tea
   use-yasnippet
-  use-web)
+  use-web
+
+  ;; User specific settings
+  user-maps)
 
 ;; (~ ^ . ^ ~)

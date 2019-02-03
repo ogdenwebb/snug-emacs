@@ -1,9 +1,3 @@
-;; Go Packages
-;; go-add-tags
-;; go-stacktracer
-;; go-eldoc
-;; go-direx
-
 (use-package go-mode
   :mode (("\\.go\\'" . go-mode))
   :init
@@ -21,5 +15,12 @@
   :after (company go-mode)
   :config
   (setq company-go-show-annotation t))
+
+(use-package go-impl
+  :after go-mode)
+
+;; lsp provides the similar stuff
+;; (use-package go-eldoc
+;;   :hook (go-mode . go-eldoc-setup))
 
 (provide 'use-go)

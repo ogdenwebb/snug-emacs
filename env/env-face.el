@@ -17,6 +17,8 @@
   ;; Delete or comment the following line if you use MELPA package
   :load-path "dev/emacs-kaolin-themes"
   :config
+  (setq kaolin-themes-org-scale-headings nil)
+
   (setq kaolin-themes-hl-line-colored nil
         kaolin-themes-git-gutter-solid t
         kaolin-themes-underline-wave t

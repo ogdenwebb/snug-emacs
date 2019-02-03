@@ -26,10 +26,12 @@
 (use-package counsel
   :hook (after-init . counsel-mode)
   :config
-  (setq counsel-find-file-ignore-regexp (regexp-opt '(".jpg" ".png" ".jpeg"))
-        counsel-git-cmd "rg --files"
-        counsel-grep-base-command "rg -i -M 120 --no-heading --line-number --color never '%s' %s"
-        counsel-rg-base-command "rg -i -M 120 --no-heading --line-number --color never %s .")
+  (setq counsel-find-file-ignore-regexp (regexp-opt '(".jpg" ".png" ".jpeg")))
+
+  ;; (when (execute-))
+        ;; counsel-git-cmd "rg --files"
+        ;; counsel-grep-base-command "rg -i -M 120 --no-heading --line-number --color never '%s' %s"
+        ;; counsel-rg-base-command "rg -i -M 120 --no-heading --line-number --color never %s .")
   (global-set-key (kbd "M-x") 'counsel-M-x)
   (global-set-key (kbd "C-x C-f") 'counsel-find-file)
   (define-key read-expression-map (kbd "C-r") 'counsel-expression-history))
@@ -38,7 +40,6 @@
   :after (counsel projectile))
 
 (use-package ivy-rich
-  :disabled t
   :after ivy
   :config
   ;; (dolist (cmd

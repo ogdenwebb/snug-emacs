@@ -86,6 +86,7 @@
 (add-to-list 'load-path "~/.emacs.d/snug/")
 (add-to-list 'load-path "~/.emacs.d/env/")
 (add-to-list 'load-path "~/.emacs.d/use/")
+(add-to-list 'load-path "~/.emacs.d/user/")
 (add-to-list 'load-path "~/.emacs.d/completion/")
 (add-to-list 'load-path "~/.emacs.d/modeline/")
 
