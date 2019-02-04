@@ -7,7 +7,10 @@
 
 (use-package general
   :config
-  (general-evil-setup)
-  (setq leader "SPC")) ; set leader key
+  (general-evil-setup))
+
+;; Define leader key
+(defvar snug-leader "SPC"
+  "Initial <leader> key for Evil mode.")
 
 (provide 'env-maps)

@@ -111,7 +111,7 @@
                       ;; "M-l"  'evil-window-right)
 
   (general-define-key :keymaps 'org-mode-map
-                      :prefix leader
+                      :prefix snug-leader
                       :states '(normal)
                       "c"   'org-ctrl-c-ctrl-c
                       ;; "t" 'org-set-tags

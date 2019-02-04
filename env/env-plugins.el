@@ -160,7 +160,7 @@
                   counsel-describe-variable-function #'helpful-variable))
   :general
   (general-define-key :states 'normal
-                      :prefix leader
+                      :prefix snug-leader
                       "h k" 'helpful-key
                       "h v" 'helpful-variable
                       ;; "h f" 'helpful-function

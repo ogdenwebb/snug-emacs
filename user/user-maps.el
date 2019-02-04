@@ -3,7 +3,7 @@
   ;; TODO: add treemacs
   (general-define-key ; :keymaps '(override)
    :states '(normal)
-   :prefix leader
+   :prefix snug-leader
    ;; TODO: add load-theme somewhere
    ;; TODO: mb add configuration opt or smth
    ;; TODO: (??) add second leader
@@ -97,7 +97,7 @@
 
   (general-define-key
    :keymaps '(normal visual)
-   :prefix leader
+   :prefix snug-leader
    "t"   'google-translate-smooth-translate
    ;; Narrowing
    "n r" 'narrow-to-region
@@ -221,7 +221,7 @@
 
   ;; Lisp modes
   (general-define-key :keymaps 'clojure-mode-map
-                      :prefix leader
+                      :prefix snug-leader
                       :states '(normal visual)
                       "e w" 'cider-eval-sexp-at-point
                       "e e" 'cider-eval-defun-at-point
@@ -230,12 +230,12 @@
                       "e x" 'cider-eval-last-sexp-and-replace)
 
   (general-define-key :keymaps 'clojure-mode-map
-                      :prefix leader
+                      :prefix snug-leader
                       :states '(visual)
                       "e e" 'cider-eval-region)
 
   (general-define-key :keymaps 'emacs-lisp-mode-map
-                      :prefix leader
+                      :prefix snug-leader
                       :states '(visual)
                       "e r" 'eval-region)
 

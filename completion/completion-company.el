@@ -22,10 +22,6 @@
     '(progn (add-to-list 'company-etags-modes 'web-mode)))
   (setq company-etags-everywhere '(php-mode html-mode web-mode nxml-mode))
 
-  (with-eval-after-load 'company
-    (define-key company-active-map (kbd "M-n") nil)
-    (define-key company-active-map (kbd "M-p") nil))
-
   ;; Additional backends and company related package
   (use-package company-shell
     :after (company sh-script)
@@ -127,5 +123,10 @@
   (make-local-variable 'company-backends)
   (dolist (name backends)
     (cl-pushnew name company-backends)))
+
+(with-eval-after-load 'company
+  (define-key company-active-map (kbd "RET") 'company-complection)
+  (define-key company-active-map (kbd "M-n") nil)
+  (define-key company-active-map (kbd "M-p") nil))
 
 (provide 'completion-company)

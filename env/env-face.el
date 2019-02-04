@@ -22,6 +22,7 @@
   (setq kaolin-themes-hl-line-colored nil
         kaolin-themes-git-gutter-solid t
         kaolin-themes-underline-wave t
+        kaolin-themes-modeline-border nil
         kaolin-themes-bold nil)
 
   ;; (setq kaolin-valley-light-alt-bg t)
@@ -216,6 +217,13 @@
   :commands (all-the-icons-octicon all-the-icons-faicon all-the-icons-fileicon
                                    all-the-icons-wicon all-the-icons-material all-the-icons-alltheicon
                                    all-the-icons-install-fonts))
+
+(use-package all-the-icons-ivy
+  :disabled
+  :config
+  (setq all-the-icons-ivy-file-commands
+      '(counsel-find-file counsel-file-jump counsel-recentf counsel-projectile-find-file counsel-projectile-find-dir))
+  (all-the-icons-ivy-setup))
 
 ;; Highlight TODO and FIXME
 (use-package fic-mode
