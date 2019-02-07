@@ -1,7 +1,6 @@
-;; TODO:
-;; (setq x-stretch-cursor t)
-
-;; Encoding
+;;; Snug settings file -*- lexical-binding: t -*-
+;
+;; Set UTF-8 as default encoding
 (set-charset-priority 'unicode)
 (prefer-coding-system 'utf-8)
 (set-language-environment "UTF-8")
@@ -16,11 +15,6 @@
 
 ;; Replace the region while insert
 (delete-selection-mode 1)
-
-(setq yank-pop-change-selection t)
-
-;; Disable key bindging suggeestions
-(setq suggest-key-bindings nil)
 
 ;; Enable system clipboard in terminal Emacs
 ;; See: https://hugoheden.wordpress.com/2009/03/08/copypaste-with-emacs-in-terminal/
@@ -43,16 +37,22 @@
 ;;     (setq interprogram-cut-function 'xsel-cut-function)
 ;;     (setq interprogram-paste-function 'xsel-paste-function)))
 
+(setq-default yank-pop-change-selection t
+      x-stretch-cursor nil
+      visible-cursor nil
+      highlight-nonselected-windows nil
+      ;; Disable key bindging suggeestions
+      suggest-key-bindings nil)
 
+;; Avoid GUI dialogs
 (setq use-dialog-box nil)
 
 ;; Replacing yes/no with y/n.
 (defalias 'yes-or-no-p 'y-or-n-p)
 
-;;  Don't show where buffer starts/ends
-(setq-default indicate-buffer-boundaries nil)
-
-(setq-default sentence-end-double-space nil)
+(setq-default indicate-buffer-boundaries nil ;  Don't show where buffer starts/ends
+              indicate-empty-lines nil
+              sentence-end-double-space nil)
 
 ;; reduce point movement lag, see
 ;; https://emacs.stackexchange.com/questions/28736/emacs-pointcursor-movement-lag/28746

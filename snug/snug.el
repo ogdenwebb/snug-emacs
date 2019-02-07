@@ -18,7 +18,7 @@
 ;; Default directories
 
 ;; Increase garbage collection for speedup
-(setq-default gc-cons-threshold 20000000 ; or even 1000000000
+(setq-default gc-cons-threshold 20000000
               gc-cons-percentage 0.6
               package-enable-at-startup nil
               message-log-max 16384

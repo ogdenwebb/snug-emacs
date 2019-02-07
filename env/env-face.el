@@ -28,7 +28,7 @@
   ;; (setq kaolin-valley-light-alt-bg t)
   ;; (setq kaolin-themes-distinct-company-scrollbar t)
   ;; (setq kaolin-themes-distinct-fringe nil)
-  ;; (setq kaolin-themes-italic-comments nil)
+  ;; (setq kaolin-themes-italic-comments t)
 
   ;; (setq kaolin-themes-comments-style 'normal)
 
@@ -133,7 +133,7 @@
 
 ;; Hide default UI stuff
 (tooltip-mode -1) ; relegate tooltips to echo area only
-(setq show-help-function nil)
+(setq show-help-function nil) ;; hide :help-echo text
 
 (menu-bar-mode -1)
 (when (fboundp 'tool-bar-mode)   (tool-bar-mode -1))
@@ -274,6 +274,5 @@
 ;; Hide mode-line in certain buffers
 (use-package hide-mode-line
   :hook (magit-status-mode . hide-mode-line-mode))
-
 
 (provide 'env-face)
