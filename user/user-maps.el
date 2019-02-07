@@ -274,7 +274,10 @@
                       "s" 'evil-surround-edit
                       "S" 'evil-Surround-edit)
 
+  ;; Visual state maps
   (general-define-key :keymaps '(visual)
+                      "*"  'evil-visualstar/begin-search-forward
+                      "#"  'evil-visualstar/begin-search-backward
                       "S"  'evil-surround-region
                       "gS" 'evil-Surround-region)
 
