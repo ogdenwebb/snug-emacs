@@ -169,7 +169,7 @@
                       "h ." 'helpful-at-point))
 
 (use-package frameshot
-  :commands (frameshot-take frameshot-mode)
+  :hook (after-init . frameshot-mode)
   :config
   (setq frameshot-default-setup t))
 

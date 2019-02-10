@@ -100,7 +100,7 @@
 ;; (setq vc-handled-backends nil)
 
 ;; Save last position
-(save-place-mode 1)
+(save-place-mode t)
 
 ;; Disable lockfiles
 (setq create-lockfiles nil)

@@ -158,6 +158,6 @@
   :disabled
   :hook (org-mode . org-variable-pitch-minor-mode)
   :config
-  (setq org-variable-pitch-fixed-font "Fira Sans"))
+  (setq org-variable-pitch-fixed-font "Merriweather"))
 
 (provide 'use-org)

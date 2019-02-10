@@ -55,9 +55,12 @@
   (evil-ex-define-cmd "pc[lean]"   'package-autoremove)
   (evil-ex-define-cmd "lt"         'load-theme)
 
+  ;; Enable to use C-o/C-i after these commands
   (with-eval-after-load 'evil
     (evil-add-command-properties #'find-file-at-point :jump t)
+    (evil-add-command-properties #'swiper :jump t)
     (evil-add-command-properties #'counsel-rg :jump t)
+    (evil-add-command-properties #'counsel-ag :jump t)
     (evil-add-command-properties #'counsel-fzf :jump t))
 
   (evil-mode t))

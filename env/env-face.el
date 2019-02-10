@@ -26,7 +26,7 @@
         kaolin-themes-bold nil)
 
   ;; (setq kaolin-valley-light-alt-bg t)
-  ;; (setq kaolin-valley-dark-alt-bg t)
+  (setq kaolin-valley-dark-alt-bg nil)
   ;; (setq kaolin-themes-distinct-company-scrollbar t)
   ;; (setq kaolin-themes-distinct-fringe nil)
   ;; (setq kaolin-themes-italic-comments t)
@@ -70,11 +70,18 @@
 ;; (add-to-list 'default-frame-alist '(font . "IBM Plex Mono-12"))
 (add-to-list 'default-frame-alist '(font . "D2Coding-13"))
 
-(custom-theme-set-faces
- 'user
- ;; '(variable-pitch ((t (:family "Literata"))))
- '(variable-pitch ((t (:family "Fira Sans"))))
- '(fixed-pitch ((t (:family "D2Coding" :slant normal :weight normal :height 1.0 :width normal)))))
+;; (custom-theme-set-faces
+;;  'user
+;;  ;; '(variable-pitch ((t (:family "Literata"))))
+;;  '(variable-pitch ((t (:family "Fira Sans"))))
+ ;; '(fixed-pitch ((t (:family "D2Coding" :slant normal :weight normal :height 1.0 :width normal)))))
+
+(set-face-attribute 'fixed-pitch nil :family "D2Coding")
+(set-face-attribute 'variable-pitch nil :family "Merriweather") ; a bit more small
+;; (set-face-attribute 'variable-pitch nil :family "Exo 2")
+
+;; (set-face-attribute 'variable-pitch nil :family "Gabriela")
+;; (set-face-attribute 'variable-pitch nil :family "Marmelad")
 
 ;; (defun set-buffer-variable-pitch ()
 ;;   (interactive)
