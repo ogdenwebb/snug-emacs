@@ -39,6 +39,7 @@
 (use-package counsel-projectile
   :after (counsel projectile))
 
+;; More friendly interface for ivy
 (use-package ivy-rich
   :after ivy
   :config

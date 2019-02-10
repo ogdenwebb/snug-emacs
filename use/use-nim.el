@@ -1,3 +1,4 @@
+;; Nim programming language.  -*- lexical-binding: t; -*-
 (use-package nim-mode
   :mode (("\\.nim\\'" . nim-mode)
          ("\\.nims\\'" . nimscript-mode))

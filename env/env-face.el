@@ -26,6 +26,7 @@
         kaolin-themes-bold nil)
 
   ;; (setq kaolin-valley-light-alt-bg t)
+  ;; (setq kaolin-valley-dark-alt-bg t)
   ;; (setq kaolin-themes-distinct-company-scrollbar t)
   ;; (setq kaolin-themes-distinct-fringe nil)
   ;; (setq kaolin-themes-italic-comments t)

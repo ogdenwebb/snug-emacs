@@ -4,6 +4,7 @@
   (general-define-key ; :keymaps '(override)
    :states '(normal)
    :prefix snug-leader
+   :non-normal-prefix snug-non-leader
    ;; TODO: add load-theme somewhere
    ;; TODO: mb add configuration opt or smth
    ;; TODO: (??) add second leader

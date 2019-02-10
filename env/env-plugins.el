@@ -168,6 +168,11 @@
                       "h l" 'find-library
                       "h ." 'helpful-at-point))
 
+(use-package frameshot
+  :commands (frameshot-take frameshot-mode)
+  :config
+  (setq frameshot-default-setup t))
+
 ;;; Libraries
 (use-package anaphora      :defer t)
 (use-package apiwrap       :defer t)
