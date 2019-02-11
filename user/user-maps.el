@@ -1,19 +1,19 @@
 (with-eval-after-load 'general
 
-  ;; TODO: add treemacs
-  (general-define-key ; :keymaps '(override)
-   :states '(normal)
-   :prefix snug-leader
-   :non-normal-prefix snug-non-leader
-   ;; TODO: add load-theme somewhere
-   ;; TODO: mb add configuration opt or smth
-   ;; TODO: (??) add second leader
-   ;; TODO: counsel-linux-app
+   ;; TODO: add treemacs
+   ;; TODO: add maps
+   ;; load-theme
+   ;; counsel-linux-app
    ;; counsel-mark-ring
    ;; counsel-imenu
    ;; counsel-descbinds
    ;; counsel-unicode-char
    ;; counsel-faces
+
+  (general-define-key ; :keymaps '(override)
+   :states '(normal insert emacs)
+   :prefix snug-leader
+   :non-normal-prefix "M-SPC"
    "1" 'colorpicker
    "2" 'undo-tree-visualize
    "3" 'treemacs
