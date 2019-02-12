@@ -116,10 +116,15 @@
 ;; (use-package treemacs-icons-dired
 ;;   :hook (dired-mode . treemacs-icons-dired-mode))
 
-;; (use-package which-key
-;;   :config
-;;   (which-key-mode)
-;;   (which-key-setup-side-window-bottom))
+(use-package which-key
+  :commands (which-key-mode)
+  :config
+  (which-key-mode)
+  (which-key-setup-side-window-bottom))
+
+(use-package eldoc-box
+  :config
+  (add-hook 'eglot--managed-mode-hook #'eldoc-box-hover-at-point-mode t))
 
 (use-package google-translate
   :defer t

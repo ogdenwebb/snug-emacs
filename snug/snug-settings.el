@@ -47,6 +47,9 @@
 ;; Avoid GUI dialogs
 (setq use-dialog-box nil)
 
+;; Do not use GTK tooltips
+(setq x-gtk-use-system-tooltips nil)
+
 ;; Replacing yes/no with y/n.
 (defalias 'yes-or-no-p 'y-or-n-p)
 
@@ -196,8 +199,6 @@
 ;;                      (exec-path-from-shell-initialize)
 ;;                      exec-path))
 ;;                  exec-path)))
-
-(setq x-gtk-use-system-tooltips nil)
 
 ;; (use-package exec-path-from-shell
 ;;   :disabled

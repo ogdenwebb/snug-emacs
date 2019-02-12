@@ -13,7 +13,7 @@
 (use-package autothemer)
 
 (use-package kaolin-themes
-  :after autothemer
+  :requires autothemer
   ;; Delete or comment the following line if you use MELPA package
   :load-path "dev/emacs-kaolin-themes"
   :config

@@ -1,3 +1,4 @@
+;; general-describe-keybindings provides a list with keybinding
 (with-eval-after-load 'general
 
    ;; TODO: add treemacs
@@ -14,11 +15,11 @@
    :states '(normal insert emacs)
    :prefix snug-leader
    :non-normal-prefix "M-SPC"
-   "1" 'colorpicker
-   "2" 'undo-tree-visualize
+   "1" '(colorpicker :wk "Color picker")
+   "2" '(undo-tree-visualize :wk "Undo-tree")
    "3" 'treemacs
-   "4" 'imenu-list-smart-toggle
-   "5" 'hydra-flyspell/body
+   "4" '(imenu-list-smart-toggle :wk "Imenu-list")
+   "5" '(hydra-flyspell/body :wk "Flyspell language")
    "6" 'ivy-resume
    "k" 'counsel-ag
    "r" 'quickrun
@@ -31,6 +32,9 @@
    "o b" 'switch-to-buffer
    "o l" 'counsel-bookmark
    "o y" 'counsel-yank-pop
+
+   ;; Find [files]
+   "f" '(:ignore t :wk "Files")
 
    ;; TODO: (??) "c e" "c s" for list errors(i.e. check err, syn)
    ;; "e" 'flycheck-list-errors
@@ -49,9 +53,9 @@
    ". m" 'olivetti-toggle-hide-mode-line
 
    ;; TODO: add erase-buffer revert-buffer
-   "b p" 'previous-buffer
-   "b n" 'next-buffer
-   "b l" 'ivy-switch-buffer
+   "b p" '(previous-buffer :wk "Previous buffer")
+   "b n" '(next-buffer :wk "Next buffer")
+   "b l" '(ivy-switch-buffer :wk "Switch buffer")
 
    ;; Help
    "h a" 'apropos
@@ -289,6 +293,13 @@
   ;; (general-define-key :keymaps 'ivy-minibuffer-map
   ;;                     "C-n" 'ivy-previous-line-and-call
   ;;                     "C-p" 'ivy-next-line-and-call))
+
+  ;; TODO:
+  ;; (general-omap
+  ;;   :prefix "SPC"
+  ;;   "." 'avy-goto-word-or-subword-1
+  ;;   "l" 'evil-avy-goto-line
+  ;;   "é" 'evil-avy-goto-subword-0 )
   )
 
 (provide 'user-maps)

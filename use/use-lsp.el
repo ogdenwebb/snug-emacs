@@ -34,6 +34,8 @@
 ;;   (setq company-lsp-enable-recompletion t))
 
 (use-package eglot
-  :hook (go-mode . eglot-ensure))
+  :hook (go-mode . eglot-ensure)
+  :config
+  (add-to-list 'eglot-ignored-server-capabilites :hoverProvider))
 
 (provide 'use-lsp)

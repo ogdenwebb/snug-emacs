@@ -1,8 +1,6 @@
 ;;; Syntax & spell checking -*- lexical-binding: t; -*-
 
-(use-package hydra
-  :defer t
-  :config
+(with-eval-after-load 'hydra
   (defhydra hydra-flyspell (:color teal)
     "Flyspell dictionary"
     ("e" (snug/flyspell-set-dict "en") "eng")
