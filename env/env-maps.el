@@ -38,7 +38,7 @@
     ("s" save-buffer "save" :color red)))
 
 (use-package use-package-hydra
-  :after (hydra use-package)
+  :after (hydra)
   :ensure t)
 
 

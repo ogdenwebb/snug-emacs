@@ -1,5 +1,4 @@
 ;;; Various packages -*- lexical-binding: t; -*-
-(require 'map)
 
 ;; Electric indent
 (electric-indent-mode t)
