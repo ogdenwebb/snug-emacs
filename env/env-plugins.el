@@ -150,14 +150,16 @@
 ;;   :hook (dired-mode . treemacs-icons-dired-mode))
 
 (use-package which-key
+  :disabled
   :commands (which-key-mode)
+  :defer t
   :config
-  (which-key-mode)
   (which-key-setup-side-window-bottom))
 
+;; TODO: enable in prog-mode prolly
 (use-package eldoc-box
-  :config
-  (add-hook 'eglot--managed-mode-hook #'eldoc-box-hover-at-point-mode t))
+  :hook ((eglot--managed-mode . eldoc-box-hover-mode)
+         (eglot--managed-mode . eldoc-box-hover-at-point-mode)))
 
 (use-package google-translate
   :defer t
@@ -183,6 +185,7 @@
 (use-package restart-emacs
   :commands (restart-emacs))
 
+;; TODO: https://github.com/EFLS/zetteldeft
 (use-package deft
   :commands (deft)
   :config

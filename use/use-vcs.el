@@ -18,7 +18,7 @@
   :init
   (setenv "GIT_ASKPASS" "")
   (setenv "SSH_ASKPASS" "")
-  :commands (magit-status magit-diff)
+  :commands (magit-status magit-diff magit-blame)
   :config
   ;; Disable arrows in section heading
   (setq magit-section-visibility-indicator nil))

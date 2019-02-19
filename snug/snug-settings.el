@@ -50,6 +50,11 @@
 ;; Do not use GTK tooltips
 (setq x-gtk-use-system-tooltips nil)
 
+;; Disable warning about large files
+(setq large-file-warning-threshold nil)
+
+(setq bidi-display-reordering nil)
+
 ;; Replacing yes/no with y/n.
 (defalias 'yes-or-no-p 'y-or-n-p)
 
@@ -62,8 +67,8 @@
 (setq auto-window-vscroll nil)
 
 ;; Indentation
-(setq tab-width 2)
-(setq evil-shift-width 2)
+(setq tab-width 4)
+(setq evil-shift-width tab-width)
 
 (setq-default indent-tabs-mode nil)
 
@@ -200,11 +205,14 @@
 ;;                      exec-path))
 ;;                  exec-path)))
 
-(when (memq window-system '(mac ns x))
-  (require 'exec-path-from-shell)
-  (setq-default exec-path-from-shell-shell-name "/bin/zsh")
-  (nconc exec-path-from-shell-variables '("GOPATH" "GOROOT" "PYTHONPATH"))
-  (exec-path-from-shell-initialize))
+;; (when (memq window-system '(mac ns x))
+;;   (require 'exec-path-from-shell)
+;;   (setq-default exec-path-from-shell-shell-name "/bin/zsh")
+;;   (nconc exec-path-from-shell-variables '("GOPATH" "GOROOT" "PYTHONPATH"))
+;;   (exec-path-from-shell-initialize))
+
+;; Save bookmarks when kill emacs
+(add-hook 'kill-emacs-hook 'bookmark-save)
 
 ;; (use-package exec-path-from-shell
 ;;   :disabled

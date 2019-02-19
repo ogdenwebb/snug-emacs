@@ -1,4 +1,4 @@
-;; -*- lexical-binding: t -*-
+;; Appearance settings -*- lexical-binding: t -*-
 
 ;; Custom theme load
 (defadvice load-theme (before clear-previous-themes activate)
@@ -7,7 +7,7 @@
 
 ;; Theme settings
 ;; Load my theme
-(defvar snug/custom-theme 'kaolin-valley-dark
+(defvar snug/custom-theme 'kaolin-ocean
   "Default custom theme.")
 
 (use-package autothemer)
@@ -26,7 +26,8 @@
         kaolin-themes-bold nil)
 
   ;; (setq kaolin-valley-light-alt-bg t)
-  (setq kaolin-valley-dark-alt-bg nil)
+  ;; (setq kaolin-valley-dark-alt-bg nil)
+  (setq kaolin-ocean-alt-bg t)
   ;; (setq kaolin-themes-distinct-company-scrollbar t)
   ;; (setq kaolin-themes-distinct-fringe nil)
   ;; (setq kaolin-themes-italic-comments t)

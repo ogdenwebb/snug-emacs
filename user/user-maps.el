@@ -92,6 +92,7 @@
    "g d" 'magit-diff
    "g s" 'magit-status
    "g l" 'magit-log-current
+   "g f" 'magit-log-buffer-file
 
    ;; Projectile
    "p p" 'projectile-switch-project
@@ -166,27 +167,11 @@
          :timeout 0.25
          "k" 'evil-normal-state))
 
+  ;; Use snug newline-and-indent function
   (general-define-key
    :keymaps 'prog-mode-map
    :states '(insert)
    "RET" 'snug/newline-and-indent)
-
-  ;; Company maps
-  (general-define-key
-   :keymaps 'company-active-map
-   "C-w"        nil
-   "C-h"        #'company-quickhelp-manual-begin
-   "C-n"        #'company-select-next
-   "C-o"        #'company-search-kill-others
-   "C-p"        #'company-select-previous
-   "C-s"        #'company-filter-candidates
-   "C-S-h"      #'company-show-doc-buffer
-   "C-S-s"      #'company-search-candidates
-   "C-SPC"      #'company-complete-common
-   "RET"        #'company-complete-selection
-   [return]     #'company-complete-selection
-   [tab]        #'company-complete-common-or-cycle
-   [backtab]    #'company-select-previous)
 
   (general-define-key
    :keymaps 'company-search-map
@@ -299,7 +284,25 @@
   ;;   :prefix "SPC"
   ;;   "." 'avy-goto-word-or-subword-1
   ;;   "l" 'evil-avy-goto-line
-  ;;   "é" 'evil-avy-goto-subword-0 )
+  ;;   "e" 'evil-avy-goto-subword-0 )
+
+  ;; Company maps
+  (general-define-key
+   :keymaps 'company-active-map
+   "C-w"        nil
+   "C-h"        #'company-quickhelp-manual-begin
+   "C-n"        #'company-select-next
+   "C-o"        #'company-search-kill-others
+   "C-p"        #'company-select-previous
+   "C-s"        #'company-filter-candidates
+   "C-S-h"      #'company-show-doc-buffer
+   "C-S-s"      #'company-search-candidates
+   "C-SPC"      #'company-complete-common
+   "RET"        #'company-complete-selection
+   [return]     #'company-complete-selection
+   [tab]        #'company-complete-common-or-cycle
+   [backtab]    #'company-select-previous)
   )
+
 
 (provide 'user-maps)

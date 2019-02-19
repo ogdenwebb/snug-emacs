@@ -1,5 +1,5 @@
 ;;; Evil mode -*- lexical-binding: t -*-
-;; TODO: (??)  shift-select-mode set to nil
+;; TODO: (??)  set shift-select-mode to nil
 (use-package evil
   :defer .1
   :init

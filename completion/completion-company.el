@@ -125,7 +125,8 @@
     (cl-pushnew name company-backends)))
 
 (with-eval-after-load 'company
-  (define-key company-active-map (kbd "RET") 'company-complection)
+  (define-key company-active-map (kbd "RET") 'company-complete-selection)
+  (define-key company-active-map [return] 'company-complete-selection)
   (define-key company-active-map (kbd "M-n") nil)
   (define-key company-active-map (kbd "M-p") nil))
 

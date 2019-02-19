@@ -35,7 +35,7 @@
 
 (use-package eglot
   :hook (go-mode . eglot-ensure)
-  :config
-  (add-to-list 'eglot-ignored-server-capabilites :hoverProvider))
+  :config)
+  ;; (add-to-list 'eglot-ignored-server-capabilites :hoverProvider))
 
 (provide 'use-lsp)
