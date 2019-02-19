@@ -69,6 +69,7 @@
 (use-package evil-collection
   :after evil
   :config
+  (setq-default evil-collection-company-use-tng nil)
   (evil-collection-init))
 
 (use-package evil-goggles
