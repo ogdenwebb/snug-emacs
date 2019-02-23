@@ -129,7 +129,7 @@
 
   :general
   (general-define-key :keymaps 'treemacs-mode-map
-                      :states  '(normal visual treemacs)
+                      :states  '(normal visual treemacs evil-treemacs)
                       ;; "g j"  'treemacs-next-neighbour
                       ;; "g k"  'treemacs-previous-neighbour
                       "g j"  'treemacs-next-project
@@ -150,16 +150,17 @@
 ;;   :hook (dired-mode . treemacs-icons-dired-mode))
 
 (use-package which-key
-  :disabled
+  :disabled t
   :commands (which-key-mode)
-  :defer t
   :config
   (which-key-setup-side-window-bottom))
 
 ;; TODO: enable in prog-mode prolly
 (use-package eldoc-box
-  :hook ((eglot--managed-mode . eldoc-box-hover-mode)
-         (eglot--managed-mode . eldoc-box-hover-at-point-mode)))
+  ;; :hook ((eglot--managed-mode . eldoc-box-hover-mode)
+  ;;        (eglot--managed-mode . eldoc-box-hover-at-point-mode)))
+  :config
+  (add-hook 'prog-mode-hook 'eldoc-box-hover-mode))
 
 (use-package google-translate
   :defer t

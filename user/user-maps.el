@@ -1,7 +1,6 @@
 ;; general-describe-keybindings provides a list with keybinding
 (with-eval-after-load 'general
 
-   ;; TODO: add treemacs
    ;; TODO: add maps
    ;; load-theme
    ;; counsel-linux-app
@@ -14,7 +13,7 @@
   (general-define-key ; :keymaps '(override)
    :states '(normal insert emacs)
    :prefix snug-leader
-   :non-normal-prefix "M-SPC"
+   :non-normal-prefix snug-non-leader
    "1" '(colorpicker :wk "Color picker")
    "2" '(undo-tree-visualize :wk "Undo-tree")
    "3" 'treemacs
@@ -119,6 +118,9 @@
   ;; Normal state
   (general-define-key
    :states '(normal visual)
+    ;; "C-0" '(text-scale-set 0)
+    "C--" 'text-scale-increase
+    "C-_" 'text-scale-decrease
    ;; TODO:
    ;; "*" (lambda () (interactive) (swiper (format "\\<%s\\>" (thing-at-point 'symbol))))
    ;; "#" (lambda () (interactive) (swiper (format "\\<%s\\>" (thing-at-point 'word))))

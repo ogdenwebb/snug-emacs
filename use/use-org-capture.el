@@ -1,3 +1,5 @@
+;; Org protocol setup
+;; Requirement: https://github.com/sprig/org-capture-extension
 (use-package org-protocol
   :config
   (setq org-capture-templates `(

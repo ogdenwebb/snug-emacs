@@ -205,11 +205,11 @@
 ;;                      exec-path))
 ;;                  exec-path)))
 
-;; (when (memq window-system '(mac ns x))
-;;   (require 'exec-path-from-shell)
-;;   (setq-default exec-path-from-shell-shell-name "/bin/zsh")
-;;   (nconc exec-path-from-shell-variables '("GOPATH" "GOROOT" "PYTHONPATH"))
-;;   (exec-path-from-shell-initialize))
+(when (memq window-system '(mac ns x))
+  (require 'exec-path-from-shell)
+  (setq-default exec-path-from-shell-shell-name "/bin/zsh")
+  (nconc exec-path-from-shell-variables '("GOPATH" "GOROOT" "PYTHONPATH"))
+  (exec-path-from-shell-initialize))
 
 ;; Save bookmarks when kill emacs
 (add-hook 'kill-emacs-hook 'bookmark-save)
