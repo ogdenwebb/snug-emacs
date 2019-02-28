@@ -24,11 +24,12 @@
   :disabled t
   :after go-mode)
 
-(use-package gotest
-  :after go-mode)
+;; (use-package gotest
+;;   :disabled t
+;;   :after go-mode)
 
-(use-package go-guru
-  :after go-mode)
+;; (use-package go-guru
+;;   :after go-mode)
 
 (use-package go-eldoc
   :if (and (not (featurep 'lsp-mode))

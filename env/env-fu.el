@@ -141,5 +141,12 @@ executed from a commented line"
     (goto-char pos)
     (current-column)))
 
+;;;###autoload
+(defun copy-whole-buffer ()
+  "Copy whole buffer"
+  (interactive)
+  (save-excursion
+    (mark-whole-buffer)
+    (copy-region-as-kill 1 (buffer-size))))
 
 (provide 'env-fu)

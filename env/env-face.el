@@ -7,7 +7,7 @@
 
 ;; Theme settings
 ;; Load my theme
-(defvar snug/custom-theme 'kaolin-ocean
+(defvar snug-custom-theme 'kaolin-ocean
   "Default custom theme.")
 
 (use-package autothemer)
@@ -43,7 +43,7 @@
   ;;     (add-hook 'after-make-frame-functions #'load-my-theme)
   ;;   (load-theme 'kaolin-eclipse t))
 
-  (load-theme snug/custom-theme t)
+  (load-theme snug-custom-theme t)
 
   (kaolin-treemacs-theme)
 

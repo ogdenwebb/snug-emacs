@@ -6,6 +6,7 @@
 
 ;; Undotree
 (use-package undo-tree
+  :disabled t
   :config
   ;; Persistent undo-tree history across Emacs sessions
   (setq undo-tree-auto-save-history t

@@ -69,9 +69,6 @@
     ("z"   projectile-cache-current-file)
     ("q"   nil "cancel" :color blue)))
 
-(use-package avy
-  :defer t)
-
 ;; TODO: enable
 ;; (use-package backup-each-save
 ;;   :hook (after-save-hook . backup-each-save))
@@ -93,6 +90,7 @@
   :commands (drag-stuff-left drag-stuff-up drag-stuff-down drag-stuff-right))
 ;; :config (drag-stuff-global-mode 1))
 
+;;;###autoload
 (defun snug/set-no-fringes ()
   "Remove fringes in window. Mainly uses as hook."
   (when (display-graphic-p)
@@ -184,6 +182,7 @@
 
 ;; TODO: server restart
 (use-package restart-emacs
+  :disabled t
   :commands (restart-emacs))
 
 ;; TODO: https://github.com/EFLS/zetteldeft
@@ -211,10 +210,12 @@
                       "h ." 'helpful-at-point))
 
 (use-package frameshot
+  :disabled t
   :hook (after-init . frameshot-mode)
   :config
   (setq frameshot-default-setup t))
 
+(use-package avy :defer t)
 ;;; Libraries
 (use-package anaphora      :defer t)
 (use-package apiwrap       :defer t)
@@ -275,6 +276,6 @@
 (use-package with-editor   :defer t)
 (use-package xml-rpc       :defer t)
 (use-package zoutline      :defer t)
-(use-package map      :defer t)
+(use-package map           :defer t)
 
 (provide 'env-plugins)

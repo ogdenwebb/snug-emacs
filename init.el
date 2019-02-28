@@ -1,8 +1,5 @@
 ;;;; Snug - Emacs configuration with Evil
-
 ;; (setq debug-on-error t)
-
-;; TODO: fix RET in company-active-map
 
 ;; General configation
 (require 'snug (concat user-emacs-directory "snug/snug"))
@@ -11,7 +8,7 @@
   env-maps
 
   env-ivy
-  ;; env-helm ; only for testing purpose
+  ;; env-helm ; for testing purpose
 
   env-evil
 
@@ -30,7 +27,7 @@
   completion-company ; TODO: refact
 
   ;; Mode-line
-  ;; modeline-common
+  ;; modeline-common ; TODO: rework
   modeline-doom
 
   ;; Specific modules and major modes
@@ -39,25 +36,27 @@
   use-grep
   use-sp ; smartparens
   use-lsp
-  use-multiedit
+  ;; use-multiedit
 
   use-cc          ; c/c++
   ;; use-cl          ; common lisp
   ;; use-clj         ; clojure
   ;; use-crystal
-  use-calendar
+  ;; use-calendar
   ;; use-elixir
   ;; use-haskell
   use-go
+  use-lua
   ;; use-js          ; javascript
   ;; use-nim
   ;; use-ocaml
   use-org         ; basic org setup
   use-org-capture ; capture things with org-mode
-  use-py          ; python
+  ;; use-py          ; python
   ;; use-perl6
   ;; use-rust
   use-tools       ; support for external apps such as colorpicker
+  use-tabs        ; UI tabs
   use-vcs         ; version control
   use-writter     ; write in Emacs with a couple of tea
   use-yasnippet
@@ -65,5 +64,6 @@
 
   ;; User specific settings
   user-maps)
+;; user-settings
 
 ;; (~ ^ . ^ ~)

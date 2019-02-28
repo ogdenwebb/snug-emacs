@@ -11,6 +11,8 @@
         '((read-file-name-internal . ivy--regex-fuzzy)
           (t . ivy--regex-ignore-order))
 
+        ;; Disable initial regexp
+        ivy-initial-inputs-alist nil
         ;; Add ‘recentf-mode’ and bookmarks to ‘ivy-switch-buffer’.
         ivy-use-virtual-buffers t
         ;; Do not show "./" and "../" in the `counsel-find-file' completion list

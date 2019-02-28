@@ -1,6 +1,6 @@
 (use-package smartparens
   :config
-  (use-package smartparens-config)
+  (require 'smartparens-config)
   ;; (setq sp-autowrap-region nil ; let evil-surround handle this
   (setq sp-highlight-pair-overlay nil
         sp-cancel-autoskip-on-backward-movement nil)

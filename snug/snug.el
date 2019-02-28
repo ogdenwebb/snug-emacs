@@ -3,6 +3,7 @@
 ;; Disable certain byte compiler warnings to cut down on the noise.
 (setq byte-compile-warnings '(not free-vars unresolved noruntime lexical make-local))
 
+;; Startup & package manager
 (defvar file-name-handler-alist-old file-name-handler-alist)
 (setq file-name-handler-alist nil
       byte-compile--use-old-handlers nil
@@ -14,8 +15,6 @@
                          ("melpa" . "https://melpa.org/packages/"))
       ;; don't add that `custom-set-variables' block to init
       package--init-file-ensured t)
-
-;; Default directories
 
 ;; Increase garbage collection for speedup
 (setq-default gc-cons-threshold 20000000
@@ -57,6 +56,9 @@
 (eval-when-compile
   (require 'use-package))
 
+(setq use-package-expand-minimally (if debug-on-error nil t))
+;; (setq use-package-always-ensure t)
+
 (with-eval-after-load "info"
   (info-initialize)
   (dolist (dir (directory-files package-user-dir))
@@ -72,11 +74,15 @@
 ;; TODO: Generate autoloads
 
 ;; Define directories
-(setq home-directory (getenv "HOME"))
-(defvar snug-dir (file-truename user-emacs-directory)
-  "Root of the snug configuration.")
+(defvar home-directory (getenv "HOME")
+  "User $HOME.")
 
-;; Start scratch in text mode
+(defvar snug-root (file-truename user-emacs-directory)
+  "Root of the snug.")
+
+(defvar snug-dir (concat snug-root "snug/")
+  "The main directory of snug-emacs configuration.")
+;; Start initial mode to text-mode
 (setq initial-major-mode 'text-mode)
 
 ;; Use Common Lisp library
@@ -90,14 +96,22 @@
 (add-to-list 'load-path "~/.emacs.d/completion/")
 (add-to-list 'load-path "~/.emacs.d/modeline/")
 
+;; Custom file
+;; TODO: add no-littering dir
 (setq custom-file (concat user-emacs-directory "custom.el"))
 (when (file-exists-p custom-file)
   (load custom-file t t))
 
+;; Server
 (when window-system
   (require 'server)
   (unless (server-running-p)
     (server-start)))
+
+(defun keyword-to-name-str (keyword)
+  "Return KEYWORD symbol without initial color as string
+i.e. :keyword to \"keyword\"."
+  (substring (symbol-name keyword) 1))
 
 (defmacro snug/init (&rest body)
   (declare (indent defun))
@@ -114,6 +128,7 @@
 ;;                               (time-subtract after-init-time before-init-time)))
 ;;                      gcs-done)))
 
+(require 'snug-core)
 (require 'snug-settings)
 
 (provide 'snug)

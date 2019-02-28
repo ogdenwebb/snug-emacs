@@ -190,7 +190,7 @@
    ;; "TAB" 'company-indent-for-tab-command
    ;; "DEL" 'snug/smart-backspace
    "C-v" 'clipboard-yank
-   "C-k" 'company-complete-common-or-cycle
+   ;; "C-k" 'company-complete-common-or-cycle
    "C-a" 'beginning-of-line
    "C-w" 'evil-delete-backward-word
    "C-e" 'end-of-line)

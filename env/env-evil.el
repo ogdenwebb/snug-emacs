@@ -42,7 +42,7 @@
                                    evil-ex-search-previous))
         (evil-ex-nohighlight))))
 
-  (add-hook 'post-command-hook #'evil-clear-hl-after-search)
+  ;; (add-hook 'post-command-hook #'evil-clear-hl-after-search)
 
   ;; Initial states
   (evil-set-initial-state 'nrepl-mode 'insert)
