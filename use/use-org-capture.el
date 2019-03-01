@@ -1,6 +1,7 @@
 ;; Org protocol setup
 ;; Requirement: https://github.com/sprig/org-capture-extension
 (use-package org-protocol
+  :straight nil
   :config
   (setq org-capture-templates `(
   ("p" "Protocol" entry (file+headline ,(concat org-directory "notes.org") "Inbox")

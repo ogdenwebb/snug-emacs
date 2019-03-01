@@ -38,11 +38,11 @@
 ;;     (setq interprogram-paste-function 'xsel-paste-function)))
 
 (setq-default yank-pop-change-selection t
-      x-stretch-cursor nil
-      visible-cursor nil
-      highlight-nonselected-windows nil
-      ;; Disable key bindging suggeestions
-      suggest-key-bindings nil)
+              x-stretch-cursor nil
+              visible-cursor nil
+              highlight-nonselected-windows nil
+              ;; Disable key bindging suggeestions
+              suggest-key-bindings nil)
 
 ;; Avoid GUI dialogs
 (setq use-dialog-box nil)
@@ -64,7 +64,7 @@
 
 ;; reduce point movement lag, see
 ;; https://emacs.stackexchange.com/questions/28736/emacs-pointcursor-movement-lag/28746
-(setq auto-window-vscroll nil)
+;; (setq-default auto-window-vscroll nil)
 
 ;; Indentation
 (setq tab-width 4)

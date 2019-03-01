@@ -7,14 +7,7 @@
 (defvar file-name-handler-alist-old file-name-handler-alist)
 (setq file-name-handler-alist nil
       byte-compile--use-old-handlers nil
-      load-prefer-newer t
-      package-enable-at-startup nil   ; To prevent initialising twice
-      package-user-dir (concat user-emacs-directory "elpa")
-      package-archives '(("gnu"   . "https://elpa.gnu.org/packages/")
-                         ("org"   . "https://orgmode.org/elpa/")
-                         ("melpa" . "https://melpa.org/packages/"))
-      ;; don't add that `custom-set-variables' block to init
-      package--init-file-ensured t)
+      load-prefer-newer t)
 
 ;; Increase garbage collection for speedup
 (setq-default gc-cons-threshold 20000000
@@ -30,43 +23,23 @@
                     gc-cons-percentage 0.1)
               (garbage-collect)) t)
 
-;; Print log while loading
-;; (setq use-package-verbose t)
-;; Add the macro generated list of `package.el' loadpaths to `load-path'.
-(mapc #'(lambda (add) (add-to-list 'load-path add))
-  (eval-when-compile
-    ;; (require 'package)
-    (package-initialize)
-    ;; Install use-package if not installed yet.
-    (unless (package-installed-p 'use-package)
-      (package-refresh-contents)
-      (package-install 'use-package))
-    (let ((package-user-dir-real (file-truename package-user-dir)))
-      ;; The reverse is necessary, because outside we mapc
-      ;; add-to-list element-by-element, which reverses.
-      (nreverse (apply #'nconc
-           ;; Only keep package.el provided loadpaths.
-           (mapcar #'(lambda (path)
-                   (if (string-prefix-p package-user-dir-real path)
-                   (list path)
-                     nil))
-               load-path))))))
+;; Straight.el
+(defvar bootstrap-version)
+(let ((bootstrap-file
+       (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
+      (bootstrap-version 5))
+  (unless (file-exists-p bootstrap-file)
+    (with-current-buffer
+      (url-retrieve-synchronously
+        "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
+        'silent 'inhibit-cookies)
+      (goto-char (point-max))
+      (eval-print-last-sexp)))
+  (load bootstrap-file nil 'nomessage))
 
-;; Enable use-package
-(eval-when-compile
-  (require 'use-package))
 
-(setq use-package-expand-minimally (if debug-on-error nil t))
-;; (setq use-package-always-ensure t)
-
-(with-eval-after-load "info"
-  (info-initialize)
-  (dolist (dir (directory-files package-user-dir))
-    (let ((fdir (concat (file-name-as-directory package-user-dir) dir)))
-      (unless (or (member dir '("." ".." "archives" "gnupg"))
-                  (not (file-directory-p fdir))
-                  (not (file-exists-p (concat (file-name-as-directory fdir) "dir"))))
-        (add-to-list 'Info-directory-list fdir)))))
+(straight-use-package 'use-package)
+(setq straight-use-package-by-default t)
 
 ;; Help keeping ~/.emacs.d clean
 (use-package no-littering)

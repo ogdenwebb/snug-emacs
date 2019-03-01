@@ -81,6 +81,7 @@
   :hook (after-init . global-subword-mode))
 
 (use-package uniquify
+  :straight nil
   :defer 2
   :config
   (setq uniquify-buffer-name-style 'forward))

@@ -108,6 +108,7 @@
 ;;   :hook (company-mode . company-box-mode))
 
 (use-package company-elisp
+  :straight nil
   :after company
   :config
   (push 'company-elisp company-backends))

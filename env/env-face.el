@@ -1,5 +1,18 @@
 ;; Appearance settings -*- lexical-binding: t -*-
 
+;; Icons
+(use-package all-the-icons
+  :commands (all-the-icons-octicon all-the-icons-faicon all-the-icons-fileicon
+                                   all-the-icons-wicon all-the-icons-material all-the-icons-alltheicon
+                                   all-the-icons-install-fonts))
+
+(use-package all-the-icons-ivy
+  :disabled
+  :config
+  (setq all-the-icons-ivy-file-commands
+      '(counsel-find-file counsel-file-jump counsel-recentf counsel-projectile-find-file counsel-projectile-find-dir))
+  (all-the-icons-ivy-setup))
+
 ;; Custom theme load
 (defadvice load-theme (before clear-previous-themes activate)
   "Clear existing theme settings instead of layering them"
@@ -13,9 +26,10 @@
 (use-package autothemer)
 
 (use-package kaolin-themes
+  :straight nil
   :requires autothemer
   ;; Delete or comment the following line if you use MELPA package
-  :load-path "dev/emacs-kaolin-themes"
+  :load-path "local/emacs-kaolin-themes"
   :config
   (setq kaolin-themes-org-scale-headings nil)
 
@@ -220,19 +234,6 @@
   :hook ((prog-mode text-mode conf-mode) . display-line-numbers-mode)
   :config
   (setq display-line-numbers-grow-only t))
-
-;; Icons
-(use-package all-the-icons
-  :commands (all-the-icons-octicon all-the-icons-faicon all-the-icons-fileicon
-                                   all-the-icons-wicon all-the-icons-material all-the-icons-alltheicon
-                                   all-the-icons-install-fonts))
-
-(use-package all-the-icons-ivy
-  :disabled
-  :config
-  (setq all-the-icons-ivy-file-commands
-      '(counsel-find-file counsel-file-jump counsel-recentf counsel-projectile-find-file counsel-projectile-find-dir))
-  (all-the-icons-ivy-setup))
 
 ;; Highlight TODO and FIXME
 (use-package fic-mode

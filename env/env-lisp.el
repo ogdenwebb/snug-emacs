@@ -1,4 +1,5 @@
 (use-package elisp-mode
+  :straight nil
   :config
   (add-hook 'emacs-lisp-mode-hook #'eldoc-mode))
 

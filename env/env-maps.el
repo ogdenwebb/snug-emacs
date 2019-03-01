@@ -39,7 +39,6 @@
     ("s" save-buffer "save" :color red)))
 
 (use-package use-package-hydra
-  :after (hydra)
-  :ensure t)
+  :after (hydra))
 
 (provide 'env-maps)

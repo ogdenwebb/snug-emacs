@@ -53,6 +53,7 @@
 
 ;; Web-mode
 (use-package company-web-html
+  :straight nil
   :after (company web-mode)
   :config
   ;; (add-to-list 'company-backends '(company-web-html :with company-etags)))

@@ -48,11 +48,11 @@
   (evil-set-initial-state 'nrepl-mode 'insert)
 
   ;; Evil ex commands
-  (evil-ex-define-cmd "pu[pgrade]" 'package-upgrade-all)
-  (evil-ex-define-cmd "pi[stall]"  'package-install)
-  (evil-ex-define-cmd "pf[orce]"   'package-reinstall)
-  (evil-ex-define-cmd "pd[elete]"  'package-delete)
-  (evil-ex-define-cmd "pc[lean]"   'package-autoremove)
+  ;; (evil-ex-define-cmd "pu[pgrade]" 'package-upgrade-all)
+  ;; (evil-ex-define-cmd "pi[stall]"  'package-install)
+  ;; (evil-ex-define-cmd "pf[orce]"   'package-reinstall)
+  ;; (evil-ex-define-cmd "pd[elete]"  'package-delete)
+  ;; (evil-ex-define-cmd "pc[lean]"   'package-autoremove)
   (evil-ex-define-cmd "lt"         'load-theme)
 
   ;; Enable to use C-o/C-i after these commands
@@ -136,17 +136,17 @@
   :after evil
   :commands (evil-inner-arg evil-outer-arg
                             evil-forward-arg evil-backward-arg
-                            evil-jump-out-args)
-  :general
-  (general-itomap "a" 'evil-inner-arg)
-  (general-otomap "a" 'evil-outer-arg))
+                            evil-jump-out-args))
+  ;; :general
+  ;; (general-itomap "a" 'evil-inner-arg)
+  ;; (general-otomap "a" 'evil-outer-arg))
 
 
 ;; gr operator, like vim's ReplaceWithRegister
 (use-package evil-replace-with-register
-  :after evil
-  :general
-  (general-nvmap "gr" 'evil-replace-with-register))
+  :after evil)
+  ;; :general
+  ;; (general-nvmap "gr" 'evil-replace-with-register))
 
 ;; Easy text exchange operator for Evil.
 (use-package evil-exchange
