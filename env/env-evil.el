@@ -42,7 +42,7 @@
                                    evil-ex-search-previous))
         (evil-ex-nohighlight))))
 
-  ;; (add-hook 'post-command-hook #'evil-clear-hl-after-search)
+  (add-hook 'post-command-hook #'evil-clear-hl-after-search)
 
   ;; Initial states
   (evil-set-initial-state 'nrepl-mode 'insert)
@@ -136,17 +136,17 @@
   :after evil
   :commands (evil-inner-arg evil-outer-arg
                             evil-forward-arg evil-backward-arg
-                            evil-jump-out-args))
-  ;; :general
-  ;; (general-itomap "a" 'evil-inner-arg)
-  ;; (general-otomap "a" 'evil-outer-arg))
+                            evil-jump-out-args)
+  :general
+  (general-itomap "a" 'evil-inner-arg)
+  (general-otomap "a" 'evil-outer-arg))
 
 
 ;; gr operator, like vim's ReplaceWithRegister
 (use-package evil-replace-with-register
-  :after evil)
-  ;; :general
-  ;; (general-nvmap "gr" 'evil-replace-with-register))
+  :after evil
+  :general
+  (general-nvmap "gr" 'evil-replace-with-register))
 
 ;; Easy text exchange operator for Evil.
 (use-package evil-exchange

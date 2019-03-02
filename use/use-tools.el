@@ -6,8 +6,7 @@
 ;;   :commands (ivy-mpdel-list ivy-mpdel-artists ivy-mpdel-stored-playlists))
 
 (use-package colorpicker
-  :straight nil
-  :load-path "dev/emacs-colorpicker"
+  :straight (:host github :repo "syohex/emacs-colorpicker" :files ("*.el" "*.py" "script"))
   :commands (colorpicker))
 
 (provide 'use-tools)

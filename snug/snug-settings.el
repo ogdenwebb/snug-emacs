@@ -175,8 +175,23 @@
 (put 'scroll-left 'disabled nil)
 (put 'dired-find-alternate-file 'disabled nil)
 
+;; Eldoc
 ;; Disable eldoc autostart, enabled by default since 25
 (global-eldoc-mode -1)
+
+;; Add docstring to ElDoc output
+;; (defadvice eldoc-get-fnsym-args-string (after add-dacstring (sym)
+;;                                               activate compile)
+;;   "Add a doc string to ElDoc's modeline information."
+;;   (let ((doc (eldoc-docstring-first-line
+;;               (cdr (help-split-fundoc (documentation sym t) sym)))))
+;;     (when (and doc (not (equal doc "")))
+;;       (setq ad-return-value
+;;             (concat ad-return-value
+;;                     (if (> (+ (length ad-return-value) (length doc) 4)
+;;                            (frame-width)) "\n" "    ")
+;;                     doc))))
+;;   ad-return-value)
 
 ;; Enable recursive minibuffers
 (setq enable-recursive-minibuffers t)

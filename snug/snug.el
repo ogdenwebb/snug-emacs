@@ -39,7 +39,8 @@
 
 
 (straight-use-package 'use-package)
-(setq straight-use-package-by-default t)
+(setq straight-use-package-by-default t
+      use-package-expand-minimally (if debug-on-error nil t))
 
 ;; Help keeping ~/.emacs.d clean
 (use-package no-littering)

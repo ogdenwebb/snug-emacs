@@ -7,9 +7,9 @@
   (setq ivy-display-style 'fancy
         ivy-height 12
         ;; allow input not in order
-        ivy-re-builders-alist
-        '((read-file-name-internal . ivy--regex-fuzzy)
-          (t . ivy--regex-ignore-order))
+        ;; ivy-re-builders-alist
+        ;; '((read-file-name-internal . ivy--regex-fuzzy)
+        ;;   (t . ivy--regex-ignore-order))
 
         ;; Disable initial regexp
         ivy-initial-inputs-alist nil

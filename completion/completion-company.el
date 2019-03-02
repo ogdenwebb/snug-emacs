@@ -6,7 +6,6 @@
   :commands (company-mode global-company-mode company-complete-common company-indent-or-complete-common
                           company-manual-begin company-grab-line)
   :config
-  ;; (add-hook 'after-init-hook 'global-company-mode)
 
   ;; TODO:
   ;; dabbrev hides other normal condidats

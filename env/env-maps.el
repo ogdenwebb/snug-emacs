@@ -7,6 +7,10 @@
 (defvar snug-non-leader "M-SPC"
   "Leader key for insert and Emacs(and some other, see `general-non-normal-states') Evil states.")
 
+(defvar snug-localleader "SPC m"
+  "Prefix for bindings that are specific to the major mode (filetype)")
+; It also binds , by default to the SPC m map, so that you can access e.g. SPC m e through ,
+
 ;; Reverse mapping for keyboard layouts other than english
 (use-package reverse-im
   :disabled t
@@ -17,6 +21,7 @@
 
 (use-package general
   :config
+  ;; TODO: arg short-names
   (general-evil-setup))
 
 (use-package hydra

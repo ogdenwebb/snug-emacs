@@ -27,5 +27,11 @@
          "\\.?vimperatorrc$"
          "\\.vimp$"))
 
+;; Support for i3 config
+(use-package i3wm-config-mode
+  :straight (:host github :repo "Alexander-Miller/i3wm-Config-Mode")
+  :mode (("[/\\]\\.config/i3/config$" . i3wm-config-mode)
+         ("[/\\]\\.i3/config$" . i3wm-config-mode)))
+
 
 (provide 'use-filetype)
