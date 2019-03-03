@@ -16,12 +16,14 @@
 ;; Git
 (use-package magit
   :init
+  ;; Disable GUI dialog for git
   (setenv "GIT_ASKPASS" "")
   (setenv "SSH_ASKPASS" "")
   :commands (magit-status magit-diff magit-blame)
   :config
   ;; Disable arrows in section heading
-  (setq magit-section-visibility-indicator nil))
+  (setq magit-section-visibility-indicator nil
+        magit-diff-buffer-file-locked nil))
   ;; (setq magit-diff-refine-hunk 'all))
 
 ;; TODO:

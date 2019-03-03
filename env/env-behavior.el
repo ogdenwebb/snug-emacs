@@ -43,6 +43,7 @@
                           "[/\\]\\.emacs.d/.cache"
                           "[/\\]\\.emacs.d/bookmarks"
                           "[/\\]\\.emacs.d/url"
+                          "[/\\]\\.emacs.d/straight"
                           ".*.jpg$"
                           ".*.png$"
                           ".*.gif$"

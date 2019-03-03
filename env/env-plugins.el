@@ -204,6 +204,7 @@
   (general-define-key :states 'normal
                       :prefix snug-leader
                       "h k" 'helpful-key
+                      "h K" 'general-describe-keybindings
                       "h v" 'helpful-variable
                       ;; "h f" 'helpful-function
                       "h f" 'helpful-callable

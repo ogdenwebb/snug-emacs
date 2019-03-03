@@ -7,7 +7,8 @@
 (defvar file-name-handler-alist-old file-name-handler-alist)
 (setq file-name-handler-alist nil
       byte-compile--use-old-handlers nil
-      load-prefer-newer t)
+      load-prefer-newer t
+      package-enable-at-startup nil)
 
 ;; Increase garbage collection for speedup
 (setq-default gc-cons-threshold 20000000
