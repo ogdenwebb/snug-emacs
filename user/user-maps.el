@@ -311,11 +311,10 @@
    [backtab]    #'company-select-previous)
 
   ; Fix TAB in terminal
-  (unless (window-system)
-    (general-define-key
-     :keymaps 'input-decode-map
-     "TAB" [tab]
-     ))
+  (general-define-key
+   :keymaps 'input-decode-map
+   :predicate '(not (window-system))
+   "TAB" [tab])
   )
 
 
