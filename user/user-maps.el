@@ -24,13 +24,13 @@
    "r" 'quickrun
 
    ;; Open things quickly
-   "o r" 'counsel-recentf
+   "o r" '(counsel-recentf :wk "Recentf files")
    ;; "o f" 'counsel-file-jump
-   "o f" 'counsel-fzf
-   "o F" 'counsel-find-file
-   "o b" 'switch-to-buffer
-   "o l" 'counsel-bookmark
-   "o y" 'counsel-yank-pop
+   "o f" '(counsel-fzf :wk "fzf")
+   "o F" '(counsel-find-file :wk "Find files")
+   "o b" '(switch-to-buffer :wk "Switch buffer")
+   "o l" '(counsel-bookmark :wk "Bookmarks")
+   "o y" '(counsel-yank-pop :wk "Yank ring")
 
    ;; Find [files]
    "f" '(:ignore t :wk "Files")
@@ -88,10 +88,15 @@
    "w M" 'maximize-window
 
    ;; Git/Magit
+   "g b" 'magit-blame
    "g d" 'magit-diff
    "g s" 'magit-status
+   "g r" 'git-gutter:revert-hunk
+   "g R" 'magit-revert
    "g l" 'magit-log-current
    "g f" 'magit-log-buffer-file
+   "g ]" 'git-gutter:next-hunk
+   "g [" 'git-gutter:previous-hunk
 
    ;; Projectile
    "p p" 'projectile-switch-project
