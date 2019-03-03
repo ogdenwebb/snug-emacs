@@ -193,7 +193,7 @@
    :states '(insert)
    "TAB" 'company-indent-or-complete-common
    ;; "TAB" 'company-indent-for-tab-command
-   ;; "DEL" 'snug/smart-backspace
+   "M-DEL" 'snug/smart-backspace
    "C-v" 'clipboard-yank
    ;; "C-k" 'company-complete-common-or-cycle
    "C-a" 'beginning-of-line
@@ -309,6 +309,13 @@
    [return]     #'company-complete-selection
    [tab]        #'company-complete-common-or-cycle
    [backtab]    #'company-select-previous)
+
+  ; Fix TAB in terminal
+  (unless (window-system)
+    (general-define-key
+     :keymaps 'input-decode-map
+     "TAB" [tab]
+     ))
   )
 
 
