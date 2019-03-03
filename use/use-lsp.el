@@ -33,7 +33,14 @@
 ;;   (setq company-lsp-async t)
 ;;   (setq company-lsp-enable-recompletion t))
 
+(use-package flymake
+  :defer t)
+
+(use-package json-rpc
+  :defer t)
+
 (use-package eglot
+  :requires (flymake json-rpc)
   :hook (go-mode . eglot-ensure)
   :config)
   ;; (add-to-list 'eglot-ignored-server-capabilites :hoverProvider))

@@ -4,6 +4,7 @@
   :interpreter "go"
   :init
   (add-hook 'go-mode-hook (lambda ()
+                          (setq flycheck-disabled-checkers '(go-vet))
                           (company-mode)
                           ;; (set (make-local-variable 'company-backends) '((company-go company-keywords)))
                           (add-hook 'before-save-hook #'gofmt-before-save nil t)
@@ -15,7 +16,6 @@
       (warn "go-mode: couldn't find goimports; no code formatting/fixed imports on save")))
 
 (use-package company-go
-  :disabled
   :after (company go-mode)
   :config
   (setq company-go-show-annotation t))

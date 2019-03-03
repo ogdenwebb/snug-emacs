@@ -6,13 +6,6 @@
 (setq vc-annotate-background nil
       vc-annotate-very-old-color nil)
 
-(use-package ediff
-  :defer t
-  :commands (ediff))
-
-(use-package evil-ediff
-  :after ediff)
-
 ;; Git
 (use-package magit
   :init
