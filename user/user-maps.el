@@ -122,13 +122,17 @@
 
   ;; Normal state
   (general-define-key
-   :states '(normal visual)
-    ;; "C-0" '(text-scale-set 0)
-    "C--" 'text-scale-increase
-    "C-_" 'text-scale-decrease
-   ;; TODO:
-   ;; "*" (lambda () (interactive) (swiper (format "\\<%s\\>" (thing-at-point 'symbol))))
-   ;; "#" (lambda () (interactive) (swiper (format "\\<%s\\>" (thing-at-point 'word))))
+   :states '(normal)
+   "C-0" '(lambda () (interactive) (text-scale-set 0))
+   "C--" 'text-scale-increase
+   "C-_" 'text-scale-decrease
+   "*" '(lambda () (interactive) (swiper (format "\\<%s\\>" (thing-at-point 'symbol))))
+   "#" '(lambda () (interactive) (swiper (format "\\<%s\\>" (thing-at-point 'word))))
+   )
+
+  ;; nvmap
+  (general-define-key
+   :keymaps '(normal visual)
    "g x"  'browse-url-at-point
    "/"    'swiper
    ;; Navigation between windows
@@ -142,11 +146,7 @@
    "C-h"  'drag-stuff-left
    "C-j"  'drag-stuff-down
    "C-k"  'drag-stuff-up
-   "C-l"  'drag-stuff-right)
-
-  ;; nvmap
-  (general-define-key
-   :keymaps '(normal visual)
+   "C-l"  'drag-stuff-right
 
    ;; evil-commentary
    "g c" 'evil-commentary
@@ -184,7 +184,7 @@
    :keymaps 'company-search-map
    "C-n"    #'company-search-repeat-forward
    "C-p"    #'company-search-repeat-backward
-   "C-s"    (lambda () (company-search-abort) (company-filter-candidates))
+   "C-s"    '(lambda () (interactive) (company-search-abort) (company-filter-candidates))
    [escape] #'company-search-abort)
 
 
@@ -313,9 +313,9 @@
   ; Fix TAB in terminal
   (general-define-key
    :keymaps 'input-decode-map
-   :predicate '(not (window-system))
-   "TAB" [tab])
-  )
+   ;; :predicate '(not (window-system))
+   "TAB" '([tab] :predicate '(not (window-system))))
 
+  )
 
 (provide 'user-maps)
