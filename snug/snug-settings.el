@@ -107,6 +107,9 @@
 ;; (remove-hook 'find-file-hooks 'vc-find-file-hook)
 ;; (setq vc-handled-backends nil)
 
+;; Suppress ad-handle-definition warnings
+(setq ad-redefinition-action 'accept)
+
 ;; Save last position
 (save-place-mode t)
 

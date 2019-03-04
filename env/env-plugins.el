@@ -218,6 +218,7 @@
   (setq frameshot-default-setup t))
 
 (use-package prescient
+  :disabled
   :defer t)
   ;; Change save file location
   ;; (setq prescient-save-file (locate-user-emacs-file "cache/prescient-save.el"))
@@ -227,11 +228,13 @@
   ;; (prescient-persist-mode))
 
 (use-package ivy-prescient
+  :disabled t
   :after (ivy)
   :config
   (ivy-prescient-mode t))
 
 (use-package company-prescient
+  :disabled t
   :after (prescient company)
   :hook ((company-mode global-company-mode) . company-prescient-mode))
 

@@ -6,6 +6,7 @@
   (add-hook 'go-mode-hook (lambda ()
                           (setq flycheck-disabled-checkers '(go-vet))
                           (company-mode)
+                          ;; (setq company-backends 'company-go)
                           ;; (set (make-local-variable 'company-backends) '((company-go company-keywords)))
                           (add-hook 'before-save-hook #'gofmt-before-save nil t)
                           ))
