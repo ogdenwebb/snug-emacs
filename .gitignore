@@ -1,3 +1,8 @@
 *.elc
 network-security.data
 custom.el
+var/
+straight/
+local/
+etc/
+.cache/
