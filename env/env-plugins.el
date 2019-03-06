@@ -217,9 +217,9 @@
   :config
   (setq frameshot-default-setup t))
 
-(use-package prescient
-  :disabled
-  :defer t)
+;; (use-package prescient
+;;   :disabled
+;;   :defer t)
   ;; Change save file location
   ;; (setq prescient-save-file (locate-user-emacs-file "cache/prescient-save.el"))
   ;; Use fuzzy matching by default
@@ -227,16 +227,16 @@
     ;; Enable persistent history
   ;; (prescient-persist-mode))
 
-(use-package ivy-prescient
-  :disabled t
-  :after (ivy)
-  :config
-  (ivy-prescient-mode t))
+;; (use-package ivy-prescient
+;;   :disabled t
+;;   :after (ivy)
+;;   :config
+;;   (ivy-prescient-mode t))
 
-(use-package company-prescient
-  :disabled t
-  :after (prescient company)
-  :hook ((company-mode global-company-mode) . company-prescient-mode))
+;; (use-package company-prescient
+;;   :disabled t
+;;   :after (prescient company)
+;;   :hook ((company-mode global-company-mode) . company-prescient-mode))
 
 
 (use-package avy :defer t)
