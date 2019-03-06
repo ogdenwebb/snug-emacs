@@ -20,13 +20,10 @@
 
 (use-package general
   :config
-  ;; TODO: arg short-names
-  (general-evil-setup))
+  (general-evil-setup t))
 
 (use-package hydra
-  :defer t)
-
-(with-eval-after-load 'hydra
+  :config
   (defhydra hydra-buffer (:color blue :columns 3)
     "
                 Buffers :
@@ -44,5 +41,11 @@
 
 (use-package use-package-hydra
   :after (hydra))
+
+(use-package pretty-hydra
+  :after (hydra))
+
+(use-package major-mode-hydra
+  :after (pretty-hydra))
 
 (provide 'env-maps)
