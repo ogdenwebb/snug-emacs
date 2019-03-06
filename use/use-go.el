@@ -4,10 +4,10 @@
   :interpreter "go"
   :init
   (add-hook 'go-mode-hook (lambda ()
-                          (setq flycheck-disabled-checkers '(go-vet))
-                          (company-mode)
-                          ;; (setq company-backends 'company-go)
-                          ;; (set (make-local-variable 'company-backends) '((company-go company-keywords)))
+                          (set (make-local-variable 'flycheck-disabled-checkers) '(go-vet))
+                          ;; (company-mode)
+                          (set (make-local-variable 'company-backends) '((company-go company-keywords)))
+                          (set (make-local-variable 'compile-command) (concat "go run " (shell-quote-argument buffer-file-name)))
                           (add-hook 'before-save-hook #'gofmt-before-save nil t)
                           ))
   :config
@@ -15,6 +15,11 @@
         ;; godoc-at-point-function 'godoc-gogetdoc)
   (if (not (executable-find "goimports"))
       (warn "go-mode: couldn't find goimports; no code formatting/fixed imports on save")))
+
+;; ;; Customize compile command to run go build
+;; (if (not (string-match "go" compile-command))
+;;     (set (make-local-variable 'compile-command)
+;;          "go build -v && go test -v && go vet"))
 
 (use-package company-go
   :after (company go-mode)
