@@ -35,6 +35,9 @@
   ;;   (let ((inhibit-message t))
   ;;     (recentf-save-list)))
   ;; (run-at-time nil (* 5 60) 'recentf-save-list-silently)
+
+  (setq recentf-max-menu-items 100
+        recentf-max-saved-items 100)
   ;; Recentf blacklist
   (setq recentf-exclude '("^/var/folders\\.*"
                           "COMMIT_EDITMSG\\'"
@@ -72,10 +75,7 @@
   ;; (add-to-list 'recentf-exclude #'snug/recentf-keep-symlinks)
 
   ;; (setq recentf-auto-cleanup 2)
-  (recentf-mode 1)
-  :custom
-  (recentf-max-menu-items 100)
-  (recentf-max-saved-items 100))
+  (recentf-mode 1))
 
 (use-package subword
   :commands (subword-mode global-subword-mode)
