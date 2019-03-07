@@ -1,7 +1,16 @@
 ;; Enable web-mode
 ;; sudo npm install -g csslint
 (use-package web-mode
-  :mode (("\\.html\\'" . web-mode))
+  :mode "\\.html\\'"
+  :mode "\\.p?html?$"
+  :mode "\\.\\(tpl\\|blade\\)\\(\\.php\\)?$"
+  :mode "\\.erb$"
+  :mode "\\.jsp$"
+  :mode "\\.as[cp]x$"
+  :mode "\\.mustache$"
+  :mode "\\.tsx$"
+  :mode "\\.go\\(tmpl\\|html\\)$"
+  :mode "wp-content/themes/.+/.+\\.php$"
   :config
   (add-hook 'web-mode-hook 'turn-off-smartparens-mode)
   ;; For emmet-mode to switch between HTML and CSS
