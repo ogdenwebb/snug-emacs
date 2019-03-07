@@ -6,6 +6,14 @@
 (use-package litable
   :disabled t)
 
+;; Showing an Elisp demo
+(use-package elisp-demos
+  :config
+  (if (featurep 'helpful)
+      (advice-add 'helpful-update :after #'elisp-demos-advice-helpful-update)
+    (advice-add 'describe-function-1 :after #'elisp-demos-advice-describe-function-1))
+  )
+
 ;; TODO:
 (defun lisp-indent-setup ()
   ;; Set tab-width to 2
