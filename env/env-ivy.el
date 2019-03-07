@@ -23,7 +23,7 @@
   )
 
 (use-package ivy-hydra
-  :require
+  :requires (hydra)
   :after (ivy)
   :defer t)
 
