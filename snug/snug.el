@@ -44,6 +44,13 @@
       use-package-expand-minimally (if debug-on-error nil t)
       use-package-verbose (if debug-on-error nil t))
 
+(use-package subr-x
+  :straight nil
+  :defer t)
+
+(use-package git
+  :defer t)
+
 ;; Help keeping ~/.emacs.d clean
 (use-package no-littering)
 
