@@ -162,4 +162,7 @@
   (setq evil-embrace-show-help-p nil)
   (evil-embrace-enable-evil-surround-integration))
 
+(use-package vdiff
+  :commands (vdiff-buffers vdiff-files vdiff-buffers3 vdiff-current-file vdiff-merge-conflict))
+
 (provide 'env-evil)
