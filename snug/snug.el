@@ -39,6 +39,14 @@
   (load bootstrap-file nil 'nomessage))
 
 
+;; Security settings
+(setq gnutls-verify-error (not (getenv "INSECURE")) ; you shouldn't use this
+      tls-checktrust gnutls-verify-error
+      tls-program (list "gnutls-cli --x509cafile %t -p %p %h"
+                        ;; compatibility fallbacks
+                        "gnutls-cli -p %p %h"
+                        "openssl s_client -connect %h:%p -no_ssl2 -no_ssl3 -ign_eof"))
+
 (straight-use-package 'use-package)
 (setq straight-use-package-by-default t
       use-package-expand-minimally (if debug-on-error nil t)
