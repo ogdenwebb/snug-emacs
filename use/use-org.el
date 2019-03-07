@@ -1,21 +1,36 @@
 ;;; Org-mode settings  -*- lexical-binding: t -*-
 
-;; TODO:
-;; org-todo-state-tags-triggers
-;; :tangle yes
-;; export html/pdf; see C-c C-e
-;;
-;; TODO: bind
-;; C-c C-z
-;; C-c C-x f
-;; M-S-ret
-;; M-S-left,right
-;; M-S-up,down
-;; S-left S-right
+;; https://github.com/raxod502/straight.el#installing-org-with-straightel
+(defun org-git-version ()
+  "The Git version of org-mode.
+Inserted by installing org-mode or when a release is made."
+  (require 'git)
+  (let ((git-repo (expand-file-name
+                   "straight/repos/org/" user-emacs-directory)))
+    (string-trim
+     (git-run "describe"
+              "--match=release\*"
+              "--abbrev=6"
+              "HEAD"))))
+
+(defun org-release ()
+  "The release version of org-mode.
+Inserted by installing org-mode or when a release is made."
+  (require 'git)
+  (let ((git-repo (expand-file-name
+                   "straight/repos/org/" user-emacs-directory)))
+    (string-trim
+     (string-remove-prefix
+      "release_"
+      (git-run "describe"
+               "--match=release\*"
+               "--abbrev=0"
+               "HEAD")))))
+
+(provide 'org-version)
 
 (use-package org
   :config
-
 
   ;; Fit image into the screen
   ;; (setq org-image-actual-width '(600))
@@ -55,7 +70,7 @@
       (display-line-numbers-mode -1))
     ;; TODO: disable git-gutter
     ;; Top padding
-    ;; (setq header-line-format " ")
+    (setq header-line-format " ")
     ;; Enable line wrapping
     (visual-line-mode t)
     (turn-off-smartparens-mode)
