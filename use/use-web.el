@@ -61,8 +61,7 @@
           "j" 'emmet-expand-line)))
 
 ;; Web-mode
-(use-package company-web-html
-  :straight nil
+(use-package company-web
   :after (company web-mode)
   :config
   ;; (add-to-list 'company-backends '(company-web-html :with company-etags)))
