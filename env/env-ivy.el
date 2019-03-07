@@ -22,6 +22,11 @@
     (setq projectile-completion-system 'ivy))
   )
 
+(use-package ivy-hydra
+  :require
+  :after (ivy)
+  :defer t)
+
 (use-package swiper
   :commands (swiper))
 
