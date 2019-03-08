@@ -62,12 +62,15 @@
    ;; Help
    "h a" 'apropos
    "h k" 'describe-key
+   "h K" 'general-describe-keybindings
    "h v" 'describe-variable
    "h f" 'describe-function
    "h F" 'describe-face
    "h m" 'describe-mode
    "h l" 'find-library
    "h i" 'info
+
+   "h ." '(helpful-at-point :wk "Describe thing at point" :predicate (featurep 'helpful))
 
    ;; Window management
    "w c" 'delete-window

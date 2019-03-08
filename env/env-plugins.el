@@ -196,20 +196,14 @@
 
 ;; Better help
 (use-package helpful
-  :init
+  :config
   (with-eval-after-load 'counsel
     (setq-default counsel-describe-function-function #'helpful-callable
                   counsel-describe-variable-function #'helpful-variable))
-  :general
-  (general-define-key :states 'normal
-                      :prefix snug-leader
-                      "h k" 'helpful-key
-                      "h K" 'general-describe-keybindings
-                      "h v" 'helpful-variable
-                      ;; "h f" 'helpful-function
-                      "h f" 'helpful-callable
-                      "h l" 'find-library
-                      "h ." 'helpful-at-point))
+
+  (defalias 'describe-key 'helpful-key)
+
+  )
 
 (use-package frameshot
   :disabled t
