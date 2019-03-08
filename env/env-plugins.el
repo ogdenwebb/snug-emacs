@@ -196,13 +196,13 @@
 
 ;; Better help
 (use-package helpful
-  :config
+  :defer t
+  :init
   (with-eval-after-load 'counsel
     (setq-default counsel-describe-function-function #'helpful-callable
                   counsel-describe-variable-function #'helpful-variable))
 
   (defalias 'describe-key 'helpful-key)
-
   )
 
 (use-package frameshot

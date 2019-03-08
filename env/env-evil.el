@@ -30,6 +30,7 @@
         evil-indent-convert-tabs t)
 
   :config
+  (global-undo-tree-mode -1)
 
   (evil-select-search-module 'evil-search-module 'evil-search)
   (add-hook 'evil-insert-state-entry-hook #'evil-ex-nohighlight)

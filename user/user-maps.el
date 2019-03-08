@@ -15,7 +15,7 @@
    :prefix snug-leader
    :non-normal-prefix snug-non-leader
    "1" '(colorpicker :wk "Color picker")
-   "2" '(undo-tree-visualize :wk "Undo-tree")
+   "2" '(undo-propose :wk "Undo-tree")
    "3" 'treemacs
    "4" '(imenu-list-smart-toggle :wk "Imenu-list")
    "5" '(hydra-flyspell/body :wk "Flyspell language")
@@ -33,7 +33,7 @@
    "o y" '(counsel-yank-pop :wk "Yank ring")
 
    ;; Find [files]
-   "f" '(:ignore t :wk "Files")
+   "f"   '(:ignore t :wk "Files")
    "f r" '(counsel-recentf :wk "Recentf files")
    "f f" '(counsel-find-file :wk "Find files")
    "f F" '(counsel-fzf :wk "fzf")
@@ -60,23 +60,23 @@
    "b l" '(ivy-switch-buffer :wk "Switch buffer")
 
    ;; Help
-   "h a" 'apropos
-   "h k" 'describe-key
-   "h K" 'general-describe-keybindings
-   "h v" 'describe-variable
-   "h f" 'describe-function
-   "h F" 'describe-face
-   "h m" 'describe-mode
-   "h l" 'find-library
+   "h a" '(apropos :wk "Search help")
+   "h k" '(describe-key :wk "Describe keybinding")
+   "h K" '(general-describe-keybindings :wk "Keybinding list")
+   "h v" '(describe-variable :wk "Describe varibable")
+   "h f" '(describe-function :wk "Describe function")
+   "h F" '(describe-face :wk "Describe face")
+   "h m" '(describe-mode :wk "Describe mode")
+   "h l" '(find-library :wk "Find library")
    "h i" 'info
 
    "h ." '(helpful-at-point :wk "Describe thing at point" :predicate (featurep 'helpful))
 
    ;; Window management
-   "w c" 'delete-window
-   "w s" 'split-window-below
-   "w v" 'split-window-right
-   "w d" 'kill-this-buffer
+   "w c" '(delete-window :wk "Close split")
+   "w s" '(split-window-below :wk "Split below")
+   "w v" '(split-window-right :wk "Split right")
+   "w d" '(kill-this-buffer :wk "Kill this buffer")
    ;; "w D" 'kill-buffer
    "w D" '(eyebrowse-close-window-config :which-key "close workspace")
    ;; "wc" '(eyebrowse-create-window-config :which-key "create workspace")
