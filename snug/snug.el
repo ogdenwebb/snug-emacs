@@ -80,12 +80,10 @@
 (require 'cl-lib)
 
 ;; Add configuration directories to `load-path'
-(add-to-list 'load-path "~/.emacs.d/snug/")
-(add-to-list 'load-path "~/.emacs.d/env/")
-(add-to-list 'load-path "~/.emacs.d/use/")
-(add-to-list 'load-path "~/.emacs.d/user/")
-(add-to-list 'load-path "~/.emacs.d/completion/")
-(add-to-list 'load-path "~/.emacs.d/modeline/")
+(setq load-path (append '("~/.emacs.d/snug/" "~/.emacs.d/env/"
+                           "~/.emacs.d/use/" "~/.emacs.d/user/"
+                           "~/.emacs.d/completion/" "~/.emacs.d/modeline/")
+                         load-path))
 
 ;; Custom file
 ;; TODO: add no-littering dir
