@@ -1,14 +1,14 @@
 ;; general-describe-keybindings provides a list with keybinding
 (with-eval-after-load 'general
 
-   ;; TODO: add maps
-   ;; load-theme
-   ;; counsel-linux-app
-   ;; counsel-mark-ring
-   ;; counsel-imenu
-   ;; counsel-descbinds
-   ;; counsel-unicode-char
-   ;; counsel-faces
+  ;; TODO: add maps
+  ;; load-theme
+  ;; counsel-linux-app
+  ;; counsel-mark-ring
+  ;; counsel-imenu
+  ;; counsel-descbinds
+  ;; counsel-unicode-char
+  ;; counsel-faces
 
   (general-define-key ; :keymaps '(override)
    :states '(normal insert emacs)
@@ -34,6 +34,9 @@
 
    ;; Find [files]
    "f" '(:ignore t :wk "Files")
+   "f r" '(counsel-recentf :wk "Recentf files")
+   "f f" '(counsel-find-file :wk "Find files")
+   "f F" '(counsel-fzf :wk "fzf")
 
    ;; TODO: (??) "c e" "c s" for list errors(i.e. check err, syn)
    ;; "e" 'flycheck-list-errors
@@ -71,7 +74,11 @@
    "w s" 'split-window-below
    "w v" 'split-window-right
    "w d" 'kill-this-buffer
-   "w D" 'kill-buffer
+   ;; "w D" 'kill-buffer
+   "w D" '(eyebrowse-close-window-config :which-key "close workspace")
+   ;; "wc" '(eyebrowse-create-window-config :which-key "create workspace")
+   ;; "wn" '(eyebrowse-next-window-config :which-key "next workspace")
+   ;; "wp" '(eyebrowse-prev-window-config :which-key "prev workspace")
 
    "w w" 'evil-window-next
    "w h" 'evil-window-left
@@ -87,6 +94,9 @@
    "w m" 'minimize-window
    "w M" 'maximize-window
 
+   "w u" '(winner-undo :which-key "winner undo")
+   "w r" '(winner-redo :which-key "winner redo")
+
    ;; Git/Magit
    "g b" 'magit-blame
    "g d" 'magit-diff
@@ -100,11 +110,11 @@
    "g [" 'git-gutter:previous-hunk
 
    ;; Projectile
-   "p p" 'projectile-switch-project
-   "p f" 'counsel-projectile-find-file
-   "p k" 'projectile-grep
-   "p r" 'projectile-replace
-   "p t" 'projectile-regenerate-tags)
+   "p p" '(projectile-switch-project :wk "Switch project")
+   "p f" '(counsel-projectile-find-file :wk "Find file in project")
+   "p k" '(projectile-ag :wk "Grep in project")
+   "p r" '(projectile-replace :wk "Replace in project")
+   "p t" '(projectile-regenerate-tags :wk "Update tags for project"))
 
   (general-define-key
    :keymaps '(normal visual)
@@ -311,7 +321,7 @@
    [tab]        #'company-complete-common-or-cycle
    [backtab]    #'company-select-previous)
 
-  ; Fix TAB in terminal
+  ;; Fix TAB in terminal
   (general-define-key
    :keymaps 'input-decode-map
    ;; :predicate '(not (window-system))
