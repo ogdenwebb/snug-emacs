@@ -35,6 +35,8 @@
   (add-hook 'evil-insert-state-entry-hook #'evil-ex-nohighlight)
 
   (defun evil-clear-hl-after-search ()
+    "Clear evil active highlighting."
+    (interactive)
     (when evil-ex-active-highlights-alist
       (unless (memq last-command '(evil-search-next
                                    evil-search-previous
@@ -56,6 +58,7 @@
   (evil-ex-define-cmd "lt"         'load-theme)
 
   ;; Enable to use C-o/C-i after these commands
+  ;; TODO: macro def-evil-jump or smth
   (with-eval-after-load 'evil
     (evil-add-command-properties #'find-file-at-point :jump t)
     (evil-add-command-properties #'swiper :jump t)
