@@ -68,9 +68,13 @@
 
 ;; Indentation
 (setq tab-width 4)
-(setq evil-shift-width tab-width)
 
 (setq-default indent-tabs-mode nil)
+
+;; Set tab length
+(setq tab-stop-list (number-sequence 2 120 2))
+(with-eval-after-load 'evil
+  (setq evil-shift-width tab-width))
 
 ;; Make the backspace properly erase the tab instead of
 ;; removing 1 space at a time.
