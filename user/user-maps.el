@@ -296,9 +296,16 @@
                       :states '(insert)
                       "TAB"  'company-indent-or-complete-common)
 
-  ;; (general-define-key :keymaps 'ivy-minibuffer-map
-  ;;                     "C-n" 'ivy-previous-line-and-call
-  ;;                     "C-p" 'ivy-next-line-and-call))
+  (general-define-key :keymaps 'ivy-minibuffer-map
+                      "C-SPC"  'ivy-call-and-recenter
+                      "C-r"    'evil-paste-from-register
+                      "C-k"    'ivy-previous-line
+                      "C-j"    'ivy-next-line
+                      "C-l"    'ivy-alt-done
+                      "C-w"    'ivy-backward-kill-word
+                      "C-u"    'ivy-kill-line
+                      "C-f"    'forward-word
+                      "C-b"    'backward-word)
 
   ;; TODO:
   ;; (general-omap
@@ -311,18 +318,18 @@
   (general-define-key
    :keymaps 'company-active-map
    "C-w"        nil
-   "C-h"        #'company-quickhelp-manual-begin
-   "C-n"        #'company-select-next
-   "C-o"        #'company-search-kill-others
-   "C-p"        #'company-select-previous
-   "C-s"        #'company-filter-candidates
-   "C-S-h"      #'company-show-doc-buffer
-   "C-S-s"      #'company-search-candidates
-   "C-SPC"      #'company-complete-common
-   "RET"        #'company-complete-selection
-   [return]     #'company-complete-selection
-   [tab]        #'company-complete-common-or-cycle
-   [backtab]    #'company-select-previous)
+   "C-h"        'company-quickhelp-manual-begin
+   "C-n"        'company-select-next
+   "C-o"        'company-search-kill-others
+   "C-p"        'company-select-previous
+   "C-s"        'company-filter-candidates
+   "C-S-h"      'company-show-doc-buffer
+   "C-S-s"      'company-search-candidates
+   "C-SPC"      'company-complete-common
+   "RET"        'company-complete-selection
+   [return]     'company-complete-selection
+   [tab]        'company-complete-common-or-cycle
+   [backtab]    'company-select-previous)
 
   ;; Fix TAB in terminal
   (general-define-key
