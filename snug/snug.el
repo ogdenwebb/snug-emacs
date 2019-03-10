@@ -48,9 +48,12 @@
                         "openssl s_client -connect %h:%p -no_ssl2 -no_ssl3 -ign_eof"))
 
 (straight-use-package 'use-package)
-(setq straight-use-package-by-default t
-      use-package-expand-minimally (if debug-on-error nil t)
-      use-package-verbose (if debug-on-error nil t))
+(setq straight-use-package-by-default t)
+(if debug-on-error
+      (setq use-package-expand-minimally nil
+            use-package-verbose t)
+  (setq use-package-expand-minimally t
+        use-package-verbose nil))
 
 (use-package subr-x
   :straight nil
