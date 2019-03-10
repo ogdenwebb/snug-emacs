@@ -191,7 +191,15 @@
   :commands (deft)
   :config
   (setq deft-extensions '("txt" "tex" "org")
+        deft-default-extension "org"
+        deft-use-filename-as-title nil
+        deft-use-filter-string-for-filename t
+        deft-org-mode-title-prefix t
         deft-directory "~/Drive/org"
+        ;; converts the filter string into a readable file-name using kebab-case:
+        deft-file-naming-rules '((noslash . "-")
+                                 (nospace . "-")
+                                 (case-fn . downcase))
         deft-recursive t))
 
 ;; Better help
