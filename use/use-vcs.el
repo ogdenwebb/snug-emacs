@@ -1,4 +1,4 @@
-;; Mercurial
+;; Mercurial  -*- lexical-binding: t -*-
 ;; (use-package monky
 ;;   :config
 ;;   (setq monky-process-type 'cmdserver))

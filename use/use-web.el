@@ -1,3 +1,4 @@
+;; Web setup -*- lexical-binding: t -*-
 ;; Enable web-mode
 ;; sudo npm install -g csslint
 (use-package web-mode

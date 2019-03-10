@@ -1,3 +1,4 @@
+;; Support for various filetypes -*- lexical-binding: t -*-
 ;; Markdown
 (use-package markdown-mode
   :commands (markdown-mode gfm-mode)

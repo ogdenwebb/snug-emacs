@@ -1,3 +1,4 @@
+;; Support for golang -*- lexical-binding: t -*-
 ;; maybe: https://github.com/dougm/go-projectile/
 (use-package go-mode
   :mode (("\\.go\\'" . go-mode))

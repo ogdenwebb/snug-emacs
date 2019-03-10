@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t -*-
 ;; Customize prompt
 (with-eval-after-load 'eshell
   (setq eshell-prompt-function

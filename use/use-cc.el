@@ -1,5 +1,4 @@
-;; C/C++ module
-
+;; C/C++ module -*- lexical-binding: t -*-
 (use-package cc-mode
   :ensure nil
   :hook (c-mode-common . (lambda ()
