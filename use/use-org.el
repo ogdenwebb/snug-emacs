@@ -70,7 +70,7 @@ Inserted by installing org-mode or when a release is made."
       (display-line-numbers-mode -1))
     ;; TODO: disable git-gutter
     ;; Top padding
-    (setq header-line-format " ")
+    ;; (setq header-line-format " ")
     ;; Enable line wrapping
     (visual-line-mode t)
     (turn-off-smartparens-mode)
@@ -171,7 +171,7 @@ Inserted by installing org-mode or when a release is made."
   :after org)
 
 (use-package org-variable-pitch
-  :disabled
+  :disabled t
   :hook (org-mode . org-variable-pitch-minor-mode)
   :config
   (setq org-variable-pitch-fixed-font "Merriweather"))
