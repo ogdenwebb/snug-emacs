@@ -22,9 +22,10 @@
   ;; (setq-default undo-tree-visualizer-diff nil)
   ;; (global-undo-tree-mode 1))
 
+;; TODO: https://github.com/clemera/undo-redo
 (use-package undo-propose
   :straight (:host github :repo "jackkamm/undo-propose-el" :files ("*.el"))
-  :commands (undo-propose undo-propose-diff)
+  :commands (undo-propose undo-propose-diff))
 
 ;; Recent files
 ;; TODO: auto cleanup
