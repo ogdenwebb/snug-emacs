@@ -12,6 +12,9 @@
 (use-package package-lint
   :commands (package-lint-current-buffer))
 
+(use-package posframe
+  :defer t)
+
 ;; Flycheck
 (use-package flycheck
   :commands (flycheck-mode global-flycheck-mode flycheck-list-errors flycheck-buffer)
@@ -23,9 +26,14 @@
 
    ;; Display Flycheck errors in GUI tooltips
   (if (display-graphic-p)
-      (use-package flycheck-pos-tip
-        :hook ((global-flycheck-mode flycheck-mode) . flycheck-pos-tip-mode)
-        :config (setq flycheck-pos-tip-timeout 30))
+      (use-package flycheck-posframe
+        :hook ((global-flycheck-mode flycheck-mode) . flycheck-posframe-mode)
+        :config
+        ;; Default Pretty Configuration
+        (flycheck-posframe-configure-pretty-defaults))
+      ;; (use-package flycheck-pos-tip
+      ;;   :hook ((global-flycheck-mode flycheck-mode) . flycheck-pos-tip-mode)
+      ;;   :config (setq flycheck-pos-tip-timeout 30))
     (use-package flycheck-popup-tip
       :hook ((global-flycheck-mode flycheck-mode) . flycheck-popup-tip-mode)))
 
