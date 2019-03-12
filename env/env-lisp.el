@@ -22,6 +22,7 @@
   (setq-local evil-shift-width 2))
 
 (add-hook 'lisp-mode-hook 'lisp-indent-setup)
+(add-hook 'emacs-lisp-mode-hook 'lisp-indent-setup)
 
 ;; (add-hook 'after-save-hook
 ;;           (lambda ()
