@@ -59,24 +59,8 @@
                           "[/\\]\\.emacs.d/elpa"))
   (add-to-list 'recentf-exclude no-littering-var-directory)
   (add-to-list 'recentf-exclude no-littering-etc-directory)
-
-  ;; TODO: Do it when open file
-  ;; Exclude a real file if there's a symlink for that in recentf
-  ;; (defvar snug/recentf-remote-regexp "\\/\\w*?:\\w*?@\\w*?:\\/")
-  ;; (defun snug/recentf-file-has-symlink (file)
-  ;;   "Test whether there's a symbolic parent of FILE in `recentf-list'."
-  ;;   (cl-some (lambda (x)
-  ;;              (and (not (string= (file-truename x) file))
-  ;;                   (string= x file)))
-  ;;            recentf-list))
-
-  ;; (defun snug/recentf-keep-symlinks (file)
-  ;;   "Exclude local FILE that has a symbolic parent in `recentf-list'."
-  ;;   ;; Unless the file is local
-  ;;   (unless (string-match snug/recentf-remote-regexp file)
-  ;;     (snug/recentf-file-has-symlink file)))
-
-  ;; (add-to-list 'recentf-exclude #'snug/recentf-keep-symlinks)
+  ;; Delete symbolic links from recentf
+  (add-to-list 'recentf-exclude (lambda (f) (not (string= (file-truename f) f))))
 
   ;; (setq recentf-auto-cleanup 2)
   (recentf-mode 1))
