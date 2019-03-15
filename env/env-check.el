@@ -12,9 +12,6 @@
 (use-package package-lint
   :commands (package-lint-current-buffer))
 
-(use-package posframe
-  :defer t)
-
 ;; Flycheck
 (use-package flycheck
   :commands (flycheck-mode global-flycheck-mode flycheck-list-errors flycheck-buffer)
@@ -24,7 +21,7 @@
         (if flycheck-current-errors 0.3 3.0)
         flycheck-emacs-lisp-load-path 'inherit)
 
-   ;; Display Flycheck errors in GUI tooltips
+   ;; Display Flycheck errors in tooltip
   (if (display-graphic-p)
       (use-package flycheck-posframe
         :hook ((global-flycheck-mode flycheck-mode) . flycheck-posframe-mode)
