@@ -83,6 +83,7 @@
 ;; (add-to-list 'default-frame-alist '(font . "Noto Mono-12")) ; <-
 ;; (add-to-list 'default-frame-alist '(font . "iosevka-13"))
 ;; (add-to-list 'default-frame-alist '(font . "IBM Plex Mono-12"))
+;; (add-to-list 'default-frame-alist '(font . "Hack-12.5"))
 (add-to-list 'default-frame-alist '(font . "D2Coding-13"))
 
 ;; (custom-theme-set-faces
@@ -92,11 +93,13 @@
  ;; '(fixed-pitch ((t (:family "D2Coding" :slant normal :weight normal :height 1.0 :width normal)))))
 
 (set-face-attribute 'fixed-pitch nil :family "D2Coding")
-(set-face-attribute 'variable-pitch nil :family "Merriweather") ; a bit more small
-;; (set-face-attribute 'variable-pitch nil :family "Exo 2")
 
+;; Maybe for variable pith
+;; (set-face-attribute 'variable-pitch nil :family "Merriweather") ; a bit more small
+;; (set-face-attribute 'variable-pitch nil :family "Exo 2")
 ;; (set-face-attribute 'variable-pitch nil :family "Gabriela")
 ;; (set-face-attribute 'variable-pitch nil :family "Marmelad")
+;; (set-face-attribute 'variable-pitch nil :family "Input Sans")
 
 ;; (defun set-buffer-variable-pitch ()
 ;;   (interactive)
@@ -192,10 +195,12 @@
 
 ;; Highlight parenthess
 (use-package paren
-  :hook (after-init . show-paren-mode)
+  :straight nil
   :config
   ;; (setq show-paren-style 'expression)
-  (setq show-paren-delay 0.1))
+  (setq show-paren-when-point-inside-paren t)
+  (setq show-paren-delay 0.1)
+  (show-paren-mode t))
 
 ;; Highlight quoted symbols
 (use-package highlight-quoted
