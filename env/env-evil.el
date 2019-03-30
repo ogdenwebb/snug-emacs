@@ -65,6 +65,7 @@
     (evil-add-command-properties #'swiper :jump t)
     (evil-add-command-properties #'counsel-rg :jump t)
     (evil-add-command-properties #'counsel-ag :jump t)
+    (evil-add-command-properties #'godef-jump :jump t)
     (evil-add-command-properties #'counsel-fzf :jump t))
 
   (evil-mode t))
