@@ -2,7 +2,7 @@
 
 (use-package helm
   :disabled t
-  :init
+  :config
   (helm-mode t))
 
   ;; No idea why here find-file is set to nil (so it uses the native find-file

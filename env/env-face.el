@@ -252,7 +252,7 @@
 ;;   (global-highlight-parentheses-mode))
 
 (use-package solaire-mode
-  :disabled
+  :disabled t
   ;; :hook ((change-major-mode after-revert ediff-prepare-buffer) . turn-on-solaire-mode)
   :config
   ;; (setq solaire-mode-remap-modeline nil)

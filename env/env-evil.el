@@ -62,11 +62,11 @@
   ;; TODO: macro def-evil-jump or smth
   (with-eval-after-load 'evil
     (evil-add-command-properties #'find-file-at-point :jump t)
-    (evil-add-command-properties #'swiper :jump t)
-    (evil-add-command-properties #'counsel-rg :jump t)
-    (evil-add-command-properties #'counsel-ag :jump t)
-    (evil-add-command-properties #'godef-jump :jump t)
-    (evil-add-command-properties #'counsel-fzf :jump t))
+    (evil-add-command-properties #'swiper             :jump t)
+    (evil-add-command-properties #'counsel-rg         :jump t)
+    (evil-add-command-properties #'counsel-ag         :jump t)
+    (evil-add-command-properties #'godef-jump         :jump t)
+    (evil-add-command-properties #'counsel-fzf        :jump t))
 
   (evil-mode t))
 
@@ -169,5 +169,12 @@
 
 (use-package vdiff
   :commands (vdiff-buffers vdiff-files vdiff-buffers3 vdiff-current-file vdiff-merge-conflict))
+
+(use-package evil-snipe
+  :disabled t
+  :after evil
+  :config
+  (evil-snipe-mode t)
+  (evil-snipe-override-mode t))
 
 (provide 'env-evil)

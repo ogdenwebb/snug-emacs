@@ -21,6 +21,9 @@
   :config
   (general-evil-setup t))
 
+(use-package lv
+  :defer t)
+
 (use-package hydra
   :config
   (defhydra hydra-buffer (:color blue :columns 3)

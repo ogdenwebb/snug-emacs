@@ -312,6 +312,8 @@
 ;; (use-package map           :defer t)
 (use-package posframe
   :defer t)
+(use-package lv
+  :defer t)
 
 
 (provide 'env-plugins)
