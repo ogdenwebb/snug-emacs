@@ -109,18 +109,20 @@
   ;; 'face `(:foreground ,fg-color))))
 
   ;; Display current position in a buffer
-  ;; (telephone-line-defsegment my-position-segment ()
-  ;;   (if (telephone-line-selected-window-active)
-  ;;       (if (eq major-mode 'paradox-menu-mode)
-  ;;           (telephone-line-trim (format-mode-line mode-line-front-space))
-  ;;         '(" %3l,%2c "))))
-
   (declare-function column-number-at-pos "env-fu")
 
-  (telephone-line-defsegment my-position-segment ()
-    (let ((line (line-number-at-pos (point)))
-          (column (column-number-at-pos (point))))
-      (format " %3d:%2d " line column)))
+  ;; (telephone-line-defsegment my-position-segment ()
+  ;;   (let ((line (line-number-at-pos (point)))
+  ;;         (column (column-number-at-pos (point))))
+  ;;     (format " %3d:%2d " line column)))
+
+  (telephone-line-defsegment my-position-segment (&optional lines columns)
+     "Position segment. Optional args set padding on lines/columns."
+     (let* ((l (number-to-string (if lines lines 3)))
+            (c (number-to-string (if columns columns 2))))
+       (if (eq major-mode 'paradox-menu-mode)
+           (telephone-line-raw mode-line-front-space t)
+         `(,(concat " %" l "l:%" c "c")))))
 
   ;; Exclude some buffers in modeline
   (defvar modeline-ignored-modes nil
@@ -181,9 +183,9 @@
                        (telephone-line-raw vc-mode t))
                'face `(:foreground ,(face-foreground 'font-lock-variable-name-face))))))
 
-
   ;; ;; TODO: free visual selection
   ;; ;; TODO: the segment doesn't update in real-time
+
   (telephone-line-defsegment selection-info ()
     "Information about the size of the current selection, when applicable.
   Supports both Emacs and Evil cursor conventions."
