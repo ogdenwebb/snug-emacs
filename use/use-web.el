@@ -68,5 +68,7 @@
   ;; (add-to-list 'company-backends '(company-web-html :with company-etags)))
   (add-to-list 'company-backends '(company-css company-web-html company-files)))
 
+(use-package auto-rename-tag
+  :hook (web-mode . auto-rename-tag-mode))
 
 (provide 'use-web)
