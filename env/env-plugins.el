@@ -205,6 +205,24 @@
 ;; Better help
 (use-package helpful
   :defer t
+  :preface
+  (defun counsel-helpful-keymap-describe ()
+    "Select keymap with ivy, display help with helpful"
+    (interactive)
+    (ivy-read "describe keymap: " (let (cands)
+                                    (mapatoms
+                                     (lambda (x)
+                                       (and (boundp x) (keymapp (symbol-value x))
+                                            (push (symbol-name x) cands))))
+                                    cands)
+              :require-match t
+              :history 'counsel-describe-keymap-history
+              :sort t
+              :preselect (ivy-thing-at-point)
+              :keymap counsel-describe-map
+              :caller 'counsel-helpful-keymap-describe
+              :action (lambda (map-name)
+                        (helpful-variable (intern map-name)))))
   :init
   (with-eval-after-load 'counsel
     (setq-default counsel-describe-function-function #'helpful-callable
