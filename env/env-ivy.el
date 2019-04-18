@@ -56,6 +56,11 @@
   ;;            ivy-switch-buffer-other-window
   ;;            counsel-projectile-switch-to-buffer))
   ;;   (ivy-set-display-transformer cmd #'ivy-rich-switch-buffer-transformer))
+  (setq ivy-rich-display-transformers-list (plist-put
+            ivy-rich-display-transformers-list 'counsel-helpful-keymap-describe
+            '(:columns ((counsel-describe-variable-transformer (:width 40))
+                  (ivy-rich-counsel-variable-docstring (:face font-lock-doc-face))))))
+  (ivy-rich-set-display-transformer)
   (setq ivy-rich-path-style 'abbrev)
   (ivy-rich-mode t))
 
