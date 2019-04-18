@@ -55,6 +55,7 @@
   (setq use-package-expand-minimally t
         use-package-verbose nil))
 
+;; (eval-when-compile (require 'subr-x))
 (use-package subr-x
   :straight nil
   :defer t)
@@ -101,7 +102,7 @@
     (server-start)))
 
 (defun keyword-to-name-str (keyword)
-  "Return KEYWORD symbol without initial color as string
+  "Return KEYWORD symbol without initial colon as string
 i.e. :keyword to \"keyword\"."
   (substring (symbol-name keyword) 1))
 
