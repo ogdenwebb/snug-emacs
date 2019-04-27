@@ -241,9 +241,18 @@
   (setq display-line-numbers-grow-only t))
 
 ;; Highlight TODO and FIXME
-(use-package fic-mode
-  :defer .1
-  :hook (prog-mode . fic-mode))
+;; (use-package fic-mode
+;;   :defer .1
+;;   :hook (prog-mode . fic-mode))
+
+(use-package hl-todo
+  :hook (after-init . global-hl-todo-mode)
+  :config
+  (setq hl-todo-keyword-faces
+        `(("TODO"  . ,(face-foreground 'hl-todo))
+          ("FIXME" . ,(face-foreground 'hl-todo))
+          ("MAYBE" . ,(face-foreground 'warning))
+          ("NOTE"  . ,(face-foreground 'success)))))
 
 ;; TODO
 ;; Highlight surrounding parentheses in Emacs
