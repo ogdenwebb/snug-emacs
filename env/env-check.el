@@ -6,6 +6,7 @@
     ("e" (snug/flyspell-set-dict "en") "eng")
     ("r" (snug/flyspell-set-dict "ru") "rus")
     ("d" (snug/flyspell-set-dict "de") "den")
+    ("Q" (flyspell-mode -1) "Disable spell checking")
     ("q" nil "cancel")))
 
 ;; Package-lint
@@ -20,19 +21,6 @@
   (setq flycheck-idle-change-delay
         (if flycheck-current-errors 0.3 3.0)
         flycheck-emacs-lisp-load-path 'inherit)
-
-   ;; Display Flycheck errors in tooltip
-  (if (display-graphic-p)
-      (use-package flycheck-posframe
-        :hook ((global-flycheck-mode flycheck-mode) . flycheck-posframe-mode)
-        :config
-        ;; Default Pretty Configuration
-        (flycheck-posframe-configure-pretty-defaults))
-      ;; (use-package flycheck-pos-tip
-      ;;   :hook ((global-flycheck-mode flycheck-mode) . flycheck-pos-tip-mode)
-      ;;   :config (setq flycheck-pos-tip-timeout 30))
-    (use-package flycheck-popup-tip
-      :hook ((global-flycheck-mode flycheck-mode) . flycheck-popup-tip-mode)))
 
   ;; TODO: enable
   (setq-default flycheck-disabled-checkers '(emacs-lisp emacs-lisp-checkdoc))
@@ -132,6 +120,23 @@
 ;; (use-package flycheck-posframe
 ;;   :after flycheck
 ;;   :config (add-hook 'flycheck-mode-hook #'flycheck-posframe-mode))
+
+;; Display Flycheck errors in tooltip
+(use-package flycheck-posframe
+  ;; :if (display-graphic-p)
+  :hook ((global-flycheck-mode flycheck-mode) . flycheck-posframe-mode)
+  :config
+  ;; Default Pretty Configuration
+  (flycheck-posframe-configure-pretty-defaults))
+
+;; (use-package flycheck-pos-tip
+;;   :hook ((global-flycheck-mode flycheck-mode) . flycheck-pos-tip-mode)
+;;   :config (setq flycheck-pos-tip-timeout 30))
+
+;; TODO:
+;; (use-package flycheck-popup-tip
+;;   :if (not (display-graphic-p))
+;;   :hook ((global-flycheck-mode flycheck-mode) . flycheck-popup-tip-mode))
 
 ;; Spell checking
 (use-package flyspell
