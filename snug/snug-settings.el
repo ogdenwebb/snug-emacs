@@ -58,6 +58,9 @@
 ;; Replacing yes/no with y/n.
 (defalias 'yes-or-no-p 'y-or-n-p)
 
+;; y/n instead of yes/no when quitting
+(setq confirm-kill-emacs 'y-or-n-p)
+
 (setq-default indicate-buffer-boundaries nil ;  Don't show where buffer starts/ends
               indicate-empty-lines nil
               sentence-end-double-space nil)
