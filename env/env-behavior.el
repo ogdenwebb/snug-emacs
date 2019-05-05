@@ -33,6 +33,11 @@
   :straight (:host github :repo "clemera/undo-redo" :files ("*.el"))
   )
 
+;; If you want Emacs kill ring and system clipboard to be independent.
+;; (use-package simpleclip
+;;   :config
+;;   (simpleclip-mode t))
+
 ;; Recent files
 ;; TODO: auto cleanup
 ;; see: https://gist.github.com/masutaka/1325654/955277113028eb7b968453a5b7802b74b51b393d
