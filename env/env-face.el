@@ -14,9 +14,33 @@
   (all-the-icons-ivy-setup))
 
 ;; Custom theme load
-(defadvice load-theme (before clear-previous-themes activate)
-  "Clear existing theme settings instead of layering them"
+(defun snug/disable-all-themes ()
+  "Disable all enabled themes"
+  (interactive)
   (mapc #'disable-theme custom-enabled-themes))
+
+;; Theme hooks
+(defvar snug/theme-hooks nil
+  "Association list with theme names and hooks for them.")
+
+(defun snug/add-theme-hook (theme hook)
+  (add-to-list 'snug/theme-hooks (cons theme hook)))
+
+;; TODO: add func to remove hook
+
+(defun snug/load-theme-advice (f theme &optional no-confirm no-enable &rest args)
+  "Advice `load-theme':
+1. Disables enabled themes for a clean slate.
+2. Calls functions registered using `snug/add-theme-hook'."
+  (unless no-enable
+    (snug/disable-all-themes))
+  (prog1
+      (apply f theme no-confirm no-enable args)
+    (unless no-enable
+      (pcase (assq theme snug/theme-hooks)
+        (`(,_ . ,f) (funcall f))))))
+
+(advice-add 'load-theme :around #'snug/load-theme-advice)
 
 ;; Theme settings
 ;; Load my theme
