@@ -273,7 +273,10 @@
 (use-package dash          :defer t)
 ;; (use-package deferred      :defer t)
 ;; (use-package el-mock       :defer t)
-;; (use-package elisp-refs    :defer t)
+(use-package elisp-refs
+  :defer t
+  :commands
+  (elisp-refs-function elisp-refs-macro elisp-refs-variable elisp-refs-special elisp-refs-symbol))
 ;; (use-package epc           :defer t)
 (use-package epl           :defer t)
 ;; (use-package esxml         :defer t)
