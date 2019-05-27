@@ -331,6 +331,16 @@
    [tab]        'company-complete-common-or-cycle
    [backtab]    'company-select-previous)
 
+  ;; C-w to delete word backward in minibuffer
+  (general-define-key
+   :keymaps '(minibuffer-local-map
+              minibuffer-local-ns-map
+              minibuffer-local-completion-map
+              minibuffer-local-must-match-map
+              minibuffer-local-isearch-map
+              read-expression-map)
+   "C-w" 'backward-kill-word)
+
   ;; Fix TAB in terminal
   (general-define-key
    :keymaps 'input-decode-map
