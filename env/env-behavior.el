@@ -43,7 +43,7 @@
 ;; see: https://gist.github.com/masutaka/1325654/955277113028eb7b968453a5b7802b74b51b393d
 ;; TODO: disable message in minibuffer after auto-save
 (use-package recentf
-  ;; :no-require t
+  :ensure nil
   :defer 1
   :config
   (defun recentf-save-list-silently ()
@@ -65,6 +65,8 @@
                           ".*.jpg$"
                           ".*.png$"
                           ".*.gif$"
+                          ".cache"
+                          "cache"
                           "^/usr/share/emacs"
                           "^/usr/lib64/go/src"
                           "[/\\]\\.emacs.d/elpa"))
@@ -72,9 +74,9 @@
   (add-to-list 'recentf-exclude no-littering-etc-directory)
   ;; Delete symbolic links from recentf
   (add-to-list 'recentf-exclude (lambda (f) (not (string= (file-truename f) f))))
-
   ;; (setq recentf-auto-cleanup 2)
-  (recentf-mode 1))
+  (recentf-mode t)
+  )
 
 (use-package subword
   :commands (subword-mode global-subword-mode)
