@@ -14,7 +14,9 @@
 ;; (setq save-silently t)
 
 ;; Replace the region while insert
-(delete-selection-mode 1)
+(use-package delsel
+  :ensure nil
+  :hook (after-init . delete-selection-mode))
 
 ;; Enable system clipboard in terminal Emacs
 ;; See: https://hugoheden.wordpress.com/2009/03/08/copypaste-with-emacs-in-terminal/
@@ -63,11 +65,13 @@
 
 (setq-default indicate-buffer-boundaries nil ;  Don't show where buffer starts/ends
               indicate-empty-lines nil
-              sentence-end-double-space nil)
+              sentence-end-double-space nil
+              kill-whole-line t)	; Kill line including '\n'
 
-;; reduce point movement lag, see
-;; https://emacs.stackexchange.com/questions/28736/emacs-pointcursor-movement-lag/28746
-;; (setq-default auto-window-vscroll nil)
+;; Keep cursor at end of lines.
+(setq track-eol t
+      line-move-visual nil)	 ; To be required by track-eol
+
 
 ;; Indentation
 (setq tab-width 4)
