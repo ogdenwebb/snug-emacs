@@ -96,7 +96,9 @@
 (add-hook 'before-save-hook 'whitespace-cleanup)
 
 ;; Auto reload buffer if file was changed
-(global-auto-revert-mode)
+(use-package autorevert
+  :ensure nil
+  :hook (after-init . global-auto-revert-mode))
 
 ;; Lines
 (setq indicate-empty-lines t
