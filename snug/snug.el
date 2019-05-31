@@ -8,6 +8,7 @@
 (setq file-name-handler-alist nil
       byte-compile--use-old-handlers nil
       load-prefer-newer t
+      auto-window-vscroll nil
       package-enable-at-startup nil)
 
 ;; Increase garbage collection for speedup
@@ -48,7 +49,10 @@
                         "openssl s_client -connect %h:%p -no_ssl2 -no_ssl3 -ign_eof"))
 
 (straight-use-package 'use-package)
-(setq straight-use-package-by-default t)
+(setq straight-use-package-by-default t
+      use-package-enable-imenu-support t)
+
+;; Display use-package debug stuff when debug-on-error is t
 (if debug-on-error
       (setq use-package-expand-minimally nil
             use-package-verbose t)
@@ -77,7 +81,8 @@
 
 (defvar snug-dir (concat snug-root "snug/")
   "The main directory of snug-emacs configuration.")
-;; Start initial mode to text-mode
+
+;; Set initial mode to text-mode
 (setq initial-major-mode 'text-mode)
 
 ;; Use Common Lisp library
@@ -96,16 +101,17 @@
   (load custom-file t t))
 
 ;; Server
-(when window-system
-  (require 'server)
-  (unless (server-running-p)
-    (server-start)))
+(use-package server
+  :ensure nil
+  :hook (after-init . server-mode))
 
+;; Convert keyword to string without colon
 (defun keyword-to-name-str (keyword)
   "Return KEYWORD symbol without initial colon as string
 i.e. :keyword to \"keyword\"."
   (substring (symbol-name keyword) 1))
 
+;; Here we go
 (defmacro snug/init (&rest body)
   (declare (indent defun))
   (add-to-list 'body 'env-fu t)
