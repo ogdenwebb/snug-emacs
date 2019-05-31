@@ -124,7 +124,9 @@
 (setq ad-redefinition-action 'accept)
 
 ;; Save last position
-(save-place-mode t)
+(use-package saveplace
+  :ensure nil
+  :hook (after-init . save-place-mode))
 
 ;; Disable lockfiles
 (setq create-lockfiles nil)
