@@ -1,6 +1,14 @@
 ;; Wgrep
+(use-package ag
+  :if (executable-find "ag")
+  :config
+  (setq ag-highlight-search t
+        ag-reuse-buffers t
+        ag-reuse-window t))
+
 (use-package wgrep
-  :commands (wgrep-setup wgrep-change-to-wgrep-mode)
+  :defer t
+  ;; :commands (wgrep-setup wgrep-change-to-wgrep-mode)
   :config)
 
 (use-package wgrep-ag
