@@ -38,23 +38,36 @@
 ;;   :config
 ;;   (simpleclip-mode t))
 
+(defvar snug/recentf-cleanup-symlinks t
+  "When t, delete symbolic links from the list with recent opened files.")
+
 ;; Recent files
-;; TODO: auto cleanup
-;; see: https://gist.github.com/masutaka/1325654/955277113028eb7b968453a5b7802b74b51b393d
-;; TODO: disable message in minibuffer after auto-save
 (use-package recentf
   :ensure nil
   :defer 1
+  :preface
+  (defun snug/recentf-save-list-silence ()
+    (interactive)
+    (let ((message-log-max nil))
+      (if (fboundp 'shut-up)
+          (shut-up (recentf-save-list))
+        (recentf-save-list)))
+    (message ""))
+  (defun snug/recentf-cleanup-silence ()
+    (interactive)
+    (let ((message-log-max nil))
+      (if (fboundp 'shut-up)
+          (shut-up (recentf-cleanup))
+        (recentf-cleanup)))
+    (message ""))
   :config
-  (defun recentf-save-list-silently ()
-    (let ((inhibit-message t))
-      (recentf-save-list)))
-  (run-at-time nil (* 5 60) 'recentf-save-list-silently)
+  (run-at-time nil (* 5 60) 'snug/recentf-save-list-silence)
 
   (setq recentf-max-menu-items 100
-        recentf-max-saved-items 100)
-  ;; Recentf blacklist
-  (setq recentf-exclude '("^/var/folders\\.*"
+        recentf-max-saved-items 100
+        recentf-auto-cleanup 'never
+        ;; Recentf blacklist
+        recentf-exclude '("^/var/folders\\.*"
                           "COMMIT_EDITMSG\\'"
                           ".*-autoloads\\.el\\'"
                           "[/\\]\\.emacs.d/recentf"
@@ -73,8 +86,8 @@
   (add-to-list 'recentf-exclude no-littering-var-directory)
   (add-to-list 'recentf-exclude no-littering-etc-directory)
   ;; Delete symbolic links from recentf
-  (add-to-list 'recentf-exclude (lambda (f) (not (string= (file-truename f) f))))
-  ;; (setq recentf-auto-cleanup 2)
+  (when snug/recentf-cleanup-symlinks
+    (add-to-list 'recentf-exclude (lambda (f) (not (string= (file-truename f) f)))))
   (recentf-mode t)
   )
 
