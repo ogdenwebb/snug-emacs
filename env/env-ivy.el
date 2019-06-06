@@ -1,6 +1,7 @@
 ;; Use ivy -*- lexical-binding: t -*-
 
 (use-package ivy
+  ;; :hook (after-init . ivy-mode)
   :init
   (ivy-mode t)
   :config
@@ -18,8 +19,12 @@
         ;; Do not show "./" and "../" in the `counsel-find-file' completion list
         ;; ivy-extra-directories nil ; default value: ("../" "./")`'
         ivy-count-format "[%d/%d] ")
+
+  ;; Integrate ivy in projectile and magit
   (with-eval-after-load 'projectile
     (setq projectile-completion-system 'ivy))
+  (with-eval-after-load 'magit
+    (setq magit-completing-read-function 'ivy))
   )
 
 (use-package ivy-hydra
@@ -44,7 +49,9 @@
   (define-key read-expression-map (kbd "C-r") 'counsel-expression-history))
 
 (use-package counsel-projectile
-  :after (counsel projectile))
+  :after (counsel projectile)
+  :config
+  (counsel-projectile-mode t))
 
 ;; More friendly interface for ivy
 (use-package ivy-rich
