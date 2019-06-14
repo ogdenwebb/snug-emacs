@@ -140,8 +140,8 @@
    "C-0" '(lambda () (interactive) (text-scale-set 0))
    "C--" 'text-scale-increase
    "C-_" 'text-scale-decrease
-   "*" '(lambda () (interactive) (swiper (format "\\<%s\\>" (thing-at-point 'symbol))))
-   "#" '(lambda () (interactive) (swiper (format "\\<%s\\>" (thing-at-point 'word))))
+   ;; "*" '(lambda () (interactive) (swiper (format "\\<%s\\>" (thing-at-point 'symbol))))
+   ;; "#" '(lambda () (interactive) (swiper (format "\\<%s\\>" (thing-at-point 'word))))
    )
 
   ;; nvmap
