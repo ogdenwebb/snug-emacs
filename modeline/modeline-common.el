@@ -46,7 +46,6 @@
                  ((string= mode-name "Fundamental") "text")
                  ((string= mode-name "Emacs-Lisp") "elisp")
                  ((string= mode-name "Javascript-IDE") "js")
-                 ((string= mode-name "Javascript-IDE") "js")
                  ((string= mode-name "undo-tree-visualizer") "undotree")
                  (t (downcase mode-name)))))
       (propertize mode 'face `font-lock-string-face)))
@@ -56,7 +55,6 @@
     (let ((mode (cond
                  ((string= mode-name "Fundamental") "text")
                  ((string= mode-name "Emacs-Lisp") "elisp")
-                 ((string= mode-name "Javascript-IDE") "js")
                  ((string= mode-name "Javascript-IDE") "js")
                  ((string= mode-name "undo-tree-visualizer") "undotree")
                  (t (downcase mode-name))))
