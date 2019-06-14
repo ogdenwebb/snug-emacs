@@ -43,7 +43,7 @@
 (advice-add 'load-theme :around #'snug/load-theme-advice)
 
 ;; Theme settings
-;; Load my theme
+;; Setup my theme
 (defvar snug-custom-theme 'kaolin-ocean
   "Default custom theme.")
 
@@ -220,6 +220,7 @@
 ;; Highlight parenthess
 (use-package paren
   :straight nil
+  :hook (prog-mode . show-paren-mode)
   :config
   ;; (setq show-paren-style 'expression)
   (setq show-paren-when-point-inside-paren t)
