@@ -7,7 +7,7 @@
   (add-hook 'go-mode-hook (lambda ()
                           (set (make-local-variable 'flycheck-disabled-checkers) '(go-vet))
                           ;; (company-mode)
-                          (set (make-local-variable 'company-backends) '((company-go company-keywords)))
+                          (set (make-local-variable 'company-backends) '(company-go))
                           (set (make-local-variable 'compile-command) (concat "go run " (shell-quote-argument buffer-file-name)))
                           (add-hook 'before-save-hook #'gofmt-before-save nil t)
                           ))
