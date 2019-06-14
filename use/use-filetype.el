@@ -28,6 +28,15 @@
          "\\.?vimperatorrc$"
          "\\.vimp$"))
 
+(use-package sh-script
+  :mode (("[/\\]\\zshrc$" . shell-script-mode)))
+
+(use-package vimrc-mode
+  :mode ("/\\.?g?vimrc$"
+         "\\.vim$"
+         "\\.?vimperatorrc$"
+         "\\.vimp$"))
+
 ;; Support for i3 config
 (use-package i3wm-config-mode
   :straight (:host github :repo "Alexander-Miller/i3wm-Config-Mode")
