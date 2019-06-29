@@ -102,7 +102,7 @@
 
 (use-package treemacs
   :defer t
-  :commands (treemacs)
+  :commands (treemacs treemacs-create-theme treemacs-create-icon treemacs-load-theme)
   :config
   (setq-default treemacs-fringe-indicator-mode nil)
 
