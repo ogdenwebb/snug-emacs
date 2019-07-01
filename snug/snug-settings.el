@@ -123,6 +123,9 @@
 ;; Suppress ad-handle-definition warnings
 (setq ad-redefinition-action 'accept)
 
+;; Resize frame pixelwise
+(setq frame-resize-pixelwise t)
+
 ;; Save last position
 (use-package saveplace
   :ensure nil
