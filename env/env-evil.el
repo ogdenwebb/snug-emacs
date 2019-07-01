@@ -8,7 +8,8 @@
         evil-want-fine-undo t
         evil-want-Y-yank-to-eol t
         evil-ex-search-vim-style-regexp t
-        evil-want-C-u-scroll t
+        ;; C-u is universal-argument in Emacs
+        evil-want-C-u-scroll nil
         ;; evil-ex-search-persistent-highlight nil
 
         evil-visual-state-cursor 'hollow
@@ -105,10 +106,9 @@
   :after evil magit)
 
 (use-package evil-matchit
-  :after evil
+  ;; :after evil
   ;; :commands (evilmi-jump-items evilmi-text-object global-evil-matchit-mode)
-  :config
-  (global-evil-matchit-mode t))
+  :hook (evil-mode . global-evil-matchit-mode))
 
 (use-package evil-visualstar
   :commands (global-evil-visualstar-mode
