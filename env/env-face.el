@@ -220,6 +220,7 @@
 ;; Highlight parenthess
 (use-package paren
   :straight nil
+  :defer t
   :hook (prog-mode . show-paren-mode)
   :config
   ;; (setq show-paren-style 'expression)
@@ -271,6 +272,7 @@
 ;;   :hook (prog-mode . fic-mode))
 
 (use-package hl-todo
+  :defer t
   :hook (after-init . global-hl-todo-mode)
   :config
   (setq hl-todo-keyword-faces
@@ -285,16 +287,20 @@
 ;;   :config
 ;;   (global-highlight-parentheses-mode))
 
+(use-package page-break-lines
+  :disabled t
+  :hook (after-init . turn-on-page-break-lines-mode))
+
 (use-package solaire-mode
   :disabled t
-  ;; :hook ((change-major-mode after-revert ediff-prepare-buffer) . turn-on-solaire-mode)
+  :hook
+  ((change-major-mode after-revert ediff-prepare-buffer) . turn-on-solaire-mode)
+  ((emacs-startup) . solaire-mode)
+  (minibuffer-setup . solaire-mode-in-minibuffer)
   :config
-  ;; (setq solaire-mode-remap-modeline nil)
-  (add-hook 'treemacs-mode-hook #'solaire-mode)
-  (add-hook 'imenu-list-major-mode-hook #'solaire-mode)
-  (add-hook 'minibuffer-setup-hook #'solaire-mode-in-minibuffer))
-;; (add-hook 'minibuffer-setup-hook #'solaire-mode-in-minibuffer)
-;; (solaire-mode-swap-bg))
+  ;; (solaire-global-mode t)
+  (solaire-mode-swap-bg))
+
 
 ;; (defun no-fringes-in-minibuffer ()
 ;;   "Disable fringes in the minibuffer window."

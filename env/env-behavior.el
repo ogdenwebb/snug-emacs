@@ -92,7 +92,8 @@
   )
 
 (use-package subword
-  :commands (subword-mode global-subword-mode)
+  :defer t
+  ;; :commands (subword-mode global-subword-mode)
   :hook (after-init . global-subword-mode))
 
 (use-package uniquify

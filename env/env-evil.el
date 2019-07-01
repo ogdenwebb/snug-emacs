@@ -80,7 +80,8 @@
   (evil-collection-init))
 
 (use-package evil-goggles
-  :after evil
+  ;; :requires evil
+  :defer t
   :hook (after-init . evil-goggles-mode)
   :config
   (setq evil-goggles-duration 0.1
