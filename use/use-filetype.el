@@ -28,6 +28,7 @@
          "\\.?vimperatorrc$"
          "\\.vimp$"))
 
+;; Shell files
 (use-package sh-script
   :mode (("[/\\]\\zshrc$" . shell-script-mode)))
 
