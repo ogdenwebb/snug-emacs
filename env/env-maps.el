@@ -4,9 +4,11 @@
 (defvar snug-leader "SPC"
   "Initial <leader> key for Evil mode.")
 
+;; MAYBE: Or M-m
 (defvar snug-non-leader "M-SPC"
   "Leader key for insert and Emacs(and some other, see `general-non-normal-states') Evil states.")
 
+;; Major mode leader
 (defvar snug-localleader "SPC m"
   "Prefix for bindings that are specific to the major mode (filetype)")
 
