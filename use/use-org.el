@@ -111,6 +111,15 @@
                       "RET" 'org-return))
                       ;; "RET" 'org-return-indent))
 
+
+;; ;; Split current tree into new buffer
+;; (defun split-and-indirect-orgtree ()
+;;   "Splits window to the right and opens an org tree section in it"
+;;   (interactive)
+;;   (split-window-right)
+;;   (org-tree-to-indirect-buffer)
+;;   (windmove-right))
+
 ;; (evil-define-key 'insert org-mode-map
 ;;   (kbd "M-j") 'org-shiftleft
 ;;   (kbd "M-k") 'org-shiftright
@@ -120,7 +129,7 @@
 ;;   (kbd "M-L") 'org-metaright)
 
 (use-package org-bullets
-  :after org
+  :requires org
   :hook (org-mode . org-bullets-mode)
   :config
   (setq org-bullets-bullet-list
@@ -128,12 +137,14 @@
   )
 
 (use-package evil-org
-  :after (evil org)
+  :straight (:host github :repo "Somelauw/evil-org-mode")
+  :after (evil)
   :hook (org-mode . evil-org-mode)
   :config
-  (add-hook 'evil-org-mode-hook
-            (lambda ()
-              (evil-org-set-key-theme '(navigation insert textobjects))))
+  ;; (add-hook 'evil-org-mode-hook
+  ;;           (lambda ()
+  ;; TODO: doesn't work in tables
+  (evil-org-set-key-theme '(navigation insert textobjects shift todo heading))
   (require 'evil-org-agenda)
   (evil-org-agenda-set-keys))
 
