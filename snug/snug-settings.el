@@ -39,6 +39,13 @@
 ;;     (setq interprogram-cut-function 'xsel-cut-function)
 ;;     (setq interprogram-paste-function 'xsel-paste-function)))
 
+;; Set frame title
+(setq frame-title-format
+   '(:eval
+     (if (buffer-file-name)
+         (abbreviate-file-name (buffer-file-name))
+       "%b")))
+
 (setq-default yank-pop-change-selection t
               x-stretch-cursor nil
               visible-cursor nil
