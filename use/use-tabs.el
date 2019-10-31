@@ -5,16 +5,22 @@
   (awesome-tab-mode t)
 )
 
+(use-package powerline
+  :defer t)
+
 (use-package centaur-tabs
-  :disabled t
+  ;; :requires (powerline)
+  ;; :disabled t
   :straight (:host github :repo "ema2159/centaur-tabs")
-   :config
-   (setq centaur-tabs-background-color (face-background 'centaur-tabs-default))
-   (setq centaur-tabs-set-close-button nil)
-   (setq centaur-tabs-style "bar"
-         centaur-tabs-height 32
-         centaur-tabs-set-icons t)
-   (centaur-tabs-mode t)
-   )
+  :hook (after-init . centaur-tabs-mode)
+  :config
+  (setq centaur-tabs-background-color (face-background 'centaur-tabs-default))
+  (setq centaur-tabs-set-close-button nil)
+  (setq centaur-tabs-style "bar"
+        ;; centaur-tabs-set-bar 'left
+        centaur-tabs-height 32
+        centaur-tabs-set-icons t)
+        ;; centaur-tabs-set-modified-marker t)
+  )
 
 (provide 'use-tabs)
