@@ -54,10 +54,13 @@
    ". ]" 'olivetti-expand
    ". m" 'olivetti-toggle-hide-mode-line
 
-   ;; TODO: add erase-buffer revert-buffer
+   ;; Buffers
    "b p" '(previous-buffer :wk "Previous buffer")
    "b n" '(next-buffer :wk "Next buffer")
    "b l" '(ivy-switch-buffer :wk "Switch buffer")
+   "b b" '(ivy-switch-buffer :wk "Switch buffer")
+   "b w" '(revert-buffer)
+   "b e" '(erase-buffer)
 
    ;; Help
    "h a" '(apropos :wk "Search help")
