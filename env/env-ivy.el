@@ -7,10 +7,11 @@
   :config
   (setq ivy-display-style 'fancy
         ivy-height 12
-        ;; allow input not in order
-        ;; ivy-re-builders-alist
-        ;; '((read-file-name-internal . ivy--regex-fuzzy)
-        ;;   (t . ivy--regex-ignore-order))
+        ;; Set default matchers
+        ivy-re-builders-alist
+        '((counsel-ag . ivy--regex-fuzzy)
+          ;; (t . ivy--regex-plus))
+          (t . ivy--regex-ignore-order))
 
         ;; Disable initial regexp
         ivy-initial-inputs-alist nil
@@ -39,6 +40,7 @@
   :hook (after-init . counsel-mode)
   :config
   (setq counsel-find-file-ignore-regexp (regexp-opt '(".jpg" ".png" ".jpeg")))
+  ;; (setq counsel-grep-base-command "ag -S --nogroup --nocolor --nofilename --numbers '%s' %s")
 
   ;; (when (execute-))
         ;; counsel-git-cmd "rg --files"

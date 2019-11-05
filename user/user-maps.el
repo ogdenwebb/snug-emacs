@@ -10,7 +10,7 @@
   ;; counsel-unicode-char
   ;; counsel-faces
 
-  (general-define-key ; :keymaps '(override)
+  general-define-key ; :keymaps '(override)
    :states '(normal insert emacs)
    :prefix snug-leader
    :non-normal-prefix snug-non-leader
@@ -61,6 +61,7 @@
    "b b" '(ivy-switch-buffer :wk "Switch buffer")
    "b w" '(revert-buffer)
    "b e" '(erase-buffer)
+   "b k" '(kill-this-buffer :wk "Kill this buffer")
 
    ;; Help
    "h a" '(apropos :wk "Search help")
