@@ -10,7 +10,7 @@
   ;; counsel-unicode-char
   ;; counsel-faces
 
-  general-define-key ; :keymaps '(override)
+  (general-define-key ; :keymaps '(override)
    :states '(normal insert emacs)
    :prefix snug-leader
    :non-normal-prefix snug-non-leader
@@ -349,8 +349,6 @@
   (general-define-key
    :keymaps 'input-decode-map
    ;; :predicate '(not (window-system))
-   "TAB" '([tab] :predicate '(not (window-system))))
-
-  )
+   "TAB" '([tab] :predicate '(not (window-system)))))
 
 (provide 'user-maps)
