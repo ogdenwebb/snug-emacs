@@ -203,10 +203,6 @@
 (put 'scroll-left 'disabled nil)
 (put 'dired-find-alternate-file 'disabled nil)
 
-;; Eldoc
-;; Disable eldoc autostart, enabled by default since 25
-(global-eldoc-mode -1)
-
 ;; Enable recursive minibuffers
 (setq enable-recursive-minibuffers t)
 

@@ -153,6 +153,15 @@
   :config
   (which-key-setup-side-window-bottom))
 
+;; Eldoc
+(use-package eldoc
+  :ensure nil
+  :hook (prog-mode-hook . eldoc-mode)
+  :config
+  (global-eldoc-mode -1)
+  (setq eldoc-idle-delay 0.3))
+
+
 ;; TODO: enable in prog-mode prolly
 (use-package eldoc-box
   ;; :hook ((eglot--managed-mode . eldoc-box-hover-mode)
