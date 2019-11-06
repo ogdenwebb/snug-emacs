@@ -4,7 +4,9 @@
 (use-package all-the-icons
   :commands (all-the-icons-octicon all-the-icons-faicon all-the-icons-fileicon
                                    all-the-icons-wicon all-the-icons-material all-the-icons-alltheicon
-                                   all-the-icons-install-fonts))
+                                   all-the-icons-install-fonts)
+  :config
+  (setq all-the-icons-scale-factor 1.0))
 
 (use-package all-the-icons-ivy
   :disabled
@@ -232,6 +234,11 @@
 (use-package highlight-quoted
   :commands (highlight-quoted-mode)
   :hook (emacs-lisp-mode . highlight-quoted-mode))
+
+;; (use-package highlight-symbol
+;;   :diminish highlight-symbol-mode
+;;   :hook (prog-mode . highlight-symbol-mode)
+;;   :config (setq highlight-symbol-idle-delay 0.3))
 
 ;; Rainbow delimiters
 (use-package rainbow-delimiters
