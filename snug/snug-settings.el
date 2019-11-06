@@ -15,7 +15,7 @@
 
 ;; Replace the region while insert
 (use-package delsel
-  :ensure nil
+  :straight nil
   :hook (after-init . delete-selection-mode))
 
 ;; Enable system clipboard in terminal Emacs
@@ -104,7 +104,7 @@
 
 ;; Auto reload buffer if file was changed
 (use-package autorevert
-  :ensure nil
+  :straight nil
   :hook (after-init . global-auto-revert-mode))
 
 ;; Lines
@@ -135,7 +135,7 @@
 
 ;; Save last position
 (use-package saveplace
-  :ensure nil
+  :straight nil
   :hook (after-init . save-place-mode))
 
 ;; Disable lockfiles

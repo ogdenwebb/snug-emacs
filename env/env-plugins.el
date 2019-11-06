@@ -155,7 +155,7 @@
 
 ;; Eldoc
 (use-package eldoc
-  :ensure nil
+  :straight nil
   :hook (prog-mode-hook . eldoc-mode)
   :config
   (global-eldoc-mode -1)

@@ -43,7 +43,7 @@
 
 ;; Recent files
 (use-package recentf
-  :ensure nil
+  :straight nil
   :defer 1
   :preface
   (defun snug/recentf-save-list-silence ()

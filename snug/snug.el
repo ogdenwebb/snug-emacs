@@ -9,10 +9,11 @@
       byte-compile--use-old-handlers nil
       load-prefer-newer t
       auto-window-vscroll nil
+      ;; site-run-file nil
       package-enable-at-startup nil)
 
 ;; Increase garbage collection for speedup
-(setq-default gc-cons-threshold 20000000
+(setq-default gc-cons-threshold 100000000
               gc-cons-percentage 0.6
               package-enable-at-startup nil
               message-log-max 16384
@@ -102,7 +103,7 @@
 
 ;; Server
 (use-package server
-  :ensure nil
+  :straight nil
   :hook (after-init . server-mode))
 
 ;; Convert keyword to string without colon
