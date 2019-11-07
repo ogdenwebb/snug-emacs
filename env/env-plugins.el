@@ -144,9 +144,16 @@
 (use-package treemacs-projectile
   :after (treemacs projectile))
 
-;; (use-package treemacs-icons-dired
-;;   :hook (dired-mode . treemacs-icons-dired-mode))
+(use-package treemacs-magit
+  :defer t
+  :after (treemacs magit))
 
+;; Allows to use treemacs icons in dired buffers
+(use-package treemacs-icons-dired
+  :defer t
+  :hook (dired-mode . treemacs-icons-dired-mode))
+
+;; Show tooltip help for keybindings
 (use-package which-key
   :disabled t
   :commands (which-key-mode)
