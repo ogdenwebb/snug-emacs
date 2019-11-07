@@ -155,17 +155,17 @@
    "g x"  'browse-url-at-point
    "/"    'swiper
    ;; Navigation between windows
-   "M-h"  'evil-window-left
-   "M-j"  'evil-window-down
-   "M-k"  'evil-window-up
-   "M-l"  'evil-window-right
+   "C-h"  'evil-window-left
+   "C-j"  'evil-window-down
+   "C-k"  'evil-window-up
+   "C-l"  'evil-window-right
 
    "M-x"  'counsel-M-x
    ;; Drag stuff
-   "C-h"  'drag-stuff-left
-   "C-j"  'drag-stuff-down
-   "C-k"  'drag-stuff-up
-   "C-l"  'drag-stuff-right
+   ;; "C-h"  'drag-stuff-left
+   ;; "C-j"  'drag-stuff-down
+   ;; "C-k"  'drag-stuff-up
+   ;; "C-l"  'drag-stuff-right
 
    ;; evil-commentary
    "g c" 'evil-commentary
@@ -277,13 +277,13 @@
   ;;                     :states  '(insert)
   ;;                     "RET" 'term-send-input)
 
-  ;; Org-mode
-  (general-define-key :keymaps 'org-mode-map
+  ;; Switch window
+  (general-define-key :keymaps '(org-mode-map magit-status-mode-map)
                       :states  '(normal visual)
-                      "M-h"  'evil-window-left
-                      "M-j"  'evil-window-down
-                      "M-k"  'evil-window-up
-                      "M-l"  'evil-window-right)
+                      "C-h"  'evil-window-left
+                      "C-j"  'evil-window-down
+                      "C-k"  'evil-window-up
+                      "C-l"  'evil-window-right)
 
   ;; Evil-surround
   (general-define-key :keymaps '(operator)
