@@ -33,12 +33,15 @@
 ;;   (setq company-lsp-async t)
 ;;   (setq company-lsp-enable-recompletion t))
 
-;; (use-package flymake)
-;; (use-package json-rpc)
+(use-package flymake
+  :defer t)
+(use-package json-rpc
+  :defer t)
 
-;; (use-package eglot)
-  ;; :after (flymake json-rpc)
-  ;; :hook (go-mode . eglot-ensure)
+(use-package eglot
+  :defer t
+  :after (flymake json-rpc)
+  :hook (kotlin-mode . eglot-ensure))
   ;; (add-to-list 'eglot-ignored-server-capabilites :hoverProvider))
 
 (provide 'use-lsp)

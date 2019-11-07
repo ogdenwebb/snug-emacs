@@ -1,7 +1,7 @@
 ;; -*- lexical-binding: t -*-
 (use-package smartparens
   :defer t
-  :hook (after-init . smartparens-global-mode)
+  :hook (prog-mode . smartparens-global-mode)
   :config
   (require 'smartparens-config)
   ;; (setq sp-autowrap-region nil ; let evil-surround handle this
@@ -10,7 +10,7 @@
 
   (setq-default sp-autoskip-closing-pair 'always-end)
 
-  (add-hook 'prog-mode-hook #'smartparens-mode)
+  ;; (add-hook 'prog-mode-hook #'smartparens-mode)
 
   (sp-with-modes '(c-mode c++-mode objc-mode java-mode go-mode)
     (sp-local-pair "{" nil :post-handlers '(:add ("||\n[i]" "RET"))))

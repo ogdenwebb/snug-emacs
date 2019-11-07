@@ -19,10 +19,9 @@
         magit-diff-buffer-file-locked nil))
   ;; (setq magit-diff-refine-hunk 'all))
 
-;; TODO:
-;; (use-package magithub
-;;   :after magit
-;;   :config (magithub-feature-autoinject t))
+;; TODO: support github in my workflow
+;; (use-package forge
+;;   :after magit)
 
 (use-package gist
   :commands (gist-list))

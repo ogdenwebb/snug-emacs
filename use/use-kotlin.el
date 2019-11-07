@@ -1,4 +1,5 @@
-(use-package kotlin-mode)
+(use-package kotlin-mode
+  :defer t)
 
 (use-package flycheck-kotlin
   :after kotlin-mode

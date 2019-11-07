@@ -98,6 +98,7 @@
     (setq right-fringe-width 0)))
 
 (use-package bug-hunter
+  :defer t
   :commands (bug-hunter-init-file bug-hunter-file))
 
 (use-package treemacs
@@ -139,9 +140,11 @@
 
 ;; Treemacs extensions
 (use-package treemacs-evil
+  :defer t
   :after (treemacs evil))
 
 (use-package treemacs-projectile
+  :defer t
   :after (treemacs projectile))
 
 (use-package treemacs-magit
@@ -162,25 +165,23 @@
 
 ;; Eldoc
 (use-package eldoc
+  :defer t
   :straight nil
   :hook (prog-mode-hook . eldoc-mode)
   :config
   (global-eldoc-mode -1)
   (setq eldoc-idle-delay 0.3))
 
-
-;; TODO: enable in prog-mode prolly
 (use-package eldoc-box
-  ;; :hook ((eglot--managed-mode . eldoc-box-hover-mode)
-  ;;        (eglot--managed-mode . eldoc-box-hover-at-point-mode)))
-  :config
-  (add-hook 'prog-mode-hook 'eldoc-box-hover-mode))
+  :defer t
+  :hook (eldoc-mode . eldoc-box-hover-mode))
 
 (use-package google-translate
   :defer t
   :config)
 
 (use-package google-translate-smooth-ui
+  :defer t
   :straight nil
   ;; :after google-translate
   :commands google-translate-smooth-translate
@@ -199,11 +200,13 @@
 
 ;; TODO: server restart
 (use-package restart-emacs
+  :defer t
   :disabled t
   :commands (restart-emacs))
 
 ;; TODO: https://github.com/EFLS/zetteldeft
 (use-package deft
+  :defer t
   :commands (deft)
   :config
   (setq deft-extensions '("txt" "tex" "org")

@@ -1,6 +1,9 @@
 ;; Wgrep
 (use-package ag
+  :defer t
   :if (executable-find "ag")
+  :commands (ag ag-dired ag-dired-regexp ag-files ag-project ag-regexp
+                ag-project-files ag-project-at-point)
   :config
   (setq ag-highlight-search t
         ag-reuse-buffers t

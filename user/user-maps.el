@@ -22,6 +22,7 @@
    "6" 'ivy-resume
    "k" 'counsel-ag
    "r" 'quickrun
+   "R" 'quickrun-shell
 
    ;; Open things quickly
    "o r" '(counsel-recentf :wk "Recentf files")

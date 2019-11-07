@@ -81,7 +81,7 @@
 
 (use-package evil-goggles
   ;; :requires evil
-  :defer t
+  :disabled t
   :hook (after-init . evil-goggles-mode)
   :config
   (setq evil-goggles-duration 0.1

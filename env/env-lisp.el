@@ -27,6 +27,7 @@
 
 
 (use-package lispy
+  :defer t
   :hook ((common-lisp-mode . lispy-mode)
          (emacs-lisp-mode . lispy-mode)
          (scheme-mode . lispy-mode)
@@ -39,6 +40,7 @@
   (add-hook 'lispy-mode-hook #'turn-off-smartparens-mode))
 
 (use-package lispyville
+  :defer t
   ;; :when (featurep! :editor evil)
   :hook (lispy-mode . lispyville-mode)
   :config

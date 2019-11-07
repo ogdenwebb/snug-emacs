@@ -1,6 +1,7 @@
 ;; Org protocol setup -*- lexical-binding: t -*-
 ;; Requirement: https://github.com/sprig/org-capture-extension
 (use-package org-protocol
+  :defer .1
   :straight nil
   :config
   (setq org-capture-templates `(
