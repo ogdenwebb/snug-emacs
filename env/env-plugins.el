@@ -79,6 +79,7 @@
 
 ;; Quickrun
 (use-package quickrun
+  :defer t
   :commands (quickrun quickrun-region
              quickrun-with-arg
              quickrun-shell
@@ -87,6 +88,7 @@
 
 ;; Move region or line
 (use-package drag-stuff
+  :defer t
   :commands (drag-stuff-left drag-stuff-up drag-stuff-down drag-stuff-right))
 ;; :config (drag-stuff-global-mode 1))
 
@@ -105,16 +107,16 @@
   :defer t
   :commands (treemacs treemacs-create-theme treemacs-create-icon treemacs-load-theme)
   :config
-  (setq-default treemacs-fringe-indicator-mode nil)
+  ;; (setq-default treemacs-fringe-indicator-mode nil)
 
-  ;; (pcase (cons (not (null (executable-find "git")))
-  ;;              (not (null (executable-find "python3"))))
-  ;;   (`(t . t)
-  ;;    (treemacs-git-mode 'extended))
-  ;;   (`(t . _)
-  ;;    (treemacs-git-mode 'simple)))
+  (pcase (cons (not (null (executable-find "git")))
+               (not (null (executable-find "python3"))))
+    (`(t . t)
+     (treemacs-git-mode 'extended))
+    (`(t . _)
+     (treemacs-git-mode 'simple)))
 
-  (setq treemacs-git-mode nil)
+  ;; (setq treemacs-git-mode t)
 
   (setq treemacs-show-hidden-files nil
         treemacs-width 30
@@ -133,22 +135,22 @@
                       ;; "g k"  'treemacs-previous-neighbour
                       "g j"  'treemacs-next-project
                       "g k"  'treemacs-previous-project
-                      "M-h"  'evil-window-left
-                      "M-j"  'evil-window-down
-                      "M-k"  'evil-window-up
-                      "M-l"  'evil-window-right))
+                      "C-h"  'evil-window-left
+                      "C-j"  'evil-window-down
+                      "C-k"  'evil-window-up
+                      "C-l"  'evil-window-right))
 
 ;; Treemacs extensions
 (use-package treemacs-evil
-  :defer t
+  ;; :defer t
   :after (treemacs evil))
 
 (use-package treemacs-projectile
-  :defer t
+  ;; :defer t
   :after (treemacs projectile))
 
 (use-package treemacs-magit
-  :defer t
+  ;; :defer t
   :after (treemacs magit))
 
 ;; Allows to use treemacs icons in dired buffers
@@ -256,9 +258,9 @@
   :config
   (setq frameshot-default-setup t))
 
-;; (use-package prescient
-;;   :disabled
-;;   :defer t)
+(use-package prescient
+  ;; :disabled
+  :defer t)
   ;; Change save file location
   ;; (setq prescient-save-file (locate-user-emacs-file "cache/prescient-save.el"))
   ;; Use fuzzy matching by default
@@ -266,11 +268,11 @@
     ;; Enable persistent history
   ;; (prescient-persist-mode))
 
-;; (use-package ivy-prescient
-;;   :disabled t
-;;   :after (ivy)
-;;   :config
-;;   (ivy-prescient-mode t))
+(use-package ivy-prescient
+  ;; :disabled t
+  :defer t
+  ;; :after (ivy)
+  :hook (ivy-mode . ivy-prescient-mode))
 
 ;; (use-package company-prescient
 ;;   :disabled t
