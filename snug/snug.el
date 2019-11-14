@@ -1,7 +1,15 @@
 ;;; -*- lexical-binding: t -*-
 
+;; Setup debug mode
+(eval-and-compile
+  (defvar snug-debug-mode
+    (or (getenv "DEBUG") init-file-debug)
+    "Debug mode, enable through DEBUG=1 or use --debug-init.")
+  (setq debug-on-error (and (not noninteractive) snug-debug-mode)))
+
 ;; Disable certain byte compiler warnings to cut down on the noise.
-(setq byte-compile-warnings '(not free-vars unresolved noruntime lexical make-local))
+(unless snug-debug-mode
+  (setq byte-compile-warnings '(not free-vars unresolved noruntime lexical make-local)))
 
 ;; Startup & package manager
 (defvar file-name-handler-alist-old file-name-handler-alist)
@@ -9,7 +17,7 @@
       byte-compile--use-old-handlers nil
       load-prefer-newer t
       auto-window-vscroll nil
-      ;; site-run-file nil
+      site-run-file nil
       package-enable-at-startup nil)
 
 ;; Increase garbage collection for speedup
@@ -54,9 +62,10 @@
       use-package-enable-imenu-support t)
 
 ;; Display use-package debug stuff when debug-on-error is t
-(if debug-on-error
+(if snug-debug-mode
       (setq use-package-expand-minimally nil
-            use-package-verbose t)
+            use-package-verbose t
+            use-package-compute-statistics t)
   (setq use-package-expand-minimally t
         use-package-verbose nil))
 
@@ -74,17 +83,31 @@
 ;; TODO: Generate autoloads
 
 ;; Define directories
-(defvar home-directory (getenv "HOME")
-  "User $HOME.")
+(eval-and-compile
+  (defvar home-directory (getenv "HOME")
+    "User $HOME.")
 
-(defvar snug-root (file-truename user-emacs-directory)
-  "Root of the snug.")
+  (defvar snug-root (file-truename user-emacs-directory)
+    "Root of the snug.")
 
-(defvar snug-dir (concat snug-root "snug/")
-  "The main directory of snug-emacs configuration.")
+  (defvar snug-dir (concat snug-root "snug/")
+    "The main directory of snug-emacs configuration.")
+
+  ;; (defvar snug-cache-dir
+  ;;   (if (getenv "XDG_DATA_HOME")
+  ;;       (concat (getenv "XDG_DATA_HOME") "/emacs/")
+  ;;     (expand-file-name "~/.local/share/emacs/"))
+  ;;   "Directory for data.")
+
+  ;; (defvar snug-cache-dir
+  ;;   (if (getenv "XDG_CACHE_HOME")
+  ;;       (concat (getenv "XDG_CACHE_HOME") "/emacs/")
+  ;;     (expand-file-name "~/.cache/emacs/"))
+  ;;   "Directory for cache.")
+  )
 
 ;; Set initial mode to text-mode
-(setq initial-major-mode 'text-mode)
+(setq initial-major-mode 'fundamental-mode)
 
 ;; Use Common Lisp library
 (require 'cl-lib)
