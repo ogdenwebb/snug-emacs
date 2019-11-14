@@ -52,7 +52,7 @@
 
 ;; Emmet
 (use-package emmet-mode
-  :hook ((sgml-mode-hook css-mode-hook) . emmet-mode) ;; enable Emmet's css abbreviation.
+  :hook ((sgml-mode css-mode) . emmet-mode) ;; enable Emmet's css abbreviation.
   ;; Maps
   :general
   (general-imap

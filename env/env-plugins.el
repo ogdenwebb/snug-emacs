@@ -109,12 +109,12 @@
   :config
   ;; (setq-default treemacs-fringe-indicator-mode nil)
 
-  (pcase (cons (not (null (executable-find "git")))
-               (not (null (executable-find "python3"))))
-    (`(t . t)
-     (treemacs-git-mode 'extended))
-    (`(t . _)
-     (treemacs-git-mode 'simple)))
+  ;; (pcase (cons (not (null (executable-find "git")))
+  ;;              (not (null (executable-find "python3"))))
+  ;;   (`(t . t)
+  ;;    (treemacs-git-mode 'extended))
+  ;;   (`(t . _)
+  ;;    (treemacs-git-mode 'simple)))
 
   ;; (setq treemacs-git-mode t)
 
@@ -258,8 +258,8 @@
   :config
   (setq frameshot-default-setup t))
 
+;; Simple but effective sorting and filtering for Emacs.
 (use-package prescient
-  ;; :disabled
   :defer t)
   ;; Change save file location
   ;; (setq prescient-save-file (locate-user-emacs-file "cache/prescient-save.el"))
@@ -268,17 +268,16 @@
     ;; Enable persistent history
   ;; (prescient-persist-mode))
 
+;; TODO: setup for counsel-ag
 (use-package ivy-prescient
   ;; :disabled t
   :defer t
   ;; :after (ivy)
   :hook (ivy-mode . ivy-prescient-mode))
 
-;; (use-package company-prescient
-;;   :disabled t
-;;   :after (prescient company)
-;;   :hook ((company-mode global-company-mode) . company-prescient-mode))
-
+(use-package company-prescient
+  :defer t
+  :hook ((company-mode global-company-mode) . company-prescient-mode))
 
 (use-package avy :defer t)
 (use-package ace-window :defer t)

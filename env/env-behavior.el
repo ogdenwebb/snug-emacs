@@ -26,12 +26,12 @@
   :straight (:host github :repo "jackkamm/undo-propose-el" :files ("*.el"))
   :commands (undo-propose undo-propose-diff)
   :config
-  (undo-propose-wrap redo))
+  (undo-propose-wrap redo)
+  (setq undo-propose-pop-to-buffer t))
 
 (use-package redo+
   :disabled t
-  :straight (:host github :repo "clemera/undo-redo" :files ("*.el"))
-  )
+  :straight (:host github :repo "clemera/undo-redo" :files ("*.el")))
 
 ;; If you want Emacs kill ring and system clipboard to be independent.
 ;; (use-package simpleclip

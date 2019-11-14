@@ -35,6 +35,9 @@
 
   (defun snug/org-init-hook ()
     (interactive)
+    ;; Set cursor-type for org-mode
+    (setq cursor-type 'bar)
+
     (when (bound-and-true-p nlinum-mode)
       (nlinum-mode -1))
     (when (bound-and-true-p display-line-numbers-mode)
@@ -129,11 +132,14 @@
 ;;   (kbd "M-L") 'org-metaright)
 
 (use-package org-bullets
-  :requires org
+  ;; :requires org
   :hook (org-mode . org-bullets-mode)
   :config
+  ;; (setq org-bullets-bullet-list
+  ;;       '("◉" "✸" "⚫" "○" "•"))
+  ;; Hide stars
   (setq org-bullets-bullet-list
-        '("◉" "✸" "⚫" "○" "•"))
+        '(" "))
   )
 
 (use-package evil-org

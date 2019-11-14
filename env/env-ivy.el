@@ -1,6 +1,7 @@
 ;; Use ivy -*- lexical-binding: t -*-
 
 (use-package ivy
+  ;; :defer t
   ;; :hook (after-init . ivy-mode)
   :init
   (ivy-mode t)
@@ -8,10 +9,10 @@
   (setq ivy-display-style 'fancy
         ivy-height 12
         ;; Set default matchers
-        ivy-re-builders-alist
-        '((counsel-ag . ivy--regex-fuzzy)
-          ;; (t . ivy--regex-plus))
-          (t . ivy--regex-ignore-order))
+        ;; ivy-re-builders-alist
+        ;; '((counsel-ag . ivy--regex-fuzzy)
+        ;;   ;; (t . ivy--regex-plus))
+        ;;   (t . ivy--regex-ignore-order))
 
         ;; Disable initial regexp
         ivy-initial-inputs-alist nil

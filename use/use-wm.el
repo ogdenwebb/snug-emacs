@@ -48,7 +48,7 @@
                         (comint-mode :select t :align t :size 0.4)
                         (help-mode :select t :align t :size 0.4)
                         (helpful-mode :select t :align t :size 0.4)
-                        (magit-status-mode :select t :align t :size 0.4 :inhibit-window-quit t)
+                        (magit-status-mode :select t :align t :size 0.4)
                         (magit-log-mode :same t :inhibit-window-quit t)
                         (magit-refs-mode :select t :same t :align t :size 0.4)
                         (magit-diff-mode :select nil :align right :size 0.5)

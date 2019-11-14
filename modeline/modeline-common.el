@@ -123,18 +123,16 @@
          `(,(concat " %" l "l:%" c "c")))))
 
   ;; Exclude some buffers in modeline
-  (defvar modeline-ignored-modes nil
-    "List of major modes to ignore in modeline")
-
-  (setq modeline-ignored-modes '("Dashboard"
+  (defvar modeline-ignored-modes '("Dashboard"
                                  "Warnings"
                                  "Compilation"
-                                 "EShell"
+                                 "EShell" "Eshell"
                                  "Debugger"
                                  "Quickrun"
                                  "REPL"
                                  "IELM"
-                                 "Messages"))
+                                 "Messages")
+    "List of major modes to ignore in modeline")
 
   ;; Display modified status
   (telephone-line-defsegment my-modified-status-segment ()

@@ -10,6 +10,10 @@
   ;; counsel-unicode-char
   ;; counsel-faces
 
+  ;; [remap list-buffers]                  #'ivy-switch-buffer
+  ;; [remap switch-to-buffer]              #'ivy-switch-buffer
+  ;; [remap switch-to-buffer-other-window] #'ivy-switch-buffer-other-window
+
   (general-define-key ; :keymaps '(override)
    :states '(normal insert emacs)
    :prefix snug-leader

@@ -1,7 +1,7 @@
-;; Helm setup to test theme faces
+;; Helm is incremental completion and selection narrowing framework -*- lexical-binding: t -*-
 
 (use-package helm
-  :disabled t
+  ;; :if
   :config
   (helm-mode t))
 

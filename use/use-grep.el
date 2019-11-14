@@ -11,7 +11,7 @@
 
 (use-package wgrep
   :defer t
-  ;; :commands (wgrep-setup wgrep-change-to-wgrep-mode)
+  :commands (wgrep wgrep-setup wgrep-change-to-wgrep-mode)
   :config)
 
 (use-package wgrep-ag

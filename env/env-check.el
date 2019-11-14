@@ -11,6 +11,7 @@
 
 ;; Package-lint
 (use-package package-lint
+  :disabled t
   :commands (package-lint-current-buffer))
 
 ;; Flycheck
@@ -117,13 +118,9 @@
 ;;   :config
 ;;   (flycheck-pos-tip-mode))
 
-;; (use-package flycheck-posframe
-;;   :after flycheck
-;;   :config (add-hook 'flycheck-mode-hook #'flycheck-posframe-mode))
-
 ;; Display Flycheck errors in tooltip
 (use-package flycheck-posframe
-  ;; :if (display-graphic-p)
+  ;; :if (featurep 'posframe)
   :hook ((global-flycheck-mode flycheck-mode) . flycheck-posframe-mode)
   :config
   ;; Default Pretty Configuration

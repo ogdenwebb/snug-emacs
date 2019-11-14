@@ -46,15 +46,14 @@
 
 ;; Theme settings
 ;; Setup my theme
-(defvar snug-custom-theme 'kaolin-ocean
-  "Default custom theme.")
+(defvar snug-custom-theme 'kaolin-temple
+  "Default custom theme for snug-emacs.")
 
 (use-package autothemer)
 
 (use-package kaolin-themes
   :straight nil
   :requires autothemer
-  ;; Delete or comment the following line if you use MELPA package
   :load-path "local/emacs-kaolin-themes"
   :config
   (setq kaolin-themes-org-scale-headings nil)
@@ -63,7 +62,8 @@
         kaolin-themes-git-gutter-solid t
         kaolin-themes-underline-wave t
         kaolin-themes-modeline-border nil
-        kaolin-themes-bold nil)
+        kaolin-themes-bold nil
+        kaolin-themes-distinct-metakeys nil)
 
   ;; (setq kaolin-valley-light-alt-bg t)
   ;; (setq kaolin-valley-dark-alt-bg nil)
@@ -119,6 +119,17 @@
  ;; '(fixed-pitch ((t (:family "D2Coding" :slant normal :weight normal :height 1.0 :width normal)))))
 
 (set-face-attribute 'fixed-pitch nil :family "D2Coding")
+;; MAYBE: Literata is ok
+;; (set-face-attribute
+;;  'variable-pitch nil
+;;  :font (font-spec :name "Crimson Text"
+;;                   :weight 'normal
+;;                   :slant 'normal
+;;                   :size 16.0))
+
+(custom-theme-set-faces
+ 'user
+ '(variable-pitch ((t (:family "Crimson Text" :height 165 :weight normal)))))
 
 ;; Maybe for variable pith
 ;; (set-face-attribute 'variable-pitch nil :family "Merriweather") ; a bit more small
@@ -139,6 +150,8 @@
 ;;   )
 
 ;; (add-hook 'org-mode-hook 'set-buffer-variable-pitch)
+
+(setq x-underline-at-descent-line t)
 
 ;; Set the fringe size
 (setq-default left-fringe-width  6
@@ -336,5 +349,7 @@
 ;; Hide mode-line in certain buffers
 (use-package hide-mode-line
   :hook (magit-status-mode . hide-mode-line-mode))
+
+;; (use-package mixed-pitch)
 
 (provide 'env-face)
