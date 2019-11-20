@@ -14,10 +14,11 @@
 
 ;; Reverse mapping for keyboard layouts other than english
 (use-package reverse-im
+  :defer t
+  :hook (after-init . reverse-im-mode)
   :config
   ;; (add-to-list 'reverse-im-modifiers 'super)
-  (add-to-list 'reverse-im-input-methods "russian-computer")
-  (reverse-im-mode t))
+  (add-to-list 'reverse-im-input-methods "russian-computer"))
 
 (use-package general
   :config
@@ -27,6 +28,7 @@
   :defer t)
 
 (use-package hydra
+  :defer 1
   :config
   (defhydra hydra-buffer (:color blue :columns 3)
     "
