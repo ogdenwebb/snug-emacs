@@ -110,7 +110,7 @@
 (setq initial-major-mode 'fundamental-mode)
 
 ;; Use Common Lisp library
-(require 'cl-lib)
+(use-package cl-lib :defer t)
 
 ;; Add configuration directories to `load-path'
 (setq load-path (append '("~/.emacs.d/snug/" "~/.emacs.d/env/"
@@ -129,18 +129,12 @@
   :straight nil
   :hook (after-init . server-mode))
 
-;; Convert keyword to string without colon
-(defun keyword-to-name-str (keyword)
-  "Return KEYWORD symbol without initial colon as string
-i.e. :keyword to \"keyword\"."
-  (substring (symbol-name keyword) 1))
-
 ;; Here we go
 (defmacro snug/init (&rest body)
   (declare (indent defun))
   (add-to-list 'body 'env-fu t)
   (dolist (pkg body)
-    (require pkg)))
+    (require pkg nil t)))
 
 ;; Use a hook so the message doesn't get clobbered by other messages.
 ;; (add-hook 'emacs-startup-hook
