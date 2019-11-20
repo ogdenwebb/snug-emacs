@@ -51,34 +51,26 @@
               visible-cursor nil
               highlight-nonselected-windows nil
               ;; Disable key bindging suggeestions
-              suggest-key-bindings nil)
+              suggest-key-bindings nil
+              indicate-buffer-boundaries nil ;  Don't show where buffer starts/ends
+              bidi-display-reordering nil ; Disable bidirectional text for tiny performance boost
+              indicate-empty-lines nil
+              sentence-end-double-space nil
+              kill-whole-line t)	; Kill line including '\n'
 
-;; Avoid GUI dialogs
-(setq use-dialog-box nil)
+;; Custom options for Emacs
+(setq use-dialog-box nil                ; Avoid GUI dialogs
+      x-gtk-use-system-tooltips nil     ; Do not use GTK tooltips
+      large-file-warning-threshold nil ; Disable warning about large files
+      track-eol t ; Keep cursor at end of lines.
+      line-move-visual nil)	 ; To be required by track-eol
 
-;; Do not use GTK tooltips
-(setq x-gtk-use-system-tooltips nil)
-
-;; Disable warning about large files
-(setq large-file-warning-threshold nil)
-
-(setq bidi-display-reordering nil)
 
 ;; Replacing yes/no with y/n.
 (defalias 'yes-or-no-p 'y-or-n-p)
 
 ;; y/n instead of yes/no when quitting
 (setq confirm-kill-emacs 'y-or-n-p)
-
-(setq-default indicate-buffer-boundaries nil ;  Don't show where buffer starts/ends
-              indicate-empty-lines nil
-              sentence-end-double-space nil
-              kill-whole-line t)	; Kill line including '\n'
-
-;; Keep cursor at end of lines.
-(setq track-eol t
-      line-move-visual nil)	 ; To be required by track-eol
-
 
 ;; Indentation
 (setq tab-width 4)
@@ -100,7 +92,10 @@
 ;;             (setq default-directory command-line-default-directory)))
 
 ;; Clean whitespace
-(add-hook 'before-save-hook 'whitespace-cleanup)
+(use-package whitespace
+  :straight nil
+  :defer t
+  :hook  (before-save . whitespace-cleanup))
 
 ;; Auto reload buffer if file was changed
 (use-package autorevert
@@ -118,11 +113,8 @@
 ;; Truncate lines
 (setq-default truncate-lines t)
 
-;; TODO:
-;; (setq-default global-visual-line-mode t)
-
-(setq find-file-visit-truename t)
 ;; VC settings
+(setq find-file-visit-truename t)
 (setq vc-follow-symlinks t)
 ;; (remove-hook 'find-file-hooks 'vc-find-file-hook)
 ;; (setq vc-handled-backends nil)
@@ -176,20 +168,6 @@
 ;; (setq auto-save-file-name-transforms
 ;; `((".*" "~/.cache/emacs/saves/" t)))
 
-;; Open file in dired with xdg-open
-;; (use-package dired
-;;   :config
-;;   (defun dired-open-file ()
-;;     "In dired, open the file named on this line."
-;;     (interactive)
-;;     (let* ((file (dired-get-filename nil t)))
-;;       (message "Opening %s..." file)
-;;       (call-process "xdg-open" nil 0 nil file)
-;;       (message "Opening %s done" file))
-
-;;     ;; select file or directory.
-;;     (define-key dired-mode-map (kbd "RET") 'dired-open-file)))
-
 ;; Set default browser
 (setq browse-url-browser-function 'browse-url-generic
       browse-url-generic-program "firefox-bin")
@@ -203,7 +181,7 @@
 (put 'scroll-left 'disabled nil)
 (put 'dired-find-alternate-file 'disabled nil)
 
-;; Enable recursive minibuffers
+;; Enable recursive minibuffers, i.e. you can use M-x inside M-x
 (setq enable-recursive-minibuffers t)
 
 ;; TODO: add var
@@ -246,5 +224,9 @@
 ;;   (dolist (var '("GOPATH"  "NVM_BIN"))
 ;;     (add-to-list 'exec-path-from-shell-variables var))
 ;;   (exec-path-from-shell-initialize))
+
+;; values: full, enable and nil
+(defvar snug-settings-posframe nil
+  "Enable posframe packages to display flycheck messages, company completion popup and etc.")
 
 (provide 'snug-settings)
