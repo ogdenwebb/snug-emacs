@@ -1,13 +1,5 @@
 ;; Appearance settings -*- lexical-binding: t -*-
 
-;; Icons
-(use-package all-the-icons
-  :commands (all-the-icons-octicon all-the-icons-faicon all-the-icons-fileicon
-                                   all-the-icons-wicon all-the-icons-material all-the-icons-alltheicon
-                                   all-the-icons-install-fonts)
-  :config
-  (setq all-the-icons-scale-factor 1.0))
-
 (use-package all-the-icons-ivy
   :disabled
   :config
@@ -49,6 +41,16 @@
 (defvar snug-custom-theme 'kaolin-temple
   "Default custom theme for snug-emacs.")
 
+(use-package hl-todo
+  :defer t
+  :config
+  (setq hl-todo-keyword-faces
+        `(("TODO"  . ,(face-foreground 'hl-todo))
+          ("FIXME" . ,(face-foreground 'hl-todo))
+          ("MAYBE" . ,(face-foreground 'warning))
+          ("NOTE"  . ,(face-foreground 'success)))))
+
+
 (use-package autothemer)
 
 (use-package kaolin-themes
@@ -83,7 +85,12 @@
   ;;     (add-hook 'after-make-frame-functions #'load-my-theme)
   ;;   (load-theme 'kaolin-eclipse t))
 
-  (load-theme snug-custom-theme t)
+  ;; (load-theme snug-custom-theme t)
+
+  (add-hook 'after-make-frame-functions
+            (lambda (_frame)
+              (load-theme snug-custom-theme t)
+              (global-hl-todo-mode t)))
 
   (kaolin-treemacs-theme)
 
@@ -118,7 +125,7 @@
 ;;  '(variable-pitch ((t (:family "Fira Sans"))))
  ;; '(fixed-pitch ((t (:family "D2Coding" :slant normal :weight normal :height 1.0 :width normal)))))
 
-(set-face-attribute 'fixed-pitch nil :family "D2Coding")
+;; (set-face-attribute 'fixed-pitch nil :family "D2Coding")
 ;; MAYBE: Literata is ok
 ;; (set-face-attribute
 ;;  'variable-pitch nil
@@ -269,6 +276,7 @@
 ;;   (setq highlight-indent-guides-character ?\┆))
 
 (use-package indent-guide
+  :defer t
   :commands (indent-guide-mode indent-guide-global-mode)
   :hook (prog-mode . indent-guide-mode))
 
@@ -291,16 +299,6 @@
 ;;   :defer .1
 ;;   :hook (prog-mode . fic-mode))
 
-(use-package hl-todo
-  :defer t
-  :hook (after-init . global-hl-todo-mode)
-  :config
-  (setq hl-todo-keyword-faces
-        `(("TODO"  . ,(face-foreground 'hl-todo))
-          ("FIXME" . ,(face-foreground 'hl-todo))
-          ("MAYBE" . ,(face-foreground 'warning))
-          ("NOTE"  . ,(face-foreground 'success)))))
-
 ;; TODO
 ;; Highlight surrounding parentheses in Emacs
 ;; (use-package highlight-parentheses
@@ -311,15 +309,24 @@
   :disabled t
   :hook (after-init . turn-on-page-break-lines-mode))
 
-(use-package solaire-mode
-  :disabled t
-  :hook
-  ((change-major-mode after-revert ediff-prepare-buffer) . turn-on-solaire-mode)
-  ((emacs-startup) . solaire-mode)
-  (minibuffer-setup . solaire-mode-in-minibuffer)
-  :config
-  ;; (solaire-global-mode t)
-  (solaire-mode-swap-bg))
+;; (use-package solaire-mode
+;;   ;; :disabled t
+;;   :hook
+;;   ((change-major-mode after-revert ediff-prepare-buffer) . turn-on-solaire-mode)
+;;   ((emacs-startup) . solaire-mode)
+;;   ;; (minibuffer-setup . solaire-mode-in-minibuffer)
+;;   :config
+;;   ;; (solaire-global-mode t)
+;;   (solaire-mode-swap-bg))
+
+;; Default solaire-mode config
+;; (use-package solaire-mode
+;;   :hook
+;;   ((change-major-mode after-revert ediff-prepare-buffer) . turn-on-solaire-mode)
+;;   ;; (minibuffer-setup . solaire-mode-in-minibuffer)
+;;   :config
+;;   (solaire-global-mode +1)
+;;   (solaire-mode-swap-bg))
 
 
 ;; (defun no-fringes-in-minibuffer ()
@@ -348,6 +355,7 @@
 
 ;; Hide mode-line in certain buffers
 (use-package hide-mode-line
+  :defer t
   :hook (magit-status-mode . hide-mode-line-mode))
 
 ;; (use-package mixed-pitch)
