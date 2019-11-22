@@ -1,4 +1,4 @@
-;;; -*- lexical-binding: t -*-
+;;; Snug -*- lexical-binding: t -*-
 
 ;; Setup debug mode
 (eval-and-compile
@@ -176,6 +176,14 @@ Inserted by installing org-mode or when a release is made."
 
 (provide 'org-version)
 (straight-use-package 'org)
+
+;; Text icons
+(use-package all-the-icons
+  :commands (all-the-icons-octicon all-the-icons-faicon all-the-icons-fileicon
+                                   all-the-icons-wicon all-the-icons-material all-the-icons-alltheicon
+                                   all-the-icons-install-fonts)
+  :config
+  (setq all-the-icons-scale-factor 1.0))
 
 (require 'snug-core)
 (require 'snug-settings)
