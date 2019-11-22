@@ -6,7 +6,7 @@
 ;; TODO: rename my* segments to ???
 ;; Gray "#545c5e"
 
-;; To disable mouse menu
+;; Disable mouse popup menu in mode-line
 (setq mode-line-default-help-echo nil)
 
 ;; Telephone line
