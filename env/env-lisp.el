@@ -1,14 +1,14 @@
 ;;; Lisp editing -*- lexical-binding: t; -*-
 (use-package elisp-mode
   :straight nil
-  :config
-  (add-hook 'emacs-lisp-mode-hook #'eldoc-mode))
+  :hook (emacs-lisp-mode . eldoc-mode))
 
 (use-package litable
   :disabled t)
 
 ;; Showing an Elisp demo
 (use-package elisp-demos
+  :defer 1
   :config
   (if (featurep 'helpful)
       (advice-add 'helpful-update :after #'elisp-demos-advice-helpful-update)
