@@ -1,7 +1,7 @@
 ;;; Syntax & spell checking -*- lexical-binding: t; -*-
 
 (with-eval-after-load 'hydra
-  (defhydra hydra-flyspell (:color teal)
+  (defhydra hydra-flyspell (:color blue)
     "Flyspell dictionary"
     ("e" (snug/flyspell-set-dict "en") "eng")
     ("r" (snug/flyspell-set-dict "ru") "rus")
