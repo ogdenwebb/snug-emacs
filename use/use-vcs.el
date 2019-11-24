@@ -6,8 +6,14 @@
 (setq vc-annotate-background nil
       vc-annotate-very-old-color nil)
 
+;; Magit complains loudly when it can't determine its own version, which is
+;; the case when magit is built through straight. The warning is harmless,
+;; however, so we just need it to shut up.
+;;;###autoload (advice-add #'magit-version :override #'ignore)
+
 ;; Git
 (use-package magit
+  :defer t
   :init
   ;; Disable GUI dialog for git
   (setenv "GIT_ASKPASS" "")
@@ -31,13 +37,6 @@
 (use-package git-gutter
   :defer t
   :hook (after-init . global-git-gutter-mode))
-
-  ;; (custom-set-variables
-  ;;  ;; WARNING: "" contains tag space character to display line
-  ;;  '(git-gutter:unchanged-sign "󠀠")
-  ;;  '(git-gutter:added-sign "󠀠")
-  ;;  '(git-gutter:modified-sign "󠀠")
-  ;;  '(git-gutter:deleted-sign "󠀠"))
 
 (use-package git-gutter-fringe
   :after git-gutter)
