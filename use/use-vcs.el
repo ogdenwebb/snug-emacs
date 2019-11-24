@@ -12,7 +12,7 @@
   ;; Disable GUI dialog for git
   (setenv "GIT_ASKPASS" "")
   (setenv "SSH_ASKPASS" "")
-  :commands (magit-status magit-diff magit-blame)
+  :commands (magit-status magit-diff magit-blame magit-commit)
   :config
   ;; Disable arrows in section heading
   (setq magit-section-visibility-indicator nil
@@ -24,12 +24,13 @@
 ;;   :after magit)
 
 (use-package gist
+  :defer t
   :commands (gist-list))
 
 ;; Highlight changes in git
 (use-package git-gutter
-  :config
-  (global-git-gutter-mode t))
+  :defer t
+  :hook (after-init . global-git-gutter-mode))
 
   ;; (custom-set-variables
   ;;  ;; WARNING: "" contains tag space character to display line
