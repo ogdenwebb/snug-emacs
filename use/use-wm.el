@@ -16,6 +16,7 @@
   ;; (setq eyebrowse-new-workspace "*dashboard*"))
 
 (use-package shackle
+  :defer t
   :hook (after-init . shackle-mode)
   :config
   (setq shackle-default-alignment 'below
