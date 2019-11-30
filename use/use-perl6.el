@@ -3,6 +3,6 @@
 
 (use-package flycheck-perl6
   :after perl6-mode
-  :config (add-hook 'perl6-mode-hook #'flycheck-mode))
+  :hook (perl6-mode . flycheck-mode))
 
 (provide 'use-perl6)
