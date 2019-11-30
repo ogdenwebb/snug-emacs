@@ -48,6 +48,11 @@
       (eval-print-last-sexp)))
   (load bootstrap-file nil 'nomessage))
 
+;; Straight settings
+(setq straight-check-for-modifications nil
+      ;; Don't clone the whole repo
+      straight-vc-git-default-clone-depth 1
+      straight-recipes-emacsmirror-use-mirror t)
 
 ;; Security settings
 (setq gnutls-verify-error (not (getenv "INSECURE")) ; you shouldn't use this
@@ -74,8 +79,8 @@
   :straight nil
   :defer t)
 
-(use-package git
-  :defer t)
+;; (use-package git
+;;   :defer t)
 
 ;; Help keeping ~/.emacs.d clean
 (use-package no-littering)
@@ -132,9 +137,10 @@
 ;; Here we go
 (defmacro snug/init (&rest body)
   (declare (indent defun))
-  (add-to-list 'body 'env-fu t)
-  (dolist (pkg body)
-    (require pkg nil t)))
+  (let ((gc-cons-threshold most-positive-fixnum))
+    (add-to-list 'body 'env-fu t)
+    (dolist (pkg body)
+      (require pkg nil t))))
 
 ;; Use a hook so the message doesn't get clobbered by other messages.
 ;; (add-hook 'emacs-startup-hook
@@ -147,35 +153,35 @@
 
 
 ;; Use git version of Org-mode
-;; https://github.com/raxod502/straight.el#installing-org-with-straightel
-(defun org-git-version ()
-  "The Git version of org-mode.
-Inserted by installing org-mode or when a release is made."
-  (require 'git)
-  (let ((git-repo (expand-file-name
-                   "straight/repos/org/" user-emacs-directory)))
-    (string-trim
-     (git-run "describe"
-              "--match=release\*"
-              "--abbrev=6"
-              "HEAD"))))
+;; ;; https://github.com/raxod502/straight.el#installing-org-with-straightel
+;; (defun org-git-version ()
+;;   "The Git version of org-mode.
+;; Inserted by installing org-mode or when a release is made."
+;;   (require 'git)
+;;   (let ((git-repo (expand-file-name
+;;                    "straight/repos/org/" user-emacs-directory)))
+;;     (string-trim
+;;      (git-run "describe"
+;;               "--match=release\*"
+;;               "--abbrev=6"
+;;               "HEAD"))))
 
-(defun org-release ()
-  "The release version of org-mode.
-Inserted by installing org-mode or when a release is made."
-  (require 'git)
-  (let ((git-repo (expand-file-name
-                   "straight/repos/org/" user-emacs-directory)))
-    (string-trim
-     (string-remove-prefix
-      "release_"
-      (git-run "describe"
-               "--match=release\*"
-               "--abbrev=0"
-               "HEAD")))))
+;; (defun org-release ()
+;;   "The release version of org-mode.
+;; Inserted by installing org-mode or when a release is made."
+;;   (require 'git)
+;;   (let ((git-repo (expand-file-name
+;;                    "straight/repos/org/" user-emacs-directory)))
+;;     (string-trim
+;;      (string-remove-prefix
+;;       "release_"
+;;       (git-run "describe"
+;;                "--match=release\*"
+;;                "--abbrev=0"
+;;                "HEAD")))))
 
-(provide 'org-version)
-(straight-use-package 'org)
+;; (provide 'org-version)
+;; (straight-use-package 'org)
 
 ;; Text icons
 (use-package all-the-icons
