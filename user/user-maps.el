@@ -340,6 +340,12 @@
    [tab]        'company-complete-common-or-cycle
    [backtab]    'company-select-previous)
 
+  ;; Help map
+  (general-define-key
+   :keymaps 'helm-map
+   "C-i" 'helm-execute-persistent-action
+   "C-z" 'helm-select-action)
+
   ;; C-w to delete word backward in minibuffer
   (general-define-key
    :keymaps '(minibuffer-local-map
