@@ -30,7 +30,9 @@
 
 ;; Shell files
 (use-package sh-script
-  :mode (("[/\\]\\zshrc$" . shell-script-mode)))
+  :mode (("[/\\]\\zshrc$" . shell-script-mode))
+  :config
+  (setq sh-learn-basic-offset t))
 
 (use-package vimrc-mode
   :mode ("/\\.?g?vimrc$"
@@ -44,5 +46,9 @@
   :mode (("[/\\]\\.config/i3/config$" . i3wm-config-mode)
          ("[/\\]\\.i3/config$" . i3wm-config-mode)))
 
+(use-package pdf-tools
+  :disabled t
+  :config
+  (pdf-loader-install))
 
 (provide 'use-filetype)
