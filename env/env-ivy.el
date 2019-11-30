@@ -1,10 +1,8 @@
 ;; Use ivy -*- lexical-binding: t -*-
 
 (use-package ivy
-  ;; :defer t
-  ;; :hook (after-init . ivy-mode)
-  :init
-  (ivy-mode t)
+  :defer t
+  :hook (after-init . ivy-mode)
   :config
   (setq ivy-display-style 'fancy
         ivy-height 12
@@ -35,10 +33,12 @@
   :defer t)
 
 (use-package swiper
+  :defer t
+  :after ivy
   :commands (swiper))
 
 (use-package counsel
-  :hook (after-init . counsel-mode)
+  :hook (ivy-mode . counsel-mode)
   :config
   (setq counsel-find-file-ignore-regexp (regexp-opt '(".jpg" ".png" ".jpeg")))
   ;; (setq counsel-grep-base-command "ag -S --nogroup --nocolor --nofilename --numbers '%s' %s")
@@ -78,5 +78,8 @@
   :after ivy
   :init
   (setq xref-show-xrefs-function #'ivy-xref-show-xrefs))
+
+(use-package counsel-css
+  :after ivy)
 
 (provide 'env-ivy)
