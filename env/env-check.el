@@ -150,7 +150,7 @@
   ;; aspell, hunspell
   (setq ispell-program-name (executable-find "aspell")
         ispell-dictionary "en_US"
-        ispell-quietly))
+        ispell-quietly t))
 
 (with-eval-after-load 'flyspell
   (defun snug/flyspell-set-dict (dict)

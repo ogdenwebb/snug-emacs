@@ -69,6 +69,7 @@
     ("z"   projectile-cache-current-file)
     ("q"   nil "cancel" :color blue))
 
+  :config
   ;; Projectile settings
   (setq projectile-verbose  nil
         ;; projectile-ignored-project-function  ’file-remote-p
