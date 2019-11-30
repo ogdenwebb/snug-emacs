@@ -14,6 +14,9 @@
   (setq company-idle-delay nil ; never start completions automatically
         company-require-match nil
         ;; company-show-numbers t
+
+        ;; If enabled, selecting item before first or after last wraps around.
+        company-selection-wrap-around t
         company-minimum-prefix-length 3
         company-tooltip-align-annotations t)
 
