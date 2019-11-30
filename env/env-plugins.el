@@ -67,7 +67,14 @@
     ("x"   projectile-remove-known-project)
     ("X"   projectile-cleanup-known-projects)
     ("z"   projectile-cache-current-file)
-    ("q"   nil "cancel" :color blue)))
+    ("q"   nil "cancel" :color blue))
+
+  ;; Projectile settings
+  (setq projectile-verbose  nil
+        ;; projectile-ignored-project-function  ’file-remote-p
+        ;; projectile-require-project-root   t
+        ;; projectile-switch-project-action  ’projectile-dired
+        ))
 
 ;; TODO: enable
 ;; (use-package backup-each-save
