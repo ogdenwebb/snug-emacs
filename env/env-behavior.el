@@ -1,11 +1,16 @@
 ;;; Various packages -*- lexical-binding: t; -*-
 
 ;; Electric indent
-(electric-indent-mode t)
-(setq-default electric-indent-inhibit t)
+(use-package electric
+  :straight nil
+  :defer t
+  :hook (after-init . electric-indent-mode)
+  :config
+  (setq-default electric-indent-inhibit t))
 
 ;; Undotree
 (use-package undo-tree
+  :straight nil
   :disabled t)
   ;; :config
   ;; ;; Persistent undo-tree history across Emacs sessions
@@ -38,7 +43,7 @@
 ;;   :config
 ;;   (simpleclip-mode t))
 
-(defvar snug/recentf-cleanup-symlinks t
+(defvar snug-recentf-cleanup-symlinks t
   "When t, delete symbolic links from the list with recent opened files.")
 
 ;; Recent files
@@ -63,8 +68,8 @@
   :config
   (run-at-time nil (* 5 60) 'snug/recentf-save-list-silence)
 
-  (setq recentf-max-menu-items 100
-        recentf-max-saved-items 100
+  (setq recentf-max-menu-items 150
+        recentf-max-saved-items 150
         recentf-auto-cleanup 'never
         ;; Recentf blacklist
         recentf-exclude '("^/var/folders\\.*"
@@ -83,10 +88,13 @@
                           "^/usr/share/emacs"
                           "^/usr/lib64/go/src"
                           "[/\\]\\.emacs.d/elpa"))
+
+  ;; Don't show files inside no-littering directory
   (add-to-list 'recentf-exclude no-littering-var-directory)
   (add-to-list 'recentf-exclude no-littering-etc-directory)
+
   ;; Delete symbolic links from recentf
-  (when snug/recentf-cleanup-symlinks
+  (when snug-recentf-cleanup-symlinks
     (add-to-list 'recentf-exclude (lambda (f) (not (string= (file-truename f) f)))))
   (recentf-mode t)
   )
