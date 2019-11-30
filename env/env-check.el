@@ -19,9 +19,11 @@
   :commands (flycheck-mode global-flycheck-mode flycheck-list-errors flycheck-buffer)
   :hook (prog-mode . flycheck-mode)
   :config
-  (setq flycheck-idle-change-delay
-        (if flycheck-current-errors 0.3 3.0)
-        flycheck-emacs-lisp-load-path 'inherit)
+  (setq flycheck-idle-change-delay (if flycheck-current-errors 0.3 3.0)
+        flycheck-emacs-lisp-load-path 'inherit
+        ;; MAYBE:
+        ;; flycheck-standard-error-navigation nil
+        )
 
   ;; TODO: enable
   (setq-default flycheck-disabled-checkers '(emacs-lisp emacs-lisp-checkdoc))
@@ -142,17 +144,21 @@
   :config
   ;; (add-hook 'prog-mode-hook 'flyspell-prog-mode)
   ;; (add-hook 'text-mode-hook 'flyspell-mode)
-  (setq flyspell-issue-message-flag nil)
+  ;; Reduce flyspell noise
+  (setq flyspell-issue-welcome-flag nil
+        flyspell-issue-message-flag nil)
   ;; aspell, hunspell
   (setq ispell-program-name (executable-find "aspell")
-        ispell-dictionary "en_US"))
+        ispell-dictionary "en_US"
+        ispell-quietly))
 
-(defun snug/flyspell-set-dict (dict)
-  (progn
-    (if (not (bound-and-true-p flyspell-mode))
-        (flyspell-mode))
-    (ispell-change-dictionary dict)
-    (flyspell-buffer)))
+(with-eval-after-load 'flyspell
+  (defun snug/flyspell-set-dict (dict)
+    (progn
+      (if (not (bound-and-true-p flyspell-mode))
+          (flyspell-mode))
+      (ispell-change-dictionary dict)
+      (flyspell-buffer))))
 
 ;; flyspell ivy corret
 (use-package flyspell-correct
@@ -162,6 +168,9 @@
                                        flyspell-correct-word flyspell-correct-word-generic))
 
 (use-package flyspell-correct-ivy
-  :after flyspell-correct)
+  :after (ivy flyspell-correct))
+
+(use-package flyspell-correct-helm
+  :after (helm flyspell-correct))
 
 (provide 'env-check)
