@@ -22,7 +22,13 @@
   :config
   ;; Disable arrows in section heading
   (setq magit-section-visibility-indicator nil
-        magit-diff-buffer-file-locked nil))
+        magit-diff-buffer-file-locked nil
+        magit-clone-set-remote.pushDefault t
+        magit-remote-add-set-remote.pushDefault t
+        magit-log-auto-more t
+        ;; MAYBE:
+        ;; magit-save-repository-buffers 'dontask))
+        ))
   ;; (setq magit-diff-refine-hunk 'all))
 
 ;; TODO: support github in my workflow
