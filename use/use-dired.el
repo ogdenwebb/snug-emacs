@@ -4,6 +4,10 @@
 (use-package dired
   :straight nil
   :config
+  ;; Dired settings
+  (setq dired-hide-details-hide-symlink-targets nil
+        dired-omit-verbose nil)
+
   (defun dired-open-file ()
     "In dired, open the file named on this line."
     (interactive)
