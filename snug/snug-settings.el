@@ -18,6 +18,10 @@
   :straight nil
   :hook (after-init . delete-selection-mode))
 
+;; Enable mouse within terminal
+(when (not window-system)
+  (xterm-mouse-mode t))
+
 ;; Enable system clipboard in terminal Emacs
 ;; See: https://hugoheden.wordpress.com/2009/03/08/copypaste-with-emacs-in-terminal/
 ;; (setq select-enable-clipboard t)
@@ -51,12 +55,37 @@
               visible-cursor nil
               highlight-nonselected-windows nil
               ;; Disable key bindging suggeestions
-              suggest-key-bindings nil
+              suggest-key-bindings t
               indicate-buffer-boundaries nil ;  Don't show where buffer starts/ends
               bidi-display-reordering nil ; Disable bidirectional text for tiny performance boost
               indicate-empty-lines nil
               sentence-end-double-space nil
-              kill-whole-line t)	; Kill line including '\n'
+              kill-whole-line t	; Kill line including '\n'
+              apropos-do-all t ; Better apropos
+              custom-safe-themes t
+              ;; custom-search-field nil
+              eval-expression-print-level nil
+              ;; Resize mini windows
+              resize-mini-windows t
+              set-mark-command-repeat-pop t
+              )
+
+;; TODO: sort
+(setq async-shell-command-buffer 'new-buffer
+      backward-delete-char-untabify-method 'hungry
+      ;; checkdoc-spellcheck-documentation-flag t
+      ;; comint-input-ignoredups  t
+      ;; comint-process-echoes  t
+      ;; comint-prompt-read-only  t
+      ;; comint-scroll-to-bottom-on-input   ’this
+      ;; completions-format  ’vertical
+      )
+
+;; Compilation
+(setq compilation-always-kill t
+      compilation-ask-about-save  nil
+      compilation-skip-threshold  2
+      )
 
 ;; Custom options for Emacs
 (setq use-dialog-box nil                ; Avoid GUI dialogs
@@ -125,7 +154,7 @@
 ;; Resize frame pixelwise
 (setq frame-resize-pixelwise t)
 
-;; Save last position
+;; Save last position in buffer
 (use-package saveplace
   :straight nil
   :hook (after-init . save-place-mode))
