@@ -3,14 +3,18 @@
   :mode (("\\.nim\\'" . nim-mode)
          ("\\.nims\\'" . nimscript-mode))
   :hook ((nim-mode . nimsuggest-mode)
-         (nim-mode . eldoc-mode)
-         (nimsuggest-mode . flycheck-mode))
+         (nim-mode . eldoc-mode))
   :init
   (add-hook 'nim-mode-hook (lambda () (electric-indent-mode -1)))
   :general
   (general-define-key :keymaps 'nim-mode-map
                       :states  '(normal)
                       "K"  'nimsuggest-show-doc))
+
+(use-package flycheck-nim
+  :defer t
+  :after (nim-mode flycheck)
+  :hook (nim-mode . flycheck-mode))
 
 ;; (add-hook 'nim-mode-hook
 ;;         '(lambda () (setq-local electric-indent-chars '(?\s)))))
