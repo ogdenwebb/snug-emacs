@@ -18,6 +18,12 @@
   ;; Disable GUI dialog for git
   (setenv "GIT_ASKPASS" "")
   (setenv "SSH_ASKPASS" "")
+  :preface
+  (defun magit-status-only ()
+    "Invoke magit-status and delete other windows."
+    (interactive)
+    (magit-status)
+    (delete-other-windows))
   :commands (magit-status magit-diff magit-blame magit-commit)
   :config
   ;; Disable arrows in section heading

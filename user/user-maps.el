@@ -113,7 +113,8 @@
    "g b" 'magit-blame
    "g d" 'magit-diff
    "g s" 'magit-status
-   "g S" 'git-gutter:stage-hunk
+   "g S" 'magit-status-only
+   ;; "g S" 'git-gutter:stage-hunk
    "g r" 'git-gutter:revert-hunk
    "g R" 'magit-revert
    "g l" 'magit-log-current
