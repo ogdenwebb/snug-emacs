@@ -69,17 +69,18 @@
 
   (telephone-line-defsegment my-evil-segment ()
     "Display evil state as text symbol."
-    (let ((tag (cond
-                ((string= evil-state "normal")    ":")
-                ((string= evil-state "insert")    ">")
-                ((string= evil-state "replace")   "~")
-                ((string= evil-state "visual")    "!")
-                ((string= evil-state "operator")  "=")
-                ((string= evil-state "motion")    "m")
-                ((string= evil-state "emacs")     "Emacs")
-                ((string= evil-state "multiedit") "ME")
-                (t "-"))))
-      (format " %s" tag)))
+    (when (telephone-line-selected-window-active)
+      (let ((tag (cond
+                  ((string= evil-state "normal")    ":")
+                  ((string= evil-state "insert")    ">")
+                  ((string= evil-state "replace")   "~")
+                  ((string= evil-state "visual")    "!")
+                  ((string= evil-state "operator")  "=")
+                  ((string= evil-state "motion")    "m")
+                  ((string= evil-state "emacs")     "Emacs")
+                  ((string= evil-state "multiedit") "ME")
+                  (t "-"))))
+        (format " %s" tag))))
 
   (telephone-line-defsegment my-evil-segment-icon ()
     "Display evil state as icon with all-the-icons."
@@ -116,11 +117,13 @@
 
   (telephone-line-defsegment my-position-segment (&optional lines columns)
      "Position segment. Optional args set padding on lines/columns."
-     (let* ((l (number-to-string (if lines lines 3)))
-            (c (number-to-string (if columns columns 2))))
-       (if (eq major-mode 'paradox-menu-mode)
-           (telephone-line-raw mode-line-front-space t)
-         `(,(concat " %" l "l:%" c "c")))))
+     (when (telephone-line-selected-window-active)
+       (let* ((l (number-to-string (if lines lines 3)))
+              (c (number-to-string (if columns columns 2))))
+         (if (eq major-mode 'paradox-menu-mode)
+             (telephone-line-raw mode-line-front-space t)
+           `(,(concat " %" l "l:%" c "c"))))))
+
 
   ;; Exclude some buffers in modeline
   (defvar modeline-ignored-modes '("Dashboard"
@@ -149,14 +152,15 @@
 
   ;; Display encoding system
   (telephone-line-defsegment my-coding-segment ()
-    (let* ((code (symbol-name buffer-file-coding-system))
-           (eol-type (coding-system-eol-type buffer-file-coding-system))
-           (eol (cond
-                 ((eq 0 eol-type) "unix")
-                 ((eq 1 eol-type) "dos")
-                 ((eq 2 eol-type) "mac")
-                 (t "-"))))
-      (format  "%s " eol)))
+    (when (telephone-line-selected-window-active)
+      (let* ((code (symbol-name buffer-file-coding-system))
+             (eol-type (coding-system-eol-type buffer-file-coding-system))
+             (eol (cond
+                   ((eq 0 eol-type) "unix")
+                   ((eq 1 eol-type) "dos")
+                   ((eq 2 eol-type) "mac")
+                   (t "-"))))
+        (format  "%s " eol))))
 
   ;; TODO:
   ;; Hide vc backend in modeline
