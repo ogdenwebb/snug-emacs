@@ -128,6 +128,11 @@
     (cl-pushnew name company-backends)))
 
 (with-eval-after-load 'company
+  (defun company-complete-common-or-cycle-backward ()
+    "Complete common prefix or cycle backward."
+    (interactive)
+    (company-complete-common-or-cycle -1))
+
   (define-key company-active-map (kbd "RET") 'company-complete-selection)
   (define-key company-active-map [return] 'company-complete-selection)
   (define-key company-active-map (kbd "M-n") nil)
