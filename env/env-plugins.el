@@ -30,6 +30,13 @@
 ;;                 (package-delete  old-package)))))
 ;;       (message "All packages are up to date"))))
 
+
+;; A minor mode that guesses the indentation offset
+(use-package dtrt-indent
+  :defer t
+  :hook
+  (prog-mode . dtrt-indent-mode))
+
 ;; Project management
 (use-package projectile
   :defer 1
@@ -233,7 +240,11 @@
 
 ;; Better help
 (use-package helpful
-  :defer t
+  :if (>= emacs-major-version 25)
+  :defer 1
+  :bind (([remap describe-function] . helpful-callable)
+         ([remap describe-variable] . helpful-variable)
+         ([remap describe-key] . helpful-key))
   :preface
   (defun counsel-helpful-keymap-describe ()
     "Select keymap with ivy, display help with helpful"
