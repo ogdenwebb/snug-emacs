@@ -34,6 +34,10 @@
   :config
   (setq sh-learn-basic-offset t))
 
+(use-package makefile-mode
+  :straight nil
+  :mode (("\\(/\\|\\`\\)[Mm]akefile" . makefile-mode)))
+
 (use-package vimrc-mode
   :mode ("/\\.?g?vimrc$"
          "\\.vim$"
