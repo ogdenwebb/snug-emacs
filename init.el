@@ -1,5 +1,4 @@
 ;;;; Snug - Emacs configuration with Evil
-;; (setq debug-on-error t)
 
 ;; General configation
 (require 'snug (concat user-emacs-directory "snug/snug"))
@@ -7,12 +6,17 @@
 (snug/init
   env-maps
 
+  ;; TODO: swiper-isearch
   env-ivy
   ;; env-helm ; for testing purpose
 
+  ;; TODO: evil-shift-round
+  ;; TODO: evil-shift-width for modes like web
   env-evil
 
   env-face
+  env-face-pretty
+
   ;; env-dashboard
 
   env-behavior
@@ -21,48 +25,55 @@
 
   env-check
   env-lisp
-  env-local
 
   ;; Autocompletion
   completion-company ; TODO: refact
 
   ;; Mode-line
-  ;; modeline-common ; TODO: rework
-  modeline-doom
+  modeline-common ; TODO: rework
+  ;; modeline-doom
 
   ;; Specific modules and major modes
+  use-dired
   use-eshell
+  ;; use-diff
   use-filetype
   use-grep
   use-sp ; smartparens
-  use-lsp
+  ;; use-lsp ; lsp has   lsp-treemacs
   ;; use-multiedit
 
-  use-cc          ; c/c++
+  use-cc             ; c/c++
   ;; use-cl          ; common lisp
   ;; use-clj         ; clojure
   ;; use-crystal
-  ;; use-calendar
+  use-calendar
   ;; use-elixir
-  ;; use-haskell
+  use-haskell
   use-go
   use-lua
   ;; use-js          ; javascript
+  ;; use-kotlin
   ;; use-nim
   ;; use-ocaml
-  use-org         ; basic org setup
-  use-org-capture ; capture things with org-mode
+  use-org            ; basic org setup
+  use-org-capture    ; capture things with org-mode
   ;; use-py          ; python
-  ;; use-perl6
+  use-perl6
   ;; use-rust
-  use-tools       ; support for external apps such as colorpicker
-  use-tabs        ; UI tabs
-  use-vcs         ; version control
-  use-writter     ; write in Emacs with a couple of tea
+  use-tags
+  use-tools          ; support for external apps such as colorpicker
+  ;; use-tabs           ; UI tabs
+
+  use-vcs            ; version control
+  use-writter        ; write in Emacs with a couple of tea
   use-yasnippet
   use-web
+  use-wm             ; easy way to manage Emacs windows
 
   ;; User specific settings
+  ;; TODO: general has :properties :jump :repeat for maps
+  ;; TODO: general-def
   user-maps)
 ;; user-settings
 
