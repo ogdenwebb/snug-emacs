@@ -3,23 +3,10 @@
 (use-package ivy
   :defer t
   :hook (after-init . ivy-mode)
-  :bind* (([remap execute-extended-command] . counsel-M-x)
-          ([remap find-library] . counsel-find-library)
-          ([remap describe-bindings]  . counsel-descbinds)
-          ([remap describe-face]  . counsel-describe-faces)
-          ([remap list-faces-display] . counsel-faces)
-          ([remap imenu] . counsel-imenu)
-          ([remap load-library] . counsel-load-library)
-          ([remap load-theme] . counsel-load-theme)
-          ([remap yank-pop] . counsel-yank-pop)
-          ([remap info-lookup-symbol] . counsel-info-lookup-symbol)
-          ([remap pop-to-mark-command] . counsel-mark-ring)
-          ([remap bookmark-jump] . counsel-bookmark))
-          ;; ("C-c j" . counsel-git-grep)
-          ;; ("C-x l" . counsel-locate)
-          ;; ("M-y" . counsel-yank-pop)
-          ;; ("C-c i 8" . counsel-unicode-char)
-          ;; ("C-x M-f" . counsel-find-file))
+  :bind (([remap list-buffers] . ivy-switch-buffer)
+         ([remap switch-to-buffer] . ivy-switch-buffer)
+         ([remap switch-to-buffer-other-window] .
+          ivy-switch-buffer-other-window))
   :config
   (setq ivy-display-style 'fancy
         ivy-height 12
@@ -56,6 +43,23 @@
 
 (use-package counsel
   :hook (ivy-mode . counsel-mode)
+  :bind* (([remap execute-extended-command] . counsel-M-x)
+          ([remap find-library] . counsel-find-library)
+          ([remap describe-bindings]  . counsel-descbinds)
+          ([remap describe-face]  . counsel-describe-faces)
+          ([remap list-faces-display] . counsel-faces)
+          ([remap imenu] . counsel-imenu)
+          ([remap load-library] . counsel-load-library)
+          ([remap load-theme] . counsel-load-theme)
+          ([remap yank-pop] . counsel-yank-pop)
+          ([remap info-lookup-symbol] . counsel-info-lookup-symbol)
+          ([remap pop-to-mark-command] . counsel-mark-ring)
+          ([remap bookmark-jump] . counsel-bookmark))
+          ;; ("C-c j" . counsel-git-grep)
+          ;; ("C-x l" . counsel-locate)
+          ;; ("M-y" . counsel-yank-pop)
+          ;; ("C-c i 8" . counsel-unicode-char)
+          ;; ("C-x M-f" . counsel-find-file))
   :config
   (setq counsel-find-file-ignore-regexp (regexp-opt '(".jpg" ".png" ".jpeg")))
   ;; (setq counsel-grep-base-command "ag -S --nogroup --nocolor --nofilename --numbers '%s' %s")
