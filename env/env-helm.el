@@ -63,8 +63,8 @@
   :defer t
   :after helm)
 
-(use-package swiper-helm
-  :after helm)
+;; (use-package swiper-helm
+;;   :after helm)
 
 (use-package helm-org
   :after (helm org))
