@@ -24,6 +24,11 @@
 i.e. :keyword to \"keyword\"."
   (substring (symbol-name keyword) 1))
 
+(defmacro lambda! (&rest body)
+  "A shortcut for inline interactive lambdas."
+  (declare (doc-string 1))
+  `(lambda () (interactive) ,@body))
+
 ;; Detect system type
 (defconst *IS-LINUX*   (eq system-type 'gnu/linux))
 (defconst *IS-MAC*     (eq system-type 'darwin))
