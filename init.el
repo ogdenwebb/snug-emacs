@@ -8,7 +8,7 @@
 
   ;; TODO: swiper-isearch
   env-ivy
-  ;; env-helm ; for testing purpose
+  ;; env-helm
 
   ;; TODO: evil-shift-round
   ;; TODO: evil-shift-width for modes like web
@@ -27,7 +27,7 @@
   env-lisp
 
   ;; Autocompletion
-  completion-company ; TODO: refact
+  use-completion-company
 
   ;; Mode-line
   modeline-common ; TODO: rework

@@ -138,4 +138,4 @@
   (define-key company-active-map (kbd "M-n") nil)
   (define-key company-active-map (kbd "M-p") nil))
 
-(provide 'completion-company)
+(provide 'use-completion-company)
