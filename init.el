@@ -6,12 +6,9 @@
 (snug/init
   env-maps
 
-  ;; TODO: swiper-isearch
   env-ivy
   ;; env-helm
 
-  ;; TODO: evil-shift-round
-  ;; TODO: evil-shift-width for modes like web
   env-evil
 
   env-face
@@ -72,8 +69,6 @@
   use-wm             ; easy way to manage Emacs windows
 
   ;; User specific settings
-  ;; TODO: general has :properties :jump :repeat for maps
-  ;; TODO: general-def
   user-maps)
 ;; user-settings
 
