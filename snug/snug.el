@@ -21,18 +21,24 @@
       package-enable-at-startup nil)
 
 ;; Increase garbage collection for speedup
-(setq-default gc-cons-threshold 100000000
-              gc-cons-percentage 0.6
-              package-enable-at-startup nil
+(setq-default package-enable-at-startup nil
+              ;; gc-cons-threshold 100000000
+              ;; gc-cons-percentage 0.6
               message-log-max 16384
               auto-window-vscroll nil)
 
 (add-hook 'emacs-startup-hook
           #'(lambda ()
-              (setq file-name-handler-alist file-name-handler-alist-old
-                    gc-cons-threshold 16777216
-                    gc-cons-percentage 0.1)
-              (garbage-collect)) t)
+              (setq file-name-handler-alist file-name-handler-alist-old)))
+;;                     gc-cons-threshold 16777216
+;;                     gc-cons-percentage 0.1)
+;;               (garbage-collect)) t)
+
+;; Ensure `snug' is in `load-path'
+(add-to-list 'load-path (file-name-directory load-file-name))
+
+;; Require necessary snug things
+(require 'snug-core)
 
 ;; Straight.el
 (defvar bootstrap-version)
@@ -74,7 +80,15 @@
   (setq use-package-expand-minimally t
         use-package-verbose nil))
 
-;; (eval-when-compile (require 'subr-x))
+(use-package gcmh
+  :init
+  (setq gcmh-verbose             nil
+        ;; gcmh-low-cons-threshold  #x800000
+        ;; gcmh-high-cons-threshold #x800000
+        gcmh-idle-delay          300)
+  :config
+  (gcmh-mode))
+
 (use-package subr-x
   :straight nil
   :defer t)
@@ -122,6 +136,11 @@
                            "~/.emacs.d/use/" "~/.emacs.d/user/"
                            "~/.emacs.d/completion/" "~/.emacs.d/modeline/")
                          load-path))
+
+;; Remove command line options that aren't relevant to our current OS; means
+;; slightly less to process at startup.
+(unless *IS-MAC*   (setq command-line-ns-option-alist nil))
+(unless *IS-LINUX* (setq command-line-x-option-alist nil))
 
 ;; Custom file
 ;; TODO: add no-littering dir
@@ -191,7 +210,6 @@
   :config
   (setq all-the-icons-scale-factor 1.0))
 
-(require 'snug-core)
 (require 'snug-settings)
 
 (provide 'snug)
