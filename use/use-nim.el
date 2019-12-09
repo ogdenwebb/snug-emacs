@@ -4,7 +4,7 @@
          ("\\.nims\\'" . nimscript-mode))
   :hook ((nim-mode . nimsuggest-mode)
          (nim-mode . eldoc-mode))
-  :init
+  :config
   (add-hook 'nim-mode-hook (lambda () (electric-indent-mode -1)))
   :general
   (general-define-key :keymaps 'nim-mode-map
