@@ -1,14 +1,35 @@
 ;;; snug-emacs core stuff -*- lexical-binding: t; -*-
 
 ;; Common modules
-(defvar snug-env '(maps face plugins))
+;; (defvar snug-env '(maps face plugins))
 
-(defvar snug-uses nil
-  "List of USE flags for snug-emacs.")
+;; (defvar snug-useflags nil
+;;   "List of USE flags for snug-emacs.")
 
-;; if USE exists; mb used
-;; (defun usep)
+;; (defun snug/usep (use)
+;;     "Check if USE is enabled."
+;;     (memq use snug-useflags))
 
-; (defalias 'exep 'executable-find)
+;; (defalias 'usep 'snug/usep)
+
+;; (defun snug/use-add (use)
+;;   "Add new USE to `snug-useflags'."
+;;   (add-to-list 'snug-useflags use))
+
+;; ; (defalias 'exep 'executable-find)
+
+;; Convert keyword to string without colon
+(defun keyword-to-name-str (keyword)
+  "Return KEYWORD symbol without initial colon as string
+i.e. :keyword to \"keyword\"."
+  (substring (symbol-name keyword) 1))
+
+;; Detect system type
+(defconst *IS-LINUX*   (eq system-type 'gnu/linux))
+(defconst *IS-MAC*     (eq system-type 'darwin))
+(defconst *IS-WINDOWS* (memq system-type '(cygwin windows-nt ms-dos)))
+(defconst *IS-BSD*     (or *IS-MAC* (eq system-type 'berkeley-unix)))
 
 (provide 'snug-core)
+
+;;; snug-core.el ends here
