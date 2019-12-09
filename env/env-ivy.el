@@ -51,7 +51,7 @@
     [remap execute-extended-command]  #'counsel-M-x
     [remap find-library]  #'counsel-find-library
     [remap describe-bindings]   #'counsel-descbinds
-    [remap describe-face]   #'counsel-describe-faces
+    [remap describe-face]   #'counsel-describe-face
     [remap list-faces-display]  #'counsel-faces
     [remap imenu]  #'counsel-imenu
     [remap load-library]  #'counsel-load-library
