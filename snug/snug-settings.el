@@ -1,4 +1,11 @@
 ;;; Snug settings file -*- lexical-binding: t -*-
+
+;; values: full, enable and nil
+(defvar snug-with-posframe nil
+  "Enable posframe packages to display flycheck messages, company completion popup and etc.")
+
+(defvar snug-with-lsp nil
+  "Enable Language Server Protocol (LSP).")
 ;
 ;; Set UTF-8 as default encoding
 (set-charset-priority 'unicode)
@@ -253,9 +260,5 @@
 ;;   (dolist (var '("GOPATH"  "NVM_BIN"))
 ;;     (add-to-list 'exec-path-from-shell-variables var))
 ;;   (exec-path-from-shell-initialize))
-
-;; values: full, enable and nil
-(defvar snug-settings-posframe nil
-  "Enable posframe packages to display flycheck messages, company completion popup and etc.")
 
 (provide 'snug-settings)
