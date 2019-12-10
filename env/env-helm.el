@@ -35,8 +35,8 @@
   ;; Set helm as default completion system
   (with-eval-after-load 'projectile
     (setq projectile-completion-system 'helm))
-  (with-eval-after-load 'magit
-    (setq magit-completing-read-function 'helm))
+  ;; (with-eval-after-load 'magit
+  ;;   (setq magit-completing-read-function 'helm))
 )
 
 (use-package helm-projectile
