@@ -5,7 +5,8 @@
   (defvar snug-debug-mode
     (or (getenv "DEBUG") init-file-debug)
     "Debug mode, enable through DEBUG=1 or use --debug-init.")
-  (setq debug-on-error (and (not noninteractive) snug-debug-mode)))
+  (setq debug-on-error (and (not noninteractive) snug-debug-mode)
+        jka-compr-verbose snug-debug-mode))
 
 ;; Disable certain byte compiler warnings to cut down on the noise.
 (unless snug-debug-mode
@@ -16,7 +17,6 @@
 (setq file-name-handler-alist nil
       byte-compile--use-old-handlers nil
       load-prefer-newer t
-      auto-window-vscroll nil
       site-run-file nil
       package-enable-at-startup nil)
 
@@ -24,8 +24,7 @@
 (setq-default package-enable-at-startup nil
               ;; gc-cons-threshold 100000000
               ;; gc-cons-percentage 0.6
-              message-log-max 16384
-              auto-window-vscroll nil)
+              message-log-max 16384)
 
 (add-hook 'emacs-startup-hook
           #'(lambda ()

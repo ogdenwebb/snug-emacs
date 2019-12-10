@@ -75,6 +75,7 @@
               ;; Resize mini windows
               resize-mini-windows t
               set-mark-command-repeat-pop t
+              auto-window-vscroll nil
               )
 
 ;; TODO: sort
@@ -127,11 +128,15 @@
 ;;           (lambda ()
 ;;             (setq default-directory command-line-default-directory)))
 
-;; Clean whitespace
+;; Whitespace
 (use-package whitespace
   :straight nil
   :defer t
-  :hook  (before-save . whitespace-cleanup))
+  :hook  (before-save . whitespace-cleanup)
+  :config
+  (setq-default whitespace-line-column 80
+                whitespace-style '(face spaces tabs newline space-mark tab-mark
+                                        newline-mark lines-tail empty)))
 
 ;; Auto reload buffer if file was changed
 (use-package autorevert
