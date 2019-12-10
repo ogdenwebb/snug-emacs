@@ -29,8 +29,8 @@
   ;; Integrate ivy in projectile and magit
   (with-eval-after-load 'projectile
     (setq projectile-completion-system 'ivy))
-  (with-eval-after-load 'magit
-    (setq magit-completing-read-function 'ivy))
+  ;; (with-eval-after-load 'magit
+  ;;   (setq magit-completing-read-function 'ivy))
   )
 
 (use-package ivy-hydra
