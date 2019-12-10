@@ -211,11 +211,14 @@
 (when (fboundp 'tool-bar-mode)   (tool-bar-mode -1))
 (when (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
+;; Setup cursor
 ;; Enable cursor blinking
-(blink-cursor-mode 1)
+(blink-cursor-mode t)
+(setq blink-matching-paren t)
 
 ;; Disable startup/splash screen
 (setq initial-scratch-message nil
+      inhibit-default-init t
       inhibit-startup-echo-area-message t
       inhibit-splash-screen t
       inhibit-startup-message t)
@@ -245,9 +248,9 @@
   :defer t
   :hook (prog-mode . show-paren-mode)
   :config
-  ;; (setq show-paren-style 'expression)
-  (setq show-paren-when-point-inside-paren t)
-  (setq show-paren-delay 0.1)
+  (setq show-paren-style 'parenthesis
+                show-paren-when-point-inside-paren t
+                show-paren-delay 0.1)
   (show-paren-mode t))
 
 ;; Highlight quoted symbols
@@ -356,7 +359,8 @@
 ;; Hide mode-line in certain buffers
 (use-package hide-mode-line
   :defer t
-  :hook (magit-status-mode . hide-mode-line-mode))
+  :hook ((magit-status-mode . hide-mode-line-mode)
+         (helpful-mode      . hide-mode-line-mode)))
 
 ;; (use-package mixed-pitch)
 
