@@ -6,11 +6,6 @@
 (setq vc-annotate-background nil
       vc-annotate-very-old-color nil)
 
-;; Magit complains loudly when it can't determine its own version, which is
-;; the case when magit is built through straight. The warning is harmless,
-;; however, so we just need it to shut up.
-;;;###autoload (advice-add #'magit-version :override #'ignore)
-
 ;; Git
 (use-package magit
   :defer t
@@ -19,6 +14,9 @@
   (setenv "GIT_ASKPASS" "")
   (setenv "SSH_ASKPASS" "")
   :preface
+  ;; Ignore magit messages about version
+  (advice-add #'magit-version :override #'ignore)
+
   (defun magit-status-only ()
     "Invoke magit-status and delete other windows."
     (interactive)
