@@ -58,6 +58,7 @@
                  ((string= mode-name "Emacs-Lisp") "elisp")
                  ((string= mode-name "Javascript-IDE") "js")
                  ((string= mode-name "undo-tree-visualizer") "undotree")
+                 ((string= mode-name "C++//l") "cpp")
                  (t (downcase mode-name))))
           (icon (all-the-icons-icon-for-mode major-mode :v-adjust 0.0 :height 0.8 :face font-lock-string-face)))
       (concat
