@@ -47,6 +47,7 @@
                  ((string= mode-name "Emacs-Lisp") "elisp")
                  ((string= mode-name "Javascript-IDE") "js")
                  ((string= mode-name "undo-tree-visualizer") "undotree")
+                 ((string= mode-name "C++//l") "cpp")
                  (t (downcase mode-name)))))
       (propertize mode 'face `font-lock-string-face)))
 
@@ -212,7 +213,7 @@
   ;;             'display '(raise 0.0))
 
   (telephone-line-defsegment my-flycheck-segment ()
-    (when (boundp 'flycheck-last-status-change)
+    (when (and (telephone-line-selected-window-active) (boundp 'flycheck-last-status-change))
       (pcase flycheck-last-status-change
         ('finished (if flycheck-current-errors
                        (let-alist (flycheck-count-errors flycheck-current-errors)
@@ -222,8 +223,8 @@
                             (when (> errs 0)
                               (format "%s %s"
                                       (propertize
-                                       (all-the-icons-material "error_outline")
-                                       'face `(:family ,(all-the-icons-material-family) :height 1.0 :foreground ,(face-foreground 'error))
+                                       (all-the-icons-faicon "exclamation-triangle")
+                                       'face `(:family ,(all-the-icons-faicon-family) :height 1.0 :foreground ,(face-foreground 'error))
                                        'display '(raise 0.0))
                                       (number-to-string errs)))
                             " "
