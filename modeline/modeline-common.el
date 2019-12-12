@@ -108,7 +108,7 @@
   ;; 'face `(:foreground ,fg-color))))
 
   ;; Display current position in a buffer
-  (declare-function column-number-at-pos "env-fu")
+  (declare-function column-number-at-pos "env-fun")
 
   ;; (telephone-line-defsegment my-position-segment ()
   ;;   (let ((line (line-number-at-pos (point)))
