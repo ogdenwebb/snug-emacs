@@ -156,7 +156,7 @@
 (defmacro snug/init (&rest body)
   (declare (indent defun))
   (let ((gc-cons-threshold most-positive-fixnum))
-    (add-to-list 'body 'env-fu t)
+    (add-to-list 'body 'env-fun t)
     (dolist (pkg body)
       (require pkg nil t))))
 
