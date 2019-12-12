@@ -188,7 +188,7 @@ executed from a commented line"
 ;; ;;change xdg-open to whatever launcher you have (xdg-open is the default on most linux systems)
 
 ;;;###autoload
-(defun align-repeat (start end regexp &optional justify-right after)
+(defun snug/align-repeat (start end regexp &optional justify-right after)
   "Repeat alignment with respect to the given regular expression.
   If JUSTIFY-RIGHT is non nil justify to the right instead of the
   left. If AFTER is non-nil, add whitespace to the left instead of
@@ -219,11 +219,11 @@ executed from a commented line"
     (current-column)))
 
 ;;;###autoload
-(defun copy-whole-buffer ()
+(defun snug/copy-whole-buffer ()
   "Copy whole buffer"
   (interactive)
   (save-excursion
     (mark-whole-buffer)
     (copy-region-as-kill 1 (buffer-size))))
 
-(provide 'env-fu)
+(provide 'env-fun)
