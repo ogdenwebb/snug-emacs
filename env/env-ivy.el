@@ -101,6 +101,11 @@
   (setq xref-show-xrefs-function #'ivy-xref-show-xrefs))
 
 (use-package counsel-css
+  :defer t
   :after ivy)
+
+(use-package ivy-yasnippet
+  :defer t
+  :after (ivy yasnippet))
 
 (provide 'env-ivy)
