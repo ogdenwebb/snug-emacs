@@ -207,18 +207,35 @@
          (multi-line (format "%dL" lines))
          (t (format "%d" (if evil chars (1- chars))))))))
 
+  ;; (propertize (all-the-icons-octicon "key")
+  ;;             'face `(:family ,(all-the-icons-octicon-family) :height 1.0 :foreground "dim gray")
+  ;;             'display '(raise 0.0))
 
   (telephone-line-defsegment my-flycheck-segment ()
-    ;; TODO: split errors and warnings
     (when (boundp 'flycheck-last-status-change)
       (pcase flycheck-last-status-change
         ('finished (if flycheck-current-errors
                        (let-alist (flycheck-count-errors flycheck-current-errors)
-                         (let ((sum (+ (or .error 0) (or .warning 0))))
-                           (format " %s: %s"
-                                   (if .error "errors" "warnings")
-                                   (number-to-string sum))))
-                     ;; TODO:
+                         (let ((errs (or .error 0))
+                               (warns (or .warning 0)))
+                           (concat
+                            (when (> errs 0)
+                              (format "%s %s"
+                                      (propertize
+                                       (all-the-icons-material "error_outline")
+                                       'face `(:family ,(all-the-icons-material-family) :height 1.0 :foreground ,(face-foreground 'error))
+                                       'display '(raise 0.0))
+                                      (number-to-string errs)))
+                            " "
+                            (when (> warns 0)
+                              (format "%s %s"
+                                      (propertize
+                                       (all-the-icons-faicon "exclamation-triangle")
+                                       'face `(:family ,(all-the-icons-faicon-family) :height 1.0 :foreground ,(face-foreground 'warning))
+                                       'display '(raise 0.0))
+                                      (number-to-string warns))))
+                           ))
+                     ;; TODO: icons
                      " succeed"))
         ('running     " working...")
         ('no-checker  "")
