@@ -146,7 +146,7 @@
 
   ;; Display read-only status
   (telephone-line-defsegment my-read-only-status-segment ()
-    (when buffer-read-only
+    (when (and buffer-read-only (telephone-line-selected-window-active))
       ;; (propertize "ro" 'face `(:foreground "#dbac66"))
       (propertize (all-the-icons-octicon "key")
                   'face `(:family ,(all-the-icons-octicon-family) :height 1.0 :foreground "dim gray")
