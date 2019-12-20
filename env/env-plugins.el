@@ -33,9 +33,13 @@
 
 ;; A minor mode that guesses the indentation offset
 (use-package dtrt-indent
+  :disabled t
   :defer t
   :hook
-  (prog-mode . dtrt-indent-mode))
+  (prog-mode . dtrt-indent-mode)
+  :config
+  ;; Hide messages from dtrt-indent
+  (setq dtrt-indent-verbosity snug-debug-mode))
 
 ;; Project management
 (use-package projectile
@@ -91,6 +95,11 @@
 ;; ;;TODO: ensure backups are being created
 ;; (use-package backup-walker
 ;;   :commands backup-walker-start)
+
+;; Intelligently call whitespace-cleanup before buffers are saved.
+(use-package whitespace-cleanup-mode
+  :defer t
+  :hook (after-init . whitespace-cleanup-mode))
 
 ;; Quickrun
 (use-package quickrun
@@ -189,6 +198,7 @@
   (global-eldoc-mode -1)
   (setq eldoc-idle-delay 0.3))
 
+;; TODO: Disable in terminal
 (use-package eldoc-box
   :defer t
   :hook (eldoc-mode . eldoc-box-hover-mode))
@@ -242,9 +252,9 @@
 (use-package helpful
   :if (>= emacs-major-version 25)
   :defer 1
-  :bind (([remap describe-function] . helpful-callable)
-         ([remap describe-variable] . helpful-variable)
-         ([remap describe-key] . helpful-key))
+  ;; :bind (([remap describe-function] . helpful-callable)
+  ;;        ([remap describe-variable] . helpful-variable)
+  ;;        ([remap describe-key] . helpful-key))
   :preface
   (defun counsel-helpful-keymap-describe ()
     "Select keymap with ivy, display help with helpful"
@@ -288,11 +298,11 @@
   ;; (prescient-persist-mode))
 
 ;; TODO: setup for counsel-ag
-(use-package ivy-prescient
-  ;; :disabled t
-  :defer t
-  ;; :after (ivy)
-  :hook (ivy-mode . ivy-prescient-mode))
+;; (use-package ivy-prescient
+;;   ;; :disabled t
+;;   :defer t
+;;   ;; :after (ivy)
+;;   :hook (ivy-mode . ivy-prescient-mode))
 
 (use-package company-prescient
   :defer t
