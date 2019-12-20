@@ -29,6 +29,7 @@
 
   ;; To create custom segments
   (require 'telephone-line-utils)
+  (require 'let-alist)
 
   ;; Set subseparator
   ;; TODO: function to choose separator by name
