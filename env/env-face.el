@@ -38,7 +38,7 @@
 
 ;; Theme settings
 ;; Setup my theme
-(defvar snug-custom-theme 'kaolin-temple
+(defvar snug-custom-theme 'kaolin-ocean
   "Default custom theme for snug-emacs.")
 
 (use-package hl-todo
