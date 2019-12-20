@@ -1,8 +1,12 @@
 ;;; Org-mode settings  -*- lexical-binding: t -*-
 
+;; TODO: use org-plus-contrib
+;; prolly need hook instead of :config
 (use-package org
+ ;; use-package org-plus-contrib
   :config
 
+  ;; (setq org-directory "~/Drive/org")
   ;; Fit image into the screen
   ;; (setq org-image-actual-width '(600))
   (setq org-image-actual-width nil)
@@ -14,6 +18,8 @@
         org-imenu-depth 4
         org-tags-column 0)
 
+  ;; todo:
+  ;; (setq org-startup-truncated nil)
   ;; Agenda
   (setq org-log-done t)
   (setq org-agenda-files '("~/agenda.org"))
@@ -36,7 +42,7 @@
   (defun snug/org-init-hook ()
     (interactive)
     ;; Set cursor-type for org-mode
-    (setq cursor-type 'bar)
+    ;; (setq cursor-type 'bar)
 
     (when (bound-and-true-p nlinum-mode)
       (nlinum-mode -1))
@@ -135,11 +141,12 @@
   ;; :requires org
   :hook (org-mode . org-bullets-mode)
   :config
-  ;; (setq org-bullets-bullet-list
-  ;;       '("◉" "✸" "⚫" "○" "•"))
-  ;; Hide stars
+  ;; Pretty stars for org-mode
   (setq org-bullets-bullet-list
-        '(" "))
+        '("◉" "✸" "⚫" "○" "•"))
+  ;; Hide stars
+  ;; (setq org-bullets-bullet-list
+  ;;       '(" "))
   )
 
 (use-package evil-org
@@ -147,13 +154,12 @@
   :after (evil)
   :hook (org-mode . evil-org-mode)
   :config
-  ;; (add-hook 'evil-org-mode-hook
-  ;;           (lambda ()
   ;; TODO: doesn't work in tables
-  (evil-org-set-key-theme '(navigation insert textobjects shift todo heading))
+  ;; (evil-org-set-key-theme '(navigation insert textobjects shift todo heading))
+  (evil-org-set-key-theme '(navigation insert textobjects additional calendar))
+
   (require 'evil-org-agenda)
   (evil-org-agenda-set-keys))
-
 
 (use-package org-download
   :after org)
