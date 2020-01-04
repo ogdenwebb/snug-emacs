@@ -362,6 +362,10 @@
   :hook ((magit-status-mode . hide-mode-line-mode)
          (helpful-mode      . hide-mode-line-mode)))
 
+(use-package focus
+  :defer t
+  :commands (focus-mode))
+
 ;; (use-package mixed-pitch)
 
 (provide 'env-face)
