@@ -42,6 +42,8 @@
    "f r" '(counsel-recentf :wk "Recentf files")
    "f f" '(counsel-find-file :wk "Find files")
    "f F" '(counsel-fzf :wk "fzf")
+   "f ~" (lambda! (find-file "~"))
+   "f /" (lambda! (find-file "/"))
 
    ;; TODO: (??) "c e" "c s" for list errors(i.e. check err, syn)
    ;; "e" 'flycheck-list-errors
