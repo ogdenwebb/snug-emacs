@@ -22,6 +22,9 @@
   :type 'boolean
   :group 'snug)
 
+(defvar snug-user-shell 'zsh
+  "Define user shell, e.g. bash, zsh, etc.")
+
 ;; TODO:
 ;; (defcustom snug-org-headline-rescale nil)
 
@@ -102,7 +105,7 @@
       hscroll-step                    7
       scroll-step                     7
       scroll-conservatively           100000
-      scroll-preserve-screen-position 'always
+      ;; scroll-preserve-screen-position 'always
       mac-mouse-wheel-smooth-scroll    nil)
 
 
@@ -124,7 +127,8 @@
       )
 
 ;; Custom options for Emacs
-(setq use-dialog-box nil                ; Avoid GUI dialogs
+(setq use-file-dialog nil
+      use-dialog-box nil                ; Avoid GUI dialogs
       x-gtk-use-system-tooltips nil     ; Do not use GTK tooltips
       large-file-warning-threshold nil ; Disable warning about large files
       track-eol t ; Keep cursor at end of lines.
@@ -180,6 +184,7 @@
 
 ;; Truncate lines
 (setq-default truncate-lines t)
+;; (setq truncate-partial-width-windows nil)
 
 ;; VC settings
 (setq find-file-visit-truename t)
@@ -206,8 +211,7 @@
 
 ;; Save history
 (use-package savehist
-  :config
-  (savehist-mode t)
+  :hook (after-init . savehist-mode)
   :config
   (setq savehist-autosave-interval 60
         history-delete-duplicates t
