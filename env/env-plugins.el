@@ -388,5 +388,24 @@
 (use-package lv
   :defer t)
 
+(use-package alert
+  :defer t
+  :preface
+  (defun alert-after-compilation-finish (buf result)
+    "Use `alert' to report compilation RESULT if BUF is hidden."
+    (when (buffer-live-p buf)
+      (unless (catch 'is-visible
+                (walk-windows (lambda (w)
+                                (when (eq (window-buffer w) buf)
+                                  (throw 'is-visible t))))
+                nil)
+        (alert (concat "Compilation " result)
+               :buffer buf
+               :category 'compilation)))))
+
+(use-package compile
+  :defer t
+  :hook (compilation-finish-functions . alert-after-compilation-finish))
+
 
 (provide 'env-plugins)
