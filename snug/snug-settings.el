@@ -2,15 +2,28 @@
 
 ;; Snug setting options
 
+(defgroup snug nil
+  "Snug-emacs custom options."
+  :group 'emacs)
+
 ;; values: full, enable and nil
 (defvar snug-with-posframe nil
-  "Enable posframe packages to display flycheck messages, company completion popup and etc.")
+  "Enable posframe packages to display flycheck messages, company completion popup and etc."
+  :type 'boolean
+  :group 'snug)
 
 (defvar snug-with-lsp nil
-  "Enable Language Server Protocol (LSP).")
+  "Enable Language Server Protocol (LSP)."
+  :type 'boolean
+  :group 'snug)
 
 (defvar snug-with-eldoc-box t
-  "Enable eldoc-box package to display eldoc information in childframe.")
+  "Enable eldoc-box package to display eldoc information in childframe."
+  :type 'boolean
+  :group 'snug)
+
+;; TODO:
+;; (defvar snug-org-headline-rescale nil)
 
 ;; Emacs general setings
 ;; Set UTF-8 as default encoding
