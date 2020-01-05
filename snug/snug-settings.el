@@ -7,23 +7,23 @@
   :group 'emacs)
 
 ;; values: full, enable and nil
-(defvar snug-with-posframe nil
+(defcustom snug-with-posframe nil
   "Enable posframe packages to display flycheck messages, company completion popup and etc."
   :type 'boolean
   :group 'snug)
 
-(defvar snug-with-lsp nil
+(defcustom snug-with-lsp nil
   "Enable Language Server Protocol (LSP)."
   :type 'boolean
   :group 'snug)
 
-(defvar snug-with-eldoc-box t
+(defcustom snug-with-eldoc-box t
   "Enable eldoc-box package to display eldoc information in childframe."
   :type 'boolean
   :group 'snug)
 
 ;; TODO:
-;; (defvar snug-org-headline-rescale nil)
+;; (defcustom snug-org-headline-rescale nil)
 
 ;; Emacs general setings
 ;; Set UTF-8 as default encoding
@@ -94,8 +94,17 @@
               ;; Resize mini windows
               resize-mini-windows t
               set-mark-command-repeat-pop t
-              auto-window-vscroll nil
-              )
+              auto-window-vscroll nil)
+
+;; Scroll settings
+(setq hscroll-margin                  7
+      scroll-margin                   7
+      hscroll-step                    7
+      scroll-step                     7
+      scroll-conservatively           100000
+      scroll-preserve-screen-position 'always
+      mac-mouse-wheel-smooth-scroll    nil)
+
 
 ;; TODO: sort
 (setq async-shell-command-buffer 'new-buffer
