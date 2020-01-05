@@ -200,6 +200,7 @@
 
 ;; TODO: Disable in terminal
 (use-package eldoc-box
+  :if snug-with-eldoc-box
   :defer t
   :hook (eldoc-mode . eldoc-box-hover-mode))
 

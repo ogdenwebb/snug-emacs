@@ -1,12 +1,18 @@
 ;;; Snug settings file -*- lexical-binding: t -*-
 
+;; Snug setting options
+
 ;; values: full, enable and nil
 (defvar snug-with-posframe nil
   "Enable posframe packages to display flycheck messages, company completion popup and etc.")
 
 (defvar snug-with-lsp nil
   "Enable Language Server Protocol (LSP).")
-;
+
+(defvar snug-with-eldoc-box t
+  "Enable eldoc-box package to display eldoc information in childframe.")
+
+;; Emacs general setings
 ;; Set UTF-8 as default encoding
 (set-charset-priority 'unicode)
 (prefer-coding-system 'utf-8)
@@ -132,7 +138,6 @@
 (use-package whitespace
   :straight nil
   :defer t
-  :hook  (before-save . whitespace-cleanup)
   :config
   (setq-default whitespace-line-column 80
                 whitespace-style '(face spaces tabs newline space-mark tab-mark
