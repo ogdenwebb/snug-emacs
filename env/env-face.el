@@ -48,6 +48,7 @@
         `(("TODO"  . ,(face-foreground 'hl-todo))
           ("FIXME" . ,(face-foreground 'hl-todo))
           ("MAYBE" . ,(face-foreground 'warning))
+          ("EXPLORE" . ,(face-foreground 'warning))
           ("NOTE"  . ,(face-foreground 'success)))))
 
 
