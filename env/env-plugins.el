@@ -412,5 +412,9 @@
   :defer t
   :commands (unfill-region unfill-paragraph unfill-toggle))
 
+(use-package indent-tools
+  :defer t
+  :bind (("C-c TAB" . indent-tools-hydra/body)))
+
 
 (provide 'env-plugins)
