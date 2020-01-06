@@ -1,5 +1,8 @@
 ;; Helm is incremental completion and selection narrowing framework -*- lexical-binding: t -*-
 
+(defvar snug-with-helm-fuzzy t
+  "Enable fuzzy matching for Helm, t by default.")
+
 (use-package helm
   :defer t
   :hook ((after-init . helm-mode)
@@ -14,10 +17,14 @@
                :straight nil)
 
   ;; Fuzzy stuff
-  (setq helm-M-x-fuzzy-match t
-        helm-buffers-fuzzy-matching t
-        helm-recentf-fuzzy-match t
-        helm-lisp-fuzzy-completion t)
+  (when snug-with-helm-fuzzy
+    (setq helm-M-x-fuzzy-match t
+          helm-buffers-fuzzy-matching t
+          helm-recentf-fuzzy-match t
+          helm-lisp-fuzzy-completion t
+          helm-locate-fuzzy-match t
+          helm-imenu-fuzzy-match t
+          helm-apropos-fuzzy-match t))
 
   ;; Customize Helm
   (setq helm-split-window-inside-p t
@@ -28,16 +35,16 @@
         helm-autoresize-max-height 30
         helm-autoresize-min-height 30)
 
+  (when (executable-find "curl")
+    (setq helm-google-suggest-use-curl-p t))
+
   ;; Disable helm mode-line
   ;; (setq-default helm-mode-line-string nil)
   ;; (setq mode-line-format (default-value 'mode-line-format))
 
   ;; Set helm as default completion system
   (with-eval-after-load 'projectile
-    (setq projectile-completion-system 'helm))
-  ;; (with-eval-after-load 'magit
-  ;;   (setq magit-completing-read-function 'helm))
-)
+    (setq projectile-completion-system 'helm)))
 
 (use-package helm-projectile
   :defer t
