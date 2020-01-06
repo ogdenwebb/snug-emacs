@@ -226,4 +226,24 @@ executed from a commented line"
     (mark-whole-buffer)
     (copy-region-as-kill 1 (buffer-size))))
 
+;;;###autoload
+(defun snug/format-date (format)
+  (let ((system-time-locale "en_US.UTF-8"))
+    (insert (format-time-string format))))
+
+;;;###autoload
+(defun snug/insert-date ()
+  (interactive)
+  (snug/format-date "%A, %B %d %Y"))
+
+;;;###autoload
+(defun snug/insert-date-and-time ()
+  (interactive)
+  (snug/format-date "%Y-%m-%d %H:%M:%S"))
+
+(defun snug/insert-current-filename ()
+  "Insert current buffer filename."
+  (interactive)
+  (insert (file-relative-name buffer-file-name)))
+
 (provide 'env-fun)
