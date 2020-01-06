@@ -320,7 +320,8 @@
 (use-package bind-key      :defer t)
 ;; (use-package ctable        :defer t)
 ;; (use-package concurrent    :defer t)
-(use-package dash          :defer t)
+(use-package dash            :defer t)
+(use-package dash-functional :defer t)
 ;; (use-package deferred      :defer t)
 ;; (use-package el-mock       :defer t)
 (use-package elisp-refs
@@ -406,6 +407,10 @@
 (use-package compile
   :defer t
   :hook (compilation-finish-functions . alert-after-compilation-finish))
+
+(use-package unfill
+  :defer t
+  :commands (unfill-region unfill-paragraph unfill-toggle))
 
 
 (provide 'env-plugins)
