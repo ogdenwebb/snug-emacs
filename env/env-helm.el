@@ -64,7 +64,11 @@
 ;; Ag support for helm
 (use-package helm-ag
   :defer t
-  :after helm)
+  :after helm
+  :config
+  (setq helm-ag-fuzzy-match          t
+        helm-ag-use-grep-ignore-list t
+        helm-ag-use-agignore         t))
 
 (use-package helm-ls-git
   :defer t
@@ -81,5 +85,12 @@
   :defer t
   :after helm)
 
+(use-package helm-company
+  :defer t
+  :after (helm company))
+
+(use-package helm-eshell
+  :defer t
+  :commands (helm-eshell-history))
 
 (provide 'env-helm)
