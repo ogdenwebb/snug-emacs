@@ -18,6 +18,26 @@
 (use-package shackle
   :defer t
   :hook (after-init . shackle-mode)
+  :preface
+  (defun snug/shackle--smart-split-dir ()
+    (if (>= (window-pixel-height)
+            (window-pixel-width))
+        'below
+      'right))
+
+  (defun snug/shackle-dynamic-tyling (buffer alist plist)
+    (let
+        ((frame (shackle--splittable-frame))
+         (window (if (eq (snug/shackle--smart-split-dir) 'below)
+                     (split-window-below)
+                   (split-window-right))))
+      (prog1
+          (window--display-buffer buffer window 'window alist display-buffer-mark-dedicated)
+        (when window
+          (setq shackle-last-window window
+                shackle-last-buffer buffer))
+        (unless (cdr (assq 'inhibit-switch-frame alist))
+          (window--maybe-raise-frame frame)))))
   :config
   (setq shackle-default-alignment 'below
         ;; shackle-default-size 0.4
@@ -27,7 +47,6 @@
                         ;; (compilation-mode    :select t   :size 0.25)
                         ;; ("*compilation*"     :select nil :size 0.25)
                         ;; ("*ag search*"       :select nil :size 0.25)
-                        ;; ("*Flycheck errors*" :select nil :size 0.25)
                         ;; ("*Warnings*"        :select nil :size 0.25)
                         ;; ("*Error*"           :select nil :size 0.25)
                         ;; ("*Org Links*"       :select nil :size 0.1)
@@ -54,7 +73,7 @@
                         (magit-refs-mode :select t :same t :align t :size 0.4)
                         (magit-diff-mode :select nil :align right :size 0.5)
                         (magit-revision-mode :select t :align right :size 0.5)
-                        (flycheck-error-list-mode :select t :align right :size 0.3)
+                        ("*Flycheck errors*" :custom snug/shackle-dynamic-tyling :size 0.3)
                         (inferior-python-mode :select t :popup t :align t :size 0.4))
                         ))
 
