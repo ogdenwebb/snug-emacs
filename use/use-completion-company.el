@@ -138,4 +138,9 @@
   (define-key company-active-map (kbd "M-n") nil)
   (define-key company-active-map (kbd "M-p") nil))
 
+(use-package company-try-hard
+  :defer t
+  :after (company)
+  :commands (company-try-hard))
+
 (provide 'use-completion-company)
