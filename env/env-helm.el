@@ -93,4 +93,8 @@
   :defer t
   :commands (helm-eshell-history))
 
+(use-package helm-css-scss
+  :defer t
+  :commands (helm-css-scss helm-css-scss-multi))
+
 (provide 'env-helm)
