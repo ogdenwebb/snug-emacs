@@ -53,6 +53,7 @@
 (use-package pdf-tools
   :disabled t
   :config
+  (setq-default pdf-view-display-size 'fit-width)
   (pdf-loader-install))
 
 (provide 'use-filetype)
