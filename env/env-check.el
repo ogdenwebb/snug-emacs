@@ -114,6 +114,11 @@
     :fringe-bitmap 'snug/flycheck-fringe-indicator
     :fringe-face 'flycheck-fringe-info))
 
+(use-package flycheck-package
+  :disabled t
+  :after flycheck
+  :hook (elisp-mode . flycheck-package-setup))
+
 ;; TODO:
 ;; (use-package flycheck-pos-tip
 ;;   :after flycheck
