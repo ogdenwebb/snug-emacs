@@ -256,6 +256,7 @@
 
 ;; Highlight quoted symbols
 (use-package highlight-quoted
+  :defer t
   :commands (highlight-quoted-mode)
   :hook (emacs-lisp-mode . highlight-quoted-mode))
 
@@ -266,6 +267,7 @@
 
 ;; Rainbow delimiters
 (use-package rainbow-delimiters
+  :defer t
   :commands (rainbow-delimiters-mode)
   :hook ((prog-mode clojure-mode) . rainbow-delimiters-mode))
 
@@ -287,6 +289,7 @@
 ;; Line numbering
 (use-package nlinum
   :if (version< emacs-version "26.0")
+  :defer t
   :hook ((prog-mode text-mode) . nlinum-mode)
   :config
   (setq nlinum-format "%5d ")
@@ -366,6 +369,15 @@
 (use-package focus
   :defer t
   :commands (focus-mode))
+
+;; (use-package rainbow-mode
+;;   :hook (((after-init
+;;            text-mode
+;;            org-mode
+;;            css-mode
+;;            html-mode
+;;            prog-mode). rainbow-mode))
+;;   :diminish rainbow-mode)
 
 ;; (use-package mixed-pitch)
 
