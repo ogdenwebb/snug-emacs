@@ -143,6 +143,7 @@
   ;; (setq treemacs-git-mode t)
 
   (setq treemacs-show-hidden-files nil
+        treemacs-silent-refresh t
         treemacs-width 30
         ;; treemacs-indentation 1
         ;; treemacs-indentation-string "  "
@@ -412,9 +413,20 @@
   :defer t
   :commands (unfill-region unfill-paragraph unfill-toggle))
 
+;; https://gitlab.com/emacs-stuff/indent-tools
 (use-package indent-tools
   :defer t
   :bind (("C-c TAB" . indent-tools-hydra/body)))
 
+;; Provides a command which searches for unicode characters by name
+(use-package list-unicode-display
+  :defer t
+  :commands (list-unicode-display))
+
+(use-package link-hint
+  :defer t
+  :bind
+  ("C-c l o" . link-hint-open-link)
+  ("C-c l c" . link-hint-copy-link))
 
 (provide 'env-plugins)
