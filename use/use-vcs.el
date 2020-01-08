@@ -35,6 +35,11 @@
         ))
   ;; (setq magit-diff-refine-hunk 'all))
 
+(use-package magit-todos
+  :after magit
+  :defer t
+  :commands (magit-todos-list magit-todos-mode))
+
 ;; TODO: support github in my workflow
 ;; (use-package forge
 ;;   :after magit)
