@@ -127,6 +127,11 @@
   :defer t
   :commands (bug-hunter-init-file bug-hunter-file))
 
+;; (use-package bug-reference
+;;   :ensure nil
+;;   :hook ((prog-mode . bug-reference-prog-mode)
+;;          (text-mode . bug-reference-mode)))
+
 (use-package treemacs
   :defer t
   :commands (treemacs treemacs-create-theme treemacs-create-icon treemacs-load-theme)
@@ -409,6 +414,15 @@
   :defer t
   :hook (compilation-finish-functions . alert-after-compilation-finish))
 
+;; (use-package ansi-color
+;;   :ensure nil
+;;   :hook (compilation-filter . colorize-compilation-buffer)
+;;   :preface
+;;   (autoload 'ansi-color-apply-on-region "ansi-color")
+;;   (defun colorize-compilation-buffer ()
+;;     (let ((inhibit-read-only t))
+;;       (ansi-color-apply-on-region (point-min) (point-max)))))
+
 (use-package unfill
   :defer t
   :commands (unfill-region unfill-paragraph unfill-toggle))
@@ -428,5 +442,21 @@
   :bind
   ("C-c l o" . link-hint-open-link)
   ("C-c l c" . link-hint-copy-link))
+
+;; ;; Make scripts executable automatically.
+;; (use-package executable
+;;   :ensure nil
+;;   :hook
+;;   ((after-save .
+;;     executable-make-buffer-file-executable-if-script-p)))
+
+;; (use-package string-inflection
+;;   :bind (("C-c r r" . string-inflection-all-cycle)
+;;          ("C-c r c" . string-inflection-camelcase)
+;;          ("C-c r l" . string-inflection-lower-camelcase)
+;;          ("C-c r u" . string-inflection-underscore)
+;;          ("C-c r k" . string-inflection-kebab-case)
+;;          ("C-c r J" . string-inflection-java-style-cycle)))
+
 
 (provide 'env-plugins)
