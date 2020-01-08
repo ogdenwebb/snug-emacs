@@ -35,10 +35,23 @@
         ))
   ;; (setq magit-diff-refine-hunk 'all))
 
-(use-package magit-todos
-  :after magit
-  :defer t
-  :commands (magit-todos-list magit-todos-mode))
+(use-package gitattributes-mode
+  :mode (("/\\.gitattributes\\'"  . gitattributes-mode)
+         ("/info/attributes\\'"   . gitattributes-mode)
+         ("/git/attributes\\'"    . gitattributes-mode)))
+
+(use-package gitconfig-mode
+  :mode (("/\\.gitconfig\\'"      . gitconfig-mode)
+         ("/\\.git/config\\'"     . gitconfig-mode)
+         ("/modules/.*/config\\'" . gitconfig-mode)
+         ("/git/config\\'"        . gitconfig-mode)
+         ("/\\.gitmodules\\'"     . gitconfig-mode)
+         ("/etc/gitconfig\\'"     . gitconfig-mode)))
+
+(use-package gitignore-mode
+  :mode (("/\\.gitignore\\'"      . gitignore-mode)
+         ("/info/exclude\\'"      . gitignore-mode)
+         ("/git/ignore\\'"        . gitignore-mode)))
 
 ;; TODO: support github in my workflow
 ;; (use-package forge
