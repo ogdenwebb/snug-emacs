@@ -1,7 +1,8 @@
 ;; Support for various filetypes -*- lexical-binding: t -*-
 ;; Markdown
 (use-package markdown-mode
-  :commands (markdown-mode gfm-mode)
+  :defer t
+  ;; :commands (markdown-mode gfm-mode)
   :mode (("README\\.md\\'" . gfm-mode)
          ("\\.md\\'"       . markdown-mode)
          ("\\.markdown\\'" . markdown-mode))
@@ -10,6 +11,7 @@
 
 ;; yaml support
 (use-package yaml-mode
+  :defer t
   :mode ("\\.yml\\'" . yaml-mode)
   :config
 
@@ -19,10 +21,12 @@
                       "RET" 'evil-ret-and-indent))
 
 (use-package json-mode
+  :defer t
   :mode ("\\.json\\'" . json-mode))
 
 ;; vimrc mode
 (use-package vimrc-mode
+  :defer t
   :mode ("/\\.?g?vimrc$"
          "\\.vim$"
          "\\.?vimperatorrc$"
@@ -36,7 +40,13 @@
 
 (use-package makefile-mode
   :straight nil
+  :defer t
   :mode (("\\(/\\|\\`\\)[Mm]akefile" . makefile-mode)))
+
+(use-package cmake-mode
+  :defer t
+  :mode (("\\.cmake\\'" . cmake-mode)
+         ("\\CMakeLists.txt$" . cmake-mode)))
 
 (use-package vimrc-mode
   :mode ("/\\.?g?vimrc$"
@@ -47,6 +57,7 @@
 ;; Support for i3 config
 (use-package i3wm-config-mode
   :straight (:host github :repo "Alexander-Miller/i3wm-Config-Mode")
+  :defer t
   :mode (("[/\\]\\.config/i3/config$" . i3wm-config-mode)
          ("[/\\]\\.i3/config$" . i3wm-config-mode)))
 
