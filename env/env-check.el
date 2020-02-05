@@ -152,18 +152,48 @@
   ;; Reduce flyspell noise
   (setq flyspell-issue-welcome-flag nil
         flyspell-issue-message-flag nil)
+
   ;; aspell, hunspell
   (setq ispell-program-name (executable-find "aspell")
         ispell-dictionary "en_US"
-        ispell-quietly t))
+        ispell-quietly t)
+
+  ;; Skip some parts in org-mode
+  (add-to-list 'ispell-skip-region-alist '(":\\(PROPERTIES\\|LOGBOOK\\):" . ":END:"))
+  (add-to-list 'ispell-skip-region-alist '("#\\+BEGIN_SRC" . "#\\+END_SRC"))
+
+  ;; NO spell check for embedded snippets
+  (defadvice org-mode-flyspell-verify (after org-mode-flyspell-verify-hack activate)
+
+    (let* ((rlt ad-return-value)
+           (begin-regexp "^[ \t]*#\\+begin_\\(src\\|html\\|latex\\|example\\|quote\\)")
+           (end-regexp "^[ \t]*#\\+end_\\(src\\|html\\|latex\\|example\\|quote\\)")
+           (case-fold-search t)
+           b e)
+      (when ad-return-value
+        (save-excursion
+          (setq b (re-search-backward begin-regexp nil t))
+          (if b (setq e (re-search-forward end-regexp nil t))))
+        (if (and b e (< (point) e)) (setq rlt nil)))
+      (setq ad-return-value rlt)))
+
+
+  ;; If you are using aspell instead of ispell on the backend,
+  ;; the following setting may improve performance
+  (add-to-list 'ispell-extra-args "--sug-mode=ultra"))
+
+(use-package flyspell-lazy
+  :defer t
+  :commands (flyspell-lazy-mode flyspell-lazy-check-buffer)
+  :hook (flyspell-lazy-mode . flyspell-mode))
 
 (with-eval-after-load 'flyspell
   (defun snug/flyspell-set-dict (dict)
     (progn
       (if (not (bound-and-true-p flyspell-mode))
           (flyspell-mode))
-      (ispell-change-dictionary dict)
-      (flyspell-buffer))))
+      (ispell-change-dictionary dict))))
+      ;; (flyspell-buffer))))
 
 ;; flyspell ivy corret
 (use-package flyspell-correct
