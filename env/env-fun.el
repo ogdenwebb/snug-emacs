@@ -172,6 +172,23 @@ executed from a commented line"
 ;;         (delete-horizontal-space))
 ;;     (backward-delete-char-untabify 1 nil)))
 
+;; (use-package smart-hungry-delete
+;;   :if (>= emacs-major-version 25)
+;;   :bind (:map prog-mode-map
+;;          ("<backspace>" .
+;;           smart-hungry-delete-backward-char)
+;;          ("C-d" .
+;;           smart-hungry-delete-forward-char))
+;;   :hook ((prog-mode .
+;;           smart-hungry-delete-default-prog-mode-hook)
+;;          (c-mode-common .
+;;           smart-hungry-delete-default-c-mode-common-hook)
+;;          (python-mode .
+;;           smart-hungry-delete-default-c-mode-common-hook)
+;;          (text-mode .
+;;           smart-hungry-delete-default-text-mode-hook)))
+
+;; TODO: replace with smart-hungry-delete
 (defun snug/smart-backspace ()
   (interactive)
   (if (string-match "^[[:space:]]*$" (thing-at-point 'line))
