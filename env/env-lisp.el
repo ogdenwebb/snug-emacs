@@ -27,6 +27,7 @@
 
 
 (use-package lispy
+  :disabled t
   :defer t
   :hook ((common-lisp-mode . lispy-mode)
          (emacs-lisp-mode . lispy-mode)
