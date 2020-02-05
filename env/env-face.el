@@ -45,11 +45,12 @@
   :defer t
   :config
   (setq hl-todo-keyword-faces
-        `(("TODO"  . ,(face-foreground 'hl-todo))
-          ("FIXME" . ,(face-foreground 'hl-todo))
-          ("MAYBE" . ,(face-foreground 'warning))
-          ("EXPLORE" . ,(face-foreground 'warning))
-          ("NOTE"  . ,(face-foreground 'success)))))
+        `(("IMPORTANT" . ,(face-foreground 'error))
+          ("TODO"      . ,(face-foreground 'hl-todo))
+          ("FIXME"     . ,(face-foreground 'hl-todo))
+          ("MAYBE"     . ,(face-foreground 'warning))
+          ("EXPLORE"   . ,(face-foreground 'warning))
+          ("NOTE"      . ,(face-foreground 'success)))))
 
 
 (use-package autothemer)
