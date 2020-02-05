@@ -427,6 +427,9 @@
   :defer t
   :commands (unfill-region unfill-paragraph unfill-toggle))
 
+(use-package yafolding
+  :defer t)
+
 ;; https://gitlab.com/emacs-stuff/indent-tools
 (use-package indent-tools
   :defer t
