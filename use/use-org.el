@@ -16,10 +16,12 @@
 ;;   (kbd "M-J") 'org-metadown
 ;;   (kbd "M-K") 'org-metaup
 ;;   (kbd "M-L") 'org-metaright)
+;; (setq org-directory "~/Documents/org")
 
 ;; TODO: use org-plus-contrib
 ;; prolly need hook instead of :config
 (use-package org-plus-contrib
+  :config
   :general
   (general-define-key :keymaps 'org-mode-map
                       :states '(normal)
@@ -56,7 +58,6 @@
                       ;; "RET" 'org-return-indent))
 
 (defun snug/org-init-hook ()
-  ;; (setq org-directory "~/Drive/org")
   ;; Fit image into the screen
   ;; (setq org-image-actual-width '(600))
   (setq org-image-actual-width nil)
