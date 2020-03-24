@@ -99,7 +99,9 @@
 ;; Intelligently call whitespace-cleanup before buffers are saved.
 (use-package whitespace-cleanup-mode
   :defer t
-  :hook (after-init . whitespace-cleanup-mode))
+  :hook (prog-mode . whitespace-cleanup-mode))
+
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;; Quickrun
 (use-package quickrun
