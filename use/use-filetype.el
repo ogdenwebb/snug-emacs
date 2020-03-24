@@ -43,7 +43,9 @@
   :defer t
   :mode (("\\(/\\|\\`\\)[Mm]akefile" . makefile-mode)))
 
+;; Performance issues
 (use-package cmake-mode
+  :disabled t
   :defer t
   :mode (("\\.cmake\\'" . cmake-mode)
          ("\\CMakeLists.txt$" . cmake-mode)))
