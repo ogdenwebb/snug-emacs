@@ -108,6 +108,18 @@
       ;; scroll-preserve-screen-position 'always
       mac-mouse-wheel-smooth-scroll    nil)
 
+(setq frame-inhibit-implied-resize t)
+
+;; `tty-run-terminal-initialization' is *tremendously* slow for some
+;; reason. Disabling it completely could have many side-effects, so we
+;; defer it until later.
+(unless (display-graphic-p)
+  (advice-add #'tty-run-terminal-initialization :override #'ignore)
+  (add-hook 'window-setup-hook
+    (defun doom-init-tty-h ()
+      (advice-remove #'tty-run-terminal-initialization #'ignore)
+      (tty-run-terminal-initialization (selected-frame) nil t))))
+
 
 ;; TODO: sort
 (setq async-shell-command-buffer 'new-buffer
@@ -268,33 +280,55 @@
 ;; (setq shell-file-name "zsh")
 ;; (setq shell-command-switch "-ic")
 
-;; Make Emacs use the $PATH set up by the user's shell
-;; (when (display-graphic-p)
-;;        (setq exec-path
-;;              (or (eval-when-compile
-;;                    (when (require 'exec-path-from-shell nil t)
-;;                      (setq exec-path-from-shell-check-startup-files nil
-;;                            exec-path-from-shell-arguments (delete "-i" exec-path-from-shell-arguments))
-;;                      (nconc exec-path-from-shell-variables '("GOPATH" "GOROOT" "PYTHONPATH"))
-;;                      (exec-path-from-shell-initialize)
-;;                      exec-path))
-;;                  exec-path)))
-
-;; (when (memq window-system '(mac ns x))
-;;   (require 'exec-path-from-shell)
-;;   (setq-default exec-path-from-shell-shell-name "/bin/zsh")
-;;   (nconc exec-path-from-shell-variables '("GOPATH" "GOROOT" "PYTHONPATH"))
-;;   (exec-path-from-shell-initialize))
-
 ;; Save bookmarks when kill emacs
 (add-hook 'kill-emacs-hook 'bookmark-save)
 
-;; (use-package exec-path-from-shell
-;;   :disabled
-;;   :defer  2
-;;   :config
-;;   (dolist (var '("GOPATH"  "NVM_BIN"))
-;;     (add-to-list 'exec-path-from-shell-variables var))
-;;   (exec-path-from-shell-initialize))
+;; ;;; Code to replace exec-path-from-shell
+;; ;; Need to create file in $HOME/.emacs.d/.local/env
+;; ;; use this command to create the file  `printenv > $HOME/.emacs.d/.local/env'
+;; (defconst my-local-dir (concat user-emacs-directory ".local/"))
+
+;; (defconst my-env-file (concat my-local-dir "env"))
+
+;; (defun my-load-envvars-file (file &optional noerror)
+;;   "Read and set envvars from FILE.
+;; If NOERROR is non-nil, don't throw an error if the file doesn't exist or is
+;; unreadable. Returns the names of envvars that were changed."
+;;   (if (not (file-readable-p file))
+;;       (unless noerror
+;;         (signal 'file-error (list "Couldn't read envvar file" file)))
+;;     (let (envvars environment)
+;;       (with-temp-buffer
+;;         (save-excursion
+;;           (insert "\n")
+;;           (insert-file-contents file))
+;;         (while (re-search-forward "\n *\\([^#= \n]*\\)=" nil t)
+;;           (push (match-string 1) envvars)
+;;           (push (buffer-substring
+;;                  (match-beginning 1)
+;;                  (1- (or (save-excursion
+;;                            (when (re-search-forward "^\\([^= ]+\\)=" nil t)
+;;                              (line-beginning-position)))
+;;                          (point-max))))
+;;                 environment)))
+;;       (when environment
+;;         (setq process-environment
+;;               (append (nreverse environment) process-environment)
+;;               exec-path
+;;               (if (member "PATH" envvars)
+;;                   (append (split-string (getenv "PATH") path-separator t)
+;;                           (list exec-directory))
+;;                 exec-path)
+;;               shell-file-name
+;;               (if (member "SHELL" envvars)
+;;                   (or (getenv "SHELL") shell-file-name)
+;;                 shell-file-name))
+;;         envvars))))
+
+;; (when (and (or (display-graphic-p)
+;;                (daemonp))
+;;            (file-exists-p my-env-file))
+;;   (my-load-envvars-file my-env-file))
+;; ;;; Code to replace exec-path-from-shell
 
 (provide 'snug-settings)
