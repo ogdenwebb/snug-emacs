@@ -8,8 +8,12 @@
   (setq debug-on-error (and (not noninteractive) snug-debug-mode)
         jka-compr-verbose snug-debug-mode))
 
+;; TODO: let user setup this
+(defvar snug-verbose-byte-compile-warnings nil)
+
 ;; Disable certain byte compiler warnings to cut down on the noise.
-(unless snug-debug-mode
+(if (or snug-debug-mode snug-verbose-byte-compile-warnings)
+    (setq byte-compile-warnings t)
   (setq byte-compile-warnings '(not free-vars unresolved noruntime lexical make-local)))
 
 ;; Startup & package manager
@@ -75,7 +79,8 @@
 (if snug-debug-mode
       (setq use-package-expand-minimally nil
             use-package-verbose t
-            use-package-compute-statistics t)
+            use-package-compute-statistics t
+            message-log-max t)
   (setq use-package-expand-minimally t
         use-package-verbose nil))
 
@@ -86,7 +91,10 @@
         ;; gcmh-high-cons-threshold #x800000
         gcmh-idle-delay          300)
   :config
-  (gcmh-mode))
+  (gcmh-mode)
+
+  ;; Don’t compact font caches during GC.
+  (setq inhibit-compacting-font-caches t))
 
 (use-package subr-x
   :straight nil
