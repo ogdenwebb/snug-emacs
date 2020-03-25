@@ -6,14 +6,16 @@
   :straight nil
   :hook (after-init . winner-mode)
   :config
-  (defvar winner-dont-bind-my-keys t))
+  (setq winner-dont-bind-my-keys t))
 
-(use-package eyebrowse
-  :disabled t
-  :hook (after-init . eyebrowse-mode)
+(use-package ace-window
+  :defer t
+  :init
+  (global-set-key [remap other-window] #'ace-window)
   :config
-  (setq eyebrowse-mode-line-separator "|"))
-  ;; (setq eyebrowse-new-workspace "*dashboard*"))
+  (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
+  (setq aw-scope 'frame
+        aw-background t))
 
 (use-package shackle
   :defer t
@@ -76,5 +78,13 @@
                         ("*Flycheck errors*" :custom snug/shackle-dynamic-tyling :size 0.3)
                         (inferior-python-mode :select t :popup t :align t :size 0.4))
                         ))
+
+(use-package eyebrowse
+  :disabled t
+  :hook (after-init . eyebrowse-mode)
+  :config
+  (setq eyebrowse-mode-line-separator "|"))
+  ;; (setq eyebrowse-new-workspace "*dashboard*"))
+
 
 (provide 'use-wm)
