@@ -34,9 +34,16 @@
   (undo-propose-wrap redo)
   (setq undo-propose-pop-to-buffer t))
 
-(use-package redo+
-  :disabled t
-  :straight (:host github :repo "clemera/undo-redo" :files ("*.el")))
+;; Simple, stable linear undo with redo for Emacs.
+(use-package undo-fu
+  :defer t
+  :commands (undo-fu-only-undo undo-fu-only-redo))
+
+;; Save & recover undo steps between Emacs sessions.
+(use-package undo-fu-session
+  :hook (after-init . global-undo-fu-session-mode)
+  :config
+  (setq undo-fu-session-incompatible-files '("/COMMIT_EDITMSG\\'" "/git-rebase-todo\\'")))
 
 ;; If you want Emacs kill ring and system clipboard to be independent.
 ;; (use-package simpleclip
@@ -58,6 +65,7 @@
           (shut-up (recentf-save-list))
         (recentf-save-list)))
     (message ""))
+
   (defun snug/recentf-cleanup-silence ()
     (interactive)
     (let ((message-log-max nil))
