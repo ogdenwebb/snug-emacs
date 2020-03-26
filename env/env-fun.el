@@ -263,4 +263,18 @@ executed from a commented line"
   (interactive)
   (insert (file-relative-name buffer-file-name)))
 
+;;;###autoload
+(defun snug/split-and-focus-horizontally ()
+   "Split window below and focus."
+    (interactive)
+    (split-window-below)
+    (other-window 1))
+
+;;;###autoload
+(defun snug/split-and-focus-verically ()
+   "Split window right and focus."
+    (interactive)
+    (split-window-right)
+    (other-window 1))
+
 (provide 'env-fun)

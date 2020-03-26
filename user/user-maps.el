@@ -85,8 +85,8 @@
 
    ;; Window management
    "w c" '(delete-window :wk "Close split")
-   "w s" '(split-window-below :wk "Split below")
-   "w v" '(split-window-right :wk "Split right")
+   "w s" '(snug/split-and-focus-horizontally :wk "Split below")
+   "w v" '(snug/split-and-focus-verically :wk "Split right")
    "w d" '(kill-this-buffer :wk "Kill this buffer")
    ;; "w D" 'kill-buffer
    "w D" '(eyebrowse-close-window-config :which-key "close workspace")
@@ -94,7 +94,8 @@
    ;; "wn" '(eyebrowse-next-window-config :which-key "next workspace")
    ;; "wp" '(eyebrowse-prev-window-config :which-key "prev workspace")
 
-   "w w" 'evil-window-next
+   ;; "w w" 'evil-window-next
+   "w w" 'other-window
    "w h" 'evil-window-left
    "w j" 'evil-window-down
    "w k" 'evil-window-up
@@ -113,7 +114,8 @@
 
    ;; Git/Magit
    "g b" 'magit-blame
-   "g d" 'magit-diff
+   "g d" 'magit-diff-unstaged
+   "g D" 'magit-diff
    "g s" 'magit-status
    "g S" 'magit-status-only
    ;; "g S" 'git-gutter:stage-hunk
@@ -149,12 +151,20 @@
   ;; Normal state
   (general-define-key
    :states '(normal)
+   "u"   'undo-fu-only-undo
+   "C-r" 'undo-fu-only-redo
    "C-0" '(lambda () (interactive) (text-scale-set 0))
    "C--" 'text-scale-increase
    "C-_" 'text-scale-decrease
    ;; "*" '(lambda () (interactive) (swiper (format "\\<%s\\>" (thing-at-point 'symbol))))
    ;; "#" '(lambda () (interactive) (swiper (format "\\<%s\\>" (thing-at-point 'word))))
    )
+
+  ;; Evil C-w maps
+  (general-define-key
+   :keymaps '(evil-window-map)
+   "s" '(snug/split-and-focus-horizontally :wk "Split below")
+   "v" '(snug/split-and-focus-verically :wk "Split right"))
 
   ;; nvmap
   (general-define-key
