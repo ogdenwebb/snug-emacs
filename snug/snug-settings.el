@@ -25,6 +25,10 @@
 (defvar snug-user-shell 'zsh
   "Define user shell, e.g. bash, zsh, etc.")
 
+(defcustom snug-default-indent-width 4
+  "Set default indentation width. By default is 4."
+  :group 'snug)
+
 ;; TODO:
 ;; (defcustom snug-org-headline-rescale nil)
 
@@ -72,43 +76,86 @@
 ;;     (setq interprogram-cut-function 'xsel-cut-function)
 ;;     (setq interprogram-paste-function 'xsel-paste-function)))
 
-;; Set frame title
-(setq frame-title-format
-   '(:eval
-     (if (buffer-file-name)
-         (abbreviate-file-name (buffer-file-name))
-       "%b")))
+;; Various Emacs settings
+;; Set variables defined in C source code
+(use-package emacs
+  :config
+  (setq frame-resize-pixelwise t  ; Resize frame pixelwise
+        frame-inhibit-implied-resize t
+        ;; Disable bell
+        visible-bell nil
+        ring-bell-function 'ignore
+        ;; Set frame title
+        frame-title-format '(:eval
+                             (concat (if (buffer-file-name)
+                                         (abbreviate-file-name (buffer-file-name))
+                                       "%b")
+                                     " - Emacs"
+                                     ))
+        default-directory "~/"
+        ;; Enable recursive minibuffers, i.e. you can use M-x inside M-x
+        enable-recursive-minibuffers t
 
-(setq-default yank-pop-change-selection t
-              x-stretch-cursor nil
-              visible-cursor nil
-              highlight-nonselected-windows nil
-              ;; Disable key bindging suggeestions
-              suggest-key-bindings t
-              indicate-buffer-boundaries nil ;  Don't show where buffer starts/ends
-              bidi-display-reordering nil ; Disable bidirectional text for tiny performance boost
-              indicate-empty-lines nil
-              sentence-end-double-space nil
-              kill-whole-line t	; Kill line including '\n'
-              apropos-do-all t ; Better apropos
+        ;; Scroll settings
+        scroll-margin                   0
+        hscroll-margin                  0
+        ;; scroll-step                     7
+        ;; hscroll-step                    7
+        scroll-conservatively           10000
+        auto-window-vscroll nil
+        ;; scroll-preserve-screen-position 'always
+        mac-mouse-wheel-smooth-scroll    nil
+
+        ;; Disable system-wide dialogs
+        use-file-dialog nil
+        use-dialog-box nil                ; Avoid GUI dialogs
+        x-gtk-use-system-tooltips nil     ; Do not use GTK tooltips
+        )
+
+  ;; Increase line space for better readability
+  (setq-default line-spacing 1)
+
+  (setq-default tab-width snug-default-indent-width
+                indent-tabs-mode nil
+
+                x-stretch-cursor nil
+                visible-cursor nil
+                highlight-nonselected-windows nil
+
+                indicate-buffer-boundaries nil ;  Don't show where buffer starts/ends
+                bidi-display-reordering nil ; Disable bidirectional text for tiny performance boost
+                indicate-empty-lines nil
+
+                apropos-do-all t ; Better apropos
+
+                ;; Resize mini windows
+                resize-mini-windows t)
+  )
+
+;; simple.el
+(use-package simple
+  :straight nil
+  :config
+  (setq-default yank-pop-change-selection t
+                ;; Disable key bindging suggeestions
+                suggest-key-bindings t
+                kill-whole-line t	; Kill line including '\n'
+                eval-expression-print-level nil
+                set-mark-command-repeat-pop t
+
+                async-shell-command-buffer 'new-buffer
+                backward-delete-char-untabify-method 'hungry
+
+                track-eol t ; Keep cursor at end of lines.
+                line-move-visual nil)	 ; To be required by track-eol
+  )
+
+;; TODO: sort
+(setq-default sentence-end-double-space nil
               custom-safe-themes t
               ;; custom-search-field nil
-              eval-expression-print-level nil
-              ;; Resize mini windows
-              resize-mini-windows t
-              set-mark-command-repeat-pop t
-              auto-window-vscroll nil)
+              )
 
-;; Scroll settings
-(setq hscroll-margin                  7
-      scroll-margin                   7
-      hscroll-step                    7
-      scroll-step                     7
-      scroll-conservatively           100000
-      ;; scroll-preserve-screen-position 'always
-      mac-mouse-wheel-smooth-scroll    nil)
-
-(setq frame-inhibit-implied-resize t)
 
 ;; `tty-run-terminal-initialization' is *tremendously* slow for some
 ;; reason. Disabling it completely could have many side-effects, so we
@@ -116,14 +163,12 @@
 (unless (display-graphic-p)
   (advice-add #'tty-run-terminal-initialization :override #'ignore)
   (add-hook 'window-setup-hook
-    (defun doom-init-tty-h ()
+    (defun snug-init-tty-h ()
       (advice-remove #'tty-run-terminal-initialization #'ignore)
       (tty-run-terminal-initialization (selected-frame) nil t))))
 
-
 ;; TODO: sort
-(setq async-shell-command-buffer 'new-buffer
-      backward-delete-char-untabify-method 'hungry
+(setq
       ;; checkdoc-spellcheck-documentation-flag t
       ;; comint-input-ignoredups  t
       ;; comint-process-echoes  t
@@ -133,19 +178,12 @@
       )
 
 ;; Compilation
-(setq compilation-always-kill t
-      compilation-ask-about-save  nil
-      compilation-skip-threshold  2
-      )
-
-;; Custom options for Emacs
-(setq use-file-dialog nil
-      use-dialog-box nil                ; Avoid GUI dialogs
-      x-gtk-use-system-tooltips nil     ; Do not use GTK tooltips
-      large-file-warning-threshold nil ; Disable warning about large files
-      track-eol t ; Keep cursor at end of lines.
-      line-move-visual nil)	 ; To be required by track-eol
-
+(use-package compile
+  :straight nil
+  :config
+  (setq compilation-always-kill t
+        compilation-ask-about-save  nil
+        compilation-skip-threshold  2))
 
 ;; Replacing yes/no with y/n.
 (defalias 'yes-or-no-p 'y-or-n-p)
@@ -153,13 +191,10 @@
 ;; y/n instead of yes/no when quitting
 (setq confirm-kill-emacs 'y-or-n-p)
 
-;; Indentation
-(setq tab-width 4)
-
-(setq-default indent-tabs-mode nil)
-
 ;; Set tab length
 (setq tab-stop-list (number-sequence 2 120 2))
+
+;; MAYBE: move to evil
 (with-eval-after-load 'evil
   (setq evil-shift-width tab-width))
 
@@ -184,31 +219,31 @@
 ;; Auto reload buffer if file was changed
 (use-package autorevert
   :straight nil
-  :hook (after-init . global-auto-revert-mode))
+  :hook (after-init . global-auto-revert-mode)
+  :config
+  (setq auto-revert-interval 2
+        auto-revert-check-vc-info t
+        global-auto-revert-non-file-buffers t
+        auto-revert-verbose nil))
 
 ;; Lines
 (setq indicate-empty-lines t
       require-final-newline t)
 
-;; Disable bell
-(setq visible-bell nil
-      ring-bell-function 'ignore)
 
 ;; Truncate lines
 (setq-default truncate-lines t)
 ;; (setq truncate-partial-width-windows nil)
 
 ;; VC settings
-(setq find-file-visit-truename t)
-(setq vc-follow-symlinks t)
+(setq find-file-visit-truename t
+      vc-follow-symlinks t)
 ;; (remove-hook 'find-file-hooks 'vc-find-file-hook)
 ;; (setq vc-handled-backends nil)
 
 ;; Suppress ad-handle-definition warnings
 (setq ad-redefinition-action 'accept)
 
-;; Resize frame pixelwise
-(setq frame-resize-pixelwise t)
 
 ;; Save last position in buffer
 (use-package saveplace
@@ -236,21 +271,28 @@
                                         file-name-history
                                         regexp-search-ring)))
 
-;; Backup settings
-(setq make-backup-files t
-      backup-by-copying t      ; don't clobber symlinks
-      backup-by-copying-when-linked t
-      backup-directory-alist '(("." . "~/.cache/emacs/backup"))
-      delete-old-versions t
-      kept-new-versions 6
-      kept-old-versions 2
-      version-control t)       ; use versioned backups
+;; File-related settings
+(use-package files
+  :straight nil
+  :config
+  (setq make-backup-files t
+        backup-by-copying t      ; don't clobber symlinks
+        backup-by-copying-when-linked t
+        backup-directory-alist '(("." . "~/.cache/emacs/backup"))
+        delete-old-versions t
+        kept-new-versions 6
+        kept-old-versions 2
+        version-control t ; use versioned backups
+        auto-save-default nil
 
-;; Autosave
-(setq auto-save-default nil)
+        large-file-warning-threshold nil ; Disable warning about large files
+
+        ;; Don’t bother confirming killing processes
+        confirm-kill-processes nil))
 
 ;; (setq auto-save-file-name-transforms
 ;; `((".*" "~/.cache/emacs/saves/" t)))
+
 
 ;; Set default browser
 (setq browse-url-browser-function 'browse-url-generic
@@ -264,9 +306,6 @@
 (put 'erase-buffer 'disabled nil)
 (put 'scroll-left 'disabled nil)
 (put 'dired-find-alternate-file 'disabled nil)
-
-;; Enable recursive minibuffers, i.e. you can use M-x inside M-x
-(setq enable-recursive-minibuffers t)
 
 ;; TODO: add var
 ;; Auto-indent when pasting
