@@ -20,7 +20,9 @@
 
 ;; TODO: use org-plus-contrib
 ;; prolly need hook instead of :config
-(use-package org-plus-contrib
+(use-package org
+  :straight org-plus-contrib
+  :hook (org-mode . org-indent-mode)
   :config
   :general
   (general-define-key :keymaps 'org-mode-map
@@ -134,19 +136,19 @@
   (turn-off-smartparens-mode)
   (show-paren-mode -1))
 
+;; TODO: doesn't work properly on startup
 (add-hook 'org-mode-hook 'snug/org-init-hook)
 (add-hook 'org-mode-hook 'snug/org-visual-hook)
 
-(use-package org-bullets
-  ;; :requires org
-  :hook (org-mode . org-bullets-mode)
-  :config
+(use-package org-superstar-mode
+  :defer t
+  :straight (:host github :repo "integral-dw/org-superstar-mode")
+  :hook (org-mode . org-superstar-mode)
+  :init
   ;; Pretty stars for org-mode
-  (setq org-bullets-bullet-list
+  (setq org-superstar-prettify-item-bullets t
+        org-superstar-headline-bullets-list
         '("◉" "✸" "⚫" "○" "•"))
-  ;; Hide stars
-  ;; (setq org-bullets-bullet-list
-  ;;       '(" "))
   )
 
 (use-package evil-org
