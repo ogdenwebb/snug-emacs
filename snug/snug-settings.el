@@ -93,8 +93,6 @@
                                      " - Emacs"
                                      ))
         default-directory "~/"
-        ;; Enable recursive minibuffers, i.e. you can use M-x inside M-x
-        enable-recursive-minibuffers t
 
         ;; Scroll settings
         scroll-margin                   0
@@ -110,6 +108,10 @@
         use-file-dialog nil
         use-dialog-box nil                ; Avoid GUI dialogs
         x-gtk-use-system-tooltips nil     ; Do not use GTK tooltips
+
+
+        x-underline-at-descent-line t
+        ;; underline-minimum-offset 0
         )
 
   ;; Increase line space for better readability
@@ -126,11 +128,20 @@
                 bidi-display-reordering nil ; Disable bidirectional text for tiny performance boost
                 indicate-empty-lines nil
 
-                apropos-do-all t ; Better apropos
-
-                ;; Resize mini windows
-                resize-mini-windows t)
+                apropos-do-all t) ; Better apropos
   )
+
+(use-package minibuffer
+  :hook (minibuffer-setup-hook . minibuffer-electric-default-mode)
+  :config
+  (setq read-answer-short t
+        read-buffer-completion-ignore-case t
+        read-file-name-completion-ignore-case t
+
+        ;; Resize mini windows
+        resize-mini-windows t
+          ;; Enable recursive minibuffers, i.e. you can use M-x inside M-x
+        enable-recursive-minibuffers t))
 
 ;; simple.el
 (use-package simple
