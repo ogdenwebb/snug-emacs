@@ -12,11 +12,16 @@
   :config
   (setq ivy-display-style 'fancy
         ivy-height 12
+        ivy-fixed-height-minibuffer nil
+
         ;; Set default matchers
         ;; ivy-re-builders-alist
-        ;; '((counsel-ag . ivy--regex-fuzzy)
-        ;;   ;; (t . ivy--regex-plus))
-        ;;   (t . ivy--regex-ignore-order))
+        ;; '((counsel-M-x . ivy--regex-fuzzy)
+        ;;   (ivy-switch-buffer . ivy--regex-fuzzy)
+        ;;   (ivy-switch-buffer-other-window . ivy--regex-fuzzy)
+        ;;   (counsel-rg . ivy--regex-or-literal)
+        ;;   (counsel-ag . ivy--regex-or-literal)
+        ;;   (t . ivy--regex-plus))
 
         ;; Disable initial regexp
         ivy-initial-inputs-alist nil
