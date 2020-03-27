@@ -31,6 +31,15 @@
 ;;       (message "All packages are up to date"))))
 
 
+;; Regular expression
+(use-package re-builder
+  :defer t
+  :commands (re-builder)
+  ;; You can switch between the various styles by using
+  ;; C-c TAB inside of the regexp builder's buffer.
+  :config
+  (setq reb-re-syntax 'read))
+
 ;; A minor mode that guesses the indentation offset
 (use-package dtrt-indent
   :disabled t
@@ -101,7 +110,7 @@
   :defer t
   :hook (prog-mode . whitespace-cleanup-mode))
 
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
+;; (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;; Quickrun
 (use-package quickrun
@@ -298,20 +307,34 @@
 
 ;; Simple but effective sorting and filtering for Emacs.
 (use-package prescient
-  :defer t)
-  ;; Change save file location
-  ;; (setq prescient-save-file (locate-user-emacs-file "cache/prescient-save.el"))
-  ;; Use fuzzy matching by default
-  ;; (setq prescient-filter-method 'fuzzy))
-    ;; Enable persistent history
-  ;; (prescient-persist-mode))
+  :defer t
+  :config
+  (setq prescient-history-length 200
+        prescient-filter-method '(literal regexp initialism fuzzy) ; or fuzzy
+        ;; prescient-save-file (locate-user-emacs-file "cache/prescient-save.el")
+        )
+
+  ;; Enable persistent history
+  (prescient-persist-mode t)
+  )
 
 ;; TODO: setup for counsel-ag
-;; (use-package ivy-prescient
-;;   ;; :disabled t
-;;   :defer t
-;;   ;; :after (ivy)
-;;   :hook (ivy-mode . ivy-prescient-mode))
+(use-package ivy-prescient
+  :defer t
+  :hook (ivy-mode . ivy-prescient-mode)
+  :config
+  (setq ivy-prescient-sort-commands
+        '(:not counsel-grep
+               counsel-rg
+               counsel-ag
+               counsel-switch-buffer
+               ivy-switch-buffer
+               swiper
+               swiper-multi)
+        ivy-prescient-retain-classic-highlighting t
+        ivy-prescient-enable-filtering nil
+        ivy-prescient-enable-sorting t)
+  )
 
 (use-package company-prescient
   :defer t
