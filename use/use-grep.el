@@ -1,4 +1,4 @@
-;; Wgrep
+;; Silver Searcher aka ag
 (use-package ag
   :defer t
   :if (executable-find "ag")
@@ -9,6 +9,19 @@
         ag-reuse-buffers t
         ag-reuse-window t))
 
+;; Ripgrep
+(use-package rg
+  :defer t
+  :if (executable-find "rg")
+  :config
+  (setq rg-group-result t
+        rg-hide-command t
+        rg-show-columns nil
+        rg-show-header t
+        rg-custom-type-aliases nil
+        rg-default-alias-fallback "all"))
+
+;; Writable grep buffer
 (use-package wgrep
   :defer t
   :commands (wgrep wgrep-setup wgrep-change-to-wgrep-mode)
