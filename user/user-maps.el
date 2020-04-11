@@ -24,7 +24,7 @@
    "4" '(imenu-list-smart-toggle :wk "Imenu-list")
    "5" '(hydra-flyspell/body :wk "Flyspell language")
    "6" 'ivy-resume
-   "k" 'counsel-ag
+   "k" 'counsel-rg
    "r" 'quickrun
    "R" 'quickrun-shell
 
@@ -85,9 +85,12 @@
 
    ;; Window management
    "w c" '(delete-window :wk "Close split")
-   "w s" '(snug/split-and-focus-horizontally :wk "Split below")
-   "w v" '(snug/split-and-focus-verically :wk "Split right")
-   "w d" '(kill-this-buffer :wk "Kill this buffer")
+   "w s" 'split-window-vertically
+   "w v" 'split-window-horizontally
+   "w S" '(snug/split-and-focus-horizontally :wk "Split below")
+   "w V" '(snug/split-and-focus-verically :wk "Split right")))
+   "w d" '(delete-window :wk "Close split")
+   "w k" '(kill-this-buffer :wk "Kill this buffer")
    ;; "w D" 'kill-buffer
    "w D" '(eyebrowse-close-window-config :which-key "close workspace")
    ;; "wc" '(eyebrowse-create-window-config :which-key "create workspace")
@@ -159,12 +162,6 @@
    ;; "*" '(lambda () (interactive) (swiper (format "\\<%s\\>" (thing-at-point 'symbol))))
    ;; "#" '(lambda () (interactive) (swiper (format "\\<%s\\>" (thing-at-point 'word))))
    )
-
-  ;; Evil C-w maps
-  (general-define-key
-   :keymaps '(evil-window-map)
-   "s" '(snug/split-and-focus-horizontally :wk "Split below")
-   "v" '(snug/split-and-focus-verically :wk "Split right"))
 
   ;; nvmap
   (general-define-key
@@ -397,6 +394,14 @@
    "i"       #'pdf-misc-display-metadata
    "s"       #'pdf-occur
    "b"       #'pdf-view-set-slice-from-bounding-box
-   "r"       #'pdf-view-reset-slice))
+   "r"       #'pdf-view-reset-slice)
+  
+  (with-eval-after-load 'evil
+    ;; Evil C-w maps
+    (general-define-key
+     :keymaps 'evil-window-map
+     "S" '(snug/split-and-focus-horizontally :wk "Split below")
+     "V" '(snug/split-and-focus-verically :wk "Split right")))
+  )
 
 (provide 'user-maps)
