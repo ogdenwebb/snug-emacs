@@ -38,6 +38,7 @@
   :hook (dired-mode . diredfl-mode))
 
 (use-package dired-async
+  :straight (:host github :repo "jwiegley/emacs-async" :files ("dired-async.el"))
   :after (dired async)
   :hook (dired-mode . dired-async-mode))
 
