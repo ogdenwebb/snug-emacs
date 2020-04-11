@@ -31,6 +31,7 @@
         evil-indent-convert-tabs t)
 
   :config
+  (setq evil-shift-width snug-default-indent-width)
   (global-undo-tree-mode -1)
 
   (evil-select-search-module 'evil-search-module 'evil-search)

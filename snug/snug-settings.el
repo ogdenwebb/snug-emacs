@@ -112,6 +112,9 @@
 
         x-underline-at-descent-line t
         ;; underline-minimum-offset 0
+
+        ;; Disable lockfiles
+        create-lockfiles nil
         )
 
   ;; Increase line space for better readability
@@ -124,9 +127,14 @@
                 visible-cursor nil
                 highlight-nonselected-windows nil
 
+                bidi-display-reordering nil    ; Disable bidirectional text for tiny performance boost
                 indicate-buffer-boundaries nil ;  Don't show where buffer starts/ends
-                bidi-display-reordering nil ; Disable bidirectional text for tiny performance boost
                 indicate-empty-lines nil
+                indicate-empty-lines t
+
+                ;; Truncate lines
+                truncate-lines t
+                truncate-partial-width-windows nil
 
                 apropos-do-all t) ; Better apropos
   )
@@ -168,6 +176,16 @@
               ;; custom-search-field nil
               )
 
+;; TODO: sort
+(setq
+      ;; checkdoc-spellcheck-documentation-flag t
+      ;; comint-input-ignoredups  t
+      ;; comint-process-echoes  t
+      ;; comint-prompt-read-only  t
+      ;; comint-scroll-to-bottom-on-input   ’this
+      ;; completions-format  ’vertical
+      )
+
 
 ;; `tty-run-terminal-initialization' is *tremendously* slow for some
 ;; reason. Disabling it completely could have many side-effects, so we
@@ -179,36 +197,20 @@
       (advice-remove #'tty-run-terminal-initialization #'ignore)
       (tty-run-terminal-initialization (selected-frame) nil t))))
 
-;; TODO: sort
-(setq
-      ;; checkdoc-spellcheck-documentation-flag t
-      ;; comint-input-ignoredups  t
-      ;; comint-process-echoes  t
-      ;; comint-prompt-read-only  t
-      ;; comint-scroll-to-bottom-on-input   ’this
-      ;; completions-format  ’vertical
-      )
 
 ;; Compilation
 (use-package compile
   :straight nil
   :config
   (setq compilation-always-kill t
-        compilation-ask-about-save  nil
-        compilation-skip-threshold  2))
+        compilation-ask-about-save nil
+        compilation-skip-threshold 2))
 
 ;; Replacing yes/no with y/n.
 (defalias 'yes-or-no-p 'y-or-n-p)
 
-;; y/n instead of yes/no when quitting
-(setq confirm-kill-emacs 'y-or-n-p)
-
 ;; Set tab length
 (setq tab-stop-list (number-sequence 2 120 2))
-
-;; MAYBE: move to evil
-(with-eval-after-load 'evil
-  (setq evil-shift-width tab-width))
 
 ;; Make the backspace properly erase the tab instead of
 ;; removing 1 space at a time.
@@ -238,32 +240,18 @@
         global-auto-revert-non-file-buffers t
         auto-revert-verbose nil))
 
-;; Lines
-(setq indicate-empty-lines t
-      require-final-newline t)
-
-
-;; Truncate lines
-(setq-default truncate-lines t)
-;; (setq truncate-partial-width-windows nil)
-
 ;; VC settings
-(setq find-file-visit-truename t
-      vc-follow-symlinks t)
+(setq vc-follow-symlinks t)
 ;; (remove-hook 'find-file-hooks 'vc-find-file-hook)
 ;; (setq vc-handled-backends nil)
 
 ;; Suppress ad-handle-definition warnings
 (setq ad-redefinition-action 'accept)
 
-
 ;; Save last position in buffer
 (use-package saveplace
   :straight nil
   :hook (after-init . save-place-mode))
-
-;; Disable lockfiles
-(setq create-lockfiles nil)
 
 ;; TODO: read
 ;; (setq auto-save-list-file-name nil)
@@ -298,9 +286,15 @@
         auto-save-default nil
 
         large-file-warning-threshold nil ; Disable warning about large files
+        require-final-newline t
+        find-file-visit-truename t
 
         ;; Don’t bother confirming killing processes
-        confirm-kill-processes nil))
+        confirm-kill-processes nil
+
+        ;; y/n instead of yes/no when quitting
+        confirm-kill-emacs 'y-or-n-p
+        ))
 
 ;; (setq auto-save-file-name-transforms
 ;; `((".*" "~/.cache/emacs/saves/" t)))
