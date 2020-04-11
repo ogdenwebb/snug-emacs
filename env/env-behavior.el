@@ -12,20 +12,6 @@
 (use-package undo-tree
   :straight nil
   :disabled t)
-  ;; :config
-  ;; ;; Persistent undo-tree history across Emacs sessions
-  ;; (setq undo-tree-auto-save-history t
-  ;;       undo-tree-history-directory-alist '(("." . "~/.cache/emacs/undo"))
-  ;;       undo-tree-enable-undo-in-region nil)
-  ;; ;; TODO:
-  ;; ;; (add-hook 'after-save-hook #'undo-tree-save-history)
-  ;; ;; (add-hook 'find-file-hook #'undo-tree-load-history)
-  ;; ;; (add-hook 'find-file-hook #'global-undo-tree-mode-check-buffers)
-  ;; ;; (add-hook 'undo-tree-visualizer-mode-hook #'undo-tree-visualizer-toggle-diff)
-
-  ;; (setq-default undo-tree-visualizer-timestamps t)
-  ;; (setq-default undo-tree-visualizer-diff nil)
-  ;; (global-undo-tree-mode 1))
 
 (use-package undo-propose
   :straight (:host github :repo "jackkamm/undo-propose-el" :files ("*.el"))
@@ -43,7 +29,8 @@
 (use-package undo-fu-session
   :hook (after-init . global-undo-fu-session-mode)
   :config
-  (setq undo-fu-session-incompatible-files '("/COMMIT_EDITMSG\\'" "/git-rebase-todo\\'")))
+  (setq undo-fu-session-incompatible-files '("/COMMIT_EDITMSG\\'"
+                                             "/git-rebase-todo\\'")))
 
 ;; If you want Emacs kill ring and system clipboard to be independent.
 ;; (use-package simpleclip
