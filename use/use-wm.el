@@ -1,22 +1,30 @@
 ;; Window management  -*- lexical-binding: t; -*-
 
-;; undo/redo changes to Emacs' window layout
+;; Undo/redo changes to Emacs' window layout
 (use-package winner
-  :disabled t
   :straight nil
   :hook (after-init . winner-mode)
   :config
   (setq winner-dont-bind-my-keys t))
 
+;; Quickly switch windows in Emacs
 (use-package ace-window
   :defer t
   :init
   (global-set-key [remap other-window] #'ace-window)
   :config
   (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
+  ;; (setq aw-dispatch-alist
+  ;;       '((?s aw-swap-window "Swap Windows")
+  ;;         (?2 aw-split-window-vert "Split Window Vertically")
+  ;;         (?3 aw-split-window-horz "Split Window Horizontally")
+  ;;         (?? aw-show-dispatch-help)))
+
   (setq aw-scope 'frame
+        aw-display-mode-overlay t
         aw-background t))
 
+;; Enforce rules for popup windows
 (use-package shackle
   :defer t
   :hook (after-init . shackle-mode)
