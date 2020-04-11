@@ -88,7 +88,7 @@
    "w s" 'split-window-vertically
    "w v" 'split-window-horizontally
    "w S" '(snug/split-and-focus-horizontally :wk "Split below")
-   "w V" '(snug/split-and-focus-verically :wk "Split right")))
+   "w V" '(snug/split-and-focus-verically :wk "Split right")
    "w d" '(delete-window :wk "Close split")
    "w k" '(kill-this-buffer :wk "Kill this buffer")
    ;; "w D" 'kill-buffer

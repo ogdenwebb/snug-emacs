@@ -130,7 +130,6 @@
                 bidi-display-reordering nil    ; Disable bidirectional text for tiny performance boost
                 indicate-buffer-boundaries nil ;  Don't show where buffer starts/ends
                 indicate-empty-lines nil
-                indicate-empty-lines t
 
                 ;; Truncate lines
                 truncate-lines t
