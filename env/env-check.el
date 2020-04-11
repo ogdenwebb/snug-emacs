@@ -5,7 +5,7 @@
     "Flyspell dictionary"
     ("e" (snug/flyspell-set-dict "en") "eng")
     ("r" (snug/flyspell-set-dict "ru") "rus")
-    ("d" (snug/flyspell-set-dict "de") "den")
+    ("g" (snug/flyspell-set-dict "german") "ger")
     ("Q" (flyspell-mode -1) "Disable spell checking")
     ("q" nil "cancel")))
 
@@ -26,7 +26,7 @@
         )
 
   ;; TODO: enable
-  (setq-default flycheck-disabled-checkers '(emacs-lisp emacs-lisp-checkdoc))
+  (setq-default flycheck-disabled-checkers '(emacs-lisp emacs-lisp-checkdoc flycheck-haskell haskell-stack-ghc haskell-ghc))
 
   ;; TODO: ????
   (make-variable-buffer-local 'flycheck-idle-change-delay)
