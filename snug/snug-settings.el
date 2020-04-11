@@ -132,6 +132,7 @@
   )
 
 (use-package minibuffer
+  :straight nil
   :hook (minibuffer-setup-hook . minibuffer-electric-default-mode)
   :config
   (setq read-answer-short t
