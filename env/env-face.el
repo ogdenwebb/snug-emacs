@@ -160,8 +160,6 @@
 
 ;; (add-hook 'org-mode-hook 'set-buffer-variable-pitch)
 
-(setq x-underline-at-descent-line t)
-
 ;; Set the fringe size
 (setq-default left-fringe-width  6
               right-fringe-width 8)
