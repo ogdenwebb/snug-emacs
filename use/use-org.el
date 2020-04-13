@@ -71,7 +71,8 @@
      'append)
 
     ;; Open links
-    (setq org-link-frame-setup '((vm . vm-visit-folder)
+    (setq org-return-follows-link t
+          org-link-frame-setup '((vm . vm-visit-folder)
                                  (gnus . org-gnus-no-new-news)
                                  (file . find-file)))
 
@@ -162,6 +163,8 @@
         org-superstar-headline-bullets-list
         '("◉" "✸" "⚫" "○" "•")
 
+        org-hide-leading-stars t
+
         org-superstar-item-bullet-alist
         '((?* . ?●)
           (?+ . ?➤)
@@ -181,7 +184,9 @@
   (evil-org-agenda-set-keys))
 
 (use-package org-download
-  :after org)
+  :after org
+  :config
+  (setq org-download-image-dir "~/Pictures/org/"))
 
 (use-package org-variable-pitch
   :disabled t
