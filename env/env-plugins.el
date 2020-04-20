@@ -334,6 +334,10 @@
         ivy-prescient-retain-classic-highlighting t
         ivy-prescient-enable-filtering nil
         ivy-prescient-enable-sorting t)
+
+  (defun ivy-prescient-non-fuzzy (str)
+    (let ((prescient-filter-method '(literal regexp)))
+      (ivy-prescient-re-builder str)))
   )
 
 (use-package company-prescient
