@@ -1,4 +1,5 @@
 ;; general-describe-keybindings provides a list with keybinding
+
 (with-eval-after-load 'general
 
   ;; TODO: add maps
@@ -89,7 +90,8 @@
    "w v" 'split-window-horizontally
    "w S" '(snug/split-and-focus-horizontally :wk "Split below")
    "w V" '(snug/split-and-focus-verically :wk "Split right")
-   "w d" '(delete-window :wk "Close split")
+   ;; "w d" '(delete-window :wk "Close split")
+   "w d" '(snug/delete-window-or-previous-buffer :wk "Close current window.")
    "w k" '(kill-this-buffer :wk "Kill this buffer")
    ;; "w D" 'kill-buffer
    "w D" '(eyebrowse-close-window-config :which-key "close workspace")
@@ -114,6 +116,12 @@
 
    "w u" '(winner-undo :which-key "winner undo")
    "w r" '(winner-redo :which-key "winner redo")
+
+   "w =" 'balance-windows
+   "w +" 'evil-window-increase-height
+   "w -" 'evil-window-decrease-height
+   "w >" 'evil-window-increase-width
+   "w <" 'evil-window-decrease-width
 
    ;; Git/Magit
    "g b" 'magit-blame
