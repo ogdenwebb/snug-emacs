@@ -140,13 +140,6 @@
  'user
  '(variable-pitch ((t (:family "Crimson Text" :height 165 :weight normal)))))
 
-;; Maybe for variable pith
-;; (set-face-attribute 'variable-pitch nil :family "Merriweather") ; a bit more small
-;; (set-face-attribute 'variable-pitch nil :family "Exo 2")
-;; (set-face-attribute 'variable-pitch nil :family "Gabriela")
-;; (set-face-attribute 'variable-pitch nil :family "Marmelad")
-;; (set-face-attribute 'variable-pitch nil :family "Input Sans")
-
 ;; (defun set-buffer-variable-pitch ()
 ;;   (interactive)
 ;;   (variable-pitch-mode t)
@@ -177,6 +170,7 @@
    #b00000000
    #b00000000
    #b00000000])
+
 (define-fringe-bitmap 'left-curly-arrow
   [#b00000000
    #b00000000
@@ -189,7 +183,6 @@
 
 ;; Need to show fringe in vertical split
 (setq-default fringes-outside-margins t)
-
 
 ;; Highlight current line
 (use-package hl-line
