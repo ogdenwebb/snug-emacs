@@ -1,5 +1,8 @@
 ;; Use ivy -*- lexical-binding: t -*-
 
+(defvar snug-fuzzy-ivy nil
+  "Use fuzzy completion in ivy.")
+
 (use-package ivy
   :defer t
   :hook (after-init . ivy-mode)
@@ -10,11 +13,31 @@
     [remap switch-to-buffer-other-window] #'ivy-switch-buffer-other-window
     [remap imenu-anywhere]                #'ivy-imenu-anywhere)
   :config
+  ;; Set default ivy matchers
+  (let ((standard-search-fn
+         (if (featurep 'prescient)
+             #'ivy-prescient-non-fuzzy
+           #'ivy--regex-plus))
+        (alt-search-fn
+         (if snug-fuzzy-ivy
+             #'ivy--regex-fuzzy
+           ;; Ignore order for non-fuzzy searches by default
+           #'ivy--regex-ignore-order)))
+    (setq ivy-re-builders-alist
+          `((counsel-rg     . ,standard-search-fn)
+            (swiper         . ,standard-search-fn)
+            (swiper-isearch . ,standard-search-fn)
+            (t . ,alt-search-fn))
+          ivy-more-chars-alist
+          '((counsel-rg . 1)
+            (counsel-search . 2)
+            (t . 3))))
+
   (setq ivy-display-style 'fancy
         ivy-height 12
         ivy-fixed-height-minibuffer nil
 
-        ;; Set default matchers
+
         ;; ivy-re-builders-alist
         ;; '((counsel-M-x . ivy--regex-fuzzy)
         ;;   (ivy-switch-buffer . ivy--regex-fuzzy)
