@@ -1,4 +1,8 @@
 ;; Silver Searcher aka ag
+
+(defvar snug-default-grep "rg"
+  "")
+
 (use-package ag
   :defer t
   :if (executable-find "ag")
@@ -13,6 +17,7 @@
 (use-package rg
   :defer t
   :if (executable-find "rg")
+  :commands (rg rgrep rg-menu rg-dwim)
   :config
   (setq rg-group-result t
         rg-hide-command t
