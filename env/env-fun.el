@@ -277,4 +277,21 @@ executed from a commented line"
     (split-window-right)
     (other-window 1))
 
+;;;###autoload
+(defun snug/delete-window-or-kill-buffer ()
+  "TODO"
+  (interactive)
+  (if (one-window-p)
+      (kill-current-buffer)
+    (delete-window)))
+
+;;;###autoload
+(defun snug/delete-window-or-previous-buffer ()
+  "TODO"
+  (interactive)
+  (if (one-window-p)
+      (previous-buffer)
+    (delete-window)))
+
+
 (provide 'env-fun)
