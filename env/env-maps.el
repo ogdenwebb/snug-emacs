@@ -53,7 +53,7 @@
 
 (use-package hydra-posframe
   :straight (:host github :repo "Ladicle/hydra-posframe" :files ("*.el"))
-  :after hydra
+  :after (posframe hydra)
   :hook (after-init . hydra-posframe-mode)
   :config
   (setq hydra-posframe-border-width 15))
