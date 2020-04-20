@@ -148,11 +148,6 @@
         org-src-tab-acts-natively t)
   )
 
-
-;; TODO: doesn't work properly on startup
-(add-hook 'org-mode-hook 'snug/org-init-hook)
-(add-hook 'org-mode-hook 'snug/org-visual-hook)
-
 (use-package org-superstar-mode
   :defer t
   :straight (:host github :repo "integral-dw/org-superstar-mode")
@@ -163,6 +158,7 @@
         org-superstar-headline-bullets-list
         '("◉" "✸" "⚫" "○" "•")
 
+        org-superstar-leading-bullet ?\s
         org-hide-leading-stars t
 
         org-superstar-item-bullet-alist
