@@ -3,10 +3,15 @@
 (with-eval-after-load 'hydra
   (defhydra hydra-flyspell (:color blue)
     "Flyspell dictionary"
-    ("e" (snug/flyspell-set-dict "en") "eng")
-    ("r" (snug/flyspell-set-dict "ru") "rus")
+    ;; for aspell
+    ;; ("e" (snug/flyspell-set-dict "en") "eng")
+    ;; ("r" (snug/flyspell-set-dict "ru") "rus")
+    ;; ("g" (snug/flyspell-set-dict "german") "ger")
+    ;; for hunspell
+    ("e" (snug/flyspell-set-dict "en_US") "eng")
+    ("r" (snug/flyspell-set-dict "ru_RU") "rus")
     ("g" (snug/flyspell-set-dict "german") "ger")
-    ("Q" (flyspell-mode -1) "Disable spell checking")
+    ("Q" (spell-fu-mode -1) "Disable spell checking")
     ("q" nil "cancel")))
 
 ;; Package-lint
@@ -144,8 +149,7 @@
 
 ;; Spell checking
 (use-package flyspell
-  :defer 5
-  :commands (flyspell-mode flyspell-buffer)
+  ;; :commands (flyspell-mode flyspell-buffer)
   :config
   ;; (add-hook 'prog-mode-hook 'flyspell-prog-mode)
   ;; (add-hook 'text-mode-hook 'flyspell-mode)
@@ -153,14 +157,6 @@
   (setq flyspell-issue-welcome-flag nil
         flyspell-issue-message-flag nil)
 
-  ;; aspell, hunspell
-  (setq ispell-program-name (executable-find "aspell")
-        ispell-dictionary "en_US"
-        ispell-quietly t)
-
-  ;; Skip some parts in org-mode
-  (add-to-list 'ispell-skip-region-alist '(":\\(PROPERTIES\\|LOGBOOK\\):" . ":END:"))
-  (add-to-list 'ispell-skip-region-alist '("#\\+BEGIN_SRC" . "#\\+END_SRC"))
 
   ;; NO spell check for embedded snippets
   (defadvice org-mode-flyspell-verify (after org-mode-flyspell-verify-hack activate)
@@ -177,25 +173,39 @@
         (if (and b e (< (point) e)) (setq rlt nil)))
       (setq ad-return-value rlt)))
 
-
-  ;; If you are using aspell instead of ispell on the backend,
-  ;; the following setting may improve performance
-  (add-to-list 'ispell-extra-args "--sug-mode=ultra"))
+  )
 
 (use-package flyspell-lazy
+  :straight nil
+  :disabled t
   :defer t
   :commands (flyspell-lazy-mode flyspell-lazy-check-buffer)
   :hook (flyspell-lazy-mode . flyspell-mode))
 
-(with-eval-after-load 'flyspell
-  (defun snug/flyspell-set-dict (dict)
-    (progn
-      (if (not (bound-and-true-p flyspell-mode))
-          (flyspell-mode))
-      (ispell-change-dictionary dict))))
-      ;; (flyspell-buffer))))
+;; (with-eval-after-load 'flyspell
+;;   (defun snug/flyspell-set-dict (dict)
+;;     (progn
+;;       ;; (if (not (bound-and-true-p flyspell-mode))
+;;       ;;     (flyspell-mode))
+;;       (ispell-change-dictionary dict))))
+;;       ;; (flyspell-buffer))))
 
-;; flyspell ivy corret
+;; (with-eval-after-load 'spell-fu
+;;   (defun snug/flyspell-set-dict (dict)
+;;     (ispell-change-dictionary dict)
+;;     (if (not (bound-and-true-p spell-fu-mode))
+;;         (spell-fu-mode))
+;;     ))
+
+(with-eval-after-load 'wucuo
+  (defun snug/flyspell-set-dict (dict)
+    (ispell-change-dictionary dict)
+    ;; (wucuo-start)
+    ;; (if (not (bound-and-true-p wucuo-mode))
+    ;;     (wucuo-start))
+    ))
+
+;; flyspell ivy correct
 (use-package flyspell-correct
   :after flyspell
   :commands (flyspell-correct-at-point flyspell-correct-next-word-generic
@@ -207,5 +217,34 @@
 
 (use-package flyspell-correct-helm
   :after (helm flyspell-correct))
+
+(use-package ispell
+  :config
+  (setq ispell-program-name (or (executable-find "hunspell")
+                                (executable-find "aspell"))
+        ispell-dictionary "en_US"
+        ispell-quietly t
+        ispell-really-hunspell t)
+
+  ;; Skip some parts in org-mode
+  (add-to-list 'ispell-skip-region-alist '(":\\(PROPERTIES\\|LOGBOOK\\):" . ":END:"))
+  (add-to-list 'ispell-skip-region-alist '("#\\+BEGIN_SRC" . "#\\+END_SRC"))
+
+  ;; If you are using aspell instead of ispell on the backend,
+  ;; the following setting may improve performance
+  (add-to-list 'ispell-extra-args "--sug-mode=ultra")
+  )
+
+;; (use-package spell-fu
+;;   :hook (org-mode . (lambda()
+;;                       (setq spell-fu-faces-exclude
+;;                             '(org-meta-line org-link org-code))
+;;                       ;; (spell-fu-mode)
+;;                       )))
+
+
+(use-package wucuo
+  :config
+  (setq wucuo-flyspell-start-mode 'fast))
 
 (provide 'env-check)
