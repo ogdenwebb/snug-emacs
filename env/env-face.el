@@ -136,9 +136,13 @@
 ;;                   :slant 'normal
 ;;                   :size 16.0))
 
+;; (custom-theme-set-faces
+;;  'user
+;;  '(variable-pitch ((t (:family "Crimson Text" :height 165 :weight normal)))))
+
 (custom-theme-set-faces
  'user
- '(variable-pitch ((t (:family "Crimson Text" :height 165 :weight normal)))))
+ '(variable-pitch ((t (:family "XCharter" :height 160 :weight normal)))))
 
 ;; (defun set-buffer-variable-pitch ()
 ;;   (interactive)
