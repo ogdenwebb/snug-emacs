@@ -366,6 +366,10 @@
   :defer t
   :commands (focus-mode))
 
+(use-package info-colors
+  :defer t
+  :hook (Info-selection . info-colors-fontify-node))
+
 ;; (use-package rainbow-mode
 ;;   :hook (((after-init
 ;;            text-mode
