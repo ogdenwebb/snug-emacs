@@ -12,6 +12,8 @@
         evil-want-C-u-scroll nil
         ;; evil-ex-search-persistent-highlight nil
 
+        evil-respect-visual-line-mode t
+
         evil-visual-state-cursor 'hollow
         evil-mode-line-format 'nil
 

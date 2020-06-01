@@ -198,8 +198,6 @@
    "g a"  'evil-lion-left
    "g A"  'evil-lion-right
 
-   "j"   'evil-next-visual-line
-   "k"   'evil-previous-visual-line
    "C-a" 'evil-numbers/inc-at-pt
    "C-x" 'evil-numbers/dec-at-pt
 
