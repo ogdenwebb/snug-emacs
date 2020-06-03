@@ -9,13 +9,8 @@
 ;;   (org-tree-to-indirect-buffer)
 ;;   (windmove-right))
 
-;; (evil-define-key 'insert org-mode-map
-;;   (kbd "M-j") 'org-shiftleft
-;;   (kbd "M-k") 'org-shiftright
-;;   (kbd "M-H") 'org-metaleft
-;;   (kbd "M-J") 'org-metadown
-;;   (kbd "M-K") 'org-metaup
-;;   (kbd "M-L") 'org-metaright)
+;; MAYBE: org-metaleft org-metadown org-metaup org-metaright
+
 (setq org-directory "~/Documents/org")
 
 ;; TODO: use org-plus-contrib
@@ -114,6 +109,8 @@
                       "RET" 'org-open-at-point
                       "gx"  'org-open-at-point
                       "t"   'org-todo
+                      "T"   'org-insert-todo-heading
+                      "M-T" 'org-insert-todo-subheading
                       "za"  'org-cycle
                       "zA"  'org-shifttab
                       "zm"  'outline-hide-body
@@ -132,9 +129,40 @@
   (general-define-key :keymaps 'org-mode-map
                       :prefix snug-leader
                       :states '(normal)
-                      "c"   'org-ctrl-c-ctrl-c
-                      ;; "t" 'org-set-tags
-                      "t"   'org-ctrl-c-ctrl-c)
+                      "m a"   'org-agenda
+                      "m A"   'org-attach
+                      "m q"   'org-capture
+                      "m x"   'org-open-at-point
+
+                      "m c c"   'org-clock-cancel
+                      "m c g"   'org-clock-goto
+                      "m c e"   'org-evaluate-time-range
+                      "m c i"   'org-clock-in
+                      "m c I"   'org-clock-in-last
+                      ;; "m c j"   'org-clock-
+                      "m c o"   'org-clock-out
+                      "m c r"   'org-resolve-clocks
+                      ;; "m c R"   'org-
+                      "m d d"   'org-deadline
+                      "m d s"   'org-schedule
+                      "m d t"   'org-time-stamp
+                      "m d T"   'org-time-stamp-inactive
+
+                      "m m"   'org-ctrl-c-ctrl-c
+                      "m *"   'org-ctrl-c-star
+                      "m RET" 'org-ctrl-c-ret
+                      "m -"   'org-ctrl-c-minus
+
+                      "m l"   'org-shiftcontrolright
+                      "m h"   'org-shiftcontrolleft
+                      "m k"   'org-shiftcontrolup
+                      "m j"   'org-shiftcontroldown
+
+                      "m L"   'org-shiftright
+                      "m H"   'org-shiftleft
+                      "m K"   'org-shiftup
+                      "m J"   'org-shiftdown
+                      )
   ;; "p" 'org-priority-up
   ;; "P" 'org-priority-down)
 
