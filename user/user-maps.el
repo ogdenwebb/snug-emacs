@@ -137,6 +137,10 @@
    "g ]" 'git-gutter:next-hunk
    "g [" 'git-gutter:previous-hunk
 
+   ;; Jump jump jump
+   "j l" 'link-hint-open-link
+   "j L" 'link-hint-open-all-links
+
    ;; Projectile
    "p p" '(projectile-switch-project :wk "Switch project")
    "p f" '(counsel-projectile-find-file :wk "Find file in project")
