@@ -54,10 +54,17 @@
     ;; Fontify the whole line for headings (with a background color).
     (setq org-fontify-whole-heading-line t)
 
+    ;; Org priorities
     (setq org-highest-priority ?A
           org-lowest-priority ?D
           org-default-priority ?B)
 
+    (setq org-priority-faces '((?A . org-todo)
+                               (?B . warning)
+                               (?C . success)
+                               (?D . success)))
+
+    ;; Done items
     (custom-theme-set-faces
      ;; snug-custom-theme
      'user
@@ -166,6 +173,17 @@
           (?+ . ?➤)
           (?- . ?—)))
   )
+
+;; TODO: icons are too small
+(use-package org-fancy-priorities
+  :disabled t
+  :defer t
+  :hook (org-mode . org-fancy-priorities-mode)
+  :config
+  (setq org-fancy-priorities-list '((?A . "❗")
+                                    (?B . "⬆")
+                                    (?C . "⬇")
+                                    (?D . "☕"))))
 
 (use-package evil-org
   :straight (:host github :repo "Somelauw/evil-org-mode")
