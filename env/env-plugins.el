@@ -475,6 +475,15 @@
   ("C-c l o" . link-hint-open-link)
   ("C-c l c" . link-hint-copy-link))
 
+;; One-frame-per-action GIF recording for optimal quality/size ratio
+(use-package gif-screencast
+  :straight (:host gitlab :repo "ambrevar/emacs-gif-screencast")
+  :defer t
+  :commands (gif-screencast-toggle-pause gif-screencast-stop gif-screencast-start-or-stop)
+  :config
+  (setq gif-screencast-args '("--quality" "25" "--focused")
+        gif-screencast-want-optimized nil))
+
 ;; ;; Make scripts executable automatically.
 ;; (use-package executable
 ;;   :ensure nil
