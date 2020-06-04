@@ -110,7 +110,7 @@
         x-gtk-use-system-tooltips nil     ; Do not use GTK tooltips
 
 
-        x-underline-at-descent-line t
+        x-underline-at-descent-line t ; Underline looks a bit better when drawn lower
         ;; underline-minimum-offset 0
 
         ;; Disable lockfiles
