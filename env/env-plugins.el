@@ -143,6 +143,13 @@
 ;;   :hook ((prog-mode . bug-reference-prog-mode)
 ;;          (text-mode . bug-reference-mode)))
 
+;; Emacs minor mode that watches for long pauses and reports them.
+;; NOTE: You can run `explain-pause-profiles' to view the profile report.
+(use-package explain-pause-mode
+  :defer t
+  :straight (:host github :repo "lastquestion/explain-pause-mode")
+  :hook (after-init . explain-pause-mode))
+
 (use-package treemacs
   :defer t
   :commands (treemacs treemacs-create-theme treemacs-create-icon treemacs-load-theme)
