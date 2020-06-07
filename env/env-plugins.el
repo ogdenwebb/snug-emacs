@@ -145,10 +145,10 @@
 
 ;; Emacs minor mode that watches for long pauses and reports them.
 ;; NOTE: You can run `explain-pause-profiles' to view the profile report.
-(use-package explain-pause-mode
-  :defer t
-  :straight (:host github :repo "lastquestion/explain-pause-mode")
-  :hook (after-init . explain-pause-mode))
+;; (use-package explain-pause-mode
+;;   :defer t
+;;   :straight (:host github :repo "lastquestion/explain-pause-mode")
+;;   :hook (after-init . explain-pause-mode))
 
 (use-package treemacs
   :defer t
@@ -314,7 +314,8 @@
 
 ;; Simple but effective sorting and filtering for Emacs.
 (use-package prescient
-  :defer t
+  ;; :defer t
+  :hook (after-init . prescient-persist-mode)
   :config
   (setq prescient-history-length 200
         prescient-filter-method '(literal regexp initialism fuzzy) ; or fuzzy
@@ -322,12 +323,11 @@
         )
 
   ;; Enable persistent history
-  (prescient-persist-mode t)
   )
 
 ;; TODO: setup for counsel-ag
 (use-package ivy-prescient
-  :defer t
+  ;; :defer t
   :hook (ivy-mode . ivy-prescient-mode)
   :config
   (setq ivy-prescient-sort-commands

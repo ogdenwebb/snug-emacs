@@ -52,7 +52,9 @@
         ivy-use-virtual-buffers t
         ;; Do not show "./" and "../" in the `counsel-find-file' completion list
         ;; ivy-extra-directories nil ; default value: ("../" "./")`'
-        ivy-count-format "[%d/%d] ")
+        ;; ivy-count-format "[%d/%d] "
+        ivy-count-format "%d/%d "
+        )
 
   ;; Integrate ivy in projectile and magit
   (with-eval-after-load 'projectile
@@ -122,6 +124,11 @@
   (ivy-rich-set-display-transformer)
   (setq ivy-rich-path-style 'abbrev)
   (ivy-rich-mode t))
+
+(use-package all-the-icons-ivy-rich
+  :disabled t
+  :after ivy-rich
+  :config (all-the-icons-ivy-rich-mode))
 
 (use-package ivy-xref
   :after ivy
