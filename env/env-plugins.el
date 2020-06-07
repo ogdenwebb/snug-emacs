@@ -91,7 +91,7 @@
 
   :config
   ;; Projectile settings
-  (setq projectile-verbose  nil
+  (setq projectile-verbose nil
         ;; projectile-ignored-project-function  ’file-remote-p
         ;; projectile-require-project-root   t
         ;; projectile-switch-project-action  ’projectile-dired
@@ -105,12 +105,10 @@
 ;; (use-package backup-walker
 ;;   :commands backup-walker-start)
 
-;; Intelligently call whitespace-cleanup before buffers are saved.
-(use-package whitespace-cleanup-mode
-  :defer t
-  :hook (prog-mode . whitespace-cleanup-mode))
-
-;; (add-hook 'before-save-hook 'delete-trailing-whitespace)
+;; Delete trailing whitespace on save
+(add-hook 'prog-mode-hook
+          (lambda ()
+            (add-hook 'before-save-hook 'delete-trailing-whitespace nil 'make-it-local)))
 
 ;; Quickrun
 (use-package quickrun
