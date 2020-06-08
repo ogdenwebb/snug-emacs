@@ -40,8 +40,10 @@
 
 (use-package eglot
   :defer t
-  :after (flymake json-rpc)
-  :hook (kotlin-mode . eglot-ensure))
+  ;; :after (flymake json-rpc)
+  :hook (haskell-mode . eglot-ensure)
+  :config
+  (add-to-list 'eglot-server-programs '(haskell-mode . ("ghcide" "--lsp"))))
   ;; (add-to-list 'eglot-ignored-server-capabilites :hoverProvider))
 
 (provide 'use-lsp)
