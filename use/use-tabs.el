@@ -2,29 +2,31 @@
   :disabled t
   :load-path "dev/awesome-tab"
   :config
-  (awesome-tab-mode t)
-)
+  (awesome-tab-mode t))
 
 (use-package powerline
   :defer t)
 
+
 (use-package centaur-tabs
-  ;; :requires (powerline)
-  ;; :disabled t
   :straight (:host github :repo "ema2159/centaur-tabs")
   :hook (after-init . centaur-tabs-mode)
+  :init
+  (setq-default centaur-tabs-set-bar 'over)
   :config
-  (setq centaur-tabs-background-color (face-background 'centaur-tabs-default)
-        centaur-tabs-set-close-button nil
-        centaur-tabs-style "wave"
+  (setq centaur-tabs-set-close-button nil
+        ;; centaur-tabs-background-color (face-background 'centaur-tabs-default)
+        ;; centaur-tabs-style "wave"
 
-        ;; centaur-tabs-set-bar 'left
+        ;; centaur-tabs-style "bar"
+        ;; centaur-tabs-set-bar 'over
+
         centaur-tabs-height 32
         centaur-tabs-set-icons t
-        ;; centaur-tabs-gray-out-icons 'buffer
-        ;; centaur-tabs-plain-icons t)
-        ;; centaur-tabs-set-modified-marker t)
-        )
+        centaur-tabs-gray-out-icons 'buffer
+        centaur-tabs-modified-marker "*"
+        centaur-tabs-plain-icons t
+        centaur-tabs-set-modified-marker t)
   )
 
 (provide 'use-tabs)
