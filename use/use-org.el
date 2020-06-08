@@ -22,7 +22,7 @@
     ;; Fit image into the screen
     ;; (setq org-image-actual-width '(600))
     (setq org-image-actual-width nil)
-    ;; (setq org-image-actual-width 200)
+    (setq org-image-actual-width 200)
     (setq org-startup-with-inline-images t)
     ;; (setq org-image-actual-width (/ (display-pixel-width) 3))
     (setq org-startup-indented t
@@ -127,42 +127,42 @@
   ;; "M-l"  'evil-window-right)
 
   (general-define-key :keymaps 'org-mode-map
-                      :prefix snug-leader
+                      :prefix snug-localleader
                       :states '(normal)
-                      "m a"   'org-agenda
-                      "m A"   'org-attach
-                      "m q"   'org-capture
-                      "m x"   'org-open-at-point
+                      "a"   'org-agenda
+                      "A"   'org-attach
+                      "q"   'org-capture
+                      "x"   'org-open-at-point
 
-                      "m c c"   'org-clock-cancel
-                      "m c g"   'org-clock-goto
-                      "m c e"   'org-evaluate-time-range
-                      "m c i"   'org-clock-in
-                      "m c I"   'org-clock-in-last
-                      ;; "m c j"   'org-clock-
-                      "m c o"   'org-clock-out
-                      "m c r"   'org-resolve-clocks
-                      ;; "m c R"   'org-
-                      "m d d"   'org-deadline
-                      "m d s"   'org-schedule
-                      "m d t"   'org-time-stamp
-                      "m d T"   'org-time-stamp-inactive
+                      "c c"   'org-clock-cancel
+                      "c g"   'org-clock-goto
+                      "c e"   'org-evaluate-time-range
+                      "c i"   'org-clock-in
+                      "c I"   'org-clock-in-last
+                      ;; "c j"   'org-clock-
+                      "c o"   'org-clock-out
+                      "c r"   'org-resolve-clocks
+                      ;; "c R"   'org-
+                      "d d"   'org-deadline
+                      "d s"   'org-schedule
+                      "d t"   'org-time-stamp
+                      "d T"   'org-time-stamp-inactive
 
-                      "m m"   'org-ctrl-c-ctrl-c
-                      "m *"   'org-ctrl-c-star
-                      "m RET" 'org-ctrl-c-ret
-                      "m -"   'org-ctrl-c-minus
+                      "m"   'org-ctrl-c-ctrl-c
+                      "*"   'org-ctrl-c-star
+                      "RET" 'org-ctrl-c-ret
+                      "-"   'org-ctrl-c-minus
 
-                      "m l"   'org-shiftcontrolright
-                      "m h"   'org-shiftcontrolleft
-                      "m k"   'org-shiftcontrolup
-                      "m j"   'org-shiftcontroldown
+                      "l"   'org-shiftcontrolright
+                      "h"   'org-shiftcontrolleft
+                      "k"   'org-shiftcontrolup
+                      "j"   'org-shiftcontroldown
 
-                      "m L"   'org-shiftright
-                      "m H"   'org-shiftleft
-                      "m K"   'org-shiftup
-                      "m J"   'org-shiftdown
-                      )
+                      "L"   'org-shiftright
+                      "H"   'org-shiftleft
+                      "K"   'org-shiftup
+                      "J"   'org-shiftdown)
+
   ;; "p" 'org-priority-up
   ;; "P" 'org-priority-down)
 
@@ -171,6 +171,9 @@
                       "RET" 'org-return))
 ;; "RET" 'org-return-indent))
 
+(use-package org-tempo
+  :straight nil
+  :after org)
 
 (use-package org-src
   :straight nil
