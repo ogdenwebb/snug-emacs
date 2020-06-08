@@ -13,6 +13,11 @@
     [remap switch-to-buffer-other-window] #'ivy-switch-buffer-other-window
     [remap imenu-anywhere]                #'ivy-imenu-anywhere)
   :config
+
+  ;; Try to fix Emacs hangs
+  (setq ivy-dynamic-exhibit-delay-ms 20 ; or 250
+        counsel-async-filter-update-time 500000)
+
   ;; Set default ivy matchers
   (let ((standard-search-fn
          (if (featurep 'prescient)
@@ -126,9 +131,11 @@
   (ivy-rich-mode t))
 
 (use-package all-the-icons-ivy-rich
-  :disabled t
   :after ivy-rich
-  :config (all-the-icons-ivy-rich-mode))
+  :config
+  (setq all-the-icons-ivy-rich-color-icon nil
+        all-the-icons-ivy-rich-icon-size 0.85)
+  (all-the-icons-ivy-rich-mode))
 
 (use-package ivy-xref
   :after ivy
