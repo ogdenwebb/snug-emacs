@@ -38,6 +38,12 @@
             (counsel-search . 2)
             (t . 3))))
 
+  (setq ivy-preferred-re-builders
+        '((ivy--regex-plus . "plus")
+          (ivy--regex-ignore-order . "order")
+          (ivy--regex-fuzzy . "fuzzy")
+          (ivy-prescient-non-fuzzy . "non fuzzy")))
+
   (setq ivy-display-style 'fancy
         ivy-height 12
         ivy-fixed-height-minibuffer nil
