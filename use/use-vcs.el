@@ -3,8 +3,8 @@
 ;;   :config
 ;;   (setq monky-process-type 'cmdserver))
 
-(setq vc-annotate-background nil
-      vc-annotate-very-old-color nil)
+(setq-default vc-annotate-background nil
+              vc-annotate-very-old-color nil)
 
 ;; Git
 (use-package magit
@@ -34,6 +34,15 @@
         ;; magit-save-repository-buffers 'dontask))
         ))
   ;; (setq magit-diff-refine-hunk 'all))
+
+;; Show source files' TODOs (and FIXMEs, etc) in Magit status buffer
+(use-package magit-todos
+  :after magit
+  ;; :hook (magit-status-mode . magit-todos-mode))
+  :config
+  (setq magit-todos-keyword-suffix "\\(?:([^)]+)\\)?:?") ; make colon optional
+  (shut-up
+    (magit-todos-mode t)))
 
 (use-package gitattributes-mode
   :mode (("/\\.gitattributes\\'"  . gitattributes-mode)
