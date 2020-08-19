@@ -65,6 +65,10 @@
   ;; Enable to use C-o/C-i after these commands
   ;; TODO: macro def-evil-jump or smth
   (with-eval-after-load 'evil
+    ;; (evil-add-command-properties #'org-footnote-new   :jump t)
+    (evil-add-command-properties #'org-footnote-action :jump t)
+    ;; (evil-add-command-properties #'org-mark-ring-push :jump t)
+    ;; (evil-add-command-properties #'org-ctrl-c-ctrl-c  :jump t)
     (evil-add-command-properties #'find-file-at-point :jump t)
     (evil-add-command-properties #'swiper             :jump t)
     (evil-add-command-properties #'counsel-rg         :jump t)
