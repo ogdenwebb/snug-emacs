@@ -20,29 +20,33 @@
    :prefix snug-leader
    :non-normal-prefix snug-non-leader
    "1" '(colorpicker :wk "Color picker")
-   "2" '(undo-propose :wk "Undo-tree")
+   "2" '(undo-propose :wk "Undo propose")
    "3" 'treemacs
    "4" '(imenu-list-smart-toggle :wk "Imenu-list")
    "5" '(hydra-flyspell/body :wk "Flyspell language")
-   "6" 'ivy-resume
-   "k" 'counsel-rg
+   ;; "6" 'ivy-resume
+   ;; "k" 'counsel-rg
+   "k" 'sel/rg
    "r" 'quickrun
    "R" 'quickrun-shell
 
    ;; Open things quickly
-   "o r" '(counsel-recentf :wk "Recentf files")
+   ;; "o r" '(counsel-recentf :wk "Recentf files")
+   "o r" '(sel/recentf :wk "Recentf files")
    ;; "o f" 'counsel-file-jump
-   "o f" '(counsel-fzf :wk "fzf")
-   "o F" '(counsel-find-file :wk "Find files")
+   ;; "o f" '(counsel-fzf :wk "fzf")
+   ;; "o F" '(counsel-find-file :wk "Find files")
    "o b" '(switch-to-buffer :wk "Switch buffer")
-   "o l" '(counsel-bookmark :wk "Bookmarks")
-   "o y" '(counsel-yank-pop :wk "Yank ring")
+   ;; "o l" '(counsel-bookmark :wk "Bookmarks")
+   "o l" '(bookmark-jump :wk "Bookmarks")
+   ;; "o y" '(counsel-yank-pop :wk "Yank ring")
 
    ;; Find [files]
    "f"   '(:ignore t :wk "Files")
-   "f r" '(counsel-recentf :wk "Recentf files")
-   "f f" '(counsel-find-file :wk "Find files")
-   "f F" '(counsel-fzf :wk "fzf")
+   "f r" '(recentf-open-files-plus :wk "Recentf files")
+   ;; "f f" '(counsel-find-file :wk "Find files")
+   "f f" '(find-file :wk "Find files")
+   ;; "f F" '(counsel-fzf :wk "fzf")
    "f ~" (lambda! (dired "~"))
    "f /" (lambda! (dired "/"))
 
@@ -65,8 +69,8 @@
    ;; Buffers
    "b p" '(previous-buffer :wk "Previous buffer")
    "b n" '(next-buffer :wk "Next buffer")
-   "b l" '(ivy-switch-buffer :wk "Switch buffer")
-   "b b" '(ivy-switch-buffer :wk "Switch buffer")
+   ;; "b l" '(ivy-switch-buffer :wk "Switch buffer")
+   ;; "b b" '(ivy-switch-buffer :wk "Switch buffer")
    "b w" '(revert-buffer)
    "b e" '(erase-buffer)
    "b k" '(kill-this-buffer :wk "Kill this buffer")
@@ -143,7 +147,7 @@
 
    ;; Projectile
    "p p" '(projectile-switch-project :wk "Switch project")
-   "p f" '(counsel-projectile-find-file :wk "Find file in project")
+   ;; "p f" '(counsel-projectile-find-file :wk "Find file in project")
    "p k" '(projectile-ag :wk "Grep in project")
    "p r" '(projectile-replace :wk "Replace in project")
    "p t" '(projectile-regenerate-tags :wk "Update tags for project"))
@@ -159,7 +163,8 @@
    "n w" 'widen
 
    ;; Insert
-   "i y" 'counsel-yank-pop
+   ;; "i y" 'counsel-yank-pop
+   "i y" 'sel/yank-pop
    "i s" 'yas-insert-snippet
    )
 
@@ -179,14 +184,15 @@
   (general-define-key
    :keymaps '(normal visual)
    "g x"  'browse-url-at-point
-   "/"    'swiper
+   ;; "/"    'swiper
+   "/"    'sel/swiper
    ;; Navigation between windows
    "C-h"  'evil-window-left
    "C-j"  'evil-window-down
    "C-k"  'evil-window-up
    "C-l"  'evil-window-right
 
-   "M-x"  'counsel-M-x
+   ;; "M-x"  'counsel-M-x
    ;; Drag stuff
    ;; "C-h"  'drag-stuff-left
    ;; "C-j"  'drag-stuff-down
@@ -405,7 +411,7 @@
    "s"       #'pdf-occur
    "b"       #'pdf-view-set-slice-from-bounding-box
    "r"       #'pdf-view-reset-slice)
-  
+
   (with-eval-after-load 'evil
     ;; Evil C-w maps
     (general-define-key
