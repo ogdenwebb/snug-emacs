@@ -81,7 +81,7 @@
 (use-package emacs
   :config
   (setq frame-resize-pixelwise t  ; Resize frame pixelwise
-        frame-inhibit-implied-resize t
+        ;; frame-inhibit-implied-resize t
         ;; Disable bell
         visible-bell nil
         ring-bell-function 'ignore
@@ -234,9 +234,12 @@
   :straight nil
   :hook (after-init . global-auto-revert-mode)
   :config
-  (setq auto-revert-interval 2
+  (setq auto-revert-interval 3
         auto-revert-check-vc-info t
-        global-auto-revert-non-file-buffers t
+        ;; global-auto-revert-non-file-buffers t
+        ;; TODO: Try fix hangs:
+        auto-revert-use-notify nil
+
         auto-revert-verbose nil))
 
 ;; VC settings
