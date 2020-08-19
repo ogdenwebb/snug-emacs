@@ -79,20 +79,13 @@
   ;; (setq kaolin-themes-comments-style 'normal)
 
   ;; Set default theme
-  ;; (defun load-my-theme (frame)
-  ;;   (with-selected-frame frame
-  ;;     (load-theme 'kaolin-eclipse t)))
-
-  ;; (if (daemonp)
-  ;;     (add-hook 'after-make-frame-functions #'load-my-theme)
-  ;;   (load-theme 'kaolin-eclipse t))
-
-  ;; (load-theme snug-custom-theme t)
-
   (add-hook 'after-make-frame-functions
             (lambda (_frame)
               (load-theme snug-custom-theme t)
               (global-hl-todo-mode t)))
+
+  (unless (daemonp)
+    (load-theme snug-custom-theme t))
 
   (kaolin-treemacs-theme)
 
@@ -105,9 +98,9 @@
   :defer t
   :config
   (setq pos-tip-border-width 1
-        pos-tip-internal-border-width 2
-        pos-tip-background-color (face-background 'tooltip)
-        pos-tip-foreground-color (face-foreground 'tooltip)))
+        pos-tip-internal-border-width 2))
+        ;; pos-tip-background-color (face-background 'tooltip)
+        ;; pos-tip-foreground-color (face-foreground 'tooltip)))
 
 ;; Set default font
 ;; (add-to-list 'default-frame-alist '(font . "Roboto Mono-12:style=regular"))
@@ -127,22 +120,10 @@
 ;;  '(variable-pitch ((t (:family "Fira Sans"))))
  ;; '(fixed-pitch ((t (:family "D2Coding" :slant normal :weight normal :height 1.0 :width normal)))))
 
-;; (set-face-attribute 'fixed-pitch nil :family "D2Coding")
-;; MAYBE: Literata is ok
-;; (set-face-attribute
-;;  'variable-pitch nil
-;;  :font (font-spec :name "Crimson Text"
-;;                   :weight 'normal
-;;                   :slant 'normal
-;;                   :size 16.0))
-
-;; (custom-theme-set-faces
-;;  'user
-;;  '(variable-pitch ((t (:family "Crimson Text" :height 165 :weight normal)))))
-
 (custom-theme-set-faces
  'user
- '(variable-pitch ((t (:family "XCharter" :height 160 :weight normal)))))
+;;  '(variable-pitch ((t (:family "Crimson Text" :height 165 :weight normal)))))
+ '(variable-pitch ((t (:family "XCharter" :height 150 :weight normal)))))
 
 ;; (defun set-buffer-variable-pitch ()
 ;;   (interactive)
@@ -204,9 +185,9 @@
 (tooltip-mode -1) ; relegate tooltips to echo area only
 (setq show-help-function nil) ;; hide :help-echo text
 
-(menu-bar-mode -1)
-(when (fboundp 'tool-bar-mode)   (tool-bar-mode -1))
-(when (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
+;; (menu-bar-mode -1)
+;; (when (fboundp 'tool-bar-mode)   (tool-bar-mode -1))
+;; (when (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
 ;; Setup cursor
 ;; Enable cursor blinking
