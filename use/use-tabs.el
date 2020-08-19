@@ -10,12 +10,12 @@
 
 (use-package centaur-tabs
   :straight (:host github :repo "ema2159/centaur-tabs")
-  :hook (after-init . centaur-tabs-mode)
+  :defer .1
   :init
   (setq-default centaur-tabs-set-bar 'over)
   :config
   (setq centaur-tabs-set-close-button nil
-        ;; centaur-tabs-background-color (face-background 'centaur-tabs-default)
+        centaur-tabs-background-color (face-background 'centaur-tabs-default)
         ;; centaur-tabs-style "wave"
 
         ;; centaur-tabs-style "bar"
@@ -27,6 +27,7 @@
         centaur-tabs-modified-marker "*"
         centaur-tabs-plain-icons t
         centaur-tabs-set-modified-marker t)
-  )
+
+  (centaur-tabs-mode t))
 
 (provide 'use-tabs)
