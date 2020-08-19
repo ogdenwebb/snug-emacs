@@ -176,19 +176,17 @@
   )
 
 (use-package flyspell-lazy
-  :straight nil
-  :disabled t
   :defer t
   :commands (flyspell-lazy-mode flyspell-lazy-check-buffer)
   :hook (flyspell-lazy-mode . flyspell-mode))
 
-;; (with-eval-after-load 'flyspell
-;;   (defun snug/flyspell-set-dict (dict)
-;;     (progn
-;;       ;; (if (not (bound-and-true-p flyspell-mode))
-;;       ;;     (flyspell-mode))
-;;       (ispell-change-dictionary dict))))
-;;       ;; (flyspell-buffer))))
+(with-eval-after-load 'flyspell
+  (defun snug/flyspell-set-dict (dict)
+    (progn
+      (if (not (bound-and-true-p flyspell-mode))
+          (flyspell-mode))
+      (ispell-change-dictionary dict))))
+      ;; (flyspell-buffer))))
 
 ;; (with-eval-after-load 'spell-fu
 ;;   (defun snug/flyspell-set-dict (dict)
@@ -197,13 +195,13 @@
 ;;         (spell-fu-mode))
 ;;     ))
 
-(with-eval-after-load 'wucuo
-  (defun snug/flyspell-set-dict (dict)
-    (ispell-change-dictionary dict)
-    ;; (wucuo-start)
-    ;; (if (not (bound-and-true-p wucuo-mode))
-    ;;     (wucuo-start))
-    ))
+;; (with-eval-after-load 'wucuo
+;;   (defun snug/flyspell-set-dict (dict)
+;;     (ispell-change-dictionary dict)
+;;     ;; (wucuo-start)
+;;     ;; (if (not (bound-and-true-p wucuo-mode))
+;;     ;;     (wucuo-start))
+;;     ))
 
 ;; flyspell ivy correct
 (use-package flyspell-correct
@@ -243,8 +241,8 @@
 ;;                       )))
 
 
-(use-package wucuo
-  :config
-  (setq wucuo-flyspell-start-mode 'fast))
+;; (use-package wucuo
+;;   :config
+;;   (setq wucuo-flyspell-start-mode 'fast))
 
 (provide 'env-check)
