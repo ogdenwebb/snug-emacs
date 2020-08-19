@@ -1,23 +1,24 @@
-;; (use-package lsp-mode
-;;   :disabled t
-;;   :config
-;;   ;; (add-hook 'prog-major-mode #'lsp-prog-major-mode-enable)
+(use-package lsp-mode
+  :config
+  ;; (add-hook 'prog-major-mode #'lsp-prog-major-mode-enable)
 
-;;   ;; Make sure we have lsp-imenu everywhere we have LSP
-;;   (use-package lsp-imenu
-;;     :config
-;;     (add-hook 'lsp-after-open-hook 'lsp-enable-imenu))
+  ;; Make sure we have lsp-imenu everywhere we have LSP
+  (use-package lsp-imenu
+    :disabled t
+    :straight nil
+    :config
+    (add-hook 'lsp-after-open-hook 'lsp-enable-imenu))
 
-;;   (use-package lsp-ui
-;;     :config
-;;     (setq lsp-ui-sideline-ignore-duplicate t)
-;;     (add-hook 'lsp-mode-hook 'lsp-ui-mode)))
+  (use-package lsp-ui
+    :config
+    (setq lsp-ui-sideline-ignore-duplicate t)
+    (add-hook 'lsp-mode-hook 'lsp-ui-mode)))
 
 
 ;; ;; languages
-;; (use-package lsp-html
-;;   :disabled t
-;;   :hook ((html-mode web-mode) . lsp-html-enable))
+(use-package lsp-html
+  :disabled t
+  :hook ((html-mode web-mode) . lsp-html-enable))
 
 ;; (use-package lsp-css
 ;;   :disabled t
@@ -33,17 +34,17 @@
 ;;   (setq company-lsp-async t)
 ;;   (setq company-lsp-enable-recompletion t))
 
-(use-package flymake
-  :defer t)
-(use-package json-rpc
-  :defer t)
+;; (use-package flymake
+;;   :defer t)
+;; (use-package json-rpc
+;;   :defer t)
 
-(use-package eglot
-  :defer t
-  ;; :after (flymake json-rpc)
-  :hook (haskell-mode . eglot-ensure)
-  :config
-  (add-to-list 'eglot-server-programs '(haskell-mode . ("ghcide" "--lsp"))))
-  ;; (add-to-list 'eglot-ignored-server-capabilites :hoverProvider))
+;; (use-package eglot
+;;   :defer t
+;;   ;; :after (flymake json-rpc)
+;;   :hook (haskell-mode . eglot-ensure)
+;;   :config
+;;   (add-to-list 'eglot-server-programs '(haskell-mode . ("ghcide" "--lsp"))))
+;;   ;; (add-to-list 'eglot-ignored-server-capabilites :hoverProvider))
 
 (provide 'use-lsp)
