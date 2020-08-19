@@ -97,4 +97,27 @@
   :defer t
   :commands (helm-css-scss helm-css-scss-multi))
 
+;; helm fzf
+(defun my-helm-run-fzf (candidate)
+  (interactive)
+  (let ((helm-current-dir (file-name-directory (helm-get-selection))))
+      (fzf/start helm-current-dir)))
+
+(defun my-helm-ff-switch-to-fzf ()
+  "Stop helm find-files and use fzf"
+  (interactive)
+  (with-helm-alive-p
+    (helm-exit-and-execute-action 'my-helm-run-fzf)))
+
+(use-package helm-files
+  :bind (("C-x C-f" . helm-find-files)
+         :map helm-find-files-map
+         ("C-," . my-helm-ff-switch-to-fzf)
+         ("<C-backspace>" . helm-find-files-up-one-level))
+  :config
+  (unless helm-source-find-files
+    (setq helm-source-find-files (helm-make-source
+                                  "Find Files" 'helm-source-ffiles)))
+  (helm-add-action-to-source "C-, Switch to fzf" #'my-helm-run-fzf helm-source-find-files))
+
 (provide 'env-helm)
