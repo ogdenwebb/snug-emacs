@@ -3,6 +3,7 @@
 (use-package selectrum
   :hook (after-init . selectrum-mode)
   :config
+  (setf (alist-get "<escape>" selectrum-minibuffer-bindings) #'abort-recursive-edit)
   )
 
 ;; To make sorting and filtering more intelligent
@@ -229,6 +230,71 @@ This is like `yank-pop'.  The differences are:
       (if (consp arg)
           (goto-char (prog1 (mark t)
                        (set-marker (mark-marker) (point) (current-buffer)))))))
+
+  (defvar selectrum--toggle-project-data+ nil)
+
+  (push (cons "C-," 'selectrum-toggle-project-file-scope+)
+        selectrum-minibuffer-bindings)
+
+  (defun selectrum-toggle-project-file-scope+ ()
+    "Toggle to project scope when reading file names.
+Depends on `projectile'."
+    (interactive)
+    (unless minibuffer-completing-file-name
+      (user-error "Not reading file names"))
+    (require 'projectile)
+    (setq selectrum--previous-input-string nil)
+    (cond ((and selectrum--toggle-project-data+
+                (string-match "in project: \\'"
+                              (buffer-substring
+                               (point-min) (minibuffer-prompt-end))))
+           (let ((inhibit-read-only t))
+             (save-excursion
+               (goto-char (minibuffer-prompt-end))
+               (search-backward " in project")
+               (delete-region (match-beginning 0)
+                              (match-end 0)))
+             (delete-minibuffer-contents))
+           (insert (car selectrum--toggle-project-data+))
+           (setq selectrum--preprocessed-candidates
+                 (cdr selectrum--toggle-project-data+))
+           (setq selectrum--toggle-project-data+ nil))
+          (t
+           (if-let ((input (selectrum-get-current-input))
+                    (project (projectile-project-root
+                              (file-name-directory input))))
+               (let* ((inhibit-read-only t)
+                      (ematch (file-name-nondirectory input))
+                      (cands
+                       (mapcar
+                        (lambda (i)
+                          (add-text-properties
+                           0 (length i)
+                           `(selectrum-candidate-full
+                             ,(concat project i))
+                           i)
+                          i)
+                        (projectile-project-files project))))
+                 (save-excursion
+                   (goto-char (minibuffer-prompt-end))
+                   (search-backward ":")
+                   (insert
+                    (apply #'propertize
+                           " in project"
+                           (text-properties-at (point)))))
+                 (setq selectrum--toggle-project-data+
+                       (cons
+                        input
+                        selectrum--preprocessed-candidates))
+                 (delete-minibuffer-contents)
+                 (insert
+                  (concat (abbreviate-file-name project) ematch))
+                 (setq selectrum--preprocessed-candidates
+                       (lambda (input)
+                         (let ((ematch (file-name-nondirectory input)))
+                           `((input . ,ematch)
+                             (candidates . ,cands))))))
+             (user-error "Not in project")))))
   )
 
 (provide 'env-selectrum)
