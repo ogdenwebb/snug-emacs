@@ -331,4 +331,133 @@ Depends on `projectile'."
          (cand (completing-read "Imenu: " (mapcar #'car candidates) nil t nil selectrum-imenu+)))
     (imenu (cdr (cl-find cand candidates :test #'string= :key #'car)))))
 
+;; Jumping to an Info Node
+
+(defvar Info-directory-list)
+(defvar Info-additional-directory-list)
+(defvar Info-default-directory-list)
+(declare-function info-initialize "info")
+
+(defcustom selectrum-info-default-other-window t
+  "Whether `selectrum-info' (and derived commands) should display
+the Info buffer in the other window by default. Use a prefix argument to
+do the opposite."
+  :type 'boolean
+  :group 'selectrum)
+
+(defun selectrum--info-get-child-node (top-node)
+  "Create and select from a list of Info nodes found in the parent node."
+  (let (;; It's reasonable to assume that sections are intentionally
+        ;; ordered in a certain way, so we preserve that order.
+        (selectrum-should-sort-p nil)
+        ;; Headers look like "* Some Thing::      Description",
+        ;; where descriptions are optional and might continue on
+        ;; the next line.
+        (sub-topic-format (rx "* "
+                              (group (+? (not ?:)))
+                              "::"
+                              ;; Include the description, if one exists.
+                              ;; If it doesn't, the line ends immediately.
+                              (or "\n"
+                                  (seq
+                                   (0+ blank)
+                                   (group (+? anychar))
+                                   ;; Sometimes a heading follows on the next line,
+                                   ;; and sometimes there's any empty blank line
+                                   ;; (such as before a section title).  For now,
+                                   ;; assume continuation lines use indentation and
+                                   ;; other lines don't.
+                                   ;; (or "\n\n" "\n*")
+                                  "\n" (not blank))))))
+    (save-match-data
+      (save-selected-window
+        (completing-read
+         "Info Sub-Topic: "
+         (with-temp-buffer
+           ;; Some nodes created from multiple files.
+           (info top-node (current-buffer))
+           (goto-char (point-min))
+           (cl-loop
+            while (re-search-forward sub-topic-format nil t)
+            do (forward-line 0)         ; Go back to start of line.
+            collect (propertize (match-string 1)
+                                'selectrum-candidate-display-suffix
+                                ;; Include the description, if one exists.
+                                (when-let ((desc (match-string 2)))
+                                  (propertize
+                                   (concat " - "
+                                           (replace-regexp-in-string
+                                            "\n" ""
+                                            (replace-regexp-in-string
+                                             " +" " " desc)))
+                                   'face 'completions-annotations))))))))))
+
+;;;###autoload
+(defun selectrum-info (other-window-opposite-p &optional top-node)
+    "Go to a node of an Info topic.  With a prefix argument, do the opposite
+of `selectrum-info-default-other-window'.
+For example, you can go to \"(magit)Notes\" by selecting \"magit\", then \"Notes\" ."
+  (interactive "P")
+
+  ;; Initialize Info information so that the proper directories
+  ;; can be found.
+  (info-initialize)
+
+  (save-match-data
+    (let* ((use-other-window (if other-window-opposite-p
+                                 (not selectrum-info-default-other-window)
+                               selectrum-info-default-other-window))
+           ;; Get all Info files.
+           (node-files
+            (cl-loop for directory in (append (or Info-directory-list
+                                                  Info-default-directory-list)
+                                              Info-additional-directory-list)
+                     ;; If the directory exists
+                     when (file-directory-p directory)
+                     ;; get all files with ".info" in their name.
+                     append (directory-files directory nil "\\.info" t)))
+
+           ;; Get the names of the Info nodes, based on the file names.
+           (node-names (cl-remove-duplicates
+                        (cl-loop for file in node-files
+                                 do (string-match "\\(.+?\\)\\." file)
+                                 collect (match-string 1 file))
+                        :test #'equal))
+
+           ;; Select a top node/topic.
+           (chosen-top-node (cond
+                             ((null top-node)
+                              (completing-read "Info Topic: " node-names nil t))
+                             ((member top-node node-names)
+                              top-node)
+                             (t (error "Top-level Info node does not exist: %s"
+                                       top-node))))
+
+           ;; Select a child node.
+           (chosen-child-node (selectrum--info-get-child-node chosen-top-node)))
+
+      ;; Go to the chosen child node.
+      (funcall (if use-other-window
+                   #'info-other-window
+                 #'info)
+               (format "(%s)%s" chosen-top-node chosen-child-node)))))
+
+;;;###autoload
+(defun selectrum-info-elisp-manual (other-window-opposite-p)
+  "Like `selectrum-info', but directly choose nodes from the Emacs Lisp (Elisp) manual."
+  (interactive "P")
+  (selectrum-info other-window-opposite-p "elisp"))
+
+;;;###autoload
+(defun selectrum-info-emacs-manual (other-window-opposite-p)
+  "Like `selectrum-info', but directly choose nodes from the Emacs manual."
+  (interactive "P")
+  (selectrum-info other-window-opposite-p "emacs"))
+
+;;;###autoload
+(defun selectrum-info-org-manual (other-window-opposite-p)
+  "Like `selectrum-info', but directly choose nodes from the Org manual."
+  (interactive "P")
+  (selectrum-info other-window-opposite-p "org"))
+
 (provide 'env-selectrum)
