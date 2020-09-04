@@ -25,14 +25,15 @@
    "4" '(imenu-list-smart-toggle :wk "Imenu-list")
    "5" '(hydra-flyspell/body :wk "Flyspell language")
    ;; "6" 'ivy-resume
-   ;; "k" 'counsel-rg
-   "k" 'sel/rg
+   "k" 'counsel-rg
+   ;; "k" 'sel/rg
    "r" 'quickrun
    "R" 'quickrun-shell
+   "/" 'evil-ex-search-forward
 
    ;; Open things quickly
-   ;; "o r" '(counsel-recentf :wk "Recentf files")
-   "o r" '(sel/recentf :wk "Recentf files")
+   "o r" '(counsel-recentf :wk "Recentf files")
+   ;; "o r" '(sel/recentf :wk "Recentf files")
    ;; "o f" 'counsel-file-jump
    ;; "o f" '(counsel-fzf :wk "fzf")
    ;; "o F" '(counsel-find-file :wk "Find files")
@@ -71,6 +72,8 @@
    "b n" '(next-buffer :wk "Next buffer")
    ;; "b l" '(ivy-switch-buffer :wk "Switch buffer")
    ;; "b b" '(ivy-switch-buffer :wk "Switch buffer")
+   "b l" '(switch-to-buffer :wk "Switch buffer")
+   "b b" '(switch-to-buffer :wk "Switch buffer")
    "b w" '(revert-buffer)
    "b e" '(erase-buffer)
    "b k" '(kill-this-buffer :wk "Kill this buffer")
@@ -184,8 +187,8 @@
   (general-define-key
    :keymaps '(normal visual)
    "g x"  'browse-url-at-point
-   ;; "/"    'swiper
-   "/"    'sel/swiper
+   "/"    'swiper
+   ;; "/"    'sel/swiper
    ;; Navigation between windows
    "C-h"  'evil-window-left
    "C-j"  'evil-window-down
@@ -371,6 +374,12 @@
    :keymaps 'helm-map
    "C-i" 'helm-execute-persistent-action
    "C-z" 'helm-select-action)
+
+  ;; Remap Enter to insert newline as {<RET>}
+  (general-define-key
+   :keymaps '(web-mode-map)
+   :states 'insert
+   "RET" 'newline-and-indent)
 
   ;; C-w to delete word backward in minibuffer
   (general-define-key
