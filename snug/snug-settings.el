@@ -262,16 +262,16 @@
 (use-package savehist
   :hook (after-init . savehist-mode)
   :config
-  (setq savehist-autosave-interval 60
+  (setq savehist-autosave-interval nil     ; save on kill only
         history-delete-duplicates t
-        history-length 1000
+        history-length 500
         savehist-save-minibuffer-history t
-        savehist-additional-variables '(search-ring
-                                        kill-ring
-                                        set-variable-value-history
-                                        shell-command-history
-                                        file-name-history
-                                        regexp-search-ring)))
+
+        savehist-additional-variables
+        '(kill-ring                        ; persist clipboard
+          mark-ring global-mark-ring       ; persist marks
+          search-ring regexp-search-ring)) ; persist searches
+  )
 
 ;; File-related settings
 (use-package files
