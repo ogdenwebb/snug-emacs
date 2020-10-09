@@ -34,7 +34,7 @@
 
   :config
   (setq evil-shift-width snug-default-indent-width)
-  (global-undo-tree-mode -1)
+  ;; (global-undo-tree-mode -1)
 
   (evil-select-search-module 'evil-search-module 'evil-search)
   (add-hook 'evil-insert-state-entry-hook #'evil-ex-nohighlight)

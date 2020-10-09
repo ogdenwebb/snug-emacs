@@ -1,18 +1,21 @@
 ;; -*- lexical-binding: t -*-
 ;; Customize prompt
 (with-eval-after-load 'eshell
-  (setq eshell-prompt-function
-        (lambda nil
-          (concat
-           (eshell/pwd)
-           " ~ ❯ "))
-        eshell-bad-command-tolerance 1
+  (setq eshell-bad-command-tolerance 1
         eshell-cmpl-autolist t
         eshell-cmpl-cycle-completions nil
         eshell-cmpl-cycle-cutoff-length 2
         eshell-cmpl-ignore-case t
         eshell-cp-overwrite-files nil
         eshell-default-target-is-dot t
+
+
+   ;; eshell-prompt-function
+   ;;      (lambda nil
+   ;;        (concat
+   ;;         (eshell/pwd)
+   ;;         " ~ ❯ "))
+
 
         eshell-destroy-buffer-when-process-dies t
         eshell-hist-ignoredups t

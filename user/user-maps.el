@@ -150,7 +150,7 @@
 
    ;; Projectile
    "p p" '(projectile-switch-project :wk "Switch project")
-   ;; "p f" '(counsel-projectile-find-file :wk "Find file in project")
+   "p f" '(counsel-projectile-find-file :wk "Find file in project")
    "p k" '(projectile-ag :wk "Grep in project")
    "p r" '(projectile-replace :wk "Replace in project")
    "p t" '(projectile-regenerate-tags :wk "Update tags for project"))

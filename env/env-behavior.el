@@ -9,9 +9,9 @@
   (setq-default electric-indent-inhibit t))
 
 ;; Undotree
-(use-package undo-tree
-  :straight nil
-  :disabled t)
+;; (use-package undo-tree
+;;   :straight nil
+;;   :disabled t)
 
 (use-package undo-propose
   :straight (:host github :repo "jackkamm/undo-propose-el" :files ("*.el"))

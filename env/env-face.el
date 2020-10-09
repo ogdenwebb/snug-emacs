@@ -38,7 +38,7 @@
 
 ;; Theme settings
 ;; Setup my theme
-(defvar snug-custom-theme 'kaolin-valley-dark
+(defvar snug-custom-theme 'kaolin-ocean
   "Default custom theme for snug-emacs.")
 
 (use-package hl-todo
@@ -60,7 +60,7 @@
   :requires autothemer
   :load-path "local/emacs-kaolin-themes"
   :config
-  (setq kaolin-themes-org-scale-headings nil)
+  (setq kaolin-themes-org-scale-headings t)
 
   (setq kaolin-themes-hl-line-colored nil
         kaolin-themes-git-gutter-solid t
@@ -113,6 +113,7 @@
 ;; (add-to-list 'default-frame-alist '(font . "IBM Plex Mono-12"))
 ;; (add-to-list 'default-frame-alist '(font . "Hack-12.5"))
 (add-to-list 'default-frame-alist '(font . "D2Coding-13"))
+;; (add-to-list 'default-frame-alist '(font . "Victor Mono-12.5"))
 
 ;; (custom-theme-set-faces
 ;;  'user

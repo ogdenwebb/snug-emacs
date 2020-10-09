@@ -393,6 +393,7 @@
   :defer t)
 
 (use-package alert
+  :disabled t
   :defer t
   :preface
   (defun alert-after-compilation-finish (buf result)
@@ -407,9 +408,9 @@
                :buffer buf
                :category 'compilation)))))
 
-(use-package compile
-  :defer t
-  :hook (compilation-finish-functions . alert-after-compilation-finish))
+;; (use-package compile
+;;   :defer t
+;;   :hook (compilation-finish-functions . alert-after-compilation-finish))
 
 ;; (use-package ansi-color
 ;;   :ensure nil

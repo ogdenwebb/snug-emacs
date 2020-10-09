@@ -66,8 +66,6 @@
 
   ;; Add yasnippet support for all company backends
   ;; https://github.com/syl20bnr/spacemacs/pull/179
-  ;; (defvar company-mode/enable-yas t
-  ;;   "Enable yasnippet for all backends.")
   (defvar company-mode-enable-yas t
     "Enable yasnippet for all backends.")
 
