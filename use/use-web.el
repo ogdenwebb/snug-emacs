@@ -50,6 +50,21 @@
           ;; angular imenu
           (" \\(ng-[a-z]*\\)=\"\\([^\"]+\\)" 1 2 "="))))
 
+;; CSS mode
+(use-package css-mode
+  :mode ("\\.scss\\'" . scss-mode)
+  :config
+  (setq css-indent-offset 2)
+
+  (add-hook 'css-mode-hook #'(lambda ()
+                               (electric-pair-mode 1)
+                               (setq electric-pair-preserve-balance nil))))
+
+;; Sass: Syntactically Awesome Style Sheets
+(use-package sass-mode
+  :mode ("\\.sass\\'" . sass-mode))
+
+;; Extra plugins
 ;; Emmet
 (use-package emmet-mode
   :hook ((sgml-mode css-mode) . emmet-mode) ;; enable Emmet's css abbreviation.
@@ -70,5 +85,9 @@
 
 (use-package auto-rename-tag
   :hook (web-mode . auto-rename-tag-mode))
+
+;; Javascript & Node
+(use-package js2-mode
+  :mode ("\\.js\\'" . js2-mode))
 
 (provide 'use-web)
