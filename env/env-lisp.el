@@ -41,6 +41,7 @@
   (add-hook 'lispy-mode-hook #'turn-off-smartparens-mode))
 
 (use-package lispyville
+  :disabled t
   :defer t
   ;; :when (featurep! :editor evil)
   :hook (lispy-mode . lispyville-mode)
