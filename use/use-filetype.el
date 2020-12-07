@@ -69,4 +69,16 @@
   (setq-default pdf-view-display-size 'fit-width)
   (pdf-loader-install))
 
+(use-package graphviz-dot-mode
+  :defer t
+  :mode (("\\.dot\\'" . graphviz-dot-mode)
+         ("\\.gv\\`" . graphviz-dot-mode))
+  :config
+  (setq graphviz-dot-indent-width 4))
+
+(use-package company-graphviz-dot
+  :straight nil
+  :after (graphviz-dot-mode company)
+  )
+
 (provide 'use-filetype)
