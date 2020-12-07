@@ -36,6 +36,8 @@
         web-mode-markup-indent-offset 2
         web-mode-sql-indent-offset 2
 
+        web-mode-enable-auto-quoting nil
+
         ;; web-mode-enable-auto-closing t
         ;; web-mode-enable-auto-pairing t
         web-mode-enable-auto-opening t
@@ -85,9 +87,5 @@
 
 (use-package auto-rename-tag
   :hook (web-mode . auto-rename-tag-mode))
-
-;; Javascript & Node
-(use-package js2-mode
-  :mode ("\\.js\\'" . js2-mode))
 
 (provide 'use-web)
