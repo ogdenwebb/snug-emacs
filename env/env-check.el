@@ -1,18 +1,18 @@
 ;;; Syntax & spell checking -*- lexical-binding: t; -*-
 
-(with-eval-after-load 'hydra
-  (defhydra hydra-flyspell (:color blue)
-    "Flyspell dictionary"
-    ;; for aspell
-    ;; ("e" (snug/flyspell-set-dict "en") "eng")
-    ;; ("r" (snug/flyspell-set-dict "ru") "rus")
-    ;; ("g" (snug/flyspell-set-dict "german") "ger")
-    ;; for hunspell
-    ("e" (snug/flyspell-set-dict "en_US") "eng")
-    ("r" (snug/flyspell-set-dict "ru_RU") "rus")
-    ("g" (snug/flyspell-set-dict "german") "ger")
-    ("Q" (spell-fu-mode -1) "Disable spell checking")
-    ("q" nil "cancel")))
+;; (with-eval-after-load 'hydra
+;;   (defhydra hydra-flyspell (:color blue)
+;;     "Flyspell dictionary"
+;;     ;; for aspell
+;;     ;; ("e" (snug/flyspell-set-dict "en") "eng")
+;;     ;; ("r" (snug/flyspell-set-dict "ru") "rus")
+;;     ;; ("g" (snug/flyspell-set-dict "german") "ger")
+;;     ;; for hunspell
+;;     ("e" (snug/flyspell-set-dict "en_US") "eng")
+;;     ("r" (snug/flyspell-set-dict "ru_RU") "rus")
+;;     ("g" (snug/flyspell-set-dict "german") "ger")
+;;     ("Q" (spell-fu-mode -1) "Disable spell checking")
+;;     ("q" nil "cancel")))
 
 ;; Package-lint
 (use-package package-lint
@@ -149,6 +149,7 @@
 
 ;; Spell checking
 (use-package flyspell
+  :disabled t
   ;; :commands (flyspell-mode flyspell-buffer)
   :config
   ;; (add-hook 'prog-mode-hook 'flyspell-prog-mode)
@@ -218,11 +219,15 @@
 
 (use-package ispell
   :config
-  (setq ispell-program-name (or (executable-find "hunspell")
-                                (executable-find "aspell"))
+  ;; (setq ispell-program-name (or (executable-find "hunspell")
+  ;;                               (executable-find "aspell"))
+
+  (setq ispell-program-name "aspell"
         ispell-dictionary "en_US"
         ispell-quietly t
-        ispell-really-hunspell t)
+        ispell-silently-savep t
+        ;; ispell-really-hunspell t
+        )
 
   ;; Skip some parts in org-mode
   (add-to-list 'ispell-skip-region-alist '(":\\(PROPERTIES\\|LOGBOOK\\):" . ":END:"))
@@ -231,8 +236,21 @@
   ;; If you are using aspell instead of ispell on the backend,
   ;; the following setting may improve performance
   (add-to-list 'ispell-extra-args "--sug-mode=ultra")
-  )
 
+
+  (defun snug/ispell-set-dict (dict)
+    "Set dictionary for ispell."
+    (ispell-change-dictionary dict))
+
+
+  (defhydra hydra-ispell (:color blue)
+    "Ispell dictionary"
+    ;; for aspell
+    ("e" (snug/ispell-set-dict "en") "eng")
+    ("r" (snug/ispell-set-dict "ru") "rus")
+    ("g" (snug/ispell-set-dict "german") "ger")
+    ("q" nil "cancel"))
+  )
 ;; (use-package spell-fu
 ;;   :hook (org-mode . (lambda()
 ;;                       (setq spell-fu-faces-exclude
@@ -244,5 +262,17 @@
 ;; (use-package wucuo
 ;;   :config
 ;;   (setq wucuo-flyspell-start-mode 'fast))
+
+;; Spell check in Emacs using Flycheck/Flymake and Aspell
+(use-package flycheck-aspell
+  :config
+  (add-to-list 'flycheck-checkers 'tex-aspell-dynamic)
+
+  (advice-add #'ispell-pdict-save :after #'flycheck-maybe-recheck)
+  (defun flycheck-maybe-recheck (_)
+    (when (bound-and-true-p flycheck-mode)
+      (flycheck-buffer))))
+
+(use-package flymake-aspell)
 
 (provide 'env-check)
