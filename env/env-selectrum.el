@@ -460,4 +460,7 @@ For example, you can go to \"(magit)Notes\" by selecting \"magit\", then \"Notes
   (interactive "P")
   (selectrum-info other-window-opposite-p "org"))
 
+(use-package ctrlf
+  :defer .5)
+
 (provide 'env-selectrum)
