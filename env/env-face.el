@@ -60,7 +60,7 @@
   :requires autothemer
   :load-path "local/emacs-kaolin-themes"
   :config
-  (setq kaolin-themes-org-scale-headings t)
+  (setq kaolin-themes-org-scale-headings nil)
 
   (setq kaolin-themes-hl-line-colored nil
         kaolin-themes-git-gutter-solid t
@@ -114,6 +114,7 @@
 ;; (add-to-list 'default-frame-alist '(font . "Hack-12.5"))
 (add-to-list 'default-frame-alist '(font . "D2Coding-13"))
 ;; (add-to-list 'default-frame-alist '(font . "Victor Mono-12.5"))
+;; (add-to-list 'default-frame-alist '(font . "mononoki-12"))
 
 ;; (custom-theme-set-faces
 ;;  'user
