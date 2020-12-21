@@ -186,4 +186,7 @@
   (evil-snipe-mode t)
   (evil-snipe-override-mode t))
 
+(use-package evil-tex
+  :disabled t)
+
 (provide 'env-evil)
