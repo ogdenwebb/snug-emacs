@@ -23,7 +23,9 @@
 ;; Simple, stable linear undo with redo for Emacs.
 (use-package undo-fu
   :defer t
-  :commands (undo-fu-only-undo undo-fu-only-redo))
+  :commands (undo-fu-only-undo undo-fu-only-redo)
+  :init
+  (setq evil-undo-system 'undo-fu))
 
 ;; Save & recover undo steps between Emacs sessions.
 (use-package undo-fu-session
