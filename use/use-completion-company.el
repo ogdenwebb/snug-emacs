@@ -3,6 +3,7 @@
 ;; Autocomplete
 (use-package company
   :defer 5
+  :hook ((company-mode global-company-mode) . company-fuzzy-mode)
   :commands (company-mode global-company-mode company-complete-common company-indent-or-complete-common
                           company-manual-begin company-grab-line)
   :config
@@ -11,9 +12,11 @@
   ;; dabbrev hides other normal condidats
   (add-to-list 'completion-styles 'initials t)
 
-  (setq company-idle-delay nil ; never start completions automatically
-        company-require-match nil
+  (setq company-idle-delay nil    ; never start completions automatically
+        company-require-match nil ; Don't require match, so you can still move your cursor as expected.
         ;; company-show-numbers t
+        company-eclim-auto-save nil          ; Stop eclim auto save.
+
 
         ;; If enabled, selecting item before first or after last wraps around.
         company-selection-wrap-around t
@@ -101,8 +104,14 @@
   (setq company-backends (mapcar #'company-backend-with-yas company-backends)))
 
 ;; Use fuzzy completion
-(use-package company-flx
-  :hook ((company-mode global-company-mode) . company-flx-mode))
+(use-package company-fuzzy
+  ;; :hook ((company-mode global-company-mode) . company-fuzzy-mode)
+  :config
+  (setq company-fuzzy-sorting-backend 'alphabetic
+        company-fuzzy-prefix-on-top t
+        company-fuzzy-show-annotation t)
+  (add-to-list 'company-fuzzy-history-backends 'company-yasnippet)
+  )
 
 ;; (use-package company-box
 ;;   :hook (company-mode . company-box-mode))
