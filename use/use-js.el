@@ -22,6 +22,7 @@
 
 
 (use-package indium
+  :disabled t
   :commands (indium-interaction-mode)
   :config
   (add-hook 'js-mode-hook #'indium-interaction-mode))
