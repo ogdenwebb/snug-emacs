@@ -75,9 +75,12 @@
 ;;   :commands backup-walker-start)
 
 ;; Delete trailing whitespace on save
-(add-hook 'prog-mode-hook
-          (lambda ()
-            (add-hook 'before-save-hook 'delete-trailing-whitespace nil 'make-it-local)))
+(use-package whitespace-cleanup-mode
+  :hook (prog-mode . whitespace-cleanup-mode))
+
+;; (add-hook 'prog-mode-hook
+;;           (lambda ()
+;;             (add-hook 'before-save-hook 'delete-trailing-whitespace nil 'local)))
 
 ;; Quickrun
 (use-package quickrun
@@ -247,7 +250,13 @@
   ;; :bind (([remap describe-function] . helpful-callable)
   ;;        ([remap describe-variable] . helpful-variable)
   ;;        ([remap describe-key] . helpful-key))
-  :preface
+  :init
+  (with-eval-after-load 'counsel
+    (setq-default counsel-describe-function-function #'helpful-callable
+                  counsel-describe-variable-function #'helpful-variable))
+
+  (defalias 'describe-key 'helpful-key)
+  :config
   (defun counsel-helpful-keymap-describe ()
     "Select keymap with ivy, display help with helpful"
     (interactive)
@@ -265,12 +274,6 @@
               :caller 'counsel-helpful-keymap-describe
               :action (lambda (map-name)
                         (helpful-variable (intern map-name)))))
-  :init
-  (with-eval-after-load 'counsel
-    (setq-default counsel-describe-function-function #'helpful-callable
-                  counsel-describe-variable-function #'helpful-variable))
-
-  (defalias 'describe-key 'helpful-key)
   )
 
 ;; Simple but effective sorting and filtering for Emacs.

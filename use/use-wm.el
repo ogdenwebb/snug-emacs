@@ -28,7 +28,7 @@
 (use-package shackle
   :defer t
   :hook (after-init . shackle-mode)
-  :preface
+  :config
   (defun snug/shackle--smart-split-dir ()
     (if (>= (window-pixel-height)
             (window-pixel-width))
@@ -48,7 +48,7 @@
                 shackle-last-buffer buffer))
         (unless (cdr (assq 'inhibit-switch-frame alist))
           (window--maybe-raise-frame frame)))))
-  :config
+
   (setq shackle-default-alignment 'below
         ;; shackle-default-size 0.4
         shackle-rules '(

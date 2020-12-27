@@ -16,14 +16,14 @@
   :preface
   ;; Ignore magit messages about version
   (advice-add #'magit-version :override #'ignore)
-
+  :commands (magit-status magit-diff magit-blame magit-commit magit-status-only)
+  :config
   (defun magit-status-only ()
     "Invoke magit-status and delete other windows."
     (interactive)
     (magit-status)
     (delete-other-windows))
-  :commands (magit-status magit-diff magit-blame magit-commit)
-  :config
+
   ;; Disable arrows in section heading
   (setq magit-section-visibility-indicator nil
         magit-diff-buffer-file-locked nil

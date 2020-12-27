@@ -66,7 +66,7 @@
         kaolin-themes-git-gutter-solid t
         kaolin-themes-underline-wave t
         kaolin-themes-modeline-border nil
-        kaolin-themes-bold nil
+        kaolin-themes-bold t
         kaolin-themes-distinct-metakeys nil)
 
   ;; (setq kaolin-valley-light-alt-bg t)
@@ -115,6 +115,8 @@
 (add-to-list 'default-frame-alist '(font . "D2Coding-13"))
 ;; (add-to-list 'default-frame-alist '(font . "Victor Mono-12.5"))
 ;; (add-to-list 'default-frame-alist '(font . "mononoki-12"))
+;; (add-to-list 'default-frame-alist '(font . "JetBrains Mono-12:weight=light"))
+;; (add-to-list 'default-frame-alist '(font . "JetBrains Mono-12"))
 
 ;; (custom-theme-set-faces
 ;;  'user

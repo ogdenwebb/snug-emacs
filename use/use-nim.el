@@ -2,7 +2,12 @@
 (use-package nim-mode
   :mode (("\\.nim\\'" . nim-mode)
          ("\\.nims\\'" . nimscript-mode))
-  :preface
+  :hook ((nim-mode . nimsuggest-mode)
+         (nim-mode . eldoc-mode)
+         (nim-mode . snug--delete-nimlog-file)
+         (nimscript-mode . snug--delete-nimlog-file))
+
+  :config
   (defun nimsuggest--delete-home-logfile ()
     "Delete nimsuggest log file in $HOME directory."
     (interactive)
@@ -13,12 +18,6 @@
   (defun snug--delete-nimlog-file ()
     (add-hook 'after-save-hook 'nimsuggest--delete-home-logfile nil 'local))
 
-  :hook ((nim-mode . nimsuggest-mode)
-         (nim-mode . eldoc-mode)
-         (nim-mode . snug--delete-nimlog-file)
-         (nimscript-mode . snug--delete-nimlog-file))
-
-  :config
   (add-hook 'nim-mode-hook (lambda () (electric-indent-mode -1)))
   :general
   (general-define-key :keymaps 'nim-mode-map

@@ -328,7 +328,7 @@
 ;; (setq shell-command-switch "-ic")
 
 ;; Save bookmarks when kill emacs
-(add-hook 'kill-emacs-hook 'bookmark-save)
+;; (add-hook 'kill-emacs-hook 'bookmark-save)
 
 ;; ;;; Code to replace exec-path-from-shell
 ;; ;; Need to create file in $HOME/.emacs.d/.local/env

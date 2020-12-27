@@ -23,7 +23,7 @@
    "2" '(undo-propose :wk "Undo propose")
    "3" 'treemacs
    "4" '(imenu-list-smart-toggle :wk "Imenu-list")
-   "5" '(hydra-flyspell/body :wk "Flyspell language")
+   "5" '(hydra-ispell/body :wk "Flyspell language")
    ;; "6" 'ivy-resume
    "k" 'counsel-rg
    ;; "k" 'sel/rg

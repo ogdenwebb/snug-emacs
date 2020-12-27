@@ -11,8 +11,6 @@
 
 ;; MAYBE: org-metaleft org-metadown org-metaup org-metaright
 
-(setq org-directory "~/Documents/org")
-
 ;; TODO: use org-plus-contrib
 ;; prolly need hook instead of :config
 (use-package org
@@ -21,7 +19,7 @@
   (defun snug/org-init-hook ()
     ;; Fit image into the screen
     ;; (setq org-image-actual-width '(600))
-    (setq org-image-actual-width nil)
+    ;; (setq org-image-actual-width nil)
     (setq org-image-actual-width 200)
     (setq org-startup-with-inline-images t)
     ;; (setq org-image-actual-width (/ (display-pixel-width) 3))
@@ -33,8 +31,9 @@
     ;; todo:
     ;; (setq org-startup-truncated nil)
     ;; Agenda
-    (setq org-log-done t
-          org-agenda-files '("~/agenda.org"))
+    (setq org-directory "~/Documents/org"
+          ;; org-log-done t
+          org-agenda-files '("~/Documents/org/agenda.org"))
 
     ;; Fontify
     (setq org-fontify-done-headline t
@@ -103,6 +102,7 @@
          (org-mode . snug/org-visual-hook)
          (org-mode . org-indent-mode))
   :config
+  (add-to-list 'org-modules 'org-habit t)
   :general
   (general-define-key :keymaps 'org-mode-map
                       :states '(normal)
@@ -238,5 +238,8 @@
   :hook (org-mode . org-variable-pitch-minor-mode)
   :config
   (setq org-variable-pitch-fixed-font "Merriweather"))
+
+;; (use-package org-sidebar
+;;   :after org)
 
 (provide 'use-org)

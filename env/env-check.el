@@ -34,7 +34,7 @@
   (setq-default flycheck-disabled-checkers '(emacs-lisp emacs-lisp-checkdoc flycheck-haskell haskell-stack-ghc haskell-ghc))
 
   ;; TODO: ????
-  (make-variable-buffer-local 'flycheck-idle-change-delay)
+  ;; (make-variable-buffer-local 'flycheck-idle-change-delay)
   ;; Disable fringe markers
   ;; (setq flycheck-indication-mode nil)
   (setq flycheck-indication-mode 'right-fringe)
@@ -265,6 +265,7 @@
 
 ;; Spell check in Emacs using Flycheck/Flymake and Aspell
 (use-package flycheck-aspell
+  :disabled t
   :config
   (add-to-list 'flycheck-checkers 'tex-aspell-dynamic)
 
@@ -273,6 +274,12 @@
     (when (bound-and-true-p flycheck-mode)
       (flycheck-buffer))))
 
-(use-package flymake-aspell)
+(use-package flymake
+  :straight nil
+  :defer t)
+
+(use-package flymake-aspell
+  :defer t
+  :commands (flymake-aspell-setup))
 
 (provide 'env-check)

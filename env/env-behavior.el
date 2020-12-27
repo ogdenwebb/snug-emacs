@@ -46,7 +46,8 @@
 (use-package recentf
   :straight nil
   :defer 1
-  :preface
+  :hook (kill-emacs . snug/recentf-cleanup-and-save)
+  :config
   (defun snug/recentf-save-list-silence ()
     (interactive)
     (let ((message-log-max nil))
@@ -62,7 +63,11 @@
           (shut-up (recentf-cleanup))
         (recentf-cleanup)))
     (message ""))
-  :config
+
+  (defun snug/recentf-cleanup-and-save ()
+    (progn (snug/recentf-cleanup-silence)
+           (snug/recentf-save-list-silence)))
+
   (run-at-time nil (* 5 60) 'snug/recentf-save-list-silence)
 
   (setq recentf-max-menu-items 150

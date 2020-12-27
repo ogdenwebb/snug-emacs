@@ -13,7 +13,9 @@
 (use-package telephone-line
   ;; :load-path "dev/telephone-line"
   :defer t
-  :preface
+  :hook ((after-init . telephone-line-mode)
+         (after-init . recreate-message-buffer))
+  :config
   ;; Need to display telephone-line in *Messages* buffer
   (defun recreate-message-buffer ()
     (cl-flet ((buffer-string* (buffer)
@@ -23,9 +25,7 @@
         (kill-buffer "*Messages*")
         (message msg))))
 
-  (add-hook 'after-init-hook #'recreate-message-buffer)
-  :hook (after-init . telephone-line-mode)
-  :config
+  ;; (add-hook 'after-init-hook #'recreate-message-buffer)
 
   ;; To create custom segments
   (require 'telephone-line-utils)

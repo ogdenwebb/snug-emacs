@@ -158,7 +158,10 @@
 ;; Server
 (use-package server
   :straight nil
-  :hook (after-init . server-mode))
+  :hook (after-init . server-mode)
+         
+  :config
+  (add-hook 'server-done-hook 'recentf-cleanup))
 
 ;; Here we go
 (defmacro snug/init (&rest body)

@@ -1,4 +1,5 @@
 (use-package counsel-etags
-  :defer t)
+  :defer t
+  :after counsel)
 
 (provide 'use-tags)
