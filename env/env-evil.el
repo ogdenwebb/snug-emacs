@@ -109,10 +109,6 @@
              evil-surround-region)
   :config (global-evil-surround-mode 1))
 
-;; Magit
-(use-package evil-magit
-  :after evil magit)
-
 (use-package evil-matchit
   ;; :after evil
   ;; :commands (evilmi-jump-items evilmi-text-object global-evil-matchit-mode)
