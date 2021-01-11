@@ -7,6 +7,12 @@
   :commands (company-mode global-company-mode company-complete-common company-indent-or-complete-common
                           company-manual-begin company-grab-line)
   :config
+  (defun snug/company-smart-complete-or-indent (&optional arg)
+    "Use company completion with indent only for empty lines."
+    (interactive)
+    (if (snug/empty-line?)
+        (company-indent-or-complete-common arg)
+      (company-complete-common)))
 
   ;; TODO:
   ;; dabbrev hides other normal condidats
@@ -49,15 +55,15 @@
 
   (defvar completion-at-point-functions-saved nil)
 
-  (defun company-complete-common-wrapper ()
-    (let ((completion-at-point-functions completion-at-point-functions-saved))
-      (company-complete-common)))
+  ;; (defun company-complete-common-wrapper ()
+  ;;   (let ((completion-at-point-functions completion-at-point-functions-saved))
+  ;;     (company-complete-common)))
 
-  (defun company-indent-for-tab-command (&optional arg)
-    (interactive "P")
-    (let ((completion-at-point-functions-saved completion-at-point-functions)
-          (completion-at-point-functions '(company-complete-common-wrapper)))
-      (indent-for-tab-command arg)))
+  ;; (defun company-indent-for-tab-command (&optional arg)
+  ;;   (interactive "P")
+  ;;   (let ((completion-at-point-functions-saved completion-at-point-functions)
+  ;;         (completion-at-point-functions '(company-complete-common-wrapper)))
+  ;;     (indent-for-tab-command arg)))
 
   ;; (with-eval-after-load 'company
   ;;   (define-key company-mode-map [remap indent-for-tab-command]
@@ -145,9 +151,10 @@
   (define-key company-active-map (kbd "M-n") nil)
   (define-key company-active-map (kbd "M-p") nil))
 
-(use-package company-try-hard
-  :defer t
-  :after (company)
-  :commands (company-try-hard))
+;; (use-package company-try-hard
+;;   :disabled t
+;;   :defer t
+;;   :after (company)
+;;   :commands (company-try-hard))
 
 (provide 'use-completion-company)

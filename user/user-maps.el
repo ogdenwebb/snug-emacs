@@ -243,8 +243,9 @@
   ;; Insert mode maps
   (general-define-key
    :states '(insert)
-   "TAB" 'company-indent-or-complete-common
+   ;; "TAB" 'company-indent-or-complete-common
    ;; "TAB" 'company-indent-for-tab-command
+   "TAB" 'snug/company-smart-complete-or-indent
    "M-DEL" 'snug/smart-backspace
    "C-v" 'clipboard-yank
    ;; "C-k" 'company-complete-common-or-cycle
@@ -332,7 +333,7 @@
 
   (general-define-key :keymaps '(haskell-mode-map)
                       :states '(insert)
-                      "TAB"  'company-indent-or-complete-common)
+                      "RET"  'haskell-indentation-newline-and-indent)
 
   (general-define-key :keymaps 'ivy-minibuffer-map
                       "C-SPC"  'ivy-call-and-recenter
