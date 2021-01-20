@@ -100,13 +100,8 @@
   :straight nil
   :defer t)
 
-;; (use-package git
-;;   :defer t)
-
 ;; Help keeping ~/.emacs.d clean
 (use-package no-littering)
-
-;; TODO: Generate autoloads
 
 ;; Define directories
 (eval-and-compile
@@ -132,7 +127,7 @@
   ;;   "Directory for cache.")
   )
 
-;; Set initial mode to text-mode
+;; Set initial mode to text-mode instead of elisp
 (setq initial-major-mode 'fundamental-mode)
 
 ;; Use Common Lisp library
@@ -159,7 +154,6 @@
 (use-package server
   :straight nil
   :hook (after-init . server-mode)
-         
   :config
   (add-hook 'server-done-hook 'recentf-cleanup))
 
@@ -172,45 +166,16 @@
       (require pkg nil t))))
 
 ;; Use a hook so the message doesn't get clobbered by other messages.
-;; (add-hook 'emacs-startup-hook
-;;           (lambda ()
-;;             (message "Emacs ready in %s with %d garbage collections."
-;;                      (format "%.2f seconds"
-;;                              (float-time
-;;                               (time-subtract after-init-time before-init-time)))
-;;                      gcs-done)))
+(defun snug/measure-package-time ()
+  "Measure initial loading time of packages."
+  ;; (interactive)
+  (message "Emacs ready in %s with %d garbage collections."
+           (format "%.2f seconds"
+                   (float-time
+                    (time-subtract after-init-time before-init-time)))
+           gcs-done))
 
-
-;; Use git version of Org-mode
-;; ;; https://github.com/raxod502/straight.el#installing-org-with-straightel
-;; (defun org-git-version ()
-;;   "The Git version of org-mode.
-;; Inserted by installing org-mode or when a release is made."
-;;   (require 'git)
-;;   (let ((git-repo (expand-file-name
-;;                    "straight/repos/org/" user-emacs-directory)))
-;;     (string-trim
-;;      (git-run "describe"
-;;               "--match=release\*"
-;;               "--abbrev=6"
-;;               "HEAD"))))
-
-;; (defun org-release ()
-;;   "The release version of org-mode.
-;; Inserted by installing org-mode or when a release is made."
-;;   (require 'git)
-;;   (let ((git-repo (expand-file-name
-;;                    "straight/repos/org/" user-emacs-directory)))
-;;     (string-trim
-;;      (string-remove-prefix
-;;       "release_"
-;;       (git-run "describe"
-;;                "--match=release\*"
-;;                "--abbrev=0"
-;;                "HEAD")))))
-
-;; (provide 'org-version)
-;; (straight-use-package 'org)
+;; (add-hook 'emacs-startup-hook)
 
 ;; Text icons
 (use-package all-the-icons
