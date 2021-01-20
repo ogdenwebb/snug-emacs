@@ -335,6 +335,11 @@
                       :states '(insert)
                       "RET"  'haskell-indentation-newline-and-indent)
 
+  (general-define-key :keymaps '(haskell-mode-map)
+                      :states '(normal)
+                      "o"    'snug/haskell-evil-open-below
+                      "O"    'snug/haskell-evil-open-above)
+
   (general-define-key :keymaps 'ivy-minibuffer-map
                       "C-SPC"  'ivy-call-and-recenter
                       "C-r"    'evil-paste-from-register
