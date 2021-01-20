@@ -137,7 +137,8 @@
                                  "Quickrun"
                                  "REPL"
                                  "IELM"
-                                 "Messages")
+                                 "Messages"
+                                 "Interactive-Haskell")
     "List of major modes to ignore in modeline")
 
   ;; Display modified status

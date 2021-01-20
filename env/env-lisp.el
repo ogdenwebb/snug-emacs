@@ -28,7 +28,6 @@
 
 (use-package lispy
   :disabled t
-  :defer t
   :hook ((common-lisp-mode . lispy-mode)
          (emacs-lisp-mode . lispy-mode)
          (scheme-mode . lispy-mode)
@@ -42,7 +41,6 @@
 
 (use-package lispyville
   :disabled t
-  :defer t
   ;; :when (featurep! :editor evil)
   :hook (lispy-mode . lispyville-mode)
   :config

@@ -25,7 +25,6 @@
   (desktop-revert))
 
 (use-package session
-  :defer t
   :hook (after-init . session-initialize)
   :init
   (setq session-save-file (no-littering-expand-var-file-name ".session")

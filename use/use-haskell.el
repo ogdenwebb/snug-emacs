@@ -51,7 +51,6 @@
   )
 
 (use-package flycheck-haskell
-  :defer t
   :hook (haskell-mode . flycheck-haskell-setup))
 
 (use-package dante

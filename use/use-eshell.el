@@ -27,6 +27,7 @@
         ;; TODO: explore
         eshell-visual-options nil
 
+        ;; kill eshell buffer after exit
         ))
 
 (provide 'use-eshell)

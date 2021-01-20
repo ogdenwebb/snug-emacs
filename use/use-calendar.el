@@ -21,7 +21,6 @@
 
 ;; Calfw - A calendar framework for Emacs
 (use-package calfw
-  :defer t
   :preface
   (defalias 'cal 'cfw:open-calendar-buffer)
   :commands (cfw:open-calendar-buffer))

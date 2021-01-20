@@ -1,6 +1,5 @@
 ;; -*- lexical-binding: t -*-
 (use-package smartparens
-  :defer t
   :hook (prog-mode . smartparens-global-mode)
   :config
   (require 'smartparens-config)

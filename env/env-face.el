@@ -227,7 +227,6 @@
 ;; Highlight parenthess
 (use-package paren
   :straight nil
-  :defer t
   :hook (prog-mode . show-paren-mode)
   :config
   (setq show-paren-style 'parenthesis
@@ -237,7 +236,6 @@
 
 ;; Highlight quoted symbols
 (use-package highlight-quoted
-  :defer t
   :commands (highlight-quoted-mode)
   :hook (emacs-lisp-mode . highlight-quoted-mode))
 
@@ -248,7 +246,6 @@
 
 ;; Rainbow delimiters
 (use-package rainbow-delimiters
-  :defer t
   :commands (rainbow-delimiters-mode)
   :hook ((prog-mode clojure-mode) . rainbow-delimiters-mode))
 
@@ -263,14 +260,12 @@
 ;;   (setq highlight-indent-guides-character ?\┆))
 
 (use-package indent-guide
-  :defer t
   :commands (indent-guide-mode indent-guide-global-mode)
   :hook (prog-mode . indent-guide-mode))
 
 ;; Line numbering
 (use-package nlinum
   :if (version< emacs-version "26.0")
-  :defer t
   :hook ((prog-mode text-mode) . nlinum-mode)
   :config
   (setq nlinum-format "%5d ")
@@ -343,16 +338,13 @@
 
 ;; Hide mode-line in certain buffers
 (use-package hide-mode-line
-  :defer t
   :hook ((magit-status-mode . hide-mode-line-mode)
          (helpful-mode      . hide-mode-line-mode)))
 
 (use-package focus
-  :defer t
   :commands (focus-mode))
 
 (use-package info-colors
-  :defer t
   :hook (Info-selection . info-colors-fontify-node))
 
 ;; (use-package rainbow-mode

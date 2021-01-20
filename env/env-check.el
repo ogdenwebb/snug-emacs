@@ -177,7 +177,7 @@
   )
 
 (use-package flyspell-lazy
-  :defer t
+  :disabled t
   :commands (flyspell-lazy-mode flyspell-lazy-check-buffer)
   :hook (flyspell-lazy-mode . flyspell-mode))
 
@@ -279,7 +279,6 @@
   :defer t)
 
 (use-package flymake-aspell
-  :defer t
   :commands (flymake-aspell-setup))
 
 (provide 'env-check)

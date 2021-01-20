@@ -1,7 +1,6 @@
 ;; Buffer list -*- lexical-binding: t -*-
 
 (use-package ibuffer
-  :defer 1
   :functions (all-the-icons-icon-for-buffer
               all-the-icons-icon-for-mode
               all-the-icons-icon-family)
@@ -51,7 +50,6 @@
 ;;          "Project: "))
 
 (use-package all-the-icons-ibuffer
-  :defer t
   :hook (ibuffer-mode . all-the-icons-ibuffer-mode))
 
 (provide 'use-ibuffer)

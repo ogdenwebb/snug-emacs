@@ -187,7 +187,6 @@
   )
 
 (use-package org-superstar-mode
-  :defer t
   :straight (:host github :repo "integral-dw/org-superstar-mode")
   :hook (org-mode . org-superstar-mode)
   :init
@@ -208,7 +207,6 @@
 ;; TODO: icons are too small
 (use-package org-fancy-priorities
   :disabled t
-  :defer t
   :hook (org-mode . org-fancy-priorities-mode)
   :config
   (setq org-fancy-priorities-list '((?A . "❗")

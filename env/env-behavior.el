@@ -3,7 +3,6 @@
 ;; Electric indent
 (use-package electric
   :straight nil
-  :defer t
   :hook (after-init . electric-indent-mode)
   :config
   (setq-default electric-indent-inhibit t))
@@ -22,7 +21,6 @@
 
 ;; Simple, stable linear undo with redo for Emacs.
 (use-package undo-fu
-  :defer t
   :commands (undo-fu-only-undo undo-fu-only-redo)
   :init
   (setq evil-undo-system 'undo-fu))
@@ -102,7 +100,6 @@
   )
 
 (use-package subword
-  :defer t
   ;; :commands (subword-mode global-subword-mode)
   :hook (after-init . global-subword-mode))
 

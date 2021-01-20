@@ -4,7 +4,6 @@
   "Use fuzzy completion in ivy.")
 
 (use-package ivy
-  :defer t
   :hook (after-init . ivy-mode)
   :general
   (general-def ivy-mode-map
@@ -76,16 +75,13 @@
 
 (use-package ivy-hydra
   :requires (hydra)
-  :after (ivy)
-  :defer t)
+  :after (ivy))
 
 (use-package swiper
-  :defer t
   :after ivy
   :commands (swiper))
 
 (use-package counsel
-  :defer t
   :hook (ivy-mode . counsel-mode)
   :general
   (general-def counsel-mode-map
@@ -149,11 +145,9 @@
   (setq xref-show-xrefs-function #'ivy-xref-show-xrefs))
 
 (use-package counsel-css
-  :defer t
   :after ivy)
 
 (use-package ivy-yasnippet
-  :defer t
   :after (ivy yasnippet))
 
 ;; (use-package ivy-posframe

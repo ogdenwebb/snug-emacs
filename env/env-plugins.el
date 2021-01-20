@@ -2,7 +2,6 @@
 
 ;; Regular expression
 (use-package re-builder
-  :defer t
   :commands (re-builder)
   ;; You can switch between the various styles by using
   ;; C-c TAB inside of the regexp builder's buffer.
@@ -12,9 +11,7 @@
 ;; A minor mode that guesses the indentation offset
 (use-package dtrt-indent
   :disabled t
-  :defer t
-  :hook
-  (prog-mode . dtrt-indent-mode)
+  :hook (prog-mode . dtrt-indent-mode)
   :config
   ;; Hide messages from dtrt-indent
   (setq dtrt-indent-verbosity snug-debug-mode))
@@ -84,7 +81,6 @@
 
 ;; Quickrun
 (use-package quickrun
-  :defer t
   :commands (quickrun quickrun-region
              quickrun-with-arg
              quickrun-shell
@@ -93,7 +89,6 @@
 
 ;; Move region or line
 (use-package drag-stuff
-  :defer t
   :commands (drag-stuff-left drag-stuff-up drag-stuff-down drag-stuff-right))
 ;; :config (drag-stuff-global-mode 1))
 
@@ -105,7 +100,6 @@
     (setq right-fringe-width 0)))
 
 (use-package bug-hunter
-  :defer t
   :commands (bug-hunter-init-file bug-hunter-file))
 
 ;; (use-package bug-reference
@@ -116,12 +110,10 @@
 ;; Emacs minor mode that watches for long pauses and reports them.
 ;; NOTE: You can run `explain-pause-profiles' to view the profile report.
 (use-package explain-pause-mode
-  :defer t
   :straight (:host github :repo "lastquestion/explain-pause-mode")
   :hook (after-init . explain-pause-mode))
 
 (use-package treemacs
-  :defer t
   :commands (treemacs treemacs-create-theme treemacs-create-icon treemacs-load-theme)
   :config
   (setq-default treemacs-fringe-indicator-mode nil)
@@ -160,20 +152,16 @@
 
 ;; Treemacs extensions
 (use-package treemacs-evil
-  ;; :defer t
   :after (treemacs evil))
 
 (use-package treemacs-projectile
-  ;; :defer t
   :after (treemacs projectile))
 
 (use-package treemacs-magit
-  ;; :defer t
   :after (treemacs magit))
 
 ;; Allows to use treemacs icons in dired buffers
 (use-package treemacs-icons-dired
-  :defer t
   :hook (dired-mode . treemacs-icons-dired-mode))
 
 ;; Show tooltip help for keybindings
@@ -185,7 +173,6 @@
 
 ;; Eldoc
 (use-package eldoc
-  :defer t
   :straight nil
   :hook (prog-mode-hook . eldoc-mode)
   :config
@@ -195,10 +182,11 @@
 ;; TODO: Disable in terminal
 (use-package eldoc-box
   :if snug-with-eldoc-box
-  :defer t
   :hook (eldoc-mode . eldoc-box-hover-mode))
 
+;; TODO
 (use-package google-translate
+  :disabled t
   :defer t
   :config)
 
@@ -222,13 +210,11 @@
 
 ;; TODO: server restart
 (use-package restart-emacs
-  :defer t
   :disabled t
   :commands (restart-emacs))
 
 ;; TODO: https://github.com/EFLS/zetteldeft
 (use-package deft
-  :defer t
   :commands (deft)
   :config
   (setq deft-extensions '("txt" "tex" "org")
@@ -278,7 +264,6 @@
 
 ;; Simple but effective sorting and filtering for Emacs.
 (use-package prescient
-  ;; :defer t
   :hook (after-init . prescient-persist-mode)
   :config
   (setq prescient-history-length 200
@@ -291,7 +276,6 @@
 
 ;; TODO: setup for counsel-ag
 (use-package ivy-prescient
-  ;; :defer t
   :hook (ivy-mode . ivy-prescient-mode)
   :config
   (setq ivy-prescient-sort-commands
@@ -312,7 +296,6 @@
   )
 
 (use-package company-prescient
-  :defer t
   :hook ((company-mode global-company-mode) . company-prescient-mode))
 
 (use-package avy :defer t)
@@ -331,7 +314,6 @@
 ;; (use-package deferred      :defer t)
 ;; (use-package el-mock       :defer t)
 (use-package elisp-refs
-  :defer t
   :commands
   (elisp-refs-function elisp-refs-macro elisp-refs-variable elisp-refs-special elisp-refs-symbol))
 ;; (use-package epc           :defer t)
@@ -412,7 +394,6 @@
                :category 'compilation)))))
 
 ;; (use-package compile
-;;   :defer t
 ;;   :hook (compilation-finish-functions . alert-after-compilation-finish))
 
 ;; (use-package ansi-color
@@ -425,24 +406,22 @@
 ;;       (ansi-color-apply-on-region (point-min) (point-max)))))
 
 (use-package unfill
-  :defer t
   :commands (unfill-region unfill-paragraph unfill-toggle))
 
-(use-package yafolding
-  :defer t)
+;; (use-package yafolding
+;;   :defer t)
 
 ;; https://gitlab.com/emacs-stuff/indent-tools
-(use-package indent-tools
-  :defer t
-  :bind (("C-c TAB" . indent-tools-hydra/body)))
+;; (use-package indent-tools
+;;   :disabled t
+;;   :defer t
+;;   :bind (("C-c TAB" . indent-tools-hydra/body)))
 
 ;; Provides a command which searches for unicode characters by name
 (use-package list-unicode-display
-  :defer t
   :commands (list-unicode-display))
 
 (use-package link-hint
-  :defer t
   :bind
   ("C-c l o" . link-hint-open-link)
   ("C-c l c" . link-hint-copy-link))
@@ -456,7 +435,6 @@
 ;; One-frame-per-action GIF recording for optimal quality/size ratio
 (use-package gif-screencast
   :straight (:host gitlab :repo "ambrevar/emacs-gif-screencast")
-  :defer t
   :commands (gif-screencast-toggle-pause gif-screencast-stop gif-screencast-start-or-stop)
   :config
   (setq gif-screencast-args '("--quality" "25" "--focused")

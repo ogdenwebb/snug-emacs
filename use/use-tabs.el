@@ -7,7 +7,6 @@
 (use-package powerline
   :defer t)
 
-
 (use-package centaur-tabs
   :straight (:host github :repo "ema2159/centaur-tabs")
   :defer .1

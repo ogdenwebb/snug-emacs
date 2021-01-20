@@ -4,7 +4,6 @@
   "Enable fuzzy matching for Helm, t by default.")
 
 (use-package helm
-  :defer t
   :hook ((after-init . helm-mode)
          (helm-mode . helm-autoresize-mode))
   :config
@@ -47,23 +46,19 @@
     (setq projectile-completion-system 'helm)))
 
 (use-package helm-projectile
-  :defer t
   :after (helm projectile)
   :hook (projectile-mode-hook . helm-projectile-on))
 
 ;; Helm Descbinds provides an interface to emacs’ describe-bindings making the currently active key bindings interactively searchable with helm.
 (use-package helm-descbinds
-  :defer t
   :after helm
   :hook (helm-mode . helm-descbinds-mode))
 
 (use-package helm-swoop
-  :defer t
   :after helm)
 
 ;; Ag support for helm
 (use-package helm-ag
-  :defer t
   :after helm
   :config
   (setq helm-ag-fuzzy-match          t
@@ -71,7 +66,6 @@
         helm-ag-use-agignore         t))
 
 (use-package helm-ls-git
-  :defer t
   :after helm)
 
 ;; (use-package swiper-helm
@@ -82,19 +76,15 @@
 
 ;; Rifle through your Org-mode buffers and acquire your target
 (use-package helm-org-rifle
-  :defer t
   :after helm)
 
 (use-package helm-company
-  :defer t
   :after (helm company))
 
 (use-package helm-eshell
-  :defer t
   :commands (helm-eshell-history))
 
 (use-package helm-css-scss
-  :defer t
   :commands (helm-css-scss helm-css-scss-multi))
 
 ;; helm fzf

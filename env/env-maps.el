@@ -14,7 +14,6 @@
 
 ;; Reverse mapping for keyboard layouts other than english
 (use-package reverse-im
-  :defer t
   :hook (after-init . reverse-im-mode)
   :config
   ;; (add-to-list 'reverse-im-modifiers 'super)

@@ -3,7 +3,7 @@
 ;; Autocomplete
 (use-package company
   :defer 5
-  :hook ((company-mode global-company-mode) . company-fuzzy-mode)
+  ;; :hook ((company-mode global-company-mode) . company-fuzzy-mode)
   :commands (company-mode global-company-mode company-complete-common company-indent-or-complete-common
                           company-manual-begin company-grab-line)
   :config
@@ -119,8 +119,10 @@
   (add-to-list 'company-fuzzy-history-backends 'company-yasnippet)
   )
 
-;; (use-package company-box
-;;   :hook (company-mode . company-box-mode))
+(use-package company-box
+  :hook (company-mode . company-box-mode)
+  :config
+  (setq company-box-icons-alist 'company-box-icons-all-the-icons))
 
 (use-package company-elisp
   :straight nil

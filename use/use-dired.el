@@ -34,7 +34,6 @@
 
 ;; Extra font lock rules for a more colourful dired
 (use-package diredfl
-  :defer t
   :hook (dired-mode . diredfl-mode))
 
 (use-package dired-async

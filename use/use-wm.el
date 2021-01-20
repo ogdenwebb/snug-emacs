@@ -26,7 +26,6 @@
 
 ;; Enforce rules for popup windows
 (use-package shackle
-  :defer t
   :hook (after-init . shackle-mode)
   :config
   (defun snug/shackle--smart-split-dir ()

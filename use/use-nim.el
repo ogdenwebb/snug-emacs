@@ -25,7 +25,6 @@
                       "K"  'nimsuggest-show-doc))
 
 (use-package flycheck-nim
-  :defer t
   :after (nim-mode flycheck)
   :hook (nim-mode . flycheck-mode))
 

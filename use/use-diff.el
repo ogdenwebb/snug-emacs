@@ -1,6 +1,5 @@
 ;;  -*- lexical-binding: t; -*-
 (use-package ediff
-  :defer t
   :commands (ediff))
 
 (use-package evil-ediff

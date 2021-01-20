@@ -8,7 +8,6 @@
 
 ;; Git
 (use-package magit
-  :defer t
   :init
   ;; Disable GUI dialog for git
   (setenv "GIT_ASKPASS" "")
@@ -67,12 +66,10 @@
 ;;   :after magit)
 
 (use-package gist
-  :defer t
   :commands (gist-list))
 
 ;; Highlight changes in git
 (use-package git-gutter
-  :defer t
   :hook (after-init . global-git-gutter-mode))
 
 (use-package git-gutter-fringe
