@@ -95,7 +95,7 @@
         default-directory "~/"
 
         ;; Scroll settings
-        scroll-margin                   0
+        scroll-margin                   0 ;  Add a margin when scrolling vertically
         hscroll-margin                  0
         ;; scroll-step                     7
         ;; hscroll-step                    7
@@ -117,11 +117,11 @@
         create-lockfiles nil
         )
 
-  ;; Increase line space for better readability
-  (setq-default line-spacing 1)
 
   (setq-default tab-width snug-default-indent-width
                 indent-tabs-mode nil
+
+                line-spacing 1 ; Increase line space for better readability
 
                 x-stretch-cursor nil
                 visible-cursor nil
@@ -134,6 +134,8 @@
                 ;; Truncate lines
                 truncate-lines t
                 truncate-partial-width-windows nil
+
+                mouse-yank-at-point t ; Yank at point rather than pointer
 
                 apropos-do-all t) ; Better apropos
   )
