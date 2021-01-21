@@ -43,6 +43,7 @@
   (shut-up
     (magit-todos-mode t)))
 
+;; Modes for Git-specific files
 (use-package gitattributes-mode
   :mode (("/\\.gitattributes\\'"  . gitattributes-mode)
          ("/info/attributes\\'"   . gitattributes-mode)
