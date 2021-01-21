@@ -1,30 +1,33 @@
 ;;; env-session - manage sessions -*- lexical-binding: t; -*-
 (use-package desktop
-  :hook (after-init . desktop-save-mode)
+  :hook
+  (after-init . desktop-read)
+  (after-init . desktop-save-mode)
   :config
-  (setq
-   ;; desktop-path              (concat no-littering-var-directory "sessions")
-        ;; desktop-dirname           (concat no-littering-var-directory "sessions")
-        desktop-base-file-name ".desktop"
-        desktop-base-lock-name ".desktop.lock"
+  (setq desktop-base-file-name (concat no-littering-var-directory "/desktop/.desktop")
+        desktop-base-lock-name (concat no-littering-var-directory "/desktop/.desktop.lock")
+        desktop-restore-eager 4
         desktop-restore-reuses-frames t
         desktop-restore-in-current-display t
         desktop-restore-forces-onscreen t
+        ;; desktop-path              (concat no-littering-var-directory "sessions")
+        ;; desktop-dirname           (concat no-littering-var-directory "sessions")
         ;; desktop-auto-save-timeout 600
         ;; desktop-restore-frames nil
         ;; desktop-load-locked-desktop
         desktop-save 'if-exists))
 
-(defun session-save ()
-  (interactive)
-  (if (eq (desktop-owner) (emacs-pid))
-      (desktop-save desktop-dirname)))
+;; (defun session-save ()
+;;   (interactive)
+;;   (if (eq (desktop-owner) (emacs-pid))
+;;       (desktop-save desktop-dirname)))
 
-(defun session-save ()
-  (interactive)
-  (desktop-revert))
+;; (defun session-save ()
+;;   (interactive)
+;;   (desktop-revert))
 
 (use-package session
+  :disabled t
   :hook (after-init . session-initialize)
   :init
   (setq session-save-file (no-littering-expand-var-file-name ".session")
@@ -58,24 +61,24 @@
         ;;           kill-ring))))
 
 
-(defun save-defaults ()
-  (desktop-save desktop-dirname)
-  (savehist-save)
-  (bookmark-save))
+;; (defun save-defaults ()
+;;   (desktop-save desktop-dirname)
+;;   (savehist-save)
+;;   (bookmark-save))
 
-(defun save-histories ()
-  (let ((buf (current-buffer)))
-    (save-excursion
-      (dolist (b (buffer-list))
-        (switch-to-buffer b)
-        (save-history)))
-    (switch-to-buffer buf)))
+;; (defun save-histories ()
+;;   (let ((buf (current-buffer)))
+;;     (save-excursion
+;;       (dolist (b (buffer-list))
+;;         (switch-to-buffer b)
+;;         (save-history)))
+;;     (switch-to-buffer buf)))
 
-(defun save ()
-  (interactive)
-  (save-desktop)
-  (save-defaults)
-  (save-histories))
+;; (defun save ()
+;;   (interactive)
+;;   (save-desktop)
+;;   (save-defaults)
+;;   (save-histories))
 
 (provide 'env-sessions)
 
