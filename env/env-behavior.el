@@ -29,7 +29,8 @@
 (use-package undo-fu-session
   :hook (after-init . global-undo-fu-session-mode)
   :config
-  (setq undo-fu-session-incompatible-files '("/COMMIT_EDITMSG\\'"
+  (setq undo-fu-session-file-limit 50
+        undo-fu-session-incompatible-files '("/COMMIT_EDITMSG\\'"
                                              "/git-rebase-todo\\'")))
 
 ;; If you want Emacs kill ring and system clipboard to be independent.
