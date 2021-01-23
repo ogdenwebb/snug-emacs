@@ -282,6 +282,7 @@
         '(:not counsel-grep
                counsel-rg
                counsel-ag
+               counsel-recentf
                counsel-switch-buffer
                ivy-switch-buffer
                swiper
