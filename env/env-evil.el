@@ -185,4 +185,12 @@
 (use-package evil-tex
   :disabled t)
 
+;; Evil XML Attributes Text Object
+(use-package exato
+  :after evil)
+
+;; Better indent textobjects for evil
+(use-package evil-indent-plus
+  :after evil)
+
 (provide 'env-evil)

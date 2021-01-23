@@ -432,7 +432,20 @@
     (general-define-key
      :keymaps 'evil-window-map
      "S" '(snug/split-and-focus-horizontally :wk "Split below")
-     "V" '(snug/split-and-focus-verically :wk "Split right")))
+     "V" '(snug/split-and-focus-verically :wk "Split right"))
+
+    (general-define-key
+     :keymaps '(evil-inner-text-objects-map)
+     "i" 'evil-indent-plus-i-indent
+     "I" 'evil-indent-plus-i-indent-up
+     "J" 'evil-indent-plus-i-indent-up-down)
+
+    (general-define-key
+     :keymaps '(evil-outer-text-objects-map)
+     "i" 'evil-indent-plus-a-indent
+     "I" 'evil-indent-plus-a-indent-up
+     "J" 'evil-indent-plus-a-indent-up-down)
+    )
   )
 
 (provide 'user-maps)
