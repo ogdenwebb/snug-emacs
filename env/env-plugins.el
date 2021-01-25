@@ -1,4 +1,4 @@
-;; TODO: split  -*- lexical-binding: t -*-
+;; TODO: split this file  -*- lexical-binding: t -*-
 
 ;; Regular expression
 (use-package re-builder
@@ -21,9 +21,10 @@
   :defer 1
   :config
   (projectile-global-mode t)
-  :hydra
-  (hydra-projectile (:color teal :hint nil)
-    "
+
+  (with-eval-after-load 'hydra
+    (defhydra hydra-projectile (:color teal :hint nil)
+      "
        PROJECTILE: %(projectile-project-root)
 
     ^Find File^        ^Search/Tags^        ^Buffers^       ^Cache^                    ^Project^
@@ -34,30 +35,38 @@
     _r_: recent file   ^ ^                  ^ ^             _z_: cache current
     _d_: dir
    "
-    ("a"   projectile-ag)
-    ("b"   projectile-switch-to-buffer)
-    ("c"   projectile-invalidate-cache)
-    ("d"   projectile-find-dir)
-    ("f"   projectile-find-file)
-    ("F"   projectile-find-file-dwim)
-    ("C-f" projectile-find-file-in-directory)
-    ("g"   ggtags-update-tags)
-    ("s-g" ggtags-update-tags)
-    ("i"   projectile-ibuffer)
-    ("K"   projectile-kill-buffers)
-    ("s-k" projectile-kill-buffers)
-    ("m"   projectile-multi-occur)
-    ("o"   projectile-multi-occur)
-    ("p"   projectile-switch-project)
-    ("r"   projectile-recentf)
-    ("x"   projectile-remove-known-project)
-    ("X"   projectile-cleanup-known-projects)
-    ("z"   projectile-cache-current-file)
-    ("q"   nil "cancel" :color blue))
+      ("a"   projectile-ag)
+      ("b"   projectile-switch-to-buffer)
+      ("c"   projectile-invalidate-cache)
+      ("d"   projectile-find-dir)
+      ("f"   projectile-find-file)
+      ("F"   projectile-find-file-dwim)
+      ("C-f" projectile-find-file-in-directory)
+      ("g"   ggtags-update-tags)
+      ("s-g" ggtags-update-tags)
+      ("i"   projectile-ibuffer)
+      ("K"   projectile-kill-buffers)
+      ("s-k" projectile-kill-buffers)
+      ("m"   projectile-multi-occur)
+      ("o"   projectile-multi-occur)
+      ("p"   projectile-switch-project)
+      ("r"   projectile-recentf)
+      ("x"   projectile-remove-known-project)
+      ("X"   projectile-cleanup-known-projects)
+      ("z"   projectile-cache-current-file)
+      ("q"   nil "cancel" :color blue))
 
-  :config
+    )
+
+
+  
+
   ;; Projectile settings
   (setq projectile-verbose nil
+        projectile-dynamic-mode-line nil
+        projectile-enable-caching t
+        projectile-indexing-method 'hybrid
+        projectile-switch-project-action #'projectile-commander
         ;; projectile-ignored-project-function  ’file-remote-p
         ;; projectile-require-project-root   t
         ;; projectile-switch-project-action  ’projectile-dired
@@ -270,8 +279,6 @@
         prescient-filter-method '(literal regexp initialism fuzzy) ; or fuzzy
         ;; prescient-save-file (locate-user-emacs-file "cache/prescient-save.el")
         )
-
-  ;; Enable persistent history
   )
 
 ;; TODO: setup for counsel-ag
@@ -284,6 +291,7 @@
                counsel-ag
                counsel-recentf
                counsel-switch-buffer
+               counsel-load-theme
                ivy-switch-buffer
                swiper
                swiper-multi)
