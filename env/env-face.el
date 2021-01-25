@@ -112,11 +112,44 @@
 ;; (add-to-list 'default-frame-alist '(font . "iosevka-13"))
 ;; (add-to-list 'default-frame-alist '(font . "IBM Plex Mono-12"))
 ;; (add-to-list 'default-frame-alist '(font . "Hack-12.5"))
-(add-to-list 'default-frame-alist '(font . "D2Coding-13"))
+;; (add-to-list 'default-frame-alist '(font . "D2Coding-13"))
 ;; (add-to-list 'default-frame-alist '(font . "Victor Mono-12.5"))
 ;; (add-to-list 'default-frame-alist '(font . "mononoki-12"))
 ;; (add-to-list 'default-frame-alist '(font . "JetBrains Mono-12:weight=light"))
 ;; (add-to-list 'default-frame-alist '(font . "JetBrains Mono-12"))
+
+;; Play with ligatures
+(add-to-list 'default-frame-alist '(font . "D2Coding ligature-13"))
+
+(use-package ligature
+  :disabled t
+  :straight (:host github :repo "mickeynp/ligature.el")
+  :config
+  ;; Enable the "www" ligature in every possible major mode
+  (ligature-set-ligatures 't '("www"))
+  ;; Enable traditional ligature support in eww-mode, if the
+  ;; `variable-pitch' face supports it
+  (ligature-set-ligatures 'eww-mode '("ff" "fi" "ffi"))
+  ;; Enable all Cascadia Code ligatures in programming modes
+  ;; (ligature-set-ligatures 'prog-mode '("-->" "->" "==" "<=" ">=" "/="))
+  (ligature-set-ligatures 'prog-mode '("|||>" "<|||" "<==>" "<!--" "####" "~~>" "***" "||=" "||>"
+                                       ":::" "::=" "=:=" "===" "==>" "=!=" "=>>" "=<<" "=/=" "!=="
+                                       "!!." ">=>" ">>=" ">>>" ">>-" ">->" "->>" "-->" "---" "-<<"
+                                       "<~~" "<~>" "<*>" "<||" "<|>" "<$>" "<==" "<=>" "<=<" "<->"
+                                       "<--" "<-<" "<<=" "<<-" "<<<" "<+>" "</>" "###" "#_(" "..<"
+                                       "..." "+++" "/==" "///" "_|_" "www" "&&" "^=" "~~" "~@" "~="
+                                       "~>" "~-" "**" "*>" "*/" "||" "|}" "|]" "|=" "|>" "|-" "{|"
+                                       "[|" "]#" "::" ":=" ":>" ":<" "$>" "==" "=>" "!=" "!!" ">:"
+                                       ">=" ">>" ">-" "-~" "-|" "->" "--" "-<" "<~" "<*" "<|" "<:"
+                                       "<$" "<=" "<>" "<-" "<<" "<+" "</" "#{" "#[" "#:" "#=" "#!"
+                                       "##" "#(" "#?" "#_" "%%" ".=" ".-" ".." ".?" "+>" "++" "?:"
+                                       "?=" "?." "??" ";;" "/*" "/=" "/>" "//" "__" "~~" "(*" "*)"
+                                       ))
+                                       ;; "\\" "://"))
+  ;; Enables ligature checks globally in all buffers. You can also do it
+  ;; per mode with `ligature-mode'.
+  (global-ligature-mode t)
+  )
 
 ;; (custom-theme-set-faces
 ;;  'user
@@ -276,6 +309,8 @@
   :hook ((prog-mode text-mode conf-mode) . display-line-numbers-mode)
   :config
   (setq display-line-numbers-grow-only t))
+  ;; MAYBE
+  ;; (setq display-line-numbers-width-start t)
 
 ;; Highlight TODO and FIXME
 ;; (use-package fic-mode
