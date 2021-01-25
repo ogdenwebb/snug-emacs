@@ -304,6 +304,9 @@
       (ivy-prescient-re-builder str)))
   )
 
+(use-package selectrum-prescient
+  :hook (selectrum-mode . selectrum-prescient-mode))
+
 (use-package company-prescient
   :hook ((company-mode global-company-mode) . company-prescient-mode))
 
