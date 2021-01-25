@@ -111,7 +111,7 @@
 
 ;; Use fuzzy completion
 (use-package company-fuzzy
-  ;; :hook ((company-mode global-company-mode) . company-fuzzy-mode)
+  :hook ((company-mode global-company-mode) . company-fuzzy-mode)
   :config
   (setq company-fuzzy-sorting-backend 'alphabetic
         company-fuzzy-prefix-on-top t
