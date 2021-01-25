@@ -1,19 +1,5 @@
 ;;; Syntax & spell checking -*- lexical-binding: t; -*-
 
-;; (with-eval-after-load 'hydra
-;;   (defhydra hydra-flyspell (:color blue)
-;;     "Flyspell dictionary"
-;;     ;; for aspell
-;;     ;; ("e" (snug/flyspell-set-dict "en") "eng")
-;;     ;; ("r" (snug/flyspell-set-dict "ru") "rus")
-;;     ;; ("g" (snug/flyspell-set-dict "german") "ger")
-;;     ;; for hunspell
-;;     ("e" (snug/flyspell-set-dict "en_US") "eng")
-;;     ("r" (snug/flyspell-set-dict "ru_RU") "rus")
-;;     ("g" (snug/flyspell-set-dict "german") "ger")
-;;     ("Q" (spell-fu-mode -1) "Disable spell checking")
-;;     ("q" nil "cancel")))
-
 ;; Package-lint
 (use-package package-lint
   :disabled t
@@ -118,6 +104,10 @@
     :overlay-category 'flycheck-info-overlay
     :fringe-bitmap 'snug/flycheck-fringe-indicator
     :fringe-face 'flycheck-fringe-info))
+
+;; Emacs mode to fix the flycheck error at point
+(use-package attrap
+  :after flycheck)
 
 (use-package flycheck-package
   :disabled t
