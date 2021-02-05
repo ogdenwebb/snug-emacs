@@ -1,5 +1,6 @@
 ;; Use ivy -*- lexical-binding: t -*-
 
+;; TODO:
 (defvar snug-fuzzy-ivy nil
   "Use fuzzy completion in ivy.")
 
