@@ -6,6 +6,11 @@
 ;; Defer garbage collection further back in the startup process
 ;; (setq gc-cons-threshold most-positive-fixnum)
 
+;; In noninteractive sessions, prioritize non-byte-compiled source files to
+;; prevent the use of stale byte-code. Otherwise, it saves us a little IO time
+;; to skip the mtime checks on every *.elc file.
+;; (setq load-prefer-newer 'noninteractive)
+
 ;; In Emacs 27+, package initialization occurs before `user-init-file' is
 ;; loaded, but after `early-init-file'.
 (setq package-enable-at-startup nil)
@@ -25,3 +30,7 @@
 ;; in this file and can conflict with later config (particularly where the
 ;; cursor color is concerned).
 (advice-add #'x-apply-session-resources :override #'ignore)
+
+(setq user-emacs-directory (file-name-directory load-file-name))
+
+;; (load (concat user-emacs-directory "snug/snug") nil 'nomessage)

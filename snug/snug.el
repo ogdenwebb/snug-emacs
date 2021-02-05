@@ -100,7 +100,7 @@
   :straight nil
   :defer t)
 
-;; Help keeping ~/.emacs.d clean
+;; Help keeping emacs directory clean
 (use-package no-littering)
 
 ;; Define directories
@@ -134,9 +134,9 @@
 (use-package cl-lib :defer t)
 
 ;; Add configuration directories to `load-path'
-(setq load-path (append '("~/.emacs.d/snug/" "~/.emacs.d/env/"
-                           "~/.emacs.d/use/" "~/.emacs.d/user/"
-                           "~/.emacs.d/completion/" "~/.emacs.d/modeline/")
+(setq load-path (append '("~/.config/emacs/snug/" "~/.config/emacs/env/"
+                           "~/.config/emacs/use/" "~/.config/emacs/user/"
+                           "~/.config/emacs/completion/" "~/.config/emacs/modeline/")
                          load-path))
 
 ;; Remove command line options that aren't relevant to our current OS; means
