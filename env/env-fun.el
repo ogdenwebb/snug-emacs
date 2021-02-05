@@ -33,6 +33,7 @@ executed from a commented line"
           (set-buffer-modified-p nil))))))
 
 ;; Display face under cursor
+;; TODO: ignore hl-line-mode or temp disable it
 ;;;###autoload
 (defun what-face (pos)
   (interactive "d")
@@ -75,6 +76,7 @@ executed from a commented line"
     (if (zerop (forward-line (1- n)))
         (- (line-end-position)
            (line-beginning-position)))))
+
 
 (defun snug/empty-line? ()
   (interactive)
@@ -211,6 +213,20 @@ executed from a commented line"
   (if (one-window-p)
       (previous-buffer)
     (delete-window)))
+
+;;;###autoload
+(defun snug/find-next-file (&optional backward)
+  "Find the next file (by name) in the current directory.
+
+With prefix arg, find the previous file."
+  (interactive "P")
+  (when buffer-file-name
+    (let* ((file (expand-file-name buffer-file-name))
+           (files (cl-remove-if (lambda (file) (cl-first (file-attributes file)))
+                                (sort (directory-files (file-name-directory file) t nil t) 'string<)))
+           (pos (mod (+ (cl-position file files :test 'equal) (if backward -1 1))
+                     (length files))))
+      (find-file (nth pos files)))))
 
 
 (provide 'env-fun)
