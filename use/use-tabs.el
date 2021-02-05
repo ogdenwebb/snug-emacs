@@ -9,9 +9,10 @@
 
 (use-package centaur-tabs
   :straight (:host github :repo "ema2159/centaur-tabs")
-  :defer .1
+  :hook ((after-init . centaur-tabs-mode)
+         (imenu-list-major-mode . centaur-tabs-local-mode))
   :init
-  (setq-default centaur-tabs-set-bar 'over)
+  (setq-default centaur-tabs-set-bar 'under)
   :config
   (setq centaur-tabs-set-close-button nil
         centaur-tabs-background-color (face-background 'centaur-tabs-default)
@@ -25,8 +26,6 @@
         centaur-tabs-gray-out-icons 'buffer
         centaur-tabs-modified-marker "*"
         centaur-tabs-plain-icons t
-        centaur-tabs-set-modified-marker t)
-
-  (centaur-tabs-mode t))
+        centaur-tabs-set-modified-marker t))
 
 (provide 'use-tabs)
