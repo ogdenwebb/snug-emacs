@@ -1,4 +1,5 @@
 ;; Haskell -*- lexical-binding: t -*-
+;; Commands: hoogle
 (use-package haskell-mode
   :mode ("\\.hs\\'" . haskell-mode)
   :config
