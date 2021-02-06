@@ -1,4 +1,4 @@
-;; Lua language support -*- lexical bindings: t -*-
+;; Lua language support -*- lexical-binding: t -*-
 
 (use-package lua-mode
   :mode ("\\.lua$" . lua-mode)
