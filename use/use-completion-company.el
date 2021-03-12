@@ -5,7 +5,8 @@
   :defer 5
   ;; :hook ((company-mode global-company-mode) . company-fuzzy-mode)
   :commands (company-mode global-company-mode company-complete-common company-indent-or-complete-common
-                          company-manual-begin company-grab-line)
+                          company-manual-begin company-grab-line
+                          snug/company-smart-complete-or-indent)
   :config
   (defun snug/company-smart-complete-or-indent (&optional arg)
     "Use company completion with indent only for empty lines."
@@ -111,13 +112,17 @@
 
 ;; Use fuzzy completion
 (use-package company-fuzzy
-  :hook ((company-mode global-company-mode) . company-fuzzy-mode)
+  :hook (((company-mode global-company-mode) . company-fuzzy-mode)
+         (emacs-lisp-mode . company-disable-fuzzy))
+  ;; :commands (company-disable-fuzzy)
   :config
+  (defun company-disable-fuzzy ()
+    (company-fuzzy-mode 0))
+
   (setq company-fuzzy-sorting-backend 'alphabetic
         company-fuzzy-prefix-on-top t
         company-fuzzy-show-annotation t)
-  (add-to-list 'company-fuzzy-history-backends 'company-yasnippet)
-  )
+  (add-to-list 'company-fuzzy-history-backends 'company-yasnippet))
 
 (use-package company-box
   :hook (company-mode . company-box-mode)
