@@ -62,6 +62,7 @@
   (setq-default pdf-view-display-size 'fit-width)
   (pdf-loader-install))
 
+;; Graphviz support
 (use-package graphviz-dot-mode
   :mode (("\\.dot\\'" . graphviz-dot-mode)
          ("\\.gv\\`" . graphviz-dot-mode))
@@ -72,5 +73,9 @@
   :straight nil
   :after (graphviz-dot-mode company)
   )
+
+;; An Emacs major mode for editing Nix expressions.
+(use-package nix-mode
+  :mode "\\.nix\\'")
 
 (provide 'use-filetype)
