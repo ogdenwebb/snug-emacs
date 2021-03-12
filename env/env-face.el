@@ -71,7 +71,8 @@
 
   ;; (setq kaolin-valley-light-alt-bg t)
   ;; (setq kaolin-valley-dark-alt-bg nil)
-  (setq kaolin-ocean-alt-bg t)
+  (setq kaolin-ocean-alt-bg t
+        kaolin-light-alt-bg t)
   ;; (setq kaolin-themes-distinct-company-scrollbar t)
   ;; (setq kaolin-themes-distinct-fringe nil)
   ;; (setq kaolin-themes-italic-comments t)
@@ -86,6 +87,8 @@
 
   (unless (daemonp)
     (load-theme snug-custom-theme t))
+
+  ;; (setq kaolin-themes-treemacs-modeline t)
 
   (kaolin-treemacs-theme)
 
@@ -211,12 +214,12 @@
   :hook (prog-mode . hl-line-mode))
 
 ;; Disable scroll bars
-(defun snug/disable-scroll-bars (frame)
-  (modify-frame-parameters frame
-                           '((vertical-scroll-bars . nil)
-                             (horizontal-scroll-bars . nil))))
+;; (defun snug/disable-scroll-bars (frame)
+;;   (modify-frame-parameters frame
+;;                            '((vertical-scroll-bars . nil)
+;;                              (horizontal-scroll-bars . nil))))
 
-(add-hook 'after-make-frame-functions 'snug/disable-scroll-bars)
+;; (add-hook 'after-make-frame-functions 'snug/disable-scroll-bars)
 
 ;; Hide default UI stuff
 (tooltip-mode -1) ; relegate tooltips to echo area only
