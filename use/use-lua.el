@@ -9,4 +9,7 @@
 (use-package company-lua
   :after (lua-mode company))
 
+(use-package moonscript
+  :mode ("\\.moon$" . moonscript-mode))
+
 (provide 'use-lua)
