@@ -24,9 +24,10 @@
                       :states  '(normal)
                       "K"  'nimsuggest-show-doc))
 
-(use-package flycheck-nim
-  :after (nim-mode flycheck)
-  :hook (nim-mode . flycheck-mode))
+;; (use-package flycheck-nim
+;;   :disabled t
+;;   :after (nim-mode flycheck)
+;;   :hook (nim-mode . flycheck-mode))
 
 ;; (add-hook 'nim-mode-hook
 ;;         '(lambda () (setq-local electric-indent-chars '(?\s)))))
