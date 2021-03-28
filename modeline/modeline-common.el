@@ -6,9 +6,6 @@
 ;; TODO: rename my* segments to ???
 ;; Gray "#545c5e"
 
-;; Disable mouse popup menu in mode-line
-(setq mode-line-default-help-echo nil)
-
 ;; Telephone line
 (use-package telephone-line
   ;; :load-path "dev/telephone-line"
@@ -35,8 +32,8 @@
   ;; TODO: function to choose separator by name
   (if window-system
       (progn
-        (setq telephone-line-secondary-left-separator 'telephone-line-identity-hollow-left)
-        (setq telephone-line-secondary-right-separator 'telephone-line-identity-hollow-right)))
+        (setq telephone-line-secondary-left-separator 'telephone-line-identity-hollow-left
+              telephone-line-secondary-right-separator 'telephone-line-identity-hollow-right)))
 
   ;;; Custom segments
 
