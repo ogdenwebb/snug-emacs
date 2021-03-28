@@ -115,7 +115,9 @@
 
         ;; Disable lockfiles
         create-lockfiles nil
-        )
+
+        ;; Disable mouse popup menu in mode-line
+        mode-line-default-help-echo nil)
 
 
   (setq-default tab-width snug-default-indent-width
