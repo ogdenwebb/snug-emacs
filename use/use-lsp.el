@@ -1,5 +1,6 @@
 ;; ;; Language server protocol support -*- lexical-binding: t -*-
 (use-package lsp-mode
+  :straight nil
   ;; :config
   ;; (setq lsp-log-io t)
   ;; :init
@@ -44,26 +45,26 @@
 ;;          (sass-mode-hook . lsp-scss-enable)
 ;;          (scss-mode-hook . lsp-scss-enable)))
 
-(use-package company-lsp
-  :after (company lsp-mode)
-  :config
-  (add-to-list 'company-backends 'company-lsp)
-  (setq company-lsp-async t)
-  (setq company-lsp-enable-recompletion t))
+;; (use-package company-lsp
+;;   :after (company lsp-mode)
+;;   :config
+;;   (add-to-list 'company-backends 'company-lsp)
+;;   (setq company-lsp-async t)
+;;   (setq company-lsp-enable-recompletion t))
 
 ;; ;; Eglot
 
-;; (use-package flymake
-;;   :defer t)
-;; (use-package json-rpc
-;;   :defer t)
-
-;; (use-package eglot
-;;   :defer t
-;;   ;; :after (flymake json-rpc)
-;;   :hook (haskell-mode . eglot-ensure)
-;;   :config
-;;   (add-to-list 'eglot-server-programs '(haskell-mode . ("ghcide" "--lsp")))
+(use-package eglot
+  :hook ((lua-mode . eglot-ensure)
+         (lua-mode . company-disable-fuzzy))
+  :config
+  (when (executable-find "lua-lsp")
+      (add-to-list 'eglot-server-programs '(lua-mode . ("lua-lsp"))))
+  )
+  ;; :after (flymake json-rpc)
+  ;; :hook (haskell-mode . eglot-ensure)
+  ;; :config
+  ;; (add-to-list 'eglot-server-programs '(haskell-mode . ("ghcide" "--lsp")))
 
 ;;   ;; HTML
 ;;   (cl-pushnew '(web-mode "html-languageserver" "--stdio") eglot-server-programs :key 'car)
