@@ -47,4 +47,8 @@
   :config
   (ctrlf-mode t))
 
+(use-package consult-projectile
+  :after (consult projectile)
+  :straight (consult-projectile :type git :host gitlab :repo "OlMon/consult-projectile" :branch "master"))
+
 (provide 'env-selectrum)
