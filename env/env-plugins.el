@@ -342,6 +342,9 @@
 ;; (use-package ghub+         :defer t)
 ;; (use-package graphql       :defer t)
 (use-package ht            :defer t)
+
+(use-package json-rpc
+  :defer t)
 ;; (use-package kv            :defer t)
 ;; (use-package list-utils    :defer t)
 (use-package logito        :defer t)
@@ -351,6 +354,8 @@
 ;; (use-package makey         :defer t)
 (use-package marshal       :defer t)
 (use-package memoize       :defer t)
+
+
 ;; (use-package names         :defer t)
 ;; (use-package noflet        :defer t)
 ;; (use-package oauth2        :defer t)
