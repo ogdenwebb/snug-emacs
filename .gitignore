@@ -1,4 +1,6 @@
 *.elc
+*.eln
+eln-cache/
 network-security.data
 custom.el
 var/
