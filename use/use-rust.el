@@ -1,8 +1,9 @@
+;;; Rust programming language -*- lexical-binding: t -*-
+
 (use-package rust-mode
   :mode "\\.rs$")
 
 (use-package racer
-  :after rust-mode
   :hook (rust-mode . racer-mode)
   :config
   (add-hook 'rust-mode-hook #'eldoc-mode))
