@@ -95,10 +95,10 @@
 
 ;; Display use-package debug stuff when debug-on-error is t
 (if snug-debug-mode
-      (setq use-package-expand-minimally nil
-            use-package-verbose t
-            use-package-compute-statistics t
-            message-log-max t)
+    (setq use-package-expand-minimally nil
+          use-package-verbose t
+          use-package-compute-statistics t
+          message-log-max t)
   (setq use-package-expand-minimally t
         use-package-verbose nil))
 
