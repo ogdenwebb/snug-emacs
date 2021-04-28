@@ -240,4 +240,12 @@
 ;; (use-package org-sidebar
 ;;   :after org)
 
+;; Toggle visibility of hidden Org elements following cursor
+(use-package org-appear
+  :straight (org-appear :type git :host github :repo "awth13/org-appear")
+  :hook (org-mode . org-appear-mode)
+  :config
+  ;; (setq org-appear-autolinks t)
+  )
+
 (provide 'use-org)
