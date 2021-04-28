@@ -124,6 +124,7 @@
                 indent-tabs-mode nil
 
                 line-spacing 1 ; Increase line space for better readability
+                fill-column 80
 
                 x-stretch-cursor nil
                 visible-cursor nil
