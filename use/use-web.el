@@ -16,7 +16,7 @@
   (add-hook 'web-mode-hook 'turn-off-smartparens-mode)
   ;; For emmet-mode to switch between HTML and CSS
   (add-hook 'web-mode-before-auto-complete-hooks
-            '(lambda ()
+            #'(lambda ()
                (let ((web-mode-cur-lang
                       (web-mode-language-at-pos)))
                  (if (string= web-mode-cur-lang "css")

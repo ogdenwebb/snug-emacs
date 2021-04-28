@@ -10,7 +10,7 @@
   ;; Hoplon
   (add-to-list 'auto-mode-alist '("\\.cljs\\.hl\\'" . clojurescript-mode))
   (add-hook 'clojure-mode-hook
-            '(lambda ()
+            #'(lambda ()
                ;; Hoplon functions and macros
                (dolist (pair '((page . 'defun)
                                (loop-tpl . 'defun)
