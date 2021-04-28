@@ -383,4 +383,12 @@
 ;;   (my-load-envvars-file my-env-file))
 ;; ;;; Code to replace exec-path-from-shell
 
+;; Native-comp setting for Emacs 28+
+(if (not (version< emacs-version "28.0"))
+    (use-package comp
+      :straight nil
+      :config
+      (setq-default comp-async-compilation t
+                    comp-async-report-warnings-errors nil)))
+
 (provide 'snug-settings)
