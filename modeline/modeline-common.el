@@ -40,24 +40,31 @@
   ;; Display major mode
   ;; TODO: rewrite with var/macro
   (telephone-line-defsegment* my-major-mode-segment ()
-    (let ((mode (cond
-                 ((string= mode-name "Fundamental") "text")
-                 ((string= mode-name "Emacs-Lisp") "elisp")
-                 ((string= mode-name "Javascript-IDE") "js")
-                 ((string= mode-name "undo-tree-visualizer") "undotree")
-                 ((string= mode-name "C++//l") "cpp")
-                 (t (downcase mode-name)))))
+    (let* ((name (if (or (version< emacs-version "28.0") (stringp mode-name))
+                     mode-name
+                   (car mode-name)))
+           (mode (cond
+                 ((string= name "Fundamental") "text")
+                 ((string= name "Emacs-Lisp") "elisp")
+                 ((string= name "Javascript-IDE") "js")
+                 ((string= name "undo-tree-visualizer") "undotree")
+                 ((string= name "C++//l") "cpp")
+                 (t (downcase name)))))
       (propertize mode 'face `font-lock-string-face)))
 
   ;; TODO: add raise or v-adjust
   (telephone-line-defsegment* my-major-mode-segment-icon ()
-    (let ((mode (cond
-                 ((string= mode-name "Fundamental") "text")
-                 ((string= mode-name "Emacs-Lisp") "elisp")
-                 ((string= mode-name "Javascript-IDE") "js")
-                 ((string= mode-name "undo-tree-visualizer") "undotree")
-                 ((string= mode-name "C++//l") "cpp")
-                 (t (downcase mode-name))))
+    (let* ((name (if (or (version< emacs-version "28.0") (stringp mode-name))
+                     mode-name
+                   (car mode-name)))
+           (mode (cond
+                 ((string= name "Fundamental") "text")
+                 ((string= name "Emacs-Lisp") "elisp")
+                 ((string= name "ELisp") "elisp")
+                 ((string= name "Javascript-IDE") "js")
+                 ((string= name "undo-tree-visualizer") "undotree")
+                 ((string= name "C++//l") "cpp")
+                 (t (downcase name))))
           (icon (all-the-icons-icon-for-mode major-mode :v-adjust 0.0 :height 0.8 :face font-lock-string-face)))
       (concat
        (when
