@@ -60,13 +60,12 @@
   :requires autothemer
   :load-path "local/emacs-kaolin-themes"
   :config
-  (setq kaolin-themes-org-scale-headings nil)
-
   (setq kaolin-themes-hl-line-colored nil
         kaolin-themes-git-gutter-solid t
         kaolin-themes-underline-wave t
         kaolin-themes-modeline-border nil
         kaolin-themes-bold t
+        kaolin-themes-org-scale-headings nil
         kaolin-themes-distinct-metakeys nil)
 
   ;; (setq kaolin-valley-light-alt-bg t)
@@ -78,6 +77,8 @@
   ;; (setq kaolin-themes-italic-comments t)
 
   ;; (setq kaolin-themes-comments-style 'normal)
+  ;; (setq kaolin-themes-comments-style 'alt)
+  ;; (setq kaolin-themes-comments-style 'contrast)
 
   ;; Set default theme
   (add-hook 'after-make-frame-functions
@@ -154,29 +155,13 @@
   (global-ligature-mode t)
   )
 
-;; (custom-theme-set-faces
-;;  'user
-;;  ;; '(variable-pitch ((t (:family "Literata"))))
-;;  '(variable-pitch ((t (:family "Fira Sans"))))
- ;; '(fixed-pitch ((t (:family "D2Coding" :slant normal :weight normal :height 1.0 :width normal)))))
-
+;; Set up fixed-pitch (monospace) and normal font
 (custom-theme-set-faces
  'user
 ;;  '(variable-pitch ((t (:family "Crimson Text" :height 165 :weight normal)))))
- '(variable-pitch ((t (:family "XCharter" :height 150 :weight normal)))))
-
-;; (defun set-buffer-variable-pitch ()
-;;   (interactive)
-;;   (variable-pitch-mode t)
-;;   (setq line-spacing 0.1)
-;;   (set-face-attribute 'org-table nil :inherit 'fixed-pitch)
-;;   (set-face-attribute 'org-code nil :inherit 'fixed-pitch)
-;;   (set-face-attribute 'org-formula nil :inherit 'fixed-pitch)
-;;   (set-face-attribute 'org-block nil :inherit 'fixed-pitch)
-;;   (set-face-attribute 'org-checkbox nil :inherit 'fixed-pitch)
-;;   )
-
-;; (add-hook 'org-mode-hook 'set-buffer-variable-pitch)
+ '(variable-pitch ((t (:family "XCharter" :height 150 :weight normal))))
+ '(fixed-pitch ((t (:family "D2Coding" :weight normal)))))
+ ;; '(variable-pitch ((t (:family "Vollkorn" :height 135 :weight normal)))))
 
 ;; Set the fringe size
 (setq-default left-fringe-width  6
@@ -315,12 +300,7 @@
   ;; MAYBE
   ;; (setq display-line-numbers-width-start t)
 
-;; Highlight TODO and FIXME
-;; (use-package fic-mode
-;;   :defer .1
-;;   :hook (prog-mode . fic-mode))
-
-;; TODO
+;; Highligh;; TODO
 ;; Highlight surrounding parentheses in Emacs
 ;; (use-package highlight-parentheses
 ;;   :config
@@ -394,6 +374,9 @@
 ;;            prog-mode). rainbow-mode))
 ;;   :diminish rainbow-mode)
 
-;; (use-package mixed-pitch)
+(use-package mixed-pitch
+  :commands (mixed-pitch-mode)
+  :config
+  (setq mixed-pitch-set-height t))
 
 (provide 'env-face)
