@@ -186,11 +186,11 @@
         org-src-tab-acts-natively t)
   )
 
+;; Pretty stars for org-mode
 (use-package org-superstar-mode
   :straight (:host github :repo "integral-dw/org-superstar-mode")
   :hook (org-mode . org-superstar-mode)
   :init
-  ;; Pretty stars for org-mode
   (setq org-superstar-prettify-item-bullets t
         org-superstar-headline-bullets-list
         '("◉" "✸" "⚫" "○" "•")

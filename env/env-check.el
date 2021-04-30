@@ -208,6 +208,7 @@
   :after (helm flyspell-correct))
 
 (use-package ispell
+  :defer 2
   :config
   ;; (setq ispell-program-name (or (executable-find "hunspell")
   ;;                               (executable-find "aspell"))

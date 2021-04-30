@@ -1,6 +1,7 @@
 ;; C/C++ module -*- lexical-binding: t -*-
 
 (use-package cc-vars
+  :defer t
   :straight nil
   :config
   (setq-default c-basic-offset snug-default-indent-width)

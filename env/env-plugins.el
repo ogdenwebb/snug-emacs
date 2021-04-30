@@ -14,7 +14,7 @@
   :hook (prog-mode . dtrt-indent-mode)
   :config
   ;; Hide messages from dtrt-indent
-  (setq dtrt-indent-verbosity snug-debug-mode))
+  (setq dtrt-indent-verbosity nil))
 
 ;; Project management
 (use-package projectile
@@ -190,6 +190,7 @@
 
 ;; TODO: Disable in terminal
 (use-package eldoc-box
+  :disabled t
   :if snug-with-eldoc-box
   :hook (eldoc-mode . eldoc-box-hover-mode))
 
