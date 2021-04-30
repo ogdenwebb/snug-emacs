@@ -3,11 +3,11 @@
 ;; Autocomplete
 (use-package company
   :defer 5
-  ;; :hook ((company-mode global-company-mode) . company-fuzzy-mode)
   :commands (company-mode global-company-mode company-complete-common company-indent-or-complete-common
                           company-manual-begin company-grab-line
                           snug/company-smart-complete-or-indent)
   :config
+
   (defun snug/company-smart-complete-or-indent (&optional arg)
     "Use company completion with indent only for empty lines."
     (interactive)
@@ -111,23 +111,34 @@
   (setq company-backends (mapcar #'company-backend-with-yas company-backends)))
 
 ;; Use fuzzy completion
+;; TODO disable in minor mods
 (use-package company-fuzzy
-  :hook (((company-mode global-company-mode) . company-fuzzy-mode)
-         (emacs-lisp-mode . company-disable-fuzzy))
+  ;; :disabled t
+  ;; :commands (snug/company-disable-fuzzy)
+  ;; :commands (global-company-fuzzy-mode company-fuzzy-mode)
+  ;; :hook (((company-mode global-company-mode) . company-fuzzy-mode))
   ;; :commands (company-disable-fuzzy)
+  :defer 2
+  :commands (global-company-fuzzy-mode company-fuzzy-mode snug/company-disable-fuzzy)
   :config
-  (defun company-disable-fuzzy ()
-    (company-fuzzy-mode 0))
+  (global-company-fuzzy-mode t)
+
+  (defun snug/company-disable-fuzzy ()
+    "TODO"
+    (interactive)
+    (company-fuzzy-mode -1))
 
   (setq company-fuzzy-sorting-backend 'alphabetic
         company-fuzzy-prefix-on-top t
         company-fuzzy-show-annotation t)
   (add-to-list 'company-fuzzy-history-backends 'company-yasnippet))
 
+
 (use-package company-box
   :hook (company-mode . company-box-mode)
   :config
-  (setq company-box-icons-alist 'company-box-icons-all-the-icons))
+  (setq company-box-icons-alist 'company-box-icons-all-the-icons
+        company-box-doc-enable nil))
 
 (use-package company-elisp
   :straight nil
@@ -163,5 +174,6 @@
 ;;   :defer t
 ;;   :after (company)
 ;;   :commands (company-try-hard))
+
 
 (provide 'use-completion-company)

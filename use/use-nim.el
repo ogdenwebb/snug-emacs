@@ -4,6 +4,7 @@
          ("\\.nims\\'" . nimscript-mode))
   :hook ((nim-mode . nimsuggest-mode)
          (nim-mode . eldoc-mode)
+         (nim-mode . snug/company-disable-fuzzy)
          (nim-mode . snug--delete-nimlog-file)
          (nimscript-mode . snug--delete-nimlog-file))
 

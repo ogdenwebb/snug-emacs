@@ -55,12 +55,15 @@
 ;; ;; Eglot
 
 (use-package eglot
-  :hook ((lua-mode . eglot-ensure)
-         (lua-mode . company-disable-fuzzy))
   :config
   (when (executable-find "lua-lsp")
-      (add-to-list 'eglot-server-programs '(lua-mode . ("lua-lsp"))))
-  )
+      (add-to-list 'eglot-server-programs '(lua-mode . ("lua-lsp")))
+      (add-hook 'lua-mode-hook #'eglot-ensure))
+
+  (when (executable-find "nimlsp")
+      (add-to-list 'eglot-server-programs '(nim-mode . ("nimlsp"))))
+      (add-hook 'nim-mode-hook #'eglot-ensure))
+
   ;; :after (flymake json-rpc)
   ;; :hook (haskell-mode . eglot-ensure)
   ;; :config
