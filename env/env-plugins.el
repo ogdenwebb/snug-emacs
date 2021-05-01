@@ -473,5 +473,9 @@
 ;;          ("C-c r k" . string-inflection-kebab-case)
 ;;          ("C-c r J" . string-inflection-java-style-cycle)))
 
+(use-package so-long
+  :defer 2
+  :config
+  (global-so-long-mode 1))
 
 (provide 'env-plugins)
