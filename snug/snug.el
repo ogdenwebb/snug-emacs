@@ -18,17 +18,14 @@
 
 ;; Startup & package manager
 (defvar file-name-handler-alist-old file-name-handler-alist)
+
 (setq file-name-handler-alist nil
       byte-compile--use-old-handlers nil
       load-prefer-newer t
-      site-run-file nil
-      package-enable-at-startup nil)
+      site-run-file nil)
 
-;; Increase garbage collection for speedup
-(setq-default package-enable-at-startup nil
-              ;; gc-cons-threshold 100000000
-              ;; gc-cons-percentage 0.6
-              message-log-max 16384)
+;; Advanced logging
+;; (setq-default message-log-max 16384)
 
 (add-hook 'emacs-startup-hook
           #'(lambda ()
@@ -103,16 +100,16 @@
         use-package-verbose nil))
 
 (use-package gcmh
-  :init
+  :hook (after-init . gcmh-mode)
+  :config
   (setq gcmh-verbose             nil
         ;; gcmh-low-cons-threshold  #x800000
         ;; gcmh-high-cons-threshold #x800000
-        gcmh-idle-delay          300)
-  :config
-  (gcmh-mode)
+        gcmh-idle-delay          5 ;; old is 300
 
-  ;; Don’t compact font caches during GC.
-  (setq inhibit-compacting-font-caches t))
+        ;; Don’t compact font caches during GC.
+        inhibit-compacting-font-caches t
+        gc-cons-percentage 0.1))
 
 (use-package subr-x
   :straight nil
@@ -146,7 +143,8 @@
   )
 
 ;; Set initial mode to text-mode instead of elisp
-(setq initial-major-mode 'fundamental-mode)
+(setq inhibit-default-init t
+      initial-major-mode 'fundamental-mode)
 
 ;; Use Common Lisp library
 (use-package cl-lib :defer t)
@@ -184,14 +182,14 @@
       (require pkg nil t))))
 
 ;; Use a hook so the message doesn't get clobbered by other messages.
-(defun snug/measure-package-time ()
-  "Measure initial loading time of packages."
-  ;; (interactive)
-  (message "Emacs ready in %s with %d garbage collections."
-           (format "%.2f seconds"
-                   (float-time
-                    (time-subtract after-init-time before-init-time)))
-           gcs-done))
+;; (defun snug/measure-package-time ()
+;;   "Measure initial loading time of packages."
+;;   ;; (interactive)
+;;   (message "Emacs ready in %s with %d garbage collections."
+;;            (format "%.2f seconds"
+;;                    (float-time
+;;                     (time-subtract after-init-time before-init-time)))
+;;            gcs-done))
 
 ;; (add-hook 'emacs-startup-hook)
 

@@ -4,7 +4,8 @@
 ;; before package and UI initialization happens.
 
 ;; Defer garbage collection further back in the startup process
-;; (setq gc-cons-threshold most-positive-fixnum)
+(setq gc-cons-threshold most-positive-fixnum
+      gc-cons-percentage 0.6)
 
 ;; In noninteractive sessions, prioritize non-byte-compiled source files to
 ;; prevent the use of stale byte-code. Otherwise, it saves us a little IO time
@@ -14,7 +15,8 @@
 ;; In Emacs 27+, package initialization occurs before `user-init-file' is
 ;; loaded, but after `early-init-file'.
 (setq package-enable-at-startup nil)
-(advice-add #'package--ensure-init-file :override #'ignore)
+
+(advice-add #'package--ensure-init-file :override #'ignore) ; DEPRECATED Removed in 28
 
 ;; Prevent the glimpse of un-styled Emacs by disabling these UI elements early.
 (push '(menu-bar-lines . 0) default-frame-alist)
@@ -31,6 +33,6 @@
 ;; cursor color is concerned).
 (advice-add #'x-apply-session-resources :override #'ignore)
 
-(setq user-emacs-directory (file-name-directory load-file-name))
+;; (setq user-emacs-directory (file-name-directory load-file-name))
 
 ;; (load (concat user-emacs-directory "snug/snug") nil 'nomessage)
