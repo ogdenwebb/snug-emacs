@@ -199,7 +199,11 @@
 
 ;; Highlight current line
 (use-package hl-line
-  :hook (prog-mode . hl-line-mode))
+  :hook (prog-mode . hl-line-mode)
+  :config
+  ;; Highlight line only in current window
+  (setq hl-line-sticky-flag nil
+        global-hl-line-sticky-flag nil))
 
 ;; Disable scroll bars
 ;; (defun snug/disable-scroll-bars (frame)
@@ -207,10 +211,20 @@
 ;;                            '((vertical-scroll-bars . nil)
 ;;                              (horizontal-scroll-bars . nil))))
 
+;; Set margin to Emacs frame
+;; (add-to-list 'default-frame-alist '(internal-border-width . 4))
+
+;; Add margins inside windows
+(setq-default left-margin-width 1
+              right-margin-width 1)
+
 ;; (add-hook 'after-make-frame-functions 'snug/disable-scroll-bars)
 
 ;; Hide default UI stuff
-(tooltip-mode -1) ; relegate tooltips to echo area only
+;; (when (fboundp 'tooltip-mode)
+;;   (tooltip-mode -1) ; relegate tooltips to echo area only
+;;   )
+
 (setq show-help-function nil) ;; hide :help-echo text
 
 ;; (menu-bar-mode -1)
