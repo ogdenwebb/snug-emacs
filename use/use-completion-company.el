@@ -137,6 +137,9 @@
 (use-package company-box
   :hook (company-mode . company-box-mode)
   :config
+  (setf (map-elt company-box-backends-colors 'company-yasnippet)
+        `(:all ,(face-foreground 'font-lock-preprocessor-face) :selected (:inherit 'company-tooltip-selection)))
+
   (setq company-box-icons-alist 'company-box-icons-all-the-icons
         company-box-doc-enable nil))
 
