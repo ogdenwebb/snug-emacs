@@ -269,6 +269,9 @@
   :straight nil
   :defer t)
 
+(use-package flymake-quickdef
+  :commands (flymake-quickdef-backend))
+
 (use-package flymake-aspell
   :commands (flymake-aspell-setup))
 
