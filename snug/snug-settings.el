@@ -117,7 +117,11 @@
         create-lockfiles nil
 
         ;; Disable mouse popup menu in mode-line
-        mode-line-default-help-echo nil)
+        mode-line-default-help-echo nil
+
+        ;; Accelerate scrolling with the trade-off of sometimes delayed accurate fontification.
+        ;; fast-but-imprecise-scrolling t
+        )
 
 
   (setq-default tab-width snug-default-indent-width
@@ -171,7 +175,13 @@
                 backward-delete-char-untabify-method 'hungry
 
                 track-eol t ; Keep cursor at end of lines.
-                line-move-visual nil)	 ; To be required by track-eol
+                line-move-visual nil ; To be required by track-eol
+
+                ;; Update UI less frequently
+                idle-update-delay 1.0
+                ;; TODO: move to jit-lock
+                jit-lock-defer-time 0
+                )
   )
 
 ;; TODO: sort
@@ -269,7 +279,7 @@
   :config
   (setq savehist-autosave-interval nil     ; save on kill only
         history-delete-duplicates t
-        history-length 500
+        history-length 100
         savehist-save-minibuffer-history t
 
         savehist-additional-variables
@@ -301,6 +311,9 @@
 
         ;; y/n instead of yes/no when quitting
         confirm-kill-emacs 'y-or-n-p
+
+        ;; No second pass of case-insensitive search over auto-mode-alist.
+        auto-mode-case-fold nil
         ))
 
 ;; (setq auto-save-file-name-transforms
@@ -384,11 +397,12 @@
 ;; ;;; Code to replace exec-path-from-shell
 
 ;; Native-comp setting for Emacs 28+
-(if (not (version< emacs-version "28.0"))
+(if (and (not (version< emacs-version "28.0")) (featurep 'nativecomp))
     (use-package comp
       :straight nil
       :config
       (setq-default comp-async-compilation t
+                    comp-deferred-compilation nil
                     comp-async-report-warnings-errors nil)))
 
 (provide 'snug-settings)
