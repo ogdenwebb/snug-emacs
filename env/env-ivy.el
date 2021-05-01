@@ -14,10 +14,6 @@
     [remap imenu-anywhere]                #'ivy-imenu-anywhere)
   :config
 
-  ;; Try to fix Emacs hangs
-  (setq ivy-dynamic-exhibit-delay-ms 20 ; or 250
-        counsel-async-filter-update-time 500000)
-
   ;; Set default ivy matchers
   (let ((standard-search-fn
          (if (featurep 'prescient)
@@ -48,6 +44,10 @@
         ivy-height 12
         ivy-fixed-height-minibuffer nil
 
+        ;; Attempt to fix Emacs hangs
+        ivy-dynamic-exhibit-delay-ms 20 ; or 250
+        counsel-async-filter-update-time 500000
+
 
         ;; ivy-re-builders-alist
         ;; '((counsel-M-x . ivy--regex-fuzzy)
@@ -58,6 +58,12 @@
         ;;   (t . ivy--regex-plus))
 
         ;; Disable initial regexp
+
+        ivy-wrap t
+        ivy-on-del-error-function #'ignore
+        ;; Allow selecting the prompt as a candidate (e.g for creating a new file)
+        ivy-use-selectable-prompt t
+
         ivy-initial-inputs-alist nil
         ;; Add ‘recentf-mode’ and bookmarks to ‘ivy-switch-buffer’.
         ivy-use-virtual-buffers t
@@ -117,7 +123,7 @@
 
 ;; More friendly interface for ivy
 (use-package ivy-rich
-  ;; :disabled t
+  :disabled t
   :after ivy
   :config
   ;; (dolist (cmd
@@ -149,7 +155,8 @@
   :after ivy)
 
 (use-package ivy-yasnippet
-  :after (ivy yasnippet))
+  :after (ivy yasnippet)
+  :general ([remap yas-insert-snippet] 'ivy-yasnippet))
 
 ;; (use-package ivy-posframe
 ;;   ;; :after (ivy posframe)
