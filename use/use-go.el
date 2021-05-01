@@ -3,19 +3,20 @@
 (use-package go-mode
   :mode (("\\.go\\'" . go-mode))
   :interpreter "go"
-  :init
-  (add-hook 'go-mode-hook (lambda ()
-                          (set (make-local-variable 'flycheck-disabled-checkers) '(go-vet))
-                          ;; (company-mode)
-                          (set (make-local-variable 'company-backends) '(company-go))
-                          (set (make-local-variable 'compile-command) (concat "go run " (shell-quote-argument buffer-file-name)))
-                          (add-hook 'before-save-hook #'gofmt-before-save nil t)
-                          ))
   :config
+  (defun snug/setup-go ()
+    (set (make-local-variable 'flycheck-disabled-checkers) '(go-vet))
+    ;; (company-mode)
+    (set (make-local-variable 'company-backends) '(company-go))
+    (set (make-local-variable 'compile-command) (concat "go run " (shell-quote-argument buffer-file-name)))
+    (add-hook 'before-save-hook #'gofmt-before-save nil t)
+    )
+
   (setq gofmt-command "goimports")
         ;; godoc-at-point-function 'godoc-gogetdoc)
   (if (not (executable-find "goimports"))
-      (warn "go-mode: couldn't find goimports; no code formatting/fixed imports on save")))
+      (warn "go-mode: couldn't find goimports; no code formatting/fixed imports on save"))
+  :hook (go-mode . snug/setup-go))
 
 ;; ;; Customize compile command to run go build
 ;; (if (not (string-match "go" compile-command))
