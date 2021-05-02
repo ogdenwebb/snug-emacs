@@ -458,24 +458,18 @@
   (setq gif-screencast-args '("--quality" "25" "--focused")
         gif-screencast-want-optimized nil))
 
-;; ;; Make scripts executable automatically.
-;; (use-package executable
-;;   :ensure nil
-;;   :hook
-;;   ((after-save .
-;;     executable-make-buffer-file-executable-if-script-p)))
-
-;; (use-package string-inflection
-;;   :bind (("C-c r r" . string-inflection-all-cycle)
-;;          ("C-c r c" . string-inflection-camelcase)
-;;          ("C-c r l" . string-inflection-lower-camelcase)
-;;          ("C-c r u" . string-inflection-underscore)
-;;          ("C-c r k" . string-inflection-kebab-case)
-;;          ("C-c r J" . string-inflection-java-style-cycle)))
+;; Make scripts executable automatically.
+(use-package executable
+  :ensure nil
+  :hook (after-save . executable-make-buffer-file-executable-if-script-p))
 
 (use-package so-long
   :defer 2
   :config
   (global-so-long-mode 1))
+
+;; underscore -> UPCASE -> CamelCase conversion of names
+(use-package string-inflection
+  :commands (string-inflection-all-cycle))
 
 (provide 'env-plugins)
