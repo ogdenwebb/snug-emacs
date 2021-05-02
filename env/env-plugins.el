@@ -323,7 +323,6 @@
 ;; (use-package ctable        :defer t)
 ;; (use-package concurrent    :defer t)
 (use-package dash            :defer t)
-(use-package dash-functional :defer t)
 ;; (use-package deferred      :defer t)
 ;; (use-package el-mock       :defer t)
 (use-package elisp-refs
