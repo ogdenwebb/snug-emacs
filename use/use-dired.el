@@ -36,6 +36,18 @@
 (use-package diredfl
   :hook (dired-mode . diredfl-mode))
 
+;; Dired Git info
+(use-package dired-git-info
+  :commands (dired-git-info-mode))
+
+;; Display subtrees in dired view.
+;; For example you can toggle subtree with TAB key
+(use-package dired-subtree
+  :after dired
+  :config
+  (setq dired-subtree-use-backgrounds nil
+        dired-subtree-line-prefix "  "))
+
 (use-package dired-async
   :straight (:host github :repo "jwiegley/emacs-async" :files ("dired-async.el"))
   :after (dired async)
