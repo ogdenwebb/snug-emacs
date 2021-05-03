@@ -24,6 +24,7 @@
 
 (defun snug/load-theme-advice (f theme &optional no-confirm no-enable &rest args)
   "Advice `load-theme':
+
 1. Disables enabled themes for a clean slate.
 2. Calls functions registered using `snug/add-theme-hook'."
   (unless no-enable
@@ -53,10 +54,12 @@
           ("NOTE"      . ,(face-foreground 'success)))))
 
 
-(use-package autothemer)
+(use-package autothemer
+  :demand t)
 
 (use-package kaolin-themes
   :straight nil
+  :demand t
   :requires autothemer
   :load-path "local/emacs-kaolin-themes"
   :config
@@ -298,7 +301,13 @@
 
 (use-package indent-guide
   :commands (indent-guide-mode indent-guide-global-mode)
-  :hook (prog-mode . indent-guide-mode))
+  :hook ((prog-mode . indent-guide-mode)
+         (evil-visual-state-entry . snug/disable-indent-guide)
+         (evil-visual-state-exit  . indent-guide-mode))
+  :config
+  (defun snug/disable-indent-guide ()
+    (interactive)
+    (indent-guide-mode -1)))
 
 ;; Line numbering
 (use-package nlinum
