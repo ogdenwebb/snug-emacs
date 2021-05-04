@@ -111,4 +111,27 @@
   (setq uniquify-buffer-name-style 'forward))
 
 
+(use-package unfill
+  :commands (unfill-region unfill-paragraph unfill-toggle))
+
+;; Make scripts executable automatically.
+(use-package executable
+  :ensure nil
+  :hook (after-save . executable-make-buffer-file-executable-if-script-p))
+
+;; Better help
+(use-package helpful
+  :if (>= emacs-major-version 25)
+  :defer 1
+  ;; :bind (([remap describe-function] . helpful-callable)
+  ;;        ([remap describe-variable] . helpful-variable)
+  ;;        ([remap describe-key] . helpful-key))
+  :init
+
+  (defalias 'describe-key 'helpful-key)
+  :config
+  )
+
+
+
 (provide 'env-behavior)

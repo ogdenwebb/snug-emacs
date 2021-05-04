@@ -101,13 +101,6 @@
   :commands (drag-stuff-left drag-stuff-up drag-stuff-down drag-stuff-right))
 ;; :config (drag-stuff-global-mode 1))
 
-;;;###autoload
-(defun snug/set-no-fringes ()
-  "Remove fringes in window. Mainly uses as hook."
-  (when (display-graphic-p)
-    (setq left-fringe-width 0)
-    (setq right-fringe-width 0)))
-
 (use-package bug-hunter
   :commands (bug-hunter-init-file bug-hunter-file))
 
@@ -238,39 +231,6 @@
                                  (nospace . "-")
                                  (case-fn . downcase))
         deft-recursive t))
-
-;; Better help
-(use-package helpful
-  :if (>= emacs-major-version 25)
-  :defer 1
-  ;; :bind (([remap describe-function] . helpful-callable)
-  ;;        ([remap describe-variable] . helpful-variable)
-  ;;        ([remap describe-key] . helpful-key))
-  :init
-  (with-eval-after-load 'counsel
-    (setq-default counsel-describe-function-function #'helpful-callable
-                  counsel-describe-variable-function #'helpful-variable))
-
-  (defalias 'describe-key 'helpful-key)
-  :config
-  (defun counsel-helpful-keymap-describe ()
-    "Select keymap with ivy, display help with helpful"
-    (interactive)
-    (ivy-read "describe keymap: " (let (cands)
-                                    (mapatoms
-                                     (lambda (x)
-                                       (and (boundp x) (keymapp (symbol-value x))
-                                            (push (symbol-name x) cands))))
-                                    cands)
-              :require-match t
-              :history 'counsel-describe-keymap-history
-              :sort t
-              :preselect (ivy-thing-at-point)
-              :keymap counsel-describe-map
-              :caller 'counsel-helpful-keymap-describe
-              :action (lambda (map-name)
-                        (helpful-variable (intern map-name)))))
-  )
 
 ;; Simple but effective sorting and filtering for Emacs.
 (use-package prescient
@@ -422,9 +382,6 @@
 ;;     (let ((inhibit-read-only t))
 ;;       (ansi-color-apply-on-region (point-min) (point-max)))))
 
-(use-package unfill
-  :commands (unfill-region unfill-paragraph unfill-toggle))
-
 ;; (use-package yafolding
 ;;   :defer t)
 
@@ -457,11 +414,6 @@
   (setq gif-screencast-args '("--quality" "25" "--focused")
         gif-screencast-want-optimized nil))
 
-;; Make scripts executable automatically.
-(use-package executable
-  :ensure nil
-  :hook (after-save . executable-make-buffer-file-executable-if-script-p))
-
 (use-package so-long
   :defer 2
   :config
@@ -470,5 +422,6 @@
 ;; underscore -> UPCASE -> CamelCase conversion of names
 (use-package string-inflection
   :commands (string-inflection-all-cycle))
+
 
 (provide 'env-plugins)
