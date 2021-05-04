@@ -11,10 +11,10 @@
 
 ;; To make sorting and filtering more intelligent
 (use-package selectrum-prescient
-  :hook (selectrum-mode . selectrum-prescient-mode)
-  )
+  :hook (selectrum-mode . selectrum-prescient-mode))
 
 (use-package consult
+  :defer t
   :after selectrum)
 
 (use-package consult-selectrum
@@ -43,7 +43,7 @@
 ;;   (embark-collect-mode . embark-consult-preview-minor-mode))
 
 (use-package ctrlf
-  :defer .5
+  :defer 2
   :config
   (ctrlf-mode t))
 
