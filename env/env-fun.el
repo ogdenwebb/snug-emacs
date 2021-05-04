@@ -228,5 +228,12 @@ With prefix arg, find the previous file."
                      (length files))))
       (find-file (nth pos files)))))
 
+;;;###autoload
+(defun snug/set-no-fringes ()
+  "Remove fringes in window. Mainly uses as hook."
+  (when (display-graphic-p)
+    (setq left-fringe-width 0)
+    (setq right-fringe-width 0)))
+
 
 (provide 'env-fun)
