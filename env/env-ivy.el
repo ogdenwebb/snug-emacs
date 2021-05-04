@@ -114,7 +114,31 @@
         ;; counsel-rg-base-command "rg -i -M 120 --no-heading --line-number --color never %s .")
   (global-set-key (kbd "M-x") 'counsel-M-x)
   (global-set-key (kbd "C-x C-f") 'counsel-find-file)
-  (define-key read-expression-map (kbd "C-r") 'counsel-expression-history))
+  (define-key read-expression-map (kbd "C-r") 'counsel-expression-history)
+
+  ;; Helpful integration
+  (setq-default counsel-describe-function-function #'helpful-callable
+                counsel-describe-variable-function #'helpful-variable)
+
+  (defun counsel-helpful-keymap-describe ()
+    "Select keymap with ivy, display help with helpful"
+    (interactive)
+    (ivy-read "describe keymap: " (let (cands)
+                                    (mapatoms
+                                     (lambda (x)
+                                       (and (boundp x) (keymapp (symbol-value x))
+                                            (push (symbol-name x) cands))))
+                                    cands)
+              :require-match t
+              :history 'counsel-describe-keymap-history
+              :sort t
+              :preselect (ivy-thing-at-point)
+              :keymap counsel-describe-map
+              :caller 'counsel-helpful-keymap-describe
+              :action (lambda (map-name)
+                        (helpful-variable (intern map-name)))))
+
+  )
 
 (use-package counsel-projectile
   :after (counsel projectile)
@@ -123,7 +147,6 @@
 
 ;; More friendly interface for ivy
 (use-package ivy-rich
-  :disabled t
   :after ivy
   :config
   ;; (dolist (cmd
@@ -131,11 +154,11 @@
   ;;            ivy-switch-buffer-other-window
   ;;            counsel-projectile-switch-to-buffer))
   ;;   (ivy-set-display-transformer cmd #'ivy-rich-switch-buffer-transformer))
-  (setq ivy-rich-display-transformers-list (plist-put
-            ivy-rich-display-transformers-list 'counsel-helpful-keymap-describe
-            '(:columns ((counsel-describe-variable-transformer (:width 40))
-                  (ivy-rich-counsel-variable-docstring (:face font-lock-doc-face))))))
-  (ivy-rich-set-display-transformer)
+  ;; (setq ivy-rich-display-transformers-list (plist-put
+  ;;           ivy-rich-display-transformers-list 'counsel-helpful-keymap-describe
+  ;;           '(:columns ((counsel-describe-variable-transformer (:width 40))
+  ;;                 (ivy-rich-counsel-variable-docstring (:face font-lock-doc-face))))))
+  ;; (ivy-rich-set-display-transformer)
   (setq ivy-rich-path-style 'abbrev)
   (ivy-rich-mode t))
 
