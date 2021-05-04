@@ -29,6 +29,21 @@ i.e. :keyword to \"keyword\"."
   (declare (doc-string 1))
   `(lambda () (interactive) ,@body))
 
+;; (defmacro quiet! (&rest forms)
+;;   "Run FORMS without making any noise."
+;;   `(if init-file-debug
+;;        (progn ,@forms)
+;;      (let ((message-log-max nil))
+;;        (with-temp-message (or (current-message) "") ,@forms))))
+
+;; (defun quiet-function-advice (orig-fn &rest args)
+;;   "Advice used to make a function quiet.
+;; Call ORIG-FN with ARGS and suppress the output.
+
+;; Example:
+;;   (advice-add 'orig-fn :around #'quiet-function-advice)"
+;;   (quiet! (apply orig-fn args)))
+
 ;; Detect system type
 (defconst *IS-LINUX*   (eq system-type 'gnu/linux))
 (defconst *IS-MAC*     (eq system-type 'darwin))
