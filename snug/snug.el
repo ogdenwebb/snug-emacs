@@ -116,7 +116,8 @@
   :defer t)
 
 ;; Help keeping emacs directory clean
-(use-package no-littering)
+(use-package no-littering
+	     :demand t)
 
 ;; Define directories
 (eval-and-compile
