@@ -279,7 +279,7 @@
   :config
   (setq savehist-autosave-interval nil     ; save on kill only
         history-delete-duplicates t
-        history-length 100
+        history-length 300
         savehist-save-minibuffer-history t
 
         savehist-additional-variables
@@ -287,6 +287,11 @@
           mark-ring global-mark-ring       ; persist marks
           search-ring regexp-search-ring)) ; persist searches
   )
+
+(use-package bookmark
+  :defer t
+  :config
+  (setq bookmark-save-flag t))
 
 ;; File-related settings
 (use-package files
@@ -315,6 +320,15 @@
         ;; No second pass of case-insensitive search over auto-mode-alist.
         auto-mode-case-fold nil
         ))
+
+(use-package find-file
+  :defer t
+  :config
+  (setq  ff-quiet-mode t))
+;; TODO
+  ;; (put 'ff-search-directories
+  ;;      'safe-local-variable
+  ;;      (lambda (x) (cl-every #'stringp x))))
 
 ;; (setq auto-save-file-name-transforms
 ;; `((".*" "~/.cache/emacs/saves/" t)))
