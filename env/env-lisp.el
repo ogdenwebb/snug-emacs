@@ -3,6 +3,15 @@
   :straight nil
   :hook (emacs-lisp-mode . eldoc-mode))
 
+;; Improve readability of escape characters in ELisp regular expressions
+(use-package easy-escape
+  :hook ((lisp-mode emacs-lisp-mode) . easy-escape-minor-mode)
+  :config
+  (set-face-attribute 'easy-escape-face nil :foreground (face-foreground 'error))
+  (setq easy-escape-character ?╲))
+
+(setq test-regex "\\*\\(?:.\\|\n\\)*?\\*/\\|//\\(?:.\\|\n\\)*?$")
+
 (use-package litable
   :disabled t)
 
