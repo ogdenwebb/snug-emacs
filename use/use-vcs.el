@@ -78,4 +78,8 @@
 ;; :config
 ;; (setq git-gutter-fr:side 'right-fringe))
 
+;; Browse target page on github/bitbucket or other sources
+(use-package browse-at-remote
+  :commands (browse-at-remote bar-browse))
+
 (provide 'use-vcs)
