@@ -183,7 +183,6 @@
 
 ;; TODO: Disable in terminal
 (use-package eldoc-box
-  :disabled t
   :if snug-with-eldoc-box
   :hook (eldoc-mode . eldoc-box-hover-mode))
 
@@ -210,6 +209,9 @@
   (setq imenu-list-mode-line-format nil
         imenu-list-focus-after-activation t
         imenu-list-size 32))
+
+(use-package imenu-extra
+  :functions (imenu-extra-auto-setup))
 
 ;; TODO: server restart
 (use-package restart-emacs
