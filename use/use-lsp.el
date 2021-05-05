@@ -56,6 +56,9 @@
 
 (use-package eglot
   :config
+  (setq eglot-autoshutdown t
+        eglot-confirm-server-initiated-edits nil)
+
   (when (executable-find "lua-lsp")
       (add-to-list 'eglot-server-programs '(lua-mode . ("lua-lsp")))
       (add-hook 'lua-mode-hook #'eglot-ensure))

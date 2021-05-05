@@ -1,6 +1,5 @@
 ;;; Org-mode settings  -*- lexical-binding: t -*-
 
-
 ;; ;; Split current tree into new buffer
 ;; (defun split-and-indirect-orgtree ()
 ;;   "Splits window to the right and opens an org tree section in it"
