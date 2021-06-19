@@ -32,16 +32,17 @@
 ;; TODO:
 ;; (defcustom snug-org-headline-rescale nil)
 
-;; Emacs general setings
+;;; Emacs general setings
+
 ;; Set UTF-8 as default encoding
-(set-charset-priority 'unicode)
-(prefer-coding-system 'utf-8)
+;; (set-charset-priority 'unicode)
+;; (prefer-coding-system 'utf-8)
 (set-language-environment "UTF-8")
-(set-terminal-coding-system 'utf-8)
-(set-keyboard-coding-system 'utf-8)
-(set-selection-coding-system 'utf-8)
-(setq buffer-file-coding-system 'utf-8
-      locale-coding-system 'utf-8)
+;; (set-terminal-coding-system 'utf-8)
+;; (set-keyboard-coding-system 'utf-8)
+;; (set-selection-coding-system 'utf-8)
+;; (setq buffer-file-coding-system 'utf-8
+;;       locale-coding-system 'utf-8)
 
 ;; Disable 'wrote file' message
 ;; (setq save-silently t)
@@ -79,6 +80,7 @@
 ;; Various Emacs settings
 ;; Set variables defined in C source code
 (use-package emacs
+  :hook (eval-expression-minibuffer-setup . show-paren-mode)
   :config
   (setq frame-resize-pixelwise t  ; Resize frame pixelwise
         ;; frame-inhibit-implied-resize t
@@ -217,6 +219,7 @@
   :straight nil
   :config
   (setq compilation-always-kill t
+        compilation-scroll-output t
         compilation-ask-about-save nil
         compilation-skip-threshold 2))
 
@@ -241,8 +244,10 @@
   :defer t
   :config
   (setq-default whitespace-line-column 80
-                whitespace-style '(face spaces tabs newline space-mark tab-mark
-                                        newline-mark lines-tail empty)))
+                ;; NOTE: break compability with whitespace-cleanup
+                ;; whitespace-style '(face spaces tabs newline space-mark tab-mark
+                                        ;; newline-mark lines-tail empty))
+  ))
 
 ;; Auto reload buffer if file was changed
 (use-package autorevert
