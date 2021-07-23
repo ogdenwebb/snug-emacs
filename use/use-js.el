@@ -28,6 +28,11 @@
   (add-hook 'js-mode-hook #'indium-interaction-mode))
 
 (use-package npm
-  :after transient)
+  :disabled t
+  :commands (npm))
+
+(use-package npm-mode)
+  
+
 
 (provide 'use-js)

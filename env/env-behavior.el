@@ -129,9 +129,13 @@
   :init
 
   (defalias 'describe-key 'helpful-key)
-  :config
-  )
+  :config)
 
 
+(use-package separedit
+  :commands (separedit)
+  :general
+  (general-define-key :keymaps '(minibuffer-local-map prog-mode-map)
+                      "C-x C-e" 'separedit))
 
 (provide 'env-behavior)

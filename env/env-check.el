@@ -267,7 +267,9 @@
 
 (use-package flymake
   :straight nil
-  :defer t)
+  :defer t
+  :config
+  (remove-hook 'flymake-diagnostic-functions 'flymake-proc-legacy-flymake))
 
 (use-package flymake-quickdef
   :commands (flymake-quickdef-backend))

@@ -1,5 +1,6 @@
 ;; ;; Language server protocol support -*- lexical-binding: t -*-
 (use-package lsp-mode
+  :disabled t
   :straight nil
   ;; :config
   ;; (setq lsp-log-io t)

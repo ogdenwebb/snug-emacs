@@ -22,6 +22,7 @@
 (setq file-name-handler-alist nil
       byte-compile--use-old-handlers nil
       load-prefer-newer t
+      ;; Don't load site packages
       site-run-file nil)
 
 ;; Advanced logging
@@ -36,6 +37,10 @@
 
 ;; Ensure `snug' is in `load-path'
 (add-to-list 'load-path (file-name-directory load-file-name))
+
+(autoload #'straight-x-pull-all "straight-x" "" t)
+(autoload #'straight-x-fetch-all "straight-x" "" t)
+(autoload #'straight-x-freeze-versions "straight-x" "" t)
 
 ;; Require necessary snug things
 (require 'snug-core)
@@ -58,7 +63,14 @@
 (setq straight-check-for-modifications nil
       ;; Don't clone the whole repo
       straight-vc-git-default-clone-depth 1
-      straight-recipes-emacsmirror-use-mirror t)
+      straight-recipes-emacsmirror-use-mirror t
+
+      ;; Configure build directory considering Emacs version
+      ;; straight-build-dir (format "build-%s" emacs-version)
+
+      ;; We have it in early-init.el
+      straight-enable-package-integration nil
+      )
 
 ;; Security settings
 ;; Emacs is essentially one huge security vulnerability, what with all the
@@ -143,8 +155,9 @@
   ;;   "Directory for cache.")
   )
 
-;; Set initial mode to text-mode instead of elisp
+;; Don't load any other files besides this config
 (setq inhibit-default-init t
+      ;; Set initial mode to text-mode instead of elisp
       initial-major-mode 'fundamental-mode)
 
 ;; Use Common Lisp library

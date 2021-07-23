@@ -128,9 +128,11 @@
 ;; Play with ligatures
 (add-to-list 'default-frame-alist '(font . "D2Coding ligature-13"))
 
+;; TODO conflicts with separedit package
 (use-package ligature
   :disabled t
   :straight (:host github :repo "mickeynp/ligature.el")
+  :hook (prog-mode . ligature-mode)
   :config
   ;; Enable the "www" ligature in every possible major mode
   (ligature-set-ligatures 't '("www"))
@@ -155,8 +157,14 @@
                                        ;; "\\" "://"))
   ;; Enables ligature checks globally in all buffers. You can also do it
   ;; per mode with `ligature-mode'.
-  (global-ligature-mode t)
+  ;; (global-ligature-mode t)
   )
+
+
+(use-package prog-mode
+  :straight nil
+  :init
+  (setq prettify-symbols-unprettify-at-point t))
 
 ;; Set up fixed-pitch (monospace) and normal font
 (defun snug/setup-fonts ()

@@ -20,6 +20,7 @@
   (add-to-list 'reverse-im-input-methods "russian-computer"))
 
 (use-package general
+  :demand t
   :config
   (general-evil-setup t))
 

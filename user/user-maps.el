@@ -341,6 +341,7 @@
                       "O"    'snug/haskell-evil-open-above)
 
   (general-define-key :keymaps 'ivy-minibuffer-map
+                      "C-x C-e" 'separedit
                       "C-SPC"  'ivy-call-and-recenter
                       "C-r"    'evil-paste-from-register
                       "C-k"    'ivy-previous-line

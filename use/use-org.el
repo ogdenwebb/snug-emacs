@@ -10,10 +10,8 @@
 
 ;; MAYBE: org-metaleft org-metadown org-metaup org-metaright
 
-;; TODO: use org-plus-contrib
 ;; prolly need hook instead of :config
 (use-package org
-  :straight org-plus-contrib
   :preface
   (defun snug/org-init-hook ()
     ;; Fit image into the screen
@@ -169,6 +167,14 @@
                       :states '(insert)
                       "RET" 'org-return))
 ;; "RET" 'org-return-indent))
+
+;; (use-package org-contrib
+;;   :straight (:type git :repo "https://git.sr.ht/~bzg/org-contrib"))
+
+;; (use-package org-contrib
+;;   :straight (:host nil :repo "https://git.sr.ht/~bzg/org-contrib"
+;;            :files ("lisp/*.el")))
+
 
 (use-package org-tempo
   :straight nil

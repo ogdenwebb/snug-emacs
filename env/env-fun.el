@@ -235,5 +235,15 @@ With prefix arg, find the previous file."
     (setq left-fringe-width 0)
     (setq right-fringe-width 0)))
 
+;; Prevent window from openning another buffer in their areas
+;;;###autoload
+(defun snug/toggle-dedicated-window ()
+  "Toggle selected window as dedicated window."
+  (interactive)
+  (set-window-dedicated-p (selected-window)
+                          (not (window-dedicated-p (selected-window)))))
+
+
+
 
 (provide 'env-fun)
