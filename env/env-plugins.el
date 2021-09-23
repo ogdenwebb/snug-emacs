@@ -82,7 +82,9 @@
 
 ;; Delete trailing whitespace on save
 (use-package whitespace-cleanup-mode
-  :hook (prog-mode . whitespace-cleanup-mode))
+  :hook (prog-mode . whitespace-cleanup-mode)
+  :config
+  (setq whitespace-cleanup-mode-only-if-initially-clean nil))
 
 ;; (add-hook 'prog-mode-hook
 ;;           (lambda ()
@@ -112,6 +114,7 @@
 ;; Emacs minor mode that watches for long pauses and reports them.
 ;; NOTE: You can run `explain-pause-profiles' to view the profile report.
 (use-package explain-pause-mode
+  ;; :disabled t
   :straight (:host github :repo "lastquestion/explain-pause-mode")
   :hook (after-init . explain-pause-mode))
 
@@ -242,29 +245,6 @@
         prescient-filter-method '(literal regexp initialism fuzzy) ; or fuzzy
         ;; prescient-save-file (locate-user-emacs-file "cache/prescient-save.el")
         )
-  )
-
-;; TODO: setup for counsel-ag
-(use-package ivy-prescient
-  :hook (ivy-mode . ivy-prescient-mode)
-  :config
-  (setq ivy-prescient-sort-commands
-        '(:not counsel-grep
-               counsel-rg
-               counsel-ag
-               counsel-recentf
-               counsel-switch-buffer
-               counsel-load-theme
-               ivy-switch-buffer
-               swiper
-               swiper-multi)
-        ivy-prescient-retain-classic-highlighting t
-        ivy-prescient-enable-filtering nil
-        ivy-prescient-enable-sorting t)
-
-  (defun ivy-prescient-non-fuzzy (str)
-    (let ((prescient-filter-method '(literal regexp)))
-      (ivy-prescient-re-builder str)))
   )
 
 (use-package selectrum-prescient
@@ -423,6 +403,7 @@
 
 ;; underscore -> UPCASE -> CamelCase conversion of names
 (use-package string-inflection
+  :defer t
   :commands (string-inflection-all-cycle))
 
 
