@@ -79,6 +79,7 @@
 
   (use-package consult-projectile
     :straight nil
+    :general
     ([remap projectile-find-file] #'consult-projectile))
   )
 
