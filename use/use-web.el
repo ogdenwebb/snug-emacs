@@ -3,6 +3,7 @@
 ;; sudo npm install -g csslint
 (use-package web-mode
   :mode "\\.html\\'"
+  :mode "\\.crotmp\\'"
   :mode "\\.p?html?$"
   :mode "\\.\\(tpl\\|blade\\)\\(\\.php\\)?$"
   :mode "\\.erb$"
@@ -86,6 +87,7 @@
   (add-to-list 'company-backends '(company-css company-web-html company-files)))
 
 (use-package auto-rename-tag
+  :disabled t
   :hook (web-mode . auto-rename-tag-mode))
 
 (provide 'use-web)

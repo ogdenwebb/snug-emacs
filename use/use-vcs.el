@@ -36,6 +36,7 @@
 
 ;; Show source files' TODOs (and FIXMEs, etc) in Magit status buffer
 (use-package magit-todos
+  :disabled t
   :after magit
   ;; :hook (magit-status-mode . magit-todos-mode))
   :config
