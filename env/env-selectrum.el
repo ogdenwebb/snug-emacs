@@ -13,6 +13,7 @@
 (use-package selectrum-prescient
   :hook (selectrum-mode . selectrum-prescient-mode))
 
+;; Consulting completing-read
 (use-package consult
   :defer t
   :after selectrum)
@@ -21,6 +22,12 @@
   :straight nil
   :after consult)
 
+;; Consult integration for projectile
+(use-package consult-projectile
+  :after (consult projectile)
+  :straight (consult-projectile :type git :host gitlab :repo "OlMon/consult-projectile" :branch "master"))
+
+;; Enrich existing commands with completion annotations
 (use-package marginalia
   :after selectrum
   :config
@@ -29,6 +36,17 @@
               (lambda () (when (bound-and-true-p selectrum-mode) (selectrum-exhibit))))
 
   (marginalia-mode))
+
+;; Emacs finally learns how to ctrl+F.
+(use-package ctrlf
+  :defer 2
+  :config
+  (ctrlf-mode t)
+  :general
+  (general-def ctrlf-minibuffer-mode-map
+    "C-n" #'ctrlf-forward-default
+    "C-p" #'ctrlf-backward-default))
+
 
 ;; TODO provides ivy-occur alternative
 ;; (use-package embark)
@@ -42,13 +60,26 @@
 ;;   :hook
 ;;   (embark-collect-mode . embark-consult-preview-minor-mode))
 
-(use-package ctrlf
-  :defer 2
-  :config
-  (ctrlf-mode t))
 
-(use-package consult-projectile
-  :after (consult projectile)
-  :straight (consult-projectile :type git :host gitlab :repo "OlMon/consult-projectile" :branch "master"))
+;; Remap commands
+(when (eq snug-default-completion-system 'selectrum)
+  (use-package consult
+    :straight nil
+    :general
+    ([remap recentf-open-files]            #'consult-recent-file)
+    ([remap list-buffers]                  #'consult-buffer)
+    ([remap switch-to-buffer]              #'consult-buffer)
+    ([remap switch-to-buffer-other-window] #'consult-buffer-other-window)
+
+    ([remap imenu]                         #'consult-imenu)
+    ([remap load-theme]                    #'consult-theme)
+    ([remap yank-pop]                      #'consult-yank-pop)
+    ([remap bookmark-jump]                 #'consult-bookmark)
+    )
+
+  (use-package consult-projectile
+    :straight nil
+    ([remap projectile-find-file] #'consult-projectile))
+  )
 
 (provide 'env-selectrum)

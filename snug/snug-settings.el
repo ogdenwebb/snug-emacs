@@ -29,6 +29,10 @@
   "Set default indentation width. By default is 4."
   :group 'snug)
 
+(defcustom snug-default-completion-system 'selectrum
+  "Set default (preferable) completion system, e.g. ivy, helm or selectrum."
+  :group 'snug)
+
 ;; TODO:
 ;; (defcustom snug-org-headline-rescale nil)
 

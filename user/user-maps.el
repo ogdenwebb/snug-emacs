@@ -25,22 +25,19 @@
    "4" '(imenu-list-smart-toggle :wk "Imenu-list")
    "5" '(hydra-ispell/body :wk "Flyspell language")
    ;; "6" 'ivy-resume
-   "k" 'counsel-rg
-   ;; "k" 'sel/rg
+   "k" 'consult-ripgrep
    "r" 'quickrun
    "R" 'quickrun-shell
    "/" 'evil-ex-search-forward
 
    ;; Open things quickly
-   "o r" '(counsel-recentf :wk "Recentf files")
-   ;; "o r" '(sel/recentf :wk "Recentf files")
+   "o r" '(recentf-open-files :wk "Recent files")
    ;; "o f" 'counsel-file-jump
    ;; "o f" '(counsel-fzf :wk "fzf")
    ;; "o F" '(counsel-find-file :wk "Find files")
    "o b" '(switch-to-buffer :wk "Switch buffer")
-   ;; "o l" '(counsel-bookmark :wk "Bookmarks")
    "o l" '(bookmark-jump :wk "Bookmarks")
-   ;; "o y" '(counsel-yank-pop :wk "Yank ring")
+   "o y" '(yank-pop :wk "Yank ring")
 
    ;; Find [files]
    "f"   '(:ignore t :wk "Files")
@@ -70,8 +67,6 @@
    ;; Buffers
    "b p" '(previous-buffer :wk "Previous buffer")
    "b n" '(next-buffer :wk "Next buffer")
-   ;; "b l" '(ivy-switch-buffer :wk "Switch buffer")
-   ;; "b b" '(ivy-switch-buffer :wk "Switch buffer")
    "b l" '(switch-to-buffer :wk "Switch buffer")
    "b b" '(switch-to-buffer :wk "Switch buffer")
    "b w" '(revert-buffer)
@@ -89,7 +84,7 @@
    "h l" '(find-library :wk "Find library")
    "h i" 'info
 
-   "h ." '(helpful-at-point :wk "Describe thing at point" :predicate (featurep 'helpful))
+   "h ." '(ghelp-describe-at-point :wk "Describe thing at point" :predicate (featurep 'ghelp))
 
    ;; Window management
    "w c" '(delete-window :wk "Close split")
@@ -150,8 +145,8 @@
 
    ;; Projectile
    "p p" '(projectile-switch-project :wk "Switch project")
-   "p f" '(counsel-projectile-find-file :wk "Find file in project")
-   "p k" '(projectile-ag :wk "Grep in project")
+   "p f" '(projectile-find-file :wk "Find file in project" :predicate (eq snug-default-completion-system 'ivy))
+   "p k" '(projectile-ripgrep :wk "Grep in project")
    "p r" '(projectile-replace :wk "Replace in project")
    "p t" '(projectile-regenerate-tags :wk "Update tags for project"))
 
@@ -167,7 +162,7 @@
 
    ;; Insert
    ;; "i y" 'counsel-yank-pop
-   "i y" 'sel/yank-pop
+   ;; "i y" 'sel/yank-pop
    "i s" 'yas-insert-snippet
    )
 
@@ -188,7 +183,6 @@
    :keymaps '(normal visual)
    "g x"  'browse-url-at-point
    "/"    'swiper
-   ;; "/"    'sel/swiper
    ;; Navigation between windows
    "C-h"  'evil-window-left
    "C-j"  'evil-window-down
@@ -340,17 +334,17 @@
                       "o"    'snug/haskell-evil-open-below
                       "O"    'snug/haskell-evil-open-above)
 
-  (general-define-key :keymaps 'ivy-minibuffer-map
+  (general-define-key :keymaps  'ivy-minibuffer-map
                       "C-x C-e" 'separedit
-                      "C-SPC"  'ivy-call-and-recenter
-                      "C-r"    'evil-paste-from-register
-                      "C-k"    'ivy-previous-line
-                      "C-j"    'ivy-next-line
-                      "C-l"    'ivy-alt-done
-                      "C-w"    'ivy-backward-kill-word
-                      "C-u"    'ivy-kill-line
-                      "C-f"    'forward-word
-                      "C-b"    'backward-word)
+                      "C-SPC"   'ivy-call-and-recenter
+                      "C-r"     'evil-paste-from-register
+                      "C-k"     'ivy-previous-line
+                      "C-j"     'ivy-next-line
+                      "C-l"     'ivy-alt-done
+                      "C-w"     'ivy-backward-kill-word
+                      "C-u"     'ivy-kill-line
+                      "C-f"     'forward-word
+                      "C-b"     'backward-word)
 
   ;; TODO:
   ;; (general-omap
@@ -361,20 +355,20 @@
 
   ;; Company maps
   (general-define-key
-   :keymaps 'company-active-map
-   "C-w"        nil
-   "C-h"        'company-quickhelp-manual-begin
-   "C-n"        'company-select-next
-   "C-o"        'company-search-kill-others
-   "C-p"        'company-select-previous
-   "C-s"        'company-filter-candidates
-   "C-S-h"      'company-show-doc-buffer
-   "C-S-s"      'company-search-candidates
-   "C-SPC"      'company-complete-common
-   "RET"        'company-complete-selection
-   [return]     'company-complete-selection
-   [tab]        'company-complete-common-or-cycle
-   [backtab]    'company-select-previous)
+   :keymaps  'company-active-map
+   "C-w"     nil
+   "C-h"     'company-quickhelp-manual-begin
+   "C-n"     'company-select-next
+   "C-o"     'company-search-kill-others
+   "C-p"     'company-select-previous
+   "C-s"     'company-filter-candidates
+   "C-S-h"   'company-show-doc-buffer
+   "C-S-s"   'company-search-candidates
+   "C-SPC"   'company-complete-common
+   "RET"     'company-complete-selection
+   [return]  'company-complete-selection
+   [tab]     'company-complete-common-or-cycle
+   [backtab] 'company-select-previous)
 
   ;; Help map
   (general-define-key

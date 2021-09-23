@@ -6,12 +6,6 @@
 
 (use-package ivy
   :hook (after-init . ivy-mode)
-  :general
-  (general-def ivy-mode-map
-    [remap list-buffers]                  #'ivy-switch-buffer
-    [remap switch-to-buffer]              #'ivy-switch-buffer
-    [remap switch-to-buffer-other-window] #'ivy-switch-buffer-other-window
-    [remap imenu-anywhere]                #'ivy-imenu-anywhere)
   :config
 
   ;; Set default ivy matchers
@@ -90,20 +84,6 @@
 
 (use-package counsel
   :hook (ivy-mode . counsel-mode)
-  :general
-  (general-def counsel-mode-map
-    [remap execute-extended-command]  #'counsel-M-x
-    [remap find-library]  #'counsel-find-library
-    [remap describe-bindings]   #'counsel-descbinds
-    [remap describe-face]   #'counsel-describe-face
-    [remap list-faces-display]  #'counsel-faces
-    [remap imenu]  #'counsel-imenu
-    [remap load-library]  #'counsel-load-library
-    [remap load-theme]  #'counsel-load-theme
-    [remap yank-pop]  #'counsel-yank-pop
-    [remap info-lookup-symbol]  #'counsel-info-lookup-symbol
-    [remap pop-to-mark-command]  #'counsel-mark-ring
-    [remap bookmark-jump]  #'counsel-bookmark)
   :config
   (setq counsel-find-file-ignore-regexp (regexp-opt '(".jpg" ".png" ".jpeg")))
   ;; (setq counsel-grep-base-command "ag -S --nogroup --nocolor --nofilename --numbers '%s' %s")
@@ -192,5 +172,33 @@
 ;;         (counsel-M-x     . ivy-posframe-display-at-frame-center)
 ;;         (t               . ivy-posframe-display)))
 ;;   )
+
+(when (eq snug-default-completion-system 'ivy)
+  (use-package ivy
+    :straight nil
+    :general
+    (general-def ivy-mode-map
+      [remap list-buffers]                  #'ivy-switch-buffer
+      [remap switch-to-buffer]              #'ivy-switch-buffer
+      [remap switch-to-buffer-other-window] #'ivy-switch-buffer-other-window
+      [remap imenu-anywhere]                #'ivy-imenu-anywhere))
+
+  (use-package counsel
+    :straight nil
+    :general
+    (general-def counsel-mode-map
+      [remap execute-extended-command]  #'counsel-M-x
+      [remap find-library]  #'counsel-find-library
+      [remap describe-bindings]   #'counsel-descbinds
+      [remap describe-face]   #'counsel-describe-face
+      [remap list-faces-display]  #'counsel-faces
+      [remap imenu]  #'counsel-imenu
+      [remap load-library]  #'counsel-load-library
+      [remap load-theme]  #'counsel-load-theme
+      [remap yank-pop]  #'counsel-yank-pop
+      [remap info-lookup-symbol]  #'counsel-info-lookup-symbol
+      [remap pop-to-mark-command]  #'counsel-mark-ring
+      [remap bookmark-jump]  #'counsel-bookmark))
+  )
 
 (provide 'env-ivy)
