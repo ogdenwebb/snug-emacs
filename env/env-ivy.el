@@ -201,4 +201,28 @@
       [remap bookmark-jump]  #'counsel-bookmark))
   )
 
+
+;; TODO: setup for counsel-ag
+(use-package ivy-prescient
+  :hook (ivy-mode . ivy-prescient-mode)
+  :config
+  (setq ivy-prescient-sort-commands
+        '(:not counsel-grep
+               counsel-rg
+               counsel-ag
+               counsel-recentf
+               counsel-switch-buffer
+               counsel-load-theme
+               ivy-switch-buffer
+               swiper
+               swiper-multi)
+        ivy-prescient-retain-classic-highlighting t
+        ivy-prescient-enable-filtering nil
+        ivy-prescient-enable-sorting t)
+
+  (defun ivy-prescient-non-fuzzy (str)
+    (let ((prescient-filter-method '(literal regexp)))
+      (ivy-prescient-re-builder str)))
+  )
+
 (provide 'env-ivy)
