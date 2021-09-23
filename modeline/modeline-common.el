@@ -78,6 +78,7 @@
     "Display evil state as text symbol."
     (when (telephone-line-selected-window-active)
       (let ((tag (cond
+                  ((not (boundp 'evil-state))       "")
                   ((string= evil-state "normal")    ":")
                   ((string= evil-state "insert")    ">")
                   ((string= evil-state "replace")   "~")
