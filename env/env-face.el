@@ -66,7 +66,8 @@
   (setq kaolin-themes-hl-line-colored nil
         kaolin-themes-git-gutter-solid t
         kaolin-themes-underline-wave t
-        kaolin-themes-modeline-border nil
+        kaolin-themes-modeline-border t
+        ;; kaolin-themes-modeline-padded 2
         kaolin-themes-bold t
         kaolin-themes-org-scale-headings nil
         kaolin-themes-distinct-metakeys nil)
@@ -94,6 +95,7 @@
 
   ;; (setq kaolin-themes-treemacs-modeline t)
 
+  ;; (setq kaolin-themes-treemacs-icons nil)
   (kaolin-treemacs-theme)
 
   ;; Highlight t and nil in elisp-mode
