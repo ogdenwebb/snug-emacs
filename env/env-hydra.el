@@ -7,7 +7,7 @@
                 Buffers :
     "
     ("n" next-buffer "next" :color red)
-    ("b" ivy-switch-buffer "switch")
+    ("b" switch-to-buffer "switch")
     ("B" ibuffer "ibuffer")
     ("p" previous-buffer "prev" :color red)
     ("C-b" buffer-menu "buffer menu")
