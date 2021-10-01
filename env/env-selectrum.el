@@ -16,7 +16,10 @@
 ;; Consulting completing-read
 (use-package consult
   :defer t
-  :after selectrum)
+  :after selectrum
+  :config
+  ;; Do not trigger auto preview and use keybinding instead
+  (setq consult-preview-key (kbd "C-.")))
 
 (use-package consult-selectrum
   :straight nil
@@ -38,15 +41,14 @@
   (marginalia-mode))
 
 ;; Emacs finally learns how to ctrl+F.
-(use-package ctrlf
-  :defer 2
-  :config
-  (ctrlf-mode t)
-  :general
-  (general-def ctrlf-minibuffer-mode-map
-    "C-n" #'ctrlf-forward-default
-    "C-p" #'ctrlf-backward-default))
-
+;; (use-package ctrlf
+;;   :defer 2
+;;   :config
+;;   (ctrlf-mode t)
+;;   :general
+;;   (general-def ctrlf-minibuffer-mode-map
+;;     "C-n" #'ctrlf-forward-default
+;;     "C-p" #'ctrlf-backward-default))
 
 ;; TODO provides ivy-occur alternative
 ;; (use-package embark)
