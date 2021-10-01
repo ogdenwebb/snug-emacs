@@ -66,6 +66,7 @@
                         ;; (git-commit-mode     :same t)
                         ;; (vc-annotate-mode    :same t)
 
+                        ("\\*shell\\*" :regexp t :same t) ;; needed for shell-pop
                         (compilation-mode :select t :align t :size 0.4)
                         ("\\`\\*Org\sSrc.*?\\*.*\\'" :regexp t :align right :size 100)
                         ("\\`\\*Org-Babel\sError\sOutput\\*.*\\'" :regexp t :align t :size 0.4)
