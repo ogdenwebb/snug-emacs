@@ -145,7 +145,7 @@
 
    ;; Projectile
    "p p" '(projectile-switch-project :wk "Switch project")
-   "p f" '(projectile-find-file :wk "Find file in project" :predicate (eq snug-default-completion-system 'ivy))
+   "p f" '(projectile-find-file :wk "Find file in project")
    "p k" '(projectile-ripgrep :wk "Grep in project")
    "p r" '(projectile-replace :wk "Replace in project")
    "p t" '(projectile-regenerate-tags :wk "Update tags for project"))
@@ -182,7 +182,7 @@
   (general-define-key
    :keymaps '(normal visual)
    "g x"  'browse-url-at-point
-   "/"    'swiper
+   ;; "/"    'ctrlf-forward-fuzzy ;; or  ctrlf-forward-fuzzy/consult-line
    ;; Navigation between windows
    "C-h"  'evil-window-left
    "C-j"  'evil-window-down
@@ -421,6 +421,7 @@
    "s"       #'pdf-occur
    "b"       #'pdf-view-set-slice-from-bounding-box
    "r"       #'pdf-view-reset-slice)
+
 
   (with-eval-after-load 'evil
     ;; Evil C-w maps
