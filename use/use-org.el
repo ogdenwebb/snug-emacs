@@ -253,4 +253,13 @@
   ;; (setq org-appear-autolinks t)
   )
 
+;; Pixel-perfect visual alignment for Org and Markdown tables.
+(use-package valign-mode
+  :straight (:host github :repo "casouri/valign")
+  :hook (org-mode . valign-mode)
+  :config
+  ;; Enable fancy bars in org buffers
+  (setq valign-fancy-bar t))
+
+
 (provide 'use-org)
