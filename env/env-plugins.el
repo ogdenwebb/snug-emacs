@@ -59,7 +59,7 @@
     )
 
 
-  
+
 
   ;; Projectile settings
   (setq projectile-verbose nil
@@ -242,7 +242,7 @@
   :hook (after-init . prescient-persist-mode)
   :config
   (setq prescient-history-length 200
-        prescient-filter-method '(literal regexp initialism fuzzy) ; or fuzzy
+        prescient-filter-method '(literal regexp initialism prefix) ; or fuzzy literal-prefix
         ;; prescient-save-file (locate-user-emacs-file "cache/prescient-save.el")
         )
   )
