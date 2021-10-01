@@ -1,4 +1,16 @@
 ;; -*- lexical-binding: t -*-
+
+(use-package shell-pop
+  :straight (:host github :repo "kyagi/shell-pop-el")
+  :config
+  (setq shell-pop-window-size 30
+        shell-pop-full-span t
+        shell-pop-window-position "bottom"
+        shell-pop-autocd-to-working-dir t
+        shell-pop-restore-window-configuration t
+        shell-pop-cleanup-buffer-at-process-exit t)
+  )
+
 ;; Customize prompt
 (with-eval-after-load 'eshell
   (setq eshell-bad-command-tolerance 1
