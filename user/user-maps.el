@@ -31,13 +31,14 @@
    "/" 'evil-ex-search-forward
 
    ;; Open things quickly
+   "o"   '(:ignore t :wk "Open")
    "o r" '(recentf-open-files :wk "Recent files")
    ;; "o f" 'counsel-file-jump
    ;; "o f" '(counsel-fzf :wk "fzf")
    ;; "o F" '(counsel-find-file :wk "Find files")
    "o b" '(switch-to-buffer :wk "Switch buffer")
    "o l" '(bookmark-jump :wk "Bookmarks")
-   "o y" '(yank-pop :wk "Yank ring")
+   "o y" '(consult-yank-pop :wk "Yank ring")
 
    ;; Find [files]
    "f"   '(:ignore t :wk "Files")
@@ -52,6 +53,7 @@
    ;; "e" 'flycheck-list-errors
    ;; TODO: (??) move to lisp mode
    ;; TODO: remap "e d"
+   "e"   '(:ignore t :wk "Evaluate")
    "e e" 'eval-expression
    "e p" 'eval-print-last-sexp
    "e w" 'eval-last-sexp
@@ -59,21 +61,23 @@
    "e b" 'eval-buffer
 
    ;; Olivetti
-   ". ." 'olivetti-mode
+   "."   '(:ignore t :wk "Olivetti")
    ". [" 'olivetti-shrink
    ". ]" 'olivetti-expand
    ". m" 'olivetti-toggle-hide-mode-line
 
    ;; Buffers
+   "b"   '(:ignore t :wk "Buffers")
    "b p" '(previous-buffer :wk "Previous buffer")
    "b n" '(next-buffer :wk "Next buffer")
    "b l" '(switch-to-buffer :wk "Switch buffer")
    "b b" '(switch-to-buffer :wk "Switch buffer")
-   "b w" '(revert-buffer)
-   "b e" '(erase-buffer)
+   "b w" '(revert-buffer :wk "Revert buffer")
+   "b e" '(erase-buffer :wk "Erase buffer")
    "b k" '(kill-this-buffer :wk "Kill this buffer")
 
    ;; Help
+   "h"   '(:ignore t :wk "Help")
    "h a" '(apropos :wk "Search help")
    "h k" '(describe-key :wk "Describe keybinding")
    "h K" '(general-describe-keybindings :wk "Keybinding list")
@@ -87,6 +91,7 @@
    "h ." '(ghelp-describe-at-point :wk "Describe thing at point" :predicate (featurep 'ghelp))
 
    ;; Window management
+   "w"   '(:ignore t :wk "Window managment")
    "w c" '(delete-window :wk "Close split")
    "w s" 'split-window-vertically
    "w v" 'split-window-horizontally
@@ -126,6 +131,7 @@
    "w <" 'evil-window-decrease-width
 
    ;; Git/Magit
+   "g"   '(:ignore t :wk "Git ineraction")
    "g b" 'magit-blame
    "g d" 'magit-diff-unstaged
    "g D" 'magit-diff
@@ -140,27 +146,47 @@
    "g [" 'git-gutter:previous-hunk
 
    ;; Jump jump jump
+   "j"   '(:ignore t :wk "Jump to")
    "j l" 'link-hint-open-link
    "j L" 'link-hint-open-all-links
 
    ;; Projectile
+   "p"   '(:ignore t :wk "Project managment")
    "p p" '(projectile-switch-project :wk "Switch project")
    "p f" '(projectile-find-file :wk "Find file in project")
    "p k" '(projectile-ripgrep :wk "Grep in project")
    "p r" '(projectile-replace :wk "Replace in project")
-   "p t" '(projectile-regenerate-tags :wk "Update tags for project"))
+   "p t" '(projectile-regenerate-tags :wk "Update tags for project")
+
+   ;; Toggle settings with hotkeys
+   "t"   '(:ignore t :wk "Toggle settings")
+   "t c" '(highlight-changes-mode    :wk "Changes")
+   "t d" '(toggle-debug-on-error     :wk "Debug on error")
+   "t f" '(hs-minor-mode             :wk "Code folding")
+   "t g" '(glasses-mode              :wk "Readable camelCase")
+   "t h" '(hl-line-mode              :wk "Line highlight")
+   "t l" '(display-line-numbers-mode :wk "Line numbers")
+   "t L" '(so-long-mode              :wk "Long lines")
+   "t s" '(subword-mode              :wk "Sub-word")
+   "t t" '(toggle-truncate-lines     :wk "Truncate lines")
+   "t v" '(variable-pitch-mode       :wk "Variable-pitch")
+   "t w" '(whitespace-mode           :wk "Show whitespaces")
+   "t x" '(flymake-mode              :wk "Syntax checker")
+   )
 
   (general-define-key
    :keymaps '(normal visual)
    :prefix snug-leader
-   "t"   'google-translate-smooth-translate
+   ;; "t"   'google-translate-smooth-translate
    ;; Narrowing
-   "n r" 'narrow-to-region
-   "n d" 'narrow-to-defun
-   "n p" 'narrow-to-page
-   "n w" 'widen
+   "n"   '(:ignore t :wk "Narrowing")
+   "n r" '(narrow-to-region :wk "Region")
+   "n d" '(narrow-to-defun :wk "Defun")
+   "n p" '(narrow-to-page :wk "Page")
+   "n w" '(widen :wk "Discard")
 
    ;; Insert
+   "i"   '(:ignore t :wk "Insert")
    ;; "i y" 'counsel-yank-pop
    ;; "i y" 'sel/yank-pop
    "i s" 'yas-insert-snippet
@@ -381,6 +407,13 @@
    :keymaps '(web-mode-map)
    :states 'insert
    "RET" 'newline-and-indent)
+
+  ;
+  (general-define-key
+   :prefix
+   )
+
+
 
   ;; C-w to delete word backward in minibuffer
   (general-define-key
