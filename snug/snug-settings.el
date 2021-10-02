@@ -201,7 +201,7 @@
       ;; checkdoc-spellcheck-documentation-flag t
       ;; comint-input-ignoredups  t
       ;; comint-process-echoes  t
-      ;; comint-prompt-read-only  t
+      comint-prompt-read-only  t
       ;; comint-scroll-to-bottom-on-input   ’this
       ;; completions-format  ’vertical
       )
@@ -365,7 +365,7 @@
 ;;                   (indent-region (region-beginning) (region-end) nil))))))
 
 ;; Use zsh
-;; (setq shell-file-name "zsh")
+(setq shell-file-name "/bin/bash")
 ;; (setq shell-command-switch "-ic")
 
 ;; Save bookmarks when kill emacs
