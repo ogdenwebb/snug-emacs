@@ -22,6 +22,18 @@
 (use-package general
   :demand t
   :config
-  (general-evil-setup t))
+  (general-evil-setup t)
+
+  ;; Use C-n/C-p to jump across eval-expression history
+  ;; NOTE: general has general-override-local-mode
+  (defun snug-hooks/eval-expression-setup ()
+    ""
+    (general-define-key
+     :keymaps 'local
+     "C-p" #'previous-line-or-history-element
+     "C-n" #'next-line-or-history-element))
+
+  (add-hook 'eval-expression-minibuffer-setup-hook #'snug-hooks/eval-expression-setup)
+  )
 
 (provide 'env-maps)
