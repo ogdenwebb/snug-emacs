@@ -2,6 +2,7 @@
 
 (use-package shell-pop
   :straight (:host github :repo "kyagi/shell-pop-el")
+  :commands (shell-pop)
   :config
   (setq shell-pop-window-size 30
         shell-pop-full-span t
