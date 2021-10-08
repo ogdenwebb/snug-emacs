@@ -247,10 +247,10 @@
          "k" 'evil-normal-state))
 
   ;; Use snug newline-and-indent function
-  (general-define-key
-   :keymaps 'prog-mode-map
-   :states '(insert)
-   "RET" 'snug/newline-and-indent)
+  ;; (general-define-key
+  ;;  :keymaps 'prog-mode-map
+  ;;  :states '(insert)
+  ;;  "RET" 'snug/newline-and-indent)
 
   (general-define-key
    :keymaps 'company-search-map
@@ -265,7 +265,7 @@
    :states '(insert)
    ;; "TAB" 'company-indent-or-complete-common
    ;; "TAB" 'company-indent-for-tab-command
-   "TAB" 'snug/company-smart-complete-or-indent
+   ;; "TAB" 'snug/company-smart-complete-or-indent
    "M-DEL" 'snug/smart-backspace
    "C-v" 'clipboard-yank
    ;; "C-k" 'company-complete-common-or-cycle
@@ -355,10 +355,10 @@
                       :states '(insert)
                       "RET"  'haskell-indentation-newline-and-indent)
 
-  (general-define-key :keymaps '(haskell-mode-map)
-                      :states '(normal)
-                      "o"    'snug/haskell-evil-open-below
-                      "O"    'snug/haskell-evil-open-above)
+  ;; (general-define-key :keymaps '(haskell-mode-map)
+  ;;                     :states '(normal)
+  ;;                     "o"    'snug/haskell-evil-open-below
+  ;;                     "O"    'snug/haskell-evil-open-above)
 
   (general-define-key :keymaps  'ivy-minibuffer-map
                       "C-x C-e" 'separedit
