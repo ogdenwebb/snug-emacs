@@ -31,8 +31,8 @@
   :disabled t
   :commands (npm))
 
-(use-package npm-mode)
-  
+(use-package npm-mode
+  :defer t)
 
 
 (provide 'use-js)
