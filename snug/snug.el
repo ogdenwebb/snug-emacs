@@ -107,7 +107,8 @@
     (setq use-package-expand-minimally nil
           use-package-verbose t
           use-package-compute-statistics t
-          message-log-max t)
+          message-log-max t
+          use-package-minimum-reported-time 0.01)
   (setq use-package-expand-minimally t
         use-package-verbose nil))
 
@@ -125,11 +126,12 @@
 
 (use-package subr-x
   :straight nil
-  :defer t)
+  ;; :defer t
+  )
 
 ;; Help keeping emacs directory clean
 (use-package no-littering
-	     :demand t)
+  :demand t)
 
 ;; Define directories
 (eval-and-compile
@@ -161,13 +163,16 @@
       initial-major-mode 'fundamental-mode)
 
 ;; Use Common Lisp library
-(use-package cl-lib :defer t)
+(use-package cl-lib
+  :defer t)
 
 ;; Add configuration directories to `load-path'
-(setq load-path (append '("~/.config/emacs/snug/" "~/.config/emacs/env/"
-                           "~/.config/emacs/use/" "~/.config/emacs/user/"
-                           "~/.config/emacs/completion/" "~/.config/emacs/modeline/")
-                         load-path))
+(defun update-load-path (&rest _)
+  "Update `load-path'."
+  (dolist (dir '("snug" "env" "use" "user" "completion" "modeline"))
+    (cl-pushnew (expand-file-name dir snug-root) load-path)))
+
+(update-load-path)
 
 ;; Remove command line options that aren't relevant to our current OS; means
 ;; slightly less to process at startup.
