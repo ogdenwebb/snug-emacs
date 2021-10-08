@@ -1,10 +1,18 @@
 ;;; Evil mode -*- lexical-binding: t -*-
 ;; TODO: (??)  set shift-select-mode to nil
+
 (use-package evil
-  :defer .1
-  :init
+  ;; :defer .1
+  :hook (after-init . evil-mode)
+  :preface
   (setq evil-want-integration t ;; required by evil-collection
         evil-want-keybinding nil
+
+        ;; evil-ex-complete-emacs-commands nil
+        ;; evil-vsplit-window-right t ;; like vim's 'splitright'
+        ;; evil-split-window-below t ;; like vim's 'splitbelow'
+
+
         evil-want-fine-undo t
         evil-want-Y-yank-to-eol t
         evil-ex-search-vim-style-regexp t
@@ -30,11 +38,11 @@
         ;; evil-vim-regexp-replacements nil
 
         ;; evil-auto-indent nil
-        evil-indent-convert-tabs t)
+        evil-indent-convert-tabs t
+        )
 
   :config
   (setq evil-shift-width snug-default-indent-width)
-  ;; (global-undo-tree-mode -1)
 
   (evil-select-search-module 'evil-search-module 'evil-search)
   (add-hook 'evil-insert-state-entry-hook #'evil-ex-nohighlight)
@@ -76,8 +84,8 @@
     (evil-add-command-properties #'counsel-ag         :jump t)
     (evil-add-command-properties #'godef-jump         :jump t)
     (evil-add-command-properties #'counsel-fzf        :jump t))
-
-  (evil-mode t))
+  ;; (evil-mode t)
+  )
 
 ;; Vim-like keybindings everywhere in Emacs
 (use-package evil-collection
@@ -86,23 +94,26 @@
   (setq-default evil-collection-company-use-tng nil)
   (evil-collection-init))
 
-(use-package evil-goggles
-  ;; :requires evil
-  :disabled t
-  :hook (after-init . evil-goggles-mode)
-  :config
-  (setq evil-goggles-duration 0.1
-        evil-goggles-enable-delete nil
-        evil-goggles-pulse t))
-
-
 (use-package evil-commentary
-  :after evil
+  ;; :after evil
   :commands (evil-commentary evil-commentary-yank))
 
-;; TODO: maps
+
+;; TEST SUITE
+
+;; (use-package evil-goggles
+;;   ;; :requires evil
+;;   :disabled t
+;;   :hook (after-init . evil-goggles-mode)
+;;   :config
+;;   (setq evil-goggles-duration 0.1
+;;         evil-goggles-enable-delete nil
+;;         evil-goggles-pulse t))
+
+
+;; ;; TODO: maps
 (use-package evil-surround
-  :after evil
+  ;; :after evil
   :commands (global-evil-surround-mode
              evil-surround-edit
              evil-Surround-edit
@@ -123,27 +134,25 @@
   (global-evil-visualstar-mode))
 
 (use-package evil-lion
-  :after evil
   :commands (evil-lion-mode evil-lion-left evil-lion-right)
   :config (setq evil-lion-squeeze-spaces t))
 
-;; Folding
-;; TODO: maps
-(use-package evil-vimish-fold
-  :after evil
-  :disabled t
-  :hook (after-init . evil-vimish-fold-mode)
-  :commands evil-vimish-fold-mode
-  :config
-  (setq vimish-fold-header-width nil))
+;; ;; Folding
+;; ;; TODO: maps
+;; (use-package evil-vimish-fold
+;;   :disabled t
+;;   :hook (after-init . evil-vimish-fold-mode)
+;;   :commands evil-vimish-fold-mode
+;;   :config
+;;   (setq vimish-fold-header-width nil))
 
-;; C-a C-x from vim to inc/dec numbers
+;; ;; C-a C-x from vim to inc/dec numbers
 (use-package evil-numbers
-  :after evil
+  ;; :after evil
   :commands (evil-numbers/inc-at-pt evil-numbers/dec-at-pt))
 
 (use-package evil-args
-  :after evil
+  ;; :after evil
   :commands (evil-inner-arg evil-outer-arg
                             evil-forward-arg evil-backward-arg
                             evil-jump-out-args)
@@ -152,13 +161,13 @@
   (general-otomap "a" 'evil-outer-arg))
 
 
-;; gr operator, like vim's ReplaceWithRegister
+;; ;; gr operator, like vim's ReplaceWithRegister
 (use-package evil-replace-with-register
-  :after evil
+  ;; :after evil
   :general
   (general-nvmap "gr" 'evil-replace-with-register))
 
-;; Easy text exchange operator for Evil.
+;; ;; Easy text exchange operator for Evil.
 (use-package evil-exchange
   :after evil
   :config
@@ -167,12 +176,13 @@
 (use-package evil-embrace
   :after evil-surround
   :config
-  (add-hook 'LaTeX-mode-hook #'embrace-LaTeX-mode-hook)
-  (add-hook 'org-mode-hook 'embrace-org-mode-hook)
+  ;; (add-hook 'LaTeX-mode-hook #'embrace-LaTeX-mode-hook)
+  ;; (add-hook 'org-mode-hook 'embrace-org-mode-hook)
   (setq evil-embrace-show-help-p nil)
   (evil-embrace-enable-evil-surround-integration))
 
 (use-package vdiff
+  :disabled t
   :commands (vdiff-buffers vdiff-files vdiff-buffers3 vdiff-current-file vdiff-merge-conflict))
 
 (use-package evil-snipe
