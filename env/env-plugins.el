@@ -114,7 +114,7 @@
 ;; Emacs minor mode that watches for long pauses and reports them.
 ;; NOTE: You can run `explain-pause-profiles' to view the profile report.
 (use-package explain-pause-mode
-  ;; :disabled t
+  ;; disabled t
   :straight (:host github :repo "lastquestion/explain-pause-mode")
   :hook (after-init . explain-pause-mode))
 
@@ -239,6 +239,7 @@
 
 ;; Simple but effective sorting and filtering for Emacs.
 (use-package prescient
+  :if (or (featurep 'company) (featurep 'env-ivy))
   :hook (after-init . prescient-persist-mode)
   :config
   (setq prescient-history-length 200
@@ -247,10 +248,8 @@
         )
   )
 
-(use-package selectrum-prescient
-  :hook (selectrum-mode . selectrum-prescient-mode))
-
 (use-package company-prescient
+  :after (prescient)
   :hook ((company-mode global-company-mode) . company-prescient-mode))
 
 (use-package avy :defer t)
