@@ -44,12 +44,12 @@ i.e. :keyword to \"keyword\"."
 ;;   (advice-add 'orig-fn :around #'quiet-function-advice)"
 ;;   (quiet! (apply orig-fn args)))
 
-(defun snug/upgrade ()
-  "Upgrade all installed packages using straight-x."
-  (interactive)
-  (progn
-    (straight-x-fetch-all)
-    (straight-rebuild-all)))
+;; (defun snug/upgrade ()
+;;   "Upgrade all installed packages using straight-x."
+;;   (interactive)
+;;   (progn
+;;     (straight-x-fetch-all)
+;;     (straight-rebuild-all)))
 
 ;; Detect system type
 (defconst *IS-LINUX*   (eq system-type 'gnu/linux))
