@@ -178,5 +178,12 @@
 ;;   :after (company)
 ;;   :commands (company-try-hard))
 
+;; Web-mode
+(use-package company-web
+  :after (company web-mode)
+  :config
+  ;; (add-to-list 'company-backends '(company-web-html :with company-etags)))
+  (add-to-list 'company-backends '(company-css company-web-html company-files)))
+
 
 (provide 'use-completion-company)
