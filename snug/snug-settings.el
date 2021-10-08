@@ -29,7 +29,7 @@
   "Set default indentation width. By default is 4."
   :group 'snug)
 
-(defcustom snug-default-completion-system 'selectrum
+(defcustom snug-default-completion-system 'vertico
   "Set default (preferable) completion system, e.g. ivy, helm or selectrum."
   :group 'snug)
 
@@ -345,7 +345,7 @@
 
 ;; Set default browser
 (setq browse-url-browser-function 'browse-url-generic
-      browse-url-generic-program "firefox-bin")
+      browse-url-generic-program "firefox")
 
 ;; Allow commands
 (put 'narrow-to-region 'disabled nil)
@@ -425,7 +425,8 @@
       :straight nil
       :config
       (setq-default comp-async-compilation t
-                    comp-deferred-compilation nil
-                    comp-async-report-warnings-errors nil)))
+                    ;; native-comp-deferred-compilation nil
+                    ;; Disable warning
+                    native-comp-async-report-warnings-errors nil)))
 
 (provide 'snug-settings)
