@@ -1,36 +1,38 @@
 ;; ;; Language server protocol support -*- lexical-binding: t -*-
-(use-package lsp-mode
-  :disabled t
-  :straight nil
-  ;; :config
-  ;; (setq lsp-log-io t)
-  ;; :init
-  :hook (js2-mode-hook . lsp-deferred)
-  :hook (php-mode . lsp-deferred)
-  :hook (css-mode . lsp-deferred)
-  :hook (web-mode . lsp-deferred)
+;; (use-package lsp-mode
+;;   ;; :disabled t
+;;   :straight nil
+;;   ;; :config
+;;   ;; (setq lsp-log-io t)
+;;   ;; :init
+;;   :hook (js2-mode-hook . lsp-deferred)
+;;   :hook (php-mode . lsp-deferred)
+;;   :hook (css-mode . lsp-deferred)
+;;   :hook (web-mode . lsp-deferred)
 
-  :config
-  ;; (add-to-list 'lsp-language-id-configuration '(web-mode . "html-ls"))
+;;   :config
+;;   ;; (add-to-list 'lsp-language-id-configuration '(web-mode . "html-ls"))
 
-  ;; (lsp-register-client
-  ;;  (make-lsp-client :new-connection (lsp-stdio-connection "html-languageserver" "--stdio")
-  ;;                   :major-modes '(web-mode)
-  ;;                   :server-id 'html-languageserver))
-  )
-  ;; (add-hook 'prog-major-mode #'lsp-prog-major-mode-enable)
+;;   ;; (lsp-register-client
+;;   ;;  (make-lsp-client :new-connection (lsp-stdio-connection "html-languageserver" "--stdio")
+;;   ;;                   :major-modes '(web-mode)
+;;   ;;                   :server-id 'html-languageserver))
+;;   )
+;;   ;; (add-hook 'prog-major-mode #'lsp-prog-major-mode-enable)
 
 
-(use-package lsp-ui
-  :hook (lsp-mode . lsp-ui-mode)
-  :config
-  (setq lsp-ui-sideline-ignore-duplicate t))
+;; (use-package lsp-ui
+;;   :hook (lsp-mode . lsp-ui-mode)
+;;   :config
+;;   (setq lsp-ui-sideline-ignore-duplicate t))
 
-;; Make sure we have lsp-imenu everywhere we have LSP
-(use-package lsp-ui-imenu
-  :straight nil
-  :hook (lsp-after-open-hook . lsp-enable-imenu))
+;; ;; Make sure we have lsp-imenu everywhere we have LSP
+;; (use-package lsp-ui-imenu
+;;   :straight nil
+;;   :hook (lsp-after-open-hook . lsp-enable-imenu))
 
+
+;; (use-package lsp-treemacs)
 
 ;; ;; languages
 ;; (use-package lsp-html
@@ -56,6 +58,7 @@
 ;; ;; Eglot
 
 (use-package eglot
+  ;; :disabled t
   :config
   (setq eglot-autoshutdown t
         eglot-confirm-server-initiated-edits nil)
@@ -67,6 +70,10 @@
   (when (executable-find "nimlsp")
       (add-to-list 'eglot-server-programs '(nim-mode . ("nimlsp"))))
       (add-hook 'nim-mode-hook #'eglot-ensure))
+
+
+  (when (executable-find "gopls")
+    (add-hook 'go-mode-hook #'eglot-ensure))
 
   ;; :after (flymake json-rpc)
   ;; :hook (haskell-mode . eglot-ensure)
