@@ -1,10 +1,12 @@
 ;;; Various packages -*- lexical-binding: t; -*-
 
-;; Electric indent
+;; Electric
 (use-package electric
   :straight nil
-  :hook (after-init . electric-indent-mode)
+  :hook ((after-init . electric-indent-mode))
+         ;; (after-init . electric-layout-mode))
   :config
+  ;; (add-to-list 'electric-layout-rules '(?{ . after-stay))
   (setq-default electric-indent-inhibit t))
 
 ;; Undotree
@@ -122,15 +124,14 @@
 ;; Better help
 (use-package helpful
   :if (>= emacs-major-version 25)
-  :defer 1
-  ;; :bind (([remap describe-function] . helpful-callable)
-  ;;        ([remap describe-variable] . helpful-variable)
-  ;;        ([remap describe-key] . helpful-key))
-  :init
-
-  (defalias 'describe-key 'helpful-key)
+  :defer .1
   :config)
 
+;; Emacs generic Help
+;; (use-package ghelp
+;;   :straight (:host github :repo "casouri/ghelp")
+;;   :config
+;;   )
 
 (use-package separedit
   :commands (separedit)
