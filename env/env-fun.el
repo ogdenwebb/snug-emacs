@@ -1,18 +1,19 @@
 ;; Module with useful custom functions -*- lexical-binding: t; -*-
 
 ;;;###autoload
-(defun snug/newline-and-indent ()
-  "Inserts a newline and possibly indents it. Also continues comments if
-executed from a commented line"
-  (interactive)
-  (cond ((sp-point-in-string)
-         (newline))
-        ((and (sp-point-in-comment)
-              comment-line-break-function)
-         (funcall comment-line-break-function))
-        (t
-         (newline nil t)
-         (indent-according-to-mode))))
+;; NOTE: require smartparens
+;; (defun snug/newline-and-indent ()
+;;   "Inserts a newline and possibly indents it. Also continues comments if
+;; executed from a commented line"
+;;   (interactive)
+;;   (cond ((sp-point-in-string)
+;;          (newline))
+;;         ((and (sp-point-in-comment)
+;;               comment-line-break-function)
+;;          (funcall comment-line-break-function))
+;;         (t
+;;          (newline nil t)
+;;          (indent-according-to-mode))))
 
 ;; Rename file and buffer
 ;; source: http://steve.yegge.googlepages.com/my-dot-emacs-file
