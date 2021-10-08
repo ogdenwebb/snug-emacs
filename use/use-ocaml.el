@@ -9,7 +9,10 @@
   ;; :after (company tuareg)
   :hook (tuareg-mode . merlin-mode)
   :config
-  (add-to-list 'company-backends 'merlin-company-backend))
+  (with-eval-after-load 'company
+    (add-to-list 'company-backends 'merlin-company-backend)
+    )
+  )
 
 (use-package merlin-eldoc
   :hook ((reason-mode tuareg-mode caml-mode) . merlin-eldoc-setup))
