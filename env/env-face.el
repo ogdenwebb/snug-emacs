@@ -124,8 +124,7 @@
 ;; (add-to-list 'default-frame-alist '(font . "D2Coding-13"))
 ;; (add-to-list 'default-frame-alist '(font . "Victor Mono-12.5"))
 ;; (add-to-list 'default-frame-alist '(font . "mononoki-12"))
-;; (add-to-list 'default-frame-alist '(font . "JetBrains Mono-12:weight=light"))
-;; (add-to-list 'default-frame-alist '(font . "JetBrains Mono-12"))
+;; (add-to-list 'default-frame-alist '(font . "JetBrains Mono-12")) ;; ++
 
 ;; Play with ligatures
 (add-to-list 'default-frame-alist '(font . "D2Coding ligature-13"))
