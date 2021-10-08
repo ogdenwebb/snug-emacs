@@ -105,7 +105,7 @@
     :fringe-bitmap 'snug/flycheck-fringe-indicator
     :fringe-face 'flycheck-fringe-info))
 
-;; Emacs mode to fix the flycheck error at point
+;; Emacs mode to fix the flycheck/flymake error at point
 (use-package attrap
   :after flycheck)
 
@@ -201,11 +201,13 @@
                                        flyspell-correct-previous flyspell-correct-previous-word-generic
                                        flyspell-correct-word flyspell-correct-word-generic))
 
-(use-package flyspell-correct-ivy
-  :after (ivy flyspell-correct))
+;; TODO: setup properly
+;; (use-package flyspell-correct-ivy
+;;   :require ivy
+;;   :after (ivy flyspell-correct))
 
-(use-package flyspell-correct-helm
-  :after (helm flyspell-correct))
+;; (use-package flyspell-correct-helm
+;;   :after (helm flyspell-correct))
 
 (use-package ispell
   :defer 2
