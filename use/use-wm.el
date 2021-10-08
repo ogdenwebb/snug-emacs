@@ -34,6 +34,7 @@
         'below
       'right))
 
+  ;; Smart window placement depending on current layout
   (defun snug/shackle-dynamic-tyling (buffer alist plist)
     (let
         ((frame (shackle--splittable-frame))
