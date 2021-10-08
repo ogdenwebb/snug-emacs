@@ -81,11 +81,12 @@
 (use-package helm-company
   :after (helm company))
 
-(use-package helm-eshell
-  :commands (helm-eshell-history))
+;; (use-package helm-eshell
+;;  :straight nil
+;;  :commands (helm-eshell-history))
 
-(use-package helm-css-scss
-  :commands (helm-css-scss helm-css-scss-multi))
+; (use-package helm-css-scss
+;   :commands (helm-css-scss helm-css-scss-multi))
 
 ;; helm fzf
 (defun my-helm-run-fzf (candidate)
@@ -100,6 +101,7 @@
     (helm-exit-and-execute-action 'my-helm-run-fzf)))
 
 (use-package helm-files
+  :straight nil
   :bind (("C-x C-f" . helm-find-files)
          :map helm-find-files-map
          ("C-," . my-helm-ff-switch-to-fzf)
