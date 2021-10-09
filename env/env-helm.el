@@ -112,4 +112,30 @@
                                   "Find Files" 'helm-source-ffiles)))
   (helm-add-action-to-source "C-, Switch to fzf" #'my-helm-run-fzf helm-source-find-files))
 
+(use-package helm-themes
+  ;; :after helm
+  :commands (helm-themes))
+
+;; Keybindings
+(when (eq snug-default-completion-system 'helm)
+  (use-package helm
+    :straight nil
+    :general
+    ([remap apropos]                       #'helm-apropos)
+    ([remap bookmark-jump]                 #'helm-bookmarks)
+    ([remap evil-show-marks]               #'helm-mark-ring)
+    ;; ([remap goto-line]                     #'consult-goto-line)
+    ([remap imenu]                         #'helm-imenu)
+    ([remap list-buffers]                  #'helm-buffers-list)
+    ([remap load-theme]                    #'helm-themes)
+    ([remap locate]                        #'helm-locate)
+    ([remap man]                           #'helm-man-woman)
+    ([remap recentf-open-files]            #'helm-recentf)
+    ([remap switch-to-buffer-other-frame]  #'helm-buffer-switch-other-frame)
+    ([remap switch-to-buffer-other-window] #'helm-buffer-switch-other-window)
+    ([remap switch-to-buffer]              #'helm-buffers-list)
+    ([remap yank-pop]                      #'helm-show-kill-ring)
+    )
+  )
+
 (provide 'env-helm)
