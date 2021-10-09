@@ -97,8 +97,8 @@
   (define-key read-expression-map (kbd "C-r") 'counsel-expression-history)
 
   ;; Helpful integration
-  (setq-default counsel-describe-function-function #'helpful-callable
-                counsel-describe-variable-function #'helpful-variable)
+  ;; (setq-default counsel-describe-function-function #'ghelp-describe-function
+  ;;               counsel-describe-variable-function #'ghelp-describe-variable)
 
   (defun counsel-helpful-keymap-describe ()
     "Select keymap with ivy, display help with helpful"
@@ -187,18 +187,19 @@
     :straight nil
     :general
     (general-def counsel-mode-map
-      [remap execute-extended-command]  #'counsel-M-x
-      [remap find-library]  #'counsel-find-library
-      [remap describe-bindings]   #'counsel-descbinds
-      [remap describe-face]   #'counsel-describe-face
-      [remap list-faces-display]  #'counsel-faces
-      [remap imenu]  #'counsel-imenu
-      [remap load-library]  #'counsel-load-library
-      [remap load-theme]  #'counsel-load-theme
-      [remap yank-pop]  #'counsel-yank-pop
-      [remap info-lookup-symbol]  #'counsel-info-lookup-symbol
-      [remap pop-to-mark-command]  #'counsel-mark-ring
-      [remap bookmark-jump]  #'counsel-bookmark))
+      [remap recentf-open-files]       #'counsel-recentf
+      [remap execute-extended-command] #'counsel-M-x
+      [remap find-library]             #'counsel-find-library
+      [remap describe-bindings]        #'counsel-descbinds
+      [remap describe-face]            #'counsel-describe-face
+      [remap list-faces-display]       #'counsel-faces
+      [remap imenu]                    #'counsel-imenu
+      [remap load-library]             #'counsel-load-library
+      [remap load-theme]               #'counsel-load-theme
+      [remap yank-pop]                 #'counsel-yank-pop
+      [remap info-lookup-symbol]       #'counsel-info-lookup-symbol
+      [remap pop-to-mark-command]      #'counsel-mark-ring
+      [remap bookmark-jump]            #'counsel-bookmark))
   )
 
 
@@ -224,5 +225,29 @@
     (let ((prescient-filter-method '(literal regexp)))
       (ivy-prescient-re-builder str)))
   )
+
+(setq snug-default-completion-system 'ivy)
+
+(when (eq snug-default-completion-system 'ivy)
+  (use-package counsel
+    :straight nil
+    :general
+    ([remap apropos]                       #'counsel-apropos)
+    ([remap bookmark-jump]                 #'counsel-bookmarks)
+    ([remap evil-show-marks]               #'counsel-evil-marks)
+    ;; ([remap goto-line]                     #'consult-goto-line)
+    ([remap imenu]                         #'counsel-imenu)
+    ([remap list-buffers]                  #'counsel-switch-buffer)
+    ([remap load-theme]                    #'counsel-load-theme)
+    ([remap locate]                        #'counsel-locate)
+    ([remap man]                           #'ivy-man-woman)
+    ([remap recentf-open-files]            #'counsel-recentf)
+    ;; ([remap switch-to-buffer-other-frame]  #'counsel-switch-other-frame)
+    ([remap switch-to-buffer-other-window] #'counsel-switch-buffer-other-window)
+    ([remap switch-to-buffer]              #'counsel-switch-buffer)
+    ([remap yank-pop]                      #'counsel-yank-pop)
+    )
+  )
+
 
 (provide 'env-ivy)
