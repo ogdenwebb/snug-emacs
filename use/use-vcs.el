@@ -17,6 +17,11 @@
   (advice-add #'magit-version :override #'ignore)
   :commands (magit-status magit-diff magit-blame magit-commit magit-status-only)
   :config
+
+  ;; Enable pass integration
+  ;; NOTE: create pass entry user^forge@api.github.com
+  (setq magit-process-find-password-functions '(magit-process-password-auth-source))
+
   (defun magit-status-only ()
     "Invoke magit-status and delete other windows."
     (interactive)
@@ -46,11 +51,13 @@
 
 ;; Modes for Git-specific files
 (use-package gitattributes-mode
+             :disabled t
   :mode (("/\\.gitattributes\\'"  . gitattributes-mode)
          ("/info/attributes\\'"   . gitattributes-mode)
          ("/git/attributes\\'"    . gitattributes-mode)))
 
 (use-package gitconfig-mode
+             :disabled t
   :mode (("/\\.gitconfig\\'"      . gitconfig-mode)
          ("/\\.git/config\\'"     . gitconfig-mode)
          ("/modules/.*/config\\'" . gitconfig-mode)
@@ -59,13 +66,14 @@
          ("/etc/gitconfig\\'"     . gitconfig-mode)))
 
 (use-package gitignore-mode
+             :disabled t
   :mode (("/\\.gitignore\\'"      . gitignore-mode)
          ("/info/exclude\\'"      . gitignore-mode)
          ("/git/ignore\\'"        . gitignore-mode)))
 
 ;; TODO: support github in my workflow
-;; (use-package forge
-;;   :after magit)
+(use-package forge
+  :after magit)
 
 (use-package gist
   :commands (gist-list))
