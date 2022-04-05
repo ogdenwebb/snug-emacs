@@ -73,7 +73,9 @@
 
 ;; TODO: support github in my workflow
 (use-package forge
-  :after magit)
+  :after magit
+  :preface
+  (setq forge-add-default-bindings nil))
 
 (use-package gist
   :commands (gist-list))
