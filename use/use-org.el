@@ -12,6 +12,8 @@
 
 ;; prolly need hook instead of :config
 (use-package org
+  ;; NOTE: use built-in org
+  :straight (org :type built-in)
   :preface
   (defun snug/org-init-hook ()
     ;; Fit image into the screen
@@ -92,7 +94,6 @@
     ;; (setq header-line-format " ")
     ;; Enable line wrapping
     (visual-line-mode t)
-    (turn-off-smartparens-mode)
     (show-paren-mode -1))
 
   :hook ((org-mode . snug/org-init-hook)
@@ -219,9 +220,9 @@
                                     (?C . "⬇")
                                     (?D . "☕"))))
 
+;; MAYBE: move to evil module?
 (use-package evil-org
   :straight (:host github :repo "Somelauw/evil-org-mode")
-  :after (evil)
   :hook (org-mode . evil-org-mode)
   :config
   ;; TODO: doesn't work in tables
@@ -232,7 +233,7 @@
   (evil-org-agenda-set-keys))
 
 (use-package org-download
-  :after org
+  :defer 2
   :config
   (setq org-download-image-dir "~/Pictures/org/"))
 
