@@ -34,9 +34,14 @@
 (add-hook 'lisp-mode-hook 'lisp-indent-setup)
 (add-hook 'emacs-lisp-mode-hook 'lisp-indent-setup)
 
-
+;;  Lispy is reimagines Paredit - a popular method to navigate and edit LISP code in Emacs.
 (use-package lispy
-  :disabled t
+  :defer t
+  :config
+  (setq lispy-close-quotes-at-end-p t))
+
+;; lispy + evil = lispyville
+(use-package lispyville
   :hook ((common-lisp-mode . lispy-mode)
          (emacs-lisp-mode . lispy-mode)
          (scheme-mode . lispy-mode)
@@ -44,14 +49,6 @@
          (hy-mode . lispy-mode)
          (lfe-mode . lispy-mode)
          (clojure-mode . lispy-mode))
-  :config
-  (setq lispy-close-quotes-at-end-p t)
-  (add-hook 'lispy-mode-hook #'turn-off-smartparens-mode))
-
-(use-package lispyville
-  :disabled t
-  ;; :when (featurep! :editor evil)
-  :hook (lispy-mode . lispyville-mode)
   :config
   (lispyville-set-key-theme
    '((operators normal)
@@ -64,11 +61,5 @@
      additional-insert
      (additional-wrap normal insert)
      (escape insert))))
-
-;; (add-hook 'after-save-hook
-;;           (lambda ()
-;;             (if (and (equal major-mode 'emacs-lisp-mode)
-;;                      (file-exists-p (concat buffer-file-name "c")))
-;;                 (delete-file (concat buffer-file-name "c")))))
 
 (provide 'env-lisp)
