@@ -9,11 +9,6 @@
   ;; (add-to-list 'electric-layout-rules '(?{ . after-stay))
   (setq-default electric-indent-inhibit t))
 
-;; Undotree
-;; (use-package undo-tree
-;;   :straight nil
-;;   :disabled t)
-
 (use-package undo-propose
   :straight (:host github :repo "jackkamm/undo-propose-el" :files ("*.el"))
   :commands (undo-propose undo-propose-diff)
@@ -34,6 +29,28 @@
   (setq undo-fu-session-file-limit 50
         undo-fu-session-incompatible-files '("/COMMIT_EDITMSG\\'"
                                              "/git-rebase-todo\\'")))
+
+;; Visualize the undo tree
+(use-package vundo
+  :straight (:host github :repo "casouri/vundo")
+  :general
+  (general-define-key
+   :keymaps 'vundo-mode-map
+   "l"       'vundo-forward
+   "<right>" 'vundo-forward
+   "h"       'vundo-backward
+   "<left>"  'vundo-backward
+   "j"       'vundo-next
+   "<down>"  'vundo-next
+   "k"       'vundo-previous
+   "<up>"    'vundo-previous
+   "a"       'vundo-stem-root
+   "e"       'vundo-stem-end
+   "q"       'vundo-quit
+   "C-g"     'vundo-quit
+   "RET"     'vundo-confirm
+   )
+  )
 
 ;; If you want Emacs kill ring and system clipboard to be independent.
 ;; (use-package simpleclip
@@ -99,6 +116,7 @@
   ;; Delete symbolic links from recentf
   (when snug-recentf-cleanup-symlinks
     (add-to-list 'recentf-exclude (lambda (f) (not (string= (file-truename f) f)))))
+
   (recentf-mode t)
   )
 
