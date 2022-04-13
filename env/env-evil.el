@@ -42,6 +42,12 @@
         )
 
   :config
+  (defun snug-evil/declare-repeat (&rest commands)
+    "TODO"
+    (dolist (cmd commands)
+      (evil-declare-repeat cmd)))
+
+
   (setq evil-shift-width snug-default-indent-width)
 
   (evil-select-search-module 'evil-search-module 'evil-search)
@@ -73,6 +79,9 @@
   ;; Enable to use C-o/C-i after these commands
   ;; TODO: macro def-evil-jump or smth
   (with-eval-after-load 'evil
+    ;; (snug-evil/declare-repeat 'puni-slurp-forward 'puni-slurp-backward)
+
+
     ;; (evil-add-command-properties #'org-footnote-new   :jump t)
     (evil-add-command-properties #'org-footnote-action :jump t)
     ;; (evil-add-command-properties #'org-mark-ring-push :jump t)
@@ -92,6 +101,7 @@
   :after evil
   :config
   (setq-default evil-collection-company-use-tng nil)
+  (setq evil-collection-mode-list (remove 'lispy evil-collection-mode-list))
   (evil-collection-init))
 
 (use-package evil-commentary

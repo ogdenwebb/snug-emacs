@@ -2,6 +2,15 @@
 
 (with-eval-after-load 'general
 
+   (general-create-definer leader-def
+    :states '(normal visual motion)
+    :prefix "SPC")
+
+   (with-eval-after-load 'evil
+     (leader-def
+      " " nil ;;to prevent an error about SPC not being a prefix
+      "q" evil-window-map))
+
   ;; TODO: add maps
   ;; load-theme
   ;; counsel-linux-app
@@ -402,9 +411,9 @@
    "C-i" 'helm-execute-persistent-action
    "C-z" 'helm-select-action)
 
-  ;; Remap Enter to insert newline as {<RET>}
+  ;; Remap Enter to newline and indent
   (general-define-key
-   :keymaps '(web-mode-map)
+   :keymaps '(prog-mode-map)
    :states 'insert
    "RET" 'newline-and-indent)
 

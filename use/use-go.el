@@ -5,9 +5,10 @@
   :interpreter "go"
   :config
   (defun snug/setup-go ()
-    (set (make-local-variable 'flycheck-disabled-checkers) '(go-vet))
+    ;; (set (make-local-variable 'flycheck-disabled-checkers) '(go-vet))
+    ;; (flycheck-mode -1)
     ;; (company-mode)
-    (set (make-local-variable 'company-backends) '(company-go))
+    ;; (set (make-local-variable 'company-backends) '(company-go))
     (set (make-local-variable 'compile-command) (concat "go run " (shell-quote-argument buffer-file-name)))
     (add-hook 'before-save-hook #'gofmt-before-save nil t)
     )
@@ -24,13 +25,23 @@
 ;;          "go build -v && go test -v && go vet"))
 
 (use-package company-go
+  :requires (company)
   :after (company go-mode)
   :config
   (setq company-go-show-annotation t))
 
 (use-package go-impl
-  :disabled t
-  :after go-mode)
+  :after go-mode
+  :config
+  ;; (general-add-advice '(go-impl go-impl--completing-function)
+  ;;                     :around #'without-orderless)
+  ;; :config
+  ;; (advice-add 'go-impl :around #'without-orderless)
+  ;; (advice-add 'go-impl--receiver-complete :around #'without-orderless)
+  ;; (advice-add 'go-impl--matched-packages :around #'without-orderless)
+  ;; EXPLORE:
+  ;; (advice-add 'go-impl--completing-function :around #'without-orderless)
+  )
 
 ;; (use-package gotest
 ;;   :disabled t

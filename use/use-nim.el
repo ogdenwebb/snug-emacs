@@ -4,11 +4,14 @@
          ("\\.nims\\'" . nimscript-mode))
   :hook ((nim-mode . nimsuggest-mode)
          (nim-mode . eldoc-mode)
-         (nim-mode . snug/company-disable-fuzzy)
+         ;; (nim-mode . snug/company-disable-fuzzy)
          (nim-mode . snug--delete-nimlog-file)
          (nimscript-mode . snug--delete-nimlog-file))
 
   :config
+  ;; TODO: "fix" for deferred error : (void-function incf)
+  ;; (defalias 'incf 'cl-incf)
+
   (defun nimsuggest--delete-home-logfile ()
     "Delete nimsuggest log file in $HOME directory."
     (interactive)
