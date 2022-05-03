@@ -130,6 +130,13 @@
   )
 
 ;; Help keeping emacs directory clean
+
+(straight-use-package
+ '(compat
+   :host nil :type git
+   :repo "https://git.sr.ht/~pkal/compat"
+   :branch "master"))
+
 (use-package no-littering
   :demand t)
 
