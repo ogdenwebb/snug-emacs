@@ -108,7 +108,10 @@
 
   ;; Support yas in commpany
   ;; Note: Must be the last to involve all backends
-  (setq company-backends (mapcar #'company-backend-with-yas company-backends)))
+  (setq company-backends (mapcar #'company-backend-with-yas company-backends))
+
+  )
+
 
 ;; Use fuzzy completion
 ;; TODO disable in minor mods
@@ -135,6 +138,7 @@
 
 
 (use-package company-box
+  :disabled t
   :hook (company-mode . company-box-mode)
   :config
   (setf (map-elt company-box-backends-colors 'company-yasnippet)

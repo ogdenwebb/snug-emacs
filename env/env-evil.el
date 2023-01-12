@@ -102,6 +102,7 @@
   :config
   (setq-default evil-collection-company-use-tng nil)
   (setq evil-collection-mode-list (remove 'lispy evil-collection-mode-list))
+  (setq evil-collection-mode-list (remove 'corfu evil-collection-mode-list))
   (evil-collection-init))
 
 (use-package evil-commentary

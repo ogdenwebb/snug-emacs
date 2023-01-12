@@ -1,7 +1,7 @@
 ;; Vertico - VERTical Interactive COmpletion
 
 (use-package vertico
-  :straight (:host github :repo "minad/vertico" :branch "main" :files ("*.el" "extensions/*.el"))
+  ;; :straight (:files (:defaults "extensions/*"))
   :hook (after-init . vertico-mode)
   :init
   ;; Add prompt indicator to `completing-read-multiple'.
@@ -97,6 +97,11 @@
   :after vertico
   :config
   (marginalia-mode))
+
+;; Add icons to completion candidates in Emacs
+(use-package all-the-icons-completion
+  :hook ((after-init . all-the-icons-completion-mode)
+         (marginalia-mode . all-the-icons-completion-marginalia-setup)))
 
 (when (eq snug-default-completion-system 'vertico)
   (use-package consult

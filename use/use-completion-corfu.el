@@ -48,7 +48,7 @@
   :after corfu
   :config
   ;; Text-based Icons
-  (setq kind-icon-use-icons nil
+  (setq kind-icon-use-icons t
         kind-icon-default-face 'corfu-default) ; to compute blended backgrounds correctly
   (add-to-list 'corfu-margin-formatters #'kind-icon-margin-formatter))
 
