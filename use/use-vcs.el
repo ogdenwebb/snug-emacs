@@ -8,10 +8,6 @@
 
 ;; Git
 (use-package magit
-  :init
-  ;; Disable GUI dialog for git
-  (setenv "GIT_ASKPASS" "")
-  (setenv "SSH_ASKPASS" "")
   :preface
   ;; Ignore magit messages about version
   (advice-add #'magit-version :override #'ignore)
