@@ -1,15 +1,8 @@
 ;;; Rust programming language -*- lexical-binding: t -*-
 
-(use-package rust-mode
-  :mode "\\.rs$")
-
-(use-package racer
-  :hook (rust-mode . racer-mode)
+(use-package rustic
   :config
-  (add-hook 'rust-mode-hook #'eldoc-mode))
-
-(use-package company-racer
-  :after (company racer)
-  (add-to-list 'company-backends 'company-racer))
+  (setq rustic-format-on-save t)
+  (setq rustic-lsp-client 'eglot))
 
 (provide 'use-rust)
