@@ -60,6 +60,8 @@
 (use-package eglot
   ;; :disabled t
   :config
+  (add-hook 'eglot--managed-mode-hook (lambda () (flymake-mode -1)))
+
   (setq eglot-autoshutdown t
         eglot-confirm-server-initiated-edits nil)
 
