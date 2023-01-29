@@ -86,7 +86,7 @@
   ;; use-py          ; python
   ;; use-raku
   ;; use-repl
-  ;; use-rust
+  use-rust
   use-tags
   use-tools          ; support for external apps such as colorpicker
   ;; use-tabs           ; UI tabs
@@ -103,66 +103,5 @@
 )
 
 ;; user-settings
-
-;; Customize echo area
-
-;; (defface kaolin-themes-echo-area nil
-;;   "Face to highlight boolean values"
-;;   :group 'kaolin-themes)
-
-;; (custom-theme-set-faces
-;;  'user
-;;  `(kaolin-themes-echo-area ((t (:inherit 'variable-pitch :height 0.95))))
-;;  )
-
-
-;; ;; Attach a face to the echo area in order to style it differently.
-;; (dolist (buffer-name '(" *Echo Area 0*"
-;;                        " *Echo Area 1*"))
-;;   (with-current-buffer (get-buffer-create buffer-name)
-;;     (setq-local face-remapping-alist
-;;                 '((default kaolin-themes-echo-area)))))
-
-
-;; (use-package hierarchy)
-;; (use-package json-navigator
-;;   :after hierarchy)
-
-
-;; Simple symbol highlighting package for Emacs that performs well with large files.
-;; (use-package idle-highlight-mode
-;;   :straight (:host gitlab :repo "ideasman42/emacs-idle-highlight-mode"))
-
-;; (use-package frog-jump-buffer)
-
-;; Asynchronous Fuzzy Finder for Emacs
-;; (use-package  affe
-;;   :commands (affe-find affe-grep)
-;;   :config
-;;   ;; (with-eval-after-load 'orderless
-;;     ;; (defun affe-orderless-regexp-compiler (input _type)
-;;     ;;   (setq input (orderless-pattern-compiler input))
-;;     ;;   (cons input (lambda (str) (orderless--highlight input str))))
-;;     ;; (setq affe-regexp-compiler #'affe-orderless-regexp-compiler))
-
-;;   (when (executable-find "fd")
-;;     (setq affe-find-command "fd --color=never -i -E .git -H"))
-;;   )
-
-;; (use-package which-key)
-
-;; Gnus
-;; (use-package gnus
-;;   :config
-;;    (setq gnus-select-method '(nntp "news.gnus.org"))
-;;   ;; (add-to-list 'gnus-secondary-select-methods '(nntp "localhost"))
-;;   (add-to-list 'gnus-secondary-select-methods '(nntp "news.gnus.org"))
-;;   (add-to-list 'gnus-secondary-select-methods '(nnml ""))
-;;   )
-
-;; (use-package csv-mode)
-
-;; (use-package hierarchy
-;;   :straight nil)
 
 ;; (~ ^ . ^ ~)
