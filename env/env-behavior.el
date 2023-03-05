@@ -63,7 +63,7 @@
 ;; Recent files
 (use-package recentf
   :elpaca nil
-  :defer 1
+  :after no-littering
   :hook (kill-emacs . snug/recentf-cleanup-and-save)
   :config
   (defun snug/recentf-save-list-silence ()

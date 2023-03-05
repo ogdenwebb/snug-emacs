@@ -280,9 +280,6 @@
   :elpaca nil
   :hook (elpaca-after-init . save-place-mode))
 
-;; TODO: read
-;; (setq auto-save-list-file-name nil)
-
 ;; Save history
 (use-package savehist
   :elpaca nil
@@ -308,6 +305,7 @@
 ;; File-related settings
 (use-package files
   :elpaca nil
+  :after no-littering
   :config
   (setq make-backup-files t
         backup-by-copying t      ; don't clobber symlinks
@@ -318,6 +316,8 @@
         kept-old-versions 2
         version-control t ; use versioned backups
         auto-save-default nil
+        ;; auto-save-list-file-name nil
+        auto-save-list-file-prefix nil
 
         large-file-warning-threshold nil ; Disable warning about large files
         require-final-newline t
