@@ -3,7 +3,7 @@
 
 (use-package evil
   ;; :defer .1
-  :hook (after-init . evil-mode)
+  :hook (elpaca-after-init . evil-mode)
   :preface
   (setq evil-want-integration t ;; required by evil-collection
         evil-want-keybinding nil
@@ -115,7 +115,7 @@
 ;; (use-package evil-goggles
 ;;   ;; :requires evil
 ;;   :disabled t
-;;   :hook (after-init . evil-goggles-mode)
+;;   :hook (elpaca-after-init . evil-goggles-mode)
 ;;   :config
 ;;   (setq evil-goggles-duration 0.1
 ;;         evil-goggles-enable-delete nil
@@ -152,7 +152,7 @@
 ;; ;; TODO: maps
 ;; (use-package evil-vimish-fold
 ;;   :disabled t
-;;   :hook (after-init . evil-vimish-fold-mode)
+;;   :hook (elpaca-after-init . evil-vimish-fold-mode)
 ;;   :commands evil-vimish-fold-mode
 ;;   :config
 ;;   (setq vimish-fold-header-width nil))

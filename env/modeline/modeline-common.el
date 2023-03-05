@@ -8,10 +8,8 @@
 
 ;; Telephone line
 (use-package telephone-line
-  ;; :load-path "dev/telephone-line"
-  :defer t
-  :hook ((after-init . telephone-line-mode)
-         (after-init . recreate-message-buffer))
+  :hook ((elpaca-after-init . telephone-line-mode))
+         ;; (elpaca-after-init . recreate-message-buffer))
   :config
   ;; Need to display telephone-line in *Messages* buffer
   (defun recreate-message-buffer ()
@@ -22,7 +20,7 @@
         (kill-buffer "*Messages*")
         (message msg))))
 
-  ;; (add-hook 'after-init-hook #'recreate-message-buffer)
+  ;; (add-hook 'elpaca-after-init-hook #'recreate-message-buffer)
 
   ;; To create custom segments
   (require 'telephone-line-utils)

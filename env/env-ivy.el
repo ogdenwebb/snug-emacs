@@ -5,7 +5,7 @@
   "Use fuzzy completion in ivy.")
 
 (use-package ivy
-  :hook (after-init . ivy-mode)
+  :hook (elpaca-after-init . ivy-mode)
   :config
 
   ;; Set default ivy matchers
@@ -175,7 +175,7 @@
 
 (when (eq snug-default-completion-system 'ivy)
   (use-package ivy
-    :straight nil
+    :elpaca nil
     :general
     (general-def ivy-mode-map
       [remap list-buffers]                  #'ivy-switch-buffer
@@ -184,7 +184,7 @@
       [remap imenu-anywhere]                #'ivy-imenu-anywhere))
 
   (use-package counsel
-    :straight nil
+    :elpaca nil
     :general
     (general-def counsel-mode-map
       [remap recentf-open-files]       #'counsel-recentf
@@ -230,7 +230,7 @@
 
 (when (eq snug-default-completion-system 'ivy)
   (use-package counsel
-    :straight nil
+    :elpaca nil
     :general
     ([remap apropos]                       #'counsel-apropos)
     ([remap bookmark-jump]                 #'counsel-bookmarks)

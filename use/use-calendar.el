@@ -1,7 +1,7 @@
 ;; Calendar module -*- lexical-binding: t; -*-
 
 (use-package calendar
-  :straight nil
+  :elpaca nil
   :hook (calendar-today-visible . calendar-mark-today)
   :config
   (setq calendar-time-display-form

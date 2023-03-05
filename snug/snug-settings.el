@@ -53,8 +53,8 @@
 
 ;; Replace the region while insert
 (use-package delsel
-  :straight nil
-  :hook (after-init . delete-selection-mode))
+  :elpaca nil
+  :hook (elpaca-after-init . delete-selection-mode))
 
 ;; Enable mouse within terminal
 (when (not window-system)
@@ -84,6 +84,7 @@
 ;; Various Emacs settings
 ;; Set variables defined in C source code
 (use-package emacs
+  :elpaca nil
   :hook (eval-expression-minibuffer-setup . show-paren-mode)
   :config
   (setq frame-resize-pixelwise t  ; Resize frame pixelwise
@@ -154,7 +155,7 @@
   )
 
 (use-package minibuffer
-  :straight nil
+  :elpaca nil
   :hook (minibuffer-setup-hook . minibuffer-electric-default-mode)
   :config
   (setq read-answer-short t
@@ -168,7 +169,7 @@
 
 ;; simple.el
 (use-package simple
-  :straight nil
+  :elpaca nil
   :config
   (setq-default yank-pop-change-selection t
                 ;; Disable key bindging suggeestions
@@ -220,7 +221,7 @@
 
 ;; Compilation
 (use-package compile
-  :straight nil
+  :elpaca nil
   :config
   (setq compilation-always-kill t
         compilation-scroll-output t
@@ -244,7 +245,7 @@
 
 ;; Whitespace
 (use-package whitespace
-  :straight nil
+  :elpaca nil
   :defer t
   :config
   (setq-default whitespace-line-column 80
@@ -255,8 +256,8 @@
 
 ;; Auto reload buffer if file was changed
 (use-package autorevert
-  :straight nil
-  :hook (after-init . global-auto-revert-mode)
+  :elpaca nil
+  :hook (elpaca-after-init . global-auto-revert-mode)
   :config
   (setq auto-revert-interval 10
         auto-revert-check-vc-info nil
@@ -276,15 +277,16 @@
 
 ;; Save last position in buffer
 (use-package saveplace
-  :straight nil
-  :hook (after-init . save-place-mode))
+  :elpaca nil
+  :hook (elpaca-after-init . save-place-mode))
 
 ;; TODO: read
 ;; (setq auto-save-list-file-name nil)
 
 ;; Save history
 (use-package savehist
-  :hook (after-init . savehist-mode)
+  :elpaca nil
+  :hook (elpaca-after-init . savehist-mode)
   :config
   (setq savehist-autosave-interval nil     ; save on kill only
         history-delete-duplicates t
@@ -298,13 +300,14 @@
   )
 
 (use-package bookmark
+  :elpaca nil
   :defer t
   :config
   (setq bookmark-save-flag t))
 
 ;; File-related settings
 (use-package files
-  :straight nil
+  :elpaca nil
   :config
   (setq make-backup-files t
         backup-by-copying t      ; don't clobber symlinks
@@ -331,6 +334,7 @@
         ))
 
 (use-package find-file
+  :elpaca nil
   :defer t
   :config
   (setq  ff-quiet-mode t))
@@ -422,7 +426,7 @@
 ;; Native-comp setting for Emacs 28+
 (if (and (not (version< emacs-version "28.0")) (featurep 'nativecomp))
     (use-package comp
-      :straight nil
+      :elpaca nil
       :config
       (setq-default comp-async-compilation t
                     ;; native-comp-deferred-compilation nil

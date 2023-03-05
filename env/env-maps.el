@@ -14,7 +14,7 @@
 
 ;; Reverse mapping for keyboard layouts other than english
 (use-package reverse-im
-  :hook (after-init . reverse-im-mode)
+  :hook (elpaca-after-init . reverse-im-mode)
   :config
   ;; (add-to-list 'reverse-im-modifiers 'super)
   (add-to-list 'reverse-im-input-methods "russian-computer"))
@@ -22,6 +22,8 @@
 (use-package general
   :demand t
   :config
+  (general-override-mode)
+  (general-auto-unbind-keys)
   (general-evil-setup t)
 
   ;; Use C-n/C-p to jump across eval-expression history
@@ -33,7 +35,8 @@
      "C-p" #'previous-line-or-history-element
      "C-n" #'next-line-or-history-element))
 
-  (add-hook 'eval-expression-minibuffer-setup-hook #'snug-hooks/eval-expression-setup)
-  )
+  (add-hook 'eval-expression-minibuffer-setup-hook #'snug-hooks/eval-expression-setup))
+
+;; (elpaca-wait)
 
 (provide 'env-maps)

@@ -1,8 +1,8 @@
 ;;; env-session - manage sessions -*- lexical-binding: t; -*-
 (use-package desktop
   :hook
-  (after-init . desktop-read)
-  (after-init . desktop-save-mode)
+  (elpaca-after-init . desktop-read)
+  (elpaca-after-init . desktop-save-mode)
   :config
   (setq desktop-base-file-name (concat no-littering-var-directory "/desktop/.desktop")
         desktop-base-lock-name (concat no-littering-var-directory "/desktop/.desktop.lock")
@@ -28,7 +28,7 @@
 
 (use-package session
   :disabled t
-  :hook (after-init . session-initialize)
+  :hook (elpaca-after-init . session-initialize)
   :init
   (setq session-save-file (no-littering-expand-var-file-name ".session")
         session-name-disable-regexp "\\(?:\\`'/tmp\\|\\.git/[A-Z_]+\\'\\)"

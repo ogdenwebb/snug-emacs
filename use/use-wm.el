@@ -2,8 +2,8 @@
 
 ;; Undo/redo changes to Emacs' window layout
 (use-package winner
-  :straight nil
-  :hook (after-init . winner-mode)
+  :elpaca nil
+  :hook (elpaca-after-init . winner-mode)
   :config
   (setq winner-dont-bind-my-keys t))
 
@@ -26,7 +26,7 @@
 
 ;; Enforce rules for popup windows
 (use-package shackle
-  :hook (after-init . shackle-mode)
+  :hook (elpaca-after-init . shackle-mode)
   :config
   (defun snug/shackle--smart-split-dir ()
     (if (>= (window-pixel-height)
@@ -91,7 +91,7 @@
 
 (use-package eyebrowse
   :disabled t
-  :hook (after-init . eyebrowse-mode)
+  :hook (elpaca-after-init . eyebrowse-mode)
   :config
   (setq eyebrowse-mode-line-separator "|"))
   ;; (setq eyebrowse-new-workspace "*dashboard*"))

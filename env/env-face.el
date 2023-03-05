@@ -1,12 +1,13 @@
 ;; Appearance settings -*- lexical-binding: t -*-
 
-(use-package all-the-icons-ivy
-  :disabled
-  :config
-  (setq all-the-icons-ivy-file-commands
-      '(counsel-find-file counsel-file-jump counsel-recentf counsel-projectile-find-file counsel-projectile-find-dir))
-  (all-the-icons-ivy-setup))
-
+;; TODO: move to ivy module
+;; (use-package all-the-icons-ivy
+;;   :disabled
+;;   :config
+;;   (setq all-the-icons-ivy-file-commands
+;;       '(counsel-find-file counsel-file-jump counsel-recentf counsel-projectile-find-file counsel-projectile-find-dir))
+;;   (all-the-icons-ivy-setup))
+;;
 ;; Custom theme load
 (defun snug/disable-all-themes ()
   "Disable all enabled themes"
@@ -54,13 +55,11 @@
           ("NOTE"      . ,(face-foreground 'success)))))
 
 
-(use-package autothemer
-  :demand t)
+(use-package autothemer)
 
 (use-package kaolin-themes
-  :straight nil
-  :demand t
-  :requires autothemer
+  :elpaca nil
+  :after autothemer
   :load-path "local/emacs-kaolin-themes"
   :config
   (setq kaolin-themes-hl-line-colored nil
@@ -132,7 +131,7 @@
 ;; TODO conflicts with separedit package
 (use-package ligature
   :disabled t
-  :straight (:host github :repo "mickeynp/ligature.el")
+  :elpaca (:repo "https://github.com/mickeynp/ligature.el")
   :hook (prog-mode . ligature-mode)
   :config
   ;; Enable the "www" ligature in every possible major mode
@@ -163,7 +162,7 @@
 
 
 (use-package prog-mode
-  :straight nil
+  :elpaca nil
   :init
   (setq prettify-symbols-unprettify-at-point t))
 
@@ -176,7 +175,7 @@
    '(fixed-pitch ((t (:family "D2Coding" :weight normal))))))
 ;; '(variable-pitch ((t (:family "Vollkorn" :height 135 :weight normal)))))
 
-(add-hook 'after-init-hook #'snug/setup-fonts)
+(add-hook 'elpaca-after-init-hook #'snug/setup-fonts)
 
 ;; Set the fringe size
 (setq-default left-fringe-width  6
@@ -211,6 +210,7 @@
 
 ;; Highlight current line
 (use-package hl-line
+  :elpaca nil
   :hook (prog-mode . hl-line-mode)
   :config
   ;; Highlight line only in current window
@@ -275,7 +275,7 @@
 
 ;; Highlight parenthess
 (use-package paren
-  :straight nil
+  :elpaca nil
   :hook (prog-mode . show-paren-mode)
   :config
   (setq show-paren-style 'parenthesis
@@ -327,6 +327,7 @@
   (setq nlinum-highlight-current-line t))
 
 (use-package display-line-numbers
+  :elpaca nil
   :if (not (version< emacs-version "26.0"))
   :hook ((prog-mode text-mode conf-mode) . display-line-numbers-mode)
   :config
@@ -342,7 +343,7 @@
 
 (use-package page-break-lines
   :disabled t
-  :hook (after-init . turn-on-page-break-lines-mode))
+  :hook (elpaca-after-init . turn-on-page-break-lines-mode))
 
 ;; (use-package solaire-mode
 ;;   ;; :disabled t
@@ -385,7 +386,7 @@
 ;;       (with-current-buffer b
 ;;         (face-remap-add-relative 'default '(:background "red"))))))
 
-;; (add-hook 'after-init-hook #'remap-echo-background)
+;; (add-hook 'elpaca-after-init-hook #'remap-echo-background)
 ;; (add-hook 'echo-area-clear-hook #'remap-echo-background)
 
 ;; Hide mode-line in certain buffers
@@ -400,7 +401,7 @@
   :hook (Info-selection . info-colors-fontify-node))
 
 ;; (use-package rainbow-mode
-;;   :hook (((after-init
+;;   :hook (((elpaca-after-init
 ;;            text-mode
 ;;            org-mode
 ;;            css-mode

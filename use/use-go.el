@@ -1,5 +1,6 @@
 ;; Support for golang -*- lexical-binding: t -*-
 ;; maybe: https://github.com/dougm/go-projectile/
+
 (use-package go-mode
   :mode (("\\.go\\'" . go-mode))
   :interpreter "go"
@@ -24,13 +25,17 @@
 ;;     (set (make-local-variable 'compile-command)
 ;;          "go build -v && go test -v && go vet"))
 
+;; TODO rework
 (use-package company-go
+             :disabled t
   :requires (company)
   :after (company go-mode)
   :config
   (setq company-go-show-annotation t))
 
+;; TODO: fix for elpaca
 (use-package go-impl
+             :disabled t
   :after go-mode
   :config
   ;; (general-add-advice '(go-impl go-impl--completing-function)
@@ -50,7 +55,9 @@
 ;; (use-package go-guru
 ;;   :after go-mode)
 
+;; TODO: fix for elpaca
 (use-package go-eldoc
+             :disabled t
   :if (and (not (featurep 'lsp-mode))
            (not (featurep 'eglot)))
   :hook (go-mode . go-eldoc-setup))

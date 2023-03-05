@@ -2,6 +2,7 @@
 
 ;; Regular expression
 (use-package re-builder
+  :elpaca nil
   :commands (re-builder)
   ;; You can switch between the various styles by using
   ;; C-c TAB inside of the regexp builder's buffer.
@@ -115,10 +116,11 @@
 ;; NOTE: You can run `explain-pause-profiles' to view the profile report.
 (use-package explain-pause-mode
   :disabled t
-  :straight (:host github :repo "lastquestion/explain-pause-mode")
-  :hook (after-init . explain-pause-mode))
+  :elpaca (:repo "https://github.com/lastquestion/explain-pause-mode")
+  :hook (elpaca-after-init . explain-pause-mode))
 
 (use-package treemacs
+  ;; :elpaca (treemacs :files (:defaults "/src/extra/*"))
   :commands (treemacs treemacs-create-theme treemacs-create-icon treemacs-load-theme)
   :config
   (setq-default treemacs-fringe-indicator-mode nil)
@@ -178,7 +180,7 @@
 
 ;; Eldoc
 (use-package eldoc
-  :straight nil
+  :elpaca nil
   :hook (prog-mode-hook . eldoc-mode)
   :config
   (global-eldoc-mode -1)
@@ -197,7 +199,7 @@
 
 (use-package google-translate-smooth-ui
   :defer t
-  :straight nil
+  :elpaca nil
   ;; :after google-translate
   :commands google-translate-smooth-translate
   :config
@@ -240,7 +242,7 @@
 ;; Simple but effective sorting and filtering for Emacs.
 (use-package prescient
   :if (or (featurep 'company) (featurep 'env-ivy))
-  :hook (after-init . prescient-persist-mode)
+  :hook (elpaca-after-init . prescient-persist-mode)
   :config
   (setq prescient-history-length 200
         prescient-filter-method '(literal regexp initialism prefix) ; or fuzzy literal-prefix
@@ -253,14 +255,13 @@
   :hook ((company-mode global-company-mode) . company-prescient-mode))
 
 (use-package avy :defer t)
-(use-package ace-window :defer t)
 ;;; Libraries
 (use-package async      :defer t)
 ;; (use-package anaphora      :defer t)
 ;; (use-package apiwrap       :defer t)
 ;; (use-package asoc          :defer t)
 ;; (use-package button-lock   :defer t)
-(use-package bind-key      :defer t)
+;; (use-package bind-key      :defer t)
 ;; (use-package ctable        :defer t)
 ;; (use-package concurrent    :defer t)
 (use-package dash            :defer t)
@@ -290,7 +291,7 @@
 ;; (use-package list-utils    :defer t)
 (use-package logito        :defer t)
 (use-package loop          :defer t)
-(use-package lv          :defer t)
+;; (use-package lv          :defer t)
 ;; (use-package m-buffer      :defer t)
 ;; (use-package makey         :defer t)
 (use-package marshal       :defer t)
@@ -383,13 +384,13 @@
 
 (use-package frameshot
   :disabled t
-  :hook (after-init . frameshot-mode)
+  :hook (elpaca-after-init . frameshot-mode)
   :config
   (setq frameshot-default-setup t))
 
 ;; One-frame-per-action GIF recording for optimal quality/size ratio
 (use-package gif-screencast
-  :straight (:host gitlab :repo "ambrevar/emacs-gif-screencast")
+  :elpaca (:repo "https://gitlab.com/ambrevar/emacs-gif-screencast")
   :commands (gif-screencast-toggle-pause gif-screencast-stop gif-screencast-start-or-stop)
   :config
   (setq gif-screencast-args '("--quality" "25" "--focused")

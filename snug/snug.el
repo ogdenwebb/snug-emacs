@@ -38,39 +38,9 @@
 ;; Ensure `snug' is in `load-path'
 (add-to-list 'load-path (file-name-directory load-file-name))
 
-(autoload #'straight-x-pull-all "straight-x" "" t)
-(autoload #'straight-x-fetch-all "straight-x" "" t)
-(autoload #'straight-x-freeze-versions "straight-x" "" t)
-
 ;; Require necessary snug things
 (require 'snug-core)
-
-;; Straight.el
-(defvar bootstrap-version)
-(let ((bootstrap-file
-       (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
-      (bootstrap-version 5))
-  (unless (file-exists-p bootstrap-file)
-    (with-current-buffer
-      (url-retrieve-synchronously
-        "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
-        'silent 'inhibit-cookies)
-      (goto-char (point-max))
-      (eval-print-last-sexp)))
-  (load bootstrap-file nil 'nomessage))
-
-;; Straight settings
-(setq straight-check-for-modifications nil
-      ;; Don't clone the whole repo
-      straight-vc-git-default-clone-depth 1
-      straight-recipes-emacsmirror-use-mirror t
-
-      ;; Configure build directory considering Emacs version
-      ;; straight-build-dir (format "build-%s" emacs-version)
-
-      ;; We have it in early-init.el
-      straight-enable-package-integration nil
-      )
+(require 'snug-pack)
 
 ;; Security settings
 ;; Emacs is essentially one huge security vulnerability, what with all the
@@ -98,9 +68,7 @@
                     ;; compatibility fallbacks
                     "gnutls-cli -p %p %h"))
 
-(straight-use-package 'use-package)
-(setq straight-use-package-by-default t
-      use-package-enable-imenu-support t)
+;; (setq use-package-enable-imenu-support t)
 
 ;; Display use-package debug stuff when debug-on-error is t
 (if snug-debug-mode
@@ -111,34 +79,6 @@
           use-package-minimum-reported-time 0.01)
   (setq use-package-expand-minimally t
         use-package-verbose nil))
-
-(use-package gcmh
-  :hook (after-init . gcmh-mode)
-  :config
-  (setq gcmh-verbose             nil
-        ;; gcmh-low-cons-threshold  #x800000
-        ;; gcmh-high-cons-threshold #x800000
-        gcmh-idle-delay          5 ;; old is 300
-
-        ;; Don’t compact font caches during GC.
-        inhibit-compacting-font-caches t
-        gc-cons-percentage 0.1))
-
-(use-package subr-x
-  :straight nil
-  ;; :defer t
-  )
-
-;; Help keeping emacs directory clean
-
-(straight-use-package
- '(compat
-   :host nil :type git
-   :repo "https://git.sr.ht/~pkal/compat"
-   :branch "master"))
-
-(use-package no-littering
-  :demand t)
 
 ;; Define directories
 (eval-and-compile
@@ -171,15 +111,41 @@
 
 ;; Use Common Lisp library
 (use-package cl-lib
+  :elpaca nil
   :defer t)
 
 ;; Add configuration directories to `load-path'
 (defun update-load-path (&rest _)
   "Update `load-path'."
-  (dolist (dir '("snug" "env" "use" "user" "completion" "modeline"))
+  (dolist (dir '("snug" "env" "use" "user" "completion" "env/modeline"))
     (cl-pushnew (expand-file-name dir snug-root) load-path)))
 
 (update-load-path)
+
+(require 'env-maps)
+(elpaca-wait)
+
+(use-package gcmh
+  :hook (elpaca-after-init . gcmh-mode)
+  :config
+  (setq gcmh-verbose             nil
+        ;; gcmh-low-cons-threshold  #x800000
+        ;; gcmh-high-cons-threshold #x800000
+        gcmh-idle-delay          5 ;; old is 300
+
+        ;; Don’t compact font caches during GC.
+        inhibit-compacting-font-caches t
+        gc-cons-percentage 0.1))
+
+;; (use-package subr-x :elpaca nil)
+
+;; Help keeping emacs directory clean
+
+(use-package no-littering
+  :demand t
+  :config
+  (setq auto-save-file-name-transforms
+        `((".*" ,(no-littering-expand-var-file-name "auto-save/") t))))
 
 ;; Remove command line options that aren't relevant to our current OS; means
 ;; slightly less to process at startup.
@@ -194,8 +160,8 @@
 
 ;; Server
 (use-package server
-  :straight nil
-  :hook (after-init . server-mode)
+  :elpaca nil
+  :hook (elpaca-after-init . server-mode)
   :config
   (add-hook 'server-done-hook 'recentf-cleanup))
 
@@ -206,18 +172,6 @@
     (add-to-list 'body 'env-fun t)
     (dolist (pkg body)
       (require pkg nil t))))
-
-;; Use a hook so the message doesn't get clobbered by other messages.
-;; (defun snug/measure-package-time ()
-;;   "Measure initial loading time of packages."
-;;   ;; (interactive)
-;;   (message "Emacs ready in %s with %d garbage collections."
-;;            (format "%.2f seconds"
-;;                    (float-time
-;;                     (time-subtract after-init-time before-init-time)))
-;;            gcs-done))
-
-;; (add-hook 'emacs-startup-hook)
 
 ;; Text icons
 (use-package all-the-icons

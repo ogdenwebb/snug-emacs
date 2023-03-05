@@ -1,6 +1,7 @@
 ;;; Password-store support  -*- lexical-binding: t -*-
 
 (use-package auth-source-pass
+  :elpaca nil
   :config
   (auth-source-pass-enable))
 

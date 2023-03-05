@@ -5,6 +5,9 @@ network-security.data
 custom.el
 var/
 straight/
+elpaca/
 local/
 etc/
 .cache/
+recentf
+auto-save-list

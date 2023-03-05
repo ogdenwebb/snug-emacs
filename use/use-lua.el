@@ -6,7 +6,9 @@
   :config
   (setq-default lua-indent-level 4))
 
+;; TODO rework
 (use-package company-lua
+             :disabled t
   :after (lua-mode company))
 
 (use-package moonscript

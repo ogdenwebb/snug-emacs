@@ -2,15 +2,15 @@
 
 ;; Electric
 (use-package electric
-  :straight nil
-  :hook ((after-init . electric-indent-mode))
-         ;; (after-init . electric-layout-mode))
+  :elpaca nil
+  :hook ((elpaca-after-init . electric-indent-mode))
+         ;; (elpaca-after-init . electric-layout-mode))
   :config
   ;; (add-to-list 'electric-layout-rules '(?{ . after-stay))
   (setq-default electric-indent-inhibit t))
 
 (use-package undo-propose
-  :straight (:host github :repo "jackkamm/undo-propose-el" :files ("*.el"))
+  :elpaca (:repo "https://github.com/jackkamm/undo-propose-el" :files ("*.el"))
   :commands (undo-propose undo-propose-diff)
   :config
   (undo-propose-wrap redo)
@@ -24,7 +24,7 @@
 
 ;; Save & recover undo steps between Emacs sessions.
 (use-package undo-fu-session
-  :hook (after-init . global-undo-fu-session-mode)
+  :hook (elpaca-after-init . global-undo-fu-session-mode)
   :config
   (setq undo-fu-session-file-limit 50
         undo-fu-session-incompatible-files '("/COMMIT_EDITMSG\\'"
@@ -32,7 +32,7 @@
 
 ;; Visualize the undo tree
 (use-package vundo
-  :straight (:host github :repo "casouri/vundo")
+  :elpaca (:repo "https://github.com/casouri/vundo")
   :general
   (general-define-key
    :keymaps 'vundo-mode-map
@@ -62,7 +62,7 @@
 
 ;; Recent files
 (use-package recentf
-  :straight nil
+  :elpaca nil
   :defer 1
   :hook (kill-emacs . snug/recentf-cleanup-and-save)
   :config
@@ -121,11 +121,12 @@
   )
 
 (use-package subword
+  :elpaca nil
   ;; :commands (subword-mode global-subword-mode)
-  :hook (after-init . global-subword-mode))
+  :hook (elpaca-after-init . global-subword-mode))
 
 (use-package uniquify
-  :straight nil
+  :elpaca nil
   :defer 2
   :config
   (setq uniquify-buffer-name-style 'forward))
@@ -136,6 +137,7 @@
 
 ;; Make scripts executable automatically.
 (use-package executable
+  :elpaca nil
   :ensure nil
   :hook (after-save . executable-make-buffer-file-executable-if-script-p))
 

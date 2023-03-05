@@ -1,7 +1,7 @@
 ;; -*- lexical-binding: t -*-
 
 (use-package shell-pop
-  :straight (:host github :repo "kyagi/shell-pop-el")
+  :elpaca (:repo "https://github.com/kyagi/shell-pop-el")
   :commands (shell-pop)
   :config
   (setq shell-pop-window-size 30

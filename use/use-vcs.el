@@ -78,7 +78,7 @@
 
 ;; Highlight changes in git
 (use-package git-gutter
-  :hook (after-init . global-git-gutter-mode))
+  :hook (elpaca-after-init . global-git-gutter-mode))
 
 (use-package git-gutter-fringe
   :after git-gutter)

@@ -24,9 +24,9 @@
   :after (hydra))
 
 (use-package hydra-posframe
-  :straight (:host github :repo "Ladicle/hydra-posframe" :files ("*.el"))
+  :elpaca (:repo "https://github.com/Ladicle/hydra-posframe" :files ("*.el"))
   :after (posframe hydra)
-  :hook (after-init . hydra-posframe-mode)
+  :hook (elpaca-after-init . hydra-posframe-mode)
   :config
   (setq hydra-posframe-border-width 15))
 

@@ -1,6 +1,6 @@
 ;;; Lisp editing -*- lexical-binding: t; -*-
 (use-package elisp-mode
-  :straight nil
+  :elpaca nil
   :hook (emacs-lisp-mode . eldoc-mode))
 
 ;; Improve readability of escape characters in ELisp regular expressions
@@ -35,13 +35,16 @@
 (add-hook 'emacs-lisp-mode-hook 'lisp-indent-setup)
 
 ;;  Lispy is reimagines Paredit - a popular method to navigate and edit LISP code in Emacs.
+;; TODO: re-enable maybe
 (use-package lispy
+  :disabled t
   :defer t
   :config
   (setq lispy-close-quotes-at-end-p t))
 
 ;; lispy + evil = lispyville
 (use-package lispyville
+  :disabled t
   :hook ((common-lisp-mode . lispy-mode)
          (emacs-lisp-mode . lispy-mode)
          (scheme-mode . lispy-mode)

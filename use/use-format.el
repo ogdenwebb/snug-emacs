@@ -1,8 +1,11 @@
 ;; Format source code -*- lexical-binding: t; -*-
 (use-package reformatter
-  :defer t)
+             :disabled t
+  ;; :defer t
+  )
 
 (use-package ormolu
+             :disabled t
  :hook (haskell-mode . ormolu-format-on-save-mode))
  ;; :bind
  ;; (:map haskell-mode-map

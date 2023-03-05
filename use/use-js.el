@@ -15,6 +15,7 @@
 
 ;; Tern
 (use-package company-tern
+  :elpaca nil
   :after (company tern)
   :commands (company-tern)
   :config
@@ -27,11 +28,14 @@
   :config
   (add-hook 'js-mode-hook #'indium-interaction-mode))
 
+;; TODO: fir fox elpaca
 (use-package npm
   :disabled t
   :commands (npm))
 
+;; TODO: fir fox elpaca
 (use-package npm-mode
+  :disabled t
   :defer t)
 
 

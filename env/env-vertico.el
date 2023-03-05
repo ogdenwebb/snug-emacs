@@ -1,8 +1,8 @@
 ;; Vertico - VERTical Interactive COmpletion
 
 (use-package vertico
-  ;; :straight (:files (:defaults "extensions/*"))
-  :hook (after-init . vertico-mode)
+  :elpaca (vertico :files (:defaults "extensions/*"))
+  :hook ((elpaca-after-init . vertico-mode))
   :init
   ;; Add prompt indicator to `completing-read-multiple'.
   ;; Alternatively try `consult-completing-read-multiple'.
@@ -21,9 +21,31 @@
   :config
   (setq vertico-resize nil
         vertico-count 12)
+
+  ;; Enable vertico-multiform
+  ;; allows you to configure Vertico per command or per completion category.
+  ;; (require 'vertico-multiform)
+  (vertico-multiform-mode)
+
+  ;; Change the default sorting function.
+  ;; See `vertico-sort-function' and `vertico-sort-override-function'.
+  (setq vertico-multiform-commands
+        '((describe-symbol (vertico-sort-function . vertico-sort-alpha))))
+
+  (setq vertico-multiform-categories
+        '((symbol (vertico-sort-function . vertico-sort-alpha))
+          (file (vertico-sort-function . sort-directories-first))))
+
+  ;; Sort directories before files
+  (defun sort-directories-first (files)
+    (setq files (vertico-sort-history-length-alpha files))
+    (nconc (seq-filter (lambda (x) (string-suffix-p "/" x)) files)
+           (seq-remove (lambda (x) (string-suffix-p "/" x)) files)))
+
   :general
   (general-def vertico-map
     "<escape>" #'abort-recursive-edit)
+
   )
 
 ;; ;; Use the `orderless' completion style. Additionally enable
@@ -47,9 +69,8 @@
   ;; Exclude some commands
   (defun without-orderless (fn & rest args)
     (let ((completion-styles '(basic partial-completion)))
-      (apply fn args)))
+      (apply fn args))))
 
-    )
 
 ;; Consulting completing-read
 (use-package consult
@@ -70,7 +91,7 @@
                  args)))
 
   ;; Do not trigger auto preview and use keybinding instead
-  (setq consult-preview-key (kbd "C-SPC")
+  (setq consult-preview-key "C-SPC"
         consult-line-numbers-widen t
         consult-async-min-input 2
         consult-async-refresh-delay 0.15
@@ -78,13 +99,13 @@
         consult-async-input-debounce 0.1))
 
 (use-package consult-vertico
-  :straight nil
+  :elpaca nil
   :after consult)
 
 ;; Consult integration for projectile
 (use-package consult-projectile
   :after (consult projectile)
-  :straight (consult-projectile :type git :host gitlab :repo "OlMon/consult-projectile" :branch "master"))
+  :elpaca (:repo "https://gitlab.com/OlMon/consult-projectile"))
 
 (use-package consult-dir)
 
@@ -100,12 +121,12 @@
 
 ;; Add icons to completion candidates in Emacs
 (use-package all-the-icons-completion
-  :hook ((after-init . all-the-icons-completion-mode)
+  :hook ((elpaca-after-init . all-the-icons-completion-mode)
          (marginalia-mode . all-the-icons-completion-marginalia-setup)))
 
 (when (eq snug-default-completion-system 'vertico)
   (use-package consult
-    :straight nil
+    :elpaca nil
     :general
     ([remap apropos]                       #'consult-apropos)
     ([remap bookmark-jump]                 #'consult-bookmark)
@@ -124,7 +145,7 @@
     )
 
   (use-package consult-projectile
-    :straight nil
+    :elpaca nil
     :general
     ([remap projectile-find-file] #'consult-projectile))
   )

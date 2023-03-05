@@ -1,7 +1,7 @@
 ;; ;; Language server protocol support -*- lexical-binding: t -*-
 ;; (use-package lsp-mode
 ;;   ;; :disabled t
-;;   :straight nil
+;;   :elpaca nil
 ;;   ;; :config
 ;;   ;; (setq lsp-log-io t)
 ;;   ;; :init
@@ -28,7 +28,7 @@
 
 ;; ;; Make sure we have lsp-imenu everywhere we have LSP
 ;; (use-package lsp-ui-imenu
-;;   :straight nil
+;;   :elpaca nil
 ;;   :hook (lsp-after-open-hook . lsp-enable-imenu))
 
 
@@ -36,13 +36,13 @@
 
 ;; ;; languages
 ;; (use-package lsp-html
-;;   :straight nil
+;;   :elpaca nil
 ;;   :after lsp-mode
 ;;   :hook ((html-mode web-mode) . lsp-html-enable))
 
 ;; (use-package lsp-css
 ;;   :after lsp-mode
-;;   :straight nil
+;;   :elpaca nil
 ;;   :hook ((css-mode-hook  . lsp-css-enable)
 ;;          (less-mode-hook . lsp-less-enable)
 ;;          (sass-mode-hook . lsp-scss-enable)

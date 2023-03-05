@@ -30,12 +30,13 @@
 
 ;; Shell files
 (use-package sh-script
+  :elpaca nil
   :mode (("[/\\]\\zshrc$" . shell-script-mode))
   :config
   (setq sh-learn-basic-offset t))
 
 (use-package makefile-mode
-  :straight nil
+  :elpaca nil
   :mode (("\\(/\\|\\`\\)[Mm]akefile" . makefile-mode)))
 
 ;; Performance issues
@@ -44,15 +45,9 @@
   :mode (("\\.cmake\\'" . cmake-mode)
          ("\\CMakeLists.txt$" . cmake-mode)))
 
-(use-package vimrc-mode
-  :mode ("/\\.?g?vimrc$"
-         "\\.vim$"
-         "\\.?vimperatorrc$"
-         "\\.vimp$"))
-
 ;; Support for i3 config
 (use-package i3wm-config-mode
-  :straight (:host github :repo "Alexander-Miller/i3wm-Config-Mode")
+  :elpaca (:repo "https://github.com/Alexander-Miller/i3wm-Config-Mode")
   :mode (("[/\\]\\.config/i3/config$" . i3wm-config-mode)
          ("[/\\]\\.i3/config$" . i3wm-config-mode)))
 
@@ -70,12 +65,13 @@
   (setq graphviz-dot-indent-width 4))
 
 (use-package company-graphviz-dot
-  :straight nil
+  :elpaca nil
   :after (graphviz-dot-mode company)
   )
 
 ;; An Emacs major mode for editing Nix expressions.
 (use-package nix-mode
+             :disabled t
   :mode "\\.nix\\'")
 
 (provide 'use-filetype)

@@ -13,7 +13,8 @@
 ;; prolly need hook instead of :config
 (use-package org
   ;; NOTE: use built-in org
-  :straight (org :type built-in)
+  ;; :straight (org :type built-in)
+  :elpaca nil
   :preface
   (defun snug/org-init-hook ()
     ;; Fit image into the screen
@@ -178,11 +179,11 @@
 
 
 (use-package org-tempo
-  :straight nil
+  :elpaca nil
   :after org)
 
 (use-package org-src
-  :straight nil
+  :elpaca nil
   :after org
   :config
   (setq org-src-window-setup 'current-window
@@ -194,7 +195,7 @@
 
 ;; Pretty stars for org-mode
 (use-package org-superstar-mode
-  :straight (:host github :repo "integral-dw/org-superstar-mode")
+  :elpaca (:host github :repo "integral-dw/org-superstar-mode")
   :hook (org-mode . org-superstar-mode)
   :init
   (setq org-superstar-prettify-item-bullets t
@@ -222,7 +223,7 @@
 
 ;; MAYBE: move to evil module?
 (use-package evil-org
-  :straight (:host github :repo "Somelauw/evil-org-mode")
+  :elpaca (:host github :repo "Somelauw/evil-org-mode")
   :hook (org-mode . evil-org-mode)
   :config
   ;; TODO: doesn't work in tables
@@ -248,7 +249,7 @@
 
 ;; Toggle visibility of hidden Org elements following cursor
 (use-package org-appear
-  :straight (org-appear :type git :host github :repo "awth13/org-appear")
+  :elpaca (org-appear :host github :repo "awth13/org-appear")
   :hook (org-mode . org-appear-mode)
   :config
   ;; (setq org-appear-autolinks t)
@@ -256,7 +257,7 @@
 
 ;; Pixel-perfect visual alignment for Org and Markdown tables.
 (use-package valign-mode
-  :straight (:host github :repo "casouri/valign")
+  :elpaca (valign-mode :host github :repo "casouri/valign")
   :hook (org-mode . valign-mode)
   :config
   ;; Enable fancy bars in org buffers
