@@ -170,10 +170,13 @@
 (defun snug/setup-fonts ()
   (custom-theme-set-faces
    'user
+   '(fixed-pitch ((t (:family "D2Coding" :weight normal)))))
    ;;  '(variable-pitch ((t (:family "Crimson Text" :height 165 :weight normal)))))
-   '(variable-pitch ((t (:family "XCharter" :height 150 :weight normal))))
-   '(fixed-pitch ((t (:family "D2Coding" :weight normal))))))
-;; '(variable-pitch ((t (:family "Vollkorn" :height 135 :weight normal)))))
+   ;; '(variable-pitch ((t (:family "XCharter" :height 150 :weight normal))))
+   ;; '(variable-pitch ((t (:family "Writter" :height 150 :weight normal))))
+   ;; '(variable-pitch ((t (:family "Vollkorn" :height 135 :weight normal))))
+   '(variable-pitch ((t (:family "Libre Baskerville" :height 140 :weight normal))))
+   )
 
 (add-hook 'elpaca-after-init-hook #'snug/setup-fonts)
 
