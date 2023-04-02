@@ -123,7 +123,8 @@
   ;; :elpaca (treemacs :files (:defaults "/src/extra/*"))
   :commands (treemacs treemacs-create-theme treemacs-create-icon treemacs-load-theme)
   :config
-  (setq-default treemacs-fringe-indicator-mode nil)
+  (treemacs-indent-guide-mode t)
+  ;; (setq-default treemacs-fringe-indicator-mode nil)
 
   ;; (pcase (cons (not (null (executable-find "git")))
   ;;              (not (null (executable-find "python3"))))
