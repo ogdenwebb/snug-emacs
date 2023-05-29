@@ -64,7 +64,8 @@
 (use-package recentf
   :elpaca nil
   :after no-littering
-  :hook (kill-emacs . snug/recentf-cleanup-and-save)
+  :hook ((elpaca-after-init . recentf-mode)
+         (kill-emacs . snug/recentf-cleanup-and-save))
   :config
   (defun snug/recentf-save-list-silence ()
     (interactive)
@@ -117,7 +118,7 @@
   (when snug-recentf-cleanup-symlinks
     (add-to-list 'recentf-exclude (lambda (f) (not (string= (file-truename f) f)))))
 
-  (recentf-mode t)
+  ;; (recentf-mode t)
   )
 
 (use-package subword
