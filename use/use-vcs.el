@@ -69,6 +69,7 @@
 
 ;; TODO: support github in my workflow
 (use-package forge
+  :disabled t
   :after magit
   :preface
   (setq forge-add-default-bindings nil))
