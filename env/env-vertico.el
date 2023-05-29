@@ -1,5 +1,6 @@
 ;; Vertico - VERTical Interactive COmpletion
 
+
 (use-package vertico
   :elpaca (vertico :files (:defaults "extensions/*"))
   :hook ((elpaca-after-init . vertico-mode))
@@ -98,16 +99,16 @@
         consult-async-input-throttle 0.2
         consult-async-input-debounce 0.1))
 
-(use-package consult-vertico
-  :elpaca nil
-  :after consult)
+;; (use-package consult-vertico
+;;   :elpaca nil
+;;   :after consult)
 
 ;; Consult integration for projectile
 (use-package consult-projectile
   :after (consult projectile)
   :elpaca (:repo "https://gitlab.com/OlMon/consult-projectile"))
 
-(use-package consult-dir)
+;; (use-package consult-dir)
 
 ;; Ignore case in completions
 ;; (setq read-file-name-completion-ignore-case t
