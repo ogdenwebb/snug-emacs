@@ -1,6 +1,7 @@
 ;; Corfu - Completion Overlay Region FUnction  -*- lexical-binding: t; -*-
 
 (use-package corfu
+  :elpaca (corfu :files (:defaults "extensions/*"))
   :config
   (setq corfu-quit-no-match 'separator ;; Automatically quit if there is no match
         ;; corfu-auto t                   ;; Enable auto completion
@@ -27,7 +28,7 @@
    [tab]     #'corfu-next
    "S-TAB"   #'corfu-previous
    [backtab] #'corfu-previous
-   "C-;"     #'corfu-doc-toggle
+   "C-;"     #'corfu-popupinfo-toggle
    "SPC"     #'corfu-insert-separator
    "RET"     #'corfu-insert
    [return]  #'corfu-insert)
@@ -38,11 +39,13 @@
          (eshell-mode . corfu-mode)))
 
 ;; Documentation popup for Corfu
-(use-package corfu-doc
+(use-package corfu-popupinfo
+  :elpaca nil
+  :after corfu
   :config
-  (setq corfu-doc-delay 0.2
-        corfu-doc-max-width 80
-        corfu-doc-max-height 40))
+  (setq corfu-popupinfo-delay 0.2
+        corfu-popupinfo-max-width 80
+        corfu-popupinfo-max-height 40))
 
 (use-package kind-icon
   :after corfu
