@@ -96,11 +96,10 @@
         recentf-exclude '("^/var/folders\\.*"
                           "COMMIT_EDITMSG\\'"
                           ".*-autoloads\\.el\\'"
-                          "[/\\]\\.emacs.d/recentf"
-                          "[/\\]\\.emacs.d/.cache"
-                          "[/\\]\\.emacs.d/bookmarks"
-                          "[/\\]\\.emacs.d/url"
-                          "[/\\]\\.emacs.d/straight"
+                          "[/\\]\\.config/emacs/recentf"
+                          "[/\\]\\.config/emacs/.cache"
+                          "[/\\]\\.config/emacs/bookmarks"
+                          "[/\\]\\.config/emacs/url"
                           ".*.jpg$"
                           ".*.png$"
                           ".*.gif$"
@@ -115,8 +114,9 @@
   (add-to-list 'recentf-exclude no-littering-etc-directory)
 
   ;; Delete symbolic links from recentf
-  (when snug-recentf-cleanup-symlinks
-    (add-to-list 'recentf-exclude (lambda (f) (not (string= (file-truename f) f)))))
+  ;; TODO: something is wrong here since Emacs 29.1
+  ;; (when snug-recentf-cleanup-symlinks
+  ;;   (add-to-list 'recentf-exclude (lambda (f) (not (string= (file-truename f) f)))))
 
   ;; (recentf-mode t)
   )
