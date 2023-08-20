@@ -121,12 +121,13 @@
 ;; (add-to-list 'default-frame-alist '(font . "IBM Plex Mono-12"))
 ;; (add-to-list 'default-frame-alist '(font . "Hack-12.5"))
 ;; (add-to-list 'default-frame-alist '(font . "D2Coding-13"))
-;; (add-to-list 'default-frame-alist '(font . "Victor Mono-12.5"))
 ;; (add-to-list 'default-frame-alist '(font . "mononoki-12"))
 ;; (add-to-list 'default-frame-alist '(font . "JetBrains Mono-12")) ;; ++
 
 ;; Play with ligatures
+;; (add-to-list 'default-frame-alist '(font . "Victor Mono-13"))
 (add-to-list 'default-frame-alist '(font . "D2Coding ligature-13"))
+;; (add-to-list 'default-frame-alist '(font . "Writer-12"))
 
 ;; TODO conflicts with separedit package
 (use-package ligature
@@ -170,15 +171,17 @@
 (defun snug/setup-fonts ()
   (custom-theme-set-faces
    'user
-   '(fixed-pitch ((t (:family "D2Coding" :weight normal)))))
-   ;;  '(variable-pitch ((t (:family "Crimson Text" :height 165 :weight normal)))))
+   '(fixed-pitch ((t (:family "D2Coding" :weight normal))))
+   ;;  '(variable-pitch ((t (:family "Crimson Text" :height 165 :weight normal))))
    ;; '(variable-pitch ((t (:family "XCharter" :height 150 :weight normal))))
    ;; '(variable-pitch ((t (:family "Writter" :height 150 :weight normal))))
    ;; '(variable-pitch ((t (:family "Vollkorn" :height 135 :weight normal))))
-   '(variable-pitch ((t (:family "Libre Baskerville" :height 140 :weight normal))))
+   ;; '(variable-pitch ((t (:family "Libre Baskerville" :height 140 :weight normal))))
+   '(variable-pitch ((t (:family "Iosevka Etoile" :height 125 :weight normal))))
    )
+  )
 
-(add-hook 'elpaca-after-init-hook #'snug/setup-fonts)
+(add-hook 'after-init-hook #'snug/setup-fonts)
 
 ;; Set the fringe size
 (setq-default left-fringe-width  6
