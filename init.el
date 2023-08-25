@@ -1,18 +1,7 @@
 ;;;; Snug - Emacs configuration with Evil
 
-;; TODO: add remap for ivy module
-;; TODO: add remap for helm module
-
-
-;; TODO:
-;; company-tooltip-align-annotations t
-;; company-tooltip-width-grow-only t
-;; company-abort-manual-when-too-short t
-
-;;;  TODO: take care of elisp compile warning in developer mode
-
 ;; General configation
-(require 'snug (concat user-emacs-directory "snug/snug"))
+(load (expand-file-name "snug/snug" user-emacs-directory))
 
 (snug/init
   env-maps
@@ -22,18 +11,21 @@
   ;; env-helm
   env-vertico
 
+  ;; NOTE: we have comment on the top about evil usage
+  ;; MAYBE :: env -> use-modal-...
   env-evil
   env-editing ;; pairs, code navigation, etc
   ;; TODO: evil binding for puni
 
   env-face
-
   ;; env-dashboard
 
   env-behavior
   env-lookup
+  ;; TODO: elpaca-update-all stucks in env-plugins
+  ;; TODO: rework
   env-plugins
-  ;; env-dev
+  ;; ;; env-dev
 
   env-check
   env-hydra
@@ -44,11 +36,11 @@
   ;; use-completion-company
   use-completion-corfu
 
-  ;; Mode-line
+  ;; ;; Mode-line
   modeline-common
   ;; modeline-doom
 
-  ;; Specific modules and major modes
+  ;; ;; Specific modules and major modes
   use-dired
   use-eshell
   ;; use-diff
@@ -65,10 +57,11 @@
   ;; use-crystal
   use-calendar       ; show date and events
   ;; use-elixir
-  use-haskell
+  ;; use-haskell
   use-ibuffer
   use-go
   use-lua
+  ;; TODO: re-enable packages
   use-js          ; javascript
   ;; use-kotlin
   use-nim
@@ -93,15 +86,12 @@
 
   use-vcs            ; version control
   use-writter        ; write in Emacs with a couple of tea
-  use-yasnippet
+  ;; use-yasnippet ;; TODO fix
   use-web
   use-wm             ; easy way to manage Emacs windows
 
   ;; User specific settings
-  ;; TODO: bind reset/ivy-repeat for vertico
   user-maps
 )
-
-;; user-settings
 
 ;; (~ ^ . ^ ~)
