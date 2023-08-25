@@ -2,7 +2,8 @@
 
 (use-package rustic
   :config
-  (setq rustic-format-on-save t)
-  (setq rustic-lsp-client 'eglot))
+  (setq rustic-format-on-save t
+        rustic-lsp-client 'eglot)
+  )
 
 (provide 'use-rust)
