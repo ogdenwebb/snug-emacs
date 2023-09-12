@@ -1,6 +1,7 @@
 *.elc
 *.eln
 eln-cache/
+tree-sitter/
 network-security.data
 custom.el
 var/
