@@ -10,19 +10,17 @@
       ;; In noninteractive sessions, prioritize non-byte-compiled source files to
       ;; prevent the use of stale byte-code. Otherwise, it saves us a little IO time
       ;; to skip the mtime checks on every *.elc file.
-      ;; load-prefer-newer 'noninteractive
+      load-prefer-newer 'noninteractive
+
+      native-comp-jit-compilation nil
 
       ;; In Emacs 27+, package initialization occurs before `user-init-file' is
       ;; loaded, but after `early-init-file'.
       package-enable-at-startup nil
 
-      ;; Prevent unwanted runtime compilation for gccemacs (native-comp) users;
-      ;; packages are compiled ahead-of-time when they are installed and site files
-      ;; are compiled when gccemacs is installed.
-      ;; REVIEW Remove after a month
-      comp-deferred-compilation nil
-      native-comp-deferred-compilation nil
-      package-native-compile t
+      ;; `use-package' is builtin since 29.
+      ;; It must be set before loading `use-package'.
+      use-package-enable-imenu-support t
 
       ;; Disable built-in mode-line because we have own config
       mode-line-format nil
@@ -39,13 +37,7 @@
       frame-inhibit-implied-resize t)
 
 
-(advice-add #'package--ensure-init-file :override #'ignore) ; DEPRECATED Removed in 28
-
 ;; Ignore X resources; its settings would be redundant with the other settings
 ;; in this file and can conflict with later config (particularly where the
 ;; cursor color is concerned).
 (advice-add #'x-apply-session-resources :override #'ignore)
-
-;; (setq user-emacs-directory (file-name-directory load-file-name))
-
-;; (load (concat user-emacs-directory "snug/snug") nil 'nomessage)
