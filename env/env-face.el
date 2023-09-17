@@ -73,8 +73,10 @@
 
   ;; (setq kaolin-valley-light-alt-bg t)
   ;; (setq kaolin-valley-dark-alt-bg nil)
-  (setq kaolin-ocean-alt-bg t
-        kaolin-light-alt-bg t)
+
+  ;; (setq kaolin-ocean-alt-bg t
+  ;;       kaolin-light-alt-bg t)
+
   ;; (setq kaolin-themes-distinct-company-scrollbar t)
   ;; (setq kaolin-themes-distinct-fringe nil)
   ;; (setq kaolin-themes-italic-comments t)
@@ -102,6 +104,7 @@
    'emacs-lisp-mode
    '(("\\<\\(nil\\|t\\)\\>" . 'kaolin-themes-boolean))))
 
+;; TODO: do we need that?
 (use-package pos-tip
   :defer t
   :config
@@ -111,27 +114,14 @@
         ;; pos-tip-foreground-color (face-foreground 'tooltip)))
 
 ;; Set default font
-;; (add-to-list 'default-frame-alist '(font . "Roboto Mono-12:style=regular"))
-;; (add-to-list 'default-frame-alist '(font . "Hasklig-12.5"))
-;; (add-to-list 'default-frame-alist '(font . "Fira Mono-12"))
-;; (add-to-list 'default-frame-alist '(font . "Fira Code-12.5:style=regular"))
-;; (add-to-list 'default-frame-alist '(font . "Input Mono-11"))
-;; (add-to-list 'default-frame-alist '(font . "Noto Mono-12")) ; <-
-;; (add-to-list 'default-frame-alist '(font . "iosevka-13"))
-;; (add-to-list 'default-frame-alist '(font . "IBM Plex Mono-12"))
-;; (add-to-list 'default-frame-alist '(font . "Hack-12.5"))
-;; (add-to-list 'default-frame-alist '(font . "D2Coding-13"))
-;; (add-to-list 'default-frame-alist '(font . "mononoki-12"))
-;; (add-to-list 'default-frame-alist '(font . "JetBrains Mono-12")) ;; ++
-
-;; Play with ligatures
 ;; (add-to-list 'default-frame-alist '(font . "Victor Mono-13"))
-(add-to-list 'default-frame-alist '(font . "D2Coding ligature-13"))
+;; (add-to-list 'default-frame-alist '(font . "D2Coding ligature-13"))
 ;; (add-to-list 'default-frame-alist '(font . "Writer-12"))
+(add-to-list 'default-frame-alist '(font . "Cascadia Code-12.5"))
 
 ;; TODO conflicts with separedit package
 (use-package ligature
-  :disabled t
+  ;; :disabled t
   :elpaca (:repo "https://github.com/mickeynp/ligature.el")
   :hook (prog-mode . ligature-mode)
   :config
@@ -351,24 +341,24 @@
   :disabled t
   :hook (elpaca-after-init . turn-on-page-break-lines-mode))
 
-;; (use-package solaire-mode
-;;   ;; :disabled t
-;;   :hook
-;;   ((change-major-mode after-revert ediff-prepare-buffer) . turn-on-solaire-mode)
-;;   ((emacs-startup) . solaire-mode)
-;;   ;; (minibuffer-setup . solaire-mode-in-minibuffer)
-;;   :config
-;;   ;; (solaire-global-mode t)
-;;   (solaire-mode-swap-bg))
-
 ;; Default solaire-mode config
-;; (use-package solaire-mode
-;;   :hook
-;;   ((change-major-mode after-revert ediff-prepare-buffer) . turn-on-solaire-mode)
-;;   ;; (minibuffer-setup . solaire-mode-in-minibuffer)
-;;   :config
-;;   (solaire-global-mode +1)
-;;   (solaire-mode-swap-bg))
+(use-package solaire-mode
+  :after (kaolin-themes)
+  ; :hook
+  ; ((change-major-mode after-revert ediff-prepare-buffer) . turn-on-solaire-mode)
+  ;; (minibuffer-setup . solaire-mode-in-minibuffer)
+  :config
+  (push '(treemacs-window-background-face . solaire-default-face) solaire-mode-remap-alist)
+  (push '(treemacs-hl-line-face . solaire-hl-line-face) solaire-mode-remap-alist)
+
+  (solaire-global-mode +1)
+  ;; (solaire-mode-swap-bg)
+
+  ;; Treemacs fix
+  ;; (with-eval-after-load 'treemacs
+  ;;   (push '(treemacs-window-background-face . solaire-default-face) solaire-mode-remap-alist)
+  ;;   (push '(treemacs-hl-line-face . solaire-hl-line-face) solaire-mode-remap-alist))
+  )
 
 
 ;; (defun no-fringes-in-minibuffer ()
