@@ -68,8 +68,6 @@
                     ;; compatibility fallbacks
                     "gnutls-cli -p %p %h"))
 
-;; (setq use-package-enable-imenu-support t)
-
 ;; Display use-package debug stuff when debug-on-error is t
 (if snug-debug-mode
     (setq use-package-expand-minimally nil
