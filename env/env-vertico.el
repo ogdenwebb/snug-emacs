@@ -25,7 +25,6 @@
 
   ;; Enable vertico-multiform
   ;; allows you to configure Vertico per command or per completion category.
-  ;; (require 'vertico-multiform)
   (vertico-multiform-mode)
 
   ;; Change the default sorting function.
@@ -58,14 +57,22 @@
 (use-package orderless
   :after vertico
   :config
-  (setq completion-styles '(basic partial-completion orderless)
-        completion-category-defaults nil
-        ;; completion-category-overrides '((file (styles basic partial-completion)))
+  ;; (setq completion-styles '(basic partial-completion orderless)
+  ;;       completion-category-defaults nil
+  ;;       ;; completion-category-overrides '((file (styles basic partial-completion)))
 
-        ;; completion-category-overrides '((command (styles basic partial-completion))
-        ;;                                 (symbol (styles basic partial-completion))
-        ;;                                 (variable (styles basic partial-completion)))
-        )
+  ;;       ;; completion-category-overrides '((command (styles basic partial-completion))
+  ;;       ;;                                 (symbol (styles basic partial-completion))
+  ;;       ;;                                 (variable (styles basic partial-completion)))
+  ;;       )
+
+  ;; NOTE: Trying new settings
+  (setq completion-styles '(orderless basic)
+        orderless-matching-styles '(orderless-initialism
+                                    orderless-literal
+                                    orderless-regexp)
+        completion-category-defaults nil
+        completion-category-overrides '((file (styles partial-completion))))
 
   ;; Exclude some commands
   (defun without-orderless (fn & rest args)
@@ -75,7 +82,6 @@
 
 ;; Consulting completing-read
 (use-package consult
-  :defer t
   :after vertico
   :config
   ;; To enable vertico in eval-expression buffer
@@ -84,6 +90,7 @@
   ;; NOTE: prolly we can use corfu as well
   ;; Use `consult-completion-in-region' if Vertico is enabled.
   ;; Otherwise use the default `completion--in-region' function.
+  ;; Do not trigger auto preview and use keybinding instead
   (setq completion-in-region-function
         (lambda (&rest args)
           (apply (if vertico-mode
@@ -91,7 +98,6 @@
                    #'completion--in-region)
                  args)))
 
-  ;; Do not trigger auto preview and use keybinding instead
   (setq consult-preview-key "C-SPC"
         consult-line-numbers-widen t
         consult-async-min-input 2
@@ -107,6 +113,23 @@
 (use-package consult-projectile
   :after (consult projectile)
   :elpaca (:repo "https://gitlab.com/OlMon/consult-projectile"))
+
+;; Search and jump hl-todo keywords in buffers with consult.
+(use-package consult-todo
+  :elpaca (:repo "https://github.com/liuyinz/consult-todo")
+  :after (consult hl-todo)
+  :config
+  ;; (setq consult-todo-narrow '((?t . "TODO")
+  ;;                             (?t . "EXPLORE")
+  ;;                             (?f . "FIXME")
+  ;;                             (?b . "BUG")
+  ;;                             (?h . "HACK")))
+
+  ;; (setq consult-todo-other
+  ;;       '((?. . "NOTE")
+  ;;         (?. . "OTHER")
+  ;;         ))
+  )
 
 ;; (use-package consult-dir)
 
@@ -125,6 +148,7 @@
   :hook ((elpaca-after-init . all-the-icons-completion-mode)
          (marginalia-mode . all-the-icons-completion-marginalia-setup)))
 
+;; TODO: find a better solution
 (when (eq snug-default-completion-system 'vertico)
   (use-package consult
     :elpaca nil
@@ -165,6 +189,5 @@
 (use-package embark-consult
   :after (embark consult)
   :hook (embark-collect-mode . embark-consult-preview-minor-mode))
-
 
 (provide 'env-vertico)
