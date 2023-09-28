@@ -388,6 +388,7 @@
 ;; Hide mode-line in certain buffers
 (use-package hide-mode-line
   :hook ((magit-status-mode . hide-mode-line-mode)
+         (dashboard-mode    . hide-mode-line-mode)
          (helpful-mode      . hide-mode-line-mode)))
 
 (use-package focus
