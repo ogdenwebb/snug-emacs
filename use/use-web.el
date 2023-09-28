@@ -14,7 +14,9 @@
   :mode "\\.go\\(tmpl\\|html\\)$"
   :mode "wp-content/themes/.+/.+\\.php$"
   :config
-  (add-hook 'web-mode-hook 'turn-off-smartparens-mode)
+  (when (boundp 'turn-on-smartparens-mode)
+    (add-hook 'web-mode-hook 'turn-off-smartparens-mode))
+
   ;; For emmet-mode to switch between HTML and CSS
   (add-hook 'web-mode-before-auto-complete-hooks
             #'(lambda ()
