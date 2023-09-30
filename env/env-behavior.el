@@ -146,6 +146,11 @@
 (use-package helpful
   :if (>= emacs-major-version 25)
   :defer .1
+  :bind (([remap describe-function] . helpful-callable)
+         ([remap describe-command]  . helpful-command)
+         ([remap describe-variable] . helpful-variable)
+         ([remap describe-key]      . helpful-key)
+         ([remap describe-symbol]   . helpful-symbol))
   :config)
 
 ;; Emacs generic Help
