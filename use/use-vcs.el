@@ -26,7 +26,7 @@
 
   ;; Disable arrows in section heading
   (setq magit-section-visibility-indicator nil
-        magit-diff-buffer-file-locked nil
+        ;; magit-diff-buffer-file-locked nil
         magit-clone-set-remote.pushDefault t
         magit-remote-add-set-remote.pushDefault t
         magit-log-auto-more t
@@ -37,9 +37,8 @@
 
 ;; Show source files' TODOs (and FIXMEs, etc) in Magit status buffer
 (use-package magit-todos
-  :disabled t
-  :after magit
-  ;; :hook (magit-status-mode . magit-todos-mode))
+  ;; :after magit
+  :hook (magit-status-mode . magit-todos-mode)
   :config
   (setq magit-todos-keyword-suffix "\\(?:([^)]+)\\)?:?") ; make colon optional
   (shut-up
