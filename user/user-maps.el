@@ -282,6 +282,15 @@
    "C-w" 'evil-delete-backward-word
    "C-e" 'end-of-line)
 
+  ;; Insert mode maps
+  (general-define-key
+   ;; :keymaps 'corfu-map
+   :states '(insert)
+   :prefix "C-x"
+   "C-f" #'cape-file
+   "C-k" #'cape-dict)
+
+
   ;; Dired
   (general-define-key :keymaps 'dired-mode-map
                       :states '(normal)
