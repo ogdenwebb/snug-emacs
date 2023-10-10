@@ -174,10 +174,10 @@
 
 ;; Show tooltip help for keybindings
 (use-package which-key
-  :disabled t
-  :commands (which-key-mode)
+  :hook (elpaca-after-init . which-key-mode)
   :config
-  (which-key-setup-side-window-bottom))
+  (which-key-setup-side-window-bottom)
+  )
 
 ;; Eldoc
 (use-package eldoc
@@ -185,7 +185,7 @@
   :hook (prog-mode-hook . eldoc-mode)
   :config
   (global-eldoc-mode -1)
-  (setq eldoc-idle-delay 0.3))
+  (setq eldoc-idle-delay 2.0))
 
 ;; TODO: Disable in terminal
 (use-package eldoc-box
@@ -241,6 +241,7 @@
         deft-recursive t))
 
 ;; Simple but effective sorting and filtering for Emacs.
+;; TODO:
 (use-package prescient
   :if (or (featurep 'company) (featurep 'env-ivy))
   :hook (elpaca-after-init . prescient-persist-mode)
@@ -251,91 +252,10 @@
         )
   )
 
-(use-package company-prescient
-  :after (prescient)
-  :hook ((company-mode global-company-mode) . company-prescient-mode))
-
-(use-package avy :defer t)
-;;; Libraries
-(use-package async      :defer t)
-;; (use-package anaphora      :defer t)
-;; (use-package apiwrap       :defer t)
-;; (use-package asoc          :defer t)
-;; (use-package button-lock   :defer t)
-;; (use-package bind-key      :defer t)
-;; (use-package ctable        :defer t)
-;; (use-package concurrent    :defer t)
-(use-package dash            :defer t)
-;; (use-package deferred      :defer t)
-;; (use-package el-mock       :defer t)
-(use-package elisp-refs
-  :commands
-  (elisp-refs-function elisp-refs-macro elisp-refs-variable elisp-refs-special elisp-refs-symbol))
-;; (use-package epc           :defer t)
-(use-package epl           :defer t)
-;; (use-package esxml         :defer t)
-(use-package embrace         :defer t)
-(use-package f             :defer t)
-;; (use-package fn            :defer t)
-;; (use-package flx           :defer t)
-;; (use-package fringe-helper :defer t)
-;; (use-package fuzzy         :defer t)
-(use-package gh            :defer t)
-;; (use-package ghub          :defer t)
-;; (use-package ghub+         :defer t)
-;; (use-package graphql       :defer t)
-(use-package ht            :defer t)
-
-(use-package json-rpc
-  :defer t)
-;; (use-package kv            :defer t)
-;; (use-package list-utils    :defer t)
-(use-package logito        :defer t)
-(use-package loop          :defer t)
-;; (use-package lv          :defer t)
-;; (use-package m-buffer      :defer t)
-;; (use-package makey         :defer t)
-(use-package marshal       :defer t)
-(use-package memoize       :defer t)
-
-
-;; (use-package names         :defer t)
-;; (use-package noflet        :defer t)
-;; (use-package oauth2        :defer t)
-;; (use-package ov            :defer t)
-;; (use-package packed        :defer t)
-;; (use-package parent-mode   :defer t)
-;; (use-package parsebib      :defer t)
-;; (use-package parsec        :defer t)
-;; (use-package peval         :defer t)
-;; (use-package pfuture       :defer t)
-(use-package pkg-info      :defer t)
-(use-package popup         :defer t)
-;; (use-package popup-pos-tip :defer t)
-;; (use-package popwin        :defer t)
-;; (use-package request       :defer t)
-;; (use-package rich-minority :defer t)
-(use-package s                :defer t)
-(use-package shut-up          :defer t)
-(use-package seq              :defer t)
-(use-package shrink-path      :defer t)
-;; (use-package simple-httpd  :defer t)
-;; (use-package spinner       :defer t)
-(use-package transient        :defer t)
-;; (use-package tablist       :defer t)
-;; (use-package treepy        :defer t)
-;; (use-package uuidgen       :defer t)
-;; (use-package web           :defer t)
-;; (use-package web-server    :defer t)
-;; (use-package websocket     :defer t)
-;; (use-package with-editor   :defer t)
-;; (use-package xml-rpc       :defer t)
-;; (use-package zoutline      :defer t)
-;; (use-package map           :defer t)
-(use-package posframe
-  :defer t)
-(use-package lv
-  :defer t)
+(use-package jsonrpc :elpaca nil :defer t)
+(use-package project :elpaca nil :defer t)
+(use-package shut-up :defer t)
+(use-package seq :elpaca nil :defer t)
 
 (use-package alert
   :disabled t
