@@ -190,4 +190,27 @@
   :after (embark consult)
   :hook (embark-collect-mode . embark-consult-preview-minor-mode))
 
+;; Display vertico in child-frame
+(use-package vertico-posframe
+  :after (vertico)
+  :preface
+  (defun posframe-poshandler-frame-top-center-with-offset (info)
+    "Posframe position at center top with offset."
+    (cons (/ (- (plist-get info :parent-frame-width)
+                (plist-get info :posframe-width))
+             2)
+          55))
+  :config
+  (setq vertico-posframe-poshandler #'posframe-poshandler-frame-top-center-with-offset)
+  (setq vertico-posframe-parameters
+        '((internal-border-width . 10)
+          (left-fringe . 8)
+          (right-fringe . 8))
+        ;; vertico-posframe-min-width 30
+        ;; vertico-posframe-border-width 10
+        vertico-posframe-height 15
+        )
+
+  (vertico-posframe-mode t))
+
 (provide 'env-vertico)
