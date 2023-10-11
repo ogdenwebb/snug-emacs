@@ -190,4 +190,9 @@
   (add-to-list 'company-backends '(company-css company-web-html company-files)))
 
 
+(use-package company-prescient
+  :after (prescient)
+  :hook ((company-mode global-company-mode) . company-prescient-mode))
+
+
 (provide 'use-completion-company)
