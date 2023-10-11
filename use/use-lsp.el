@@ -55,10 +55,8 @@
 ;;   (setq company-lsp-async t)
 ;;   (setq company-lsp-enable-recompletion t))
 
-;; ;; Eglot
-
+;; Eglot
 (use-package eglot
-  ;; :disabled t
   :config
   (add-hook 'eglot--managed-mode-hook (lambda () (flymake-mode -1)))
 
