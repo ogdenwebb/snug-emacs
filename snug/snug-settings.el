@@ -152,7 +152,8 @@
                 mouse-yank-at-point t ; Yank at point rather than pointer
 
                 apropos-do-all t) ; Better apropos
-  )
+
+  (pixel-scroll-precision-mode t))
 
 (use-package minibuffer
   :elpaca nil
