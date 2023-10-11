@@ -51,15 +51,15 @@
     (haskell-indentation-newline-and-indent))
   )
 
-(use-package flycheck-haskell
-  :hook (haskell-mode . flycheck-haskell-setup))
+;; (use-package flycheck-haskell
+;;   :hook (haskell-mode . flycheck-haskell-setup))
 
-(use-package dante
-  ;; :after haskell-mode
-  :hook (haskell-mode . dante-mode)
-         ;; (haskell-mode . flymake-mode))
-  :init
-  ;; (remove-hook 'flymake-diagnostic-functions 'flymake-proc-legacy-flymake)
-  )
+;; (use-package dante
+;;   ;; :after haskell-mode
+;;   :hook (haskell-mode . dante-mode)
+;;          ;; (haskell-mode . flymake-mode))
+;;   :init
+;;   ;; (remove-hook 'flymake-diagnostic-functions 'flymake-proc-legacy-flymake)
+;;   )
 
 (provide 'use-haskell)
