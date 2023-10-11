@@ -22,7 +22,15 @@
   (defun snug--delete-nimlog-file ()
     (add-hook 'after-save-hook 'nimsuggest--delete-home-logfile nil 'local))
 
-  (add-hook 'nim-mode-hook (lambda () (electric-indent-mode -1)))
+
+  (add-hook 'nim-mode-hook (lambda () (setq-local electric-indent-inhibit t)))
+
+
+  (add-hook 'nim-mode-hook
+            '(lambda () (setq-local electric-indent-chars '(?\s))))
+
+  (add-hook 'nim-mode-hook
+            (lambda () (electric-indent-local-mode 0)))
   :general
   (general-define-key :keymaps 'nim-mode-map
                       :states  '(normal)
@@ -32,8 +40,5 @@
 ;;   :disabled t
 ;;   :after (nim-mode flycheck)
 ;;   :hook (nim-mode . flycheck-mode))
-
-;; (add-hook 'nim-mode-hook
-;;         '(lambda () (setq-local electric-indent-chars '(?\s)))))
 
 (provide 'use-nim)
