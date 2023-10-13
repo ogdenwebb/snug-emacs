@@ -100,6 +100,8 @@
                           "[/\\]\\.config/emacs/.cache"
                           "[/\\]\\.config/emacs/bookmarks"
                           "[/\\]\\.config/emacs/url"
+                          "[/\\]\\.config/emacs/etc"
+                          "[/\\]\\.config/emacs/var"
                           ".*.jpg$"
                           ".*.png$"
                           ".*.gif$"
