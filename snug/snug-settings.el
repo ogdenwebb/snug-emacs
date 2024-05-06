@@ -106,7 +106,7 @@
         hscroll-margin                  0
         ;; scroll-step                     7
         ;; hscroll-step                    7
-        scroll-conservatively           10000
+        scroll-conservatively           101
         auto-window-vscroll nil
         ;; scroll-preserve-screen-position 'always
         mac-mouse-wheel-smooth-scroll    nil
