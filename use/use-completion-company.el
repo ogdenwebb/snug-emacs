@@ -148,7 +148,7 @@
         company-box-doc-enable nil))
 
 (use-package company-elisp
-  :elpaca nil
+  :ensure nil
   :after company
   :config
   (push 'company-elisp company-backends))

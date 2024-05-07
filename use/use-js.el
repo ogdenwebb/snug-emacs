@@ -15,7 +15,7 @@
 
 ;; Tern
 (use-package company-tern
-  :elpaca nil
+  :ensure nil
   :after (company tern)
   :commands (company-tern)
   :config

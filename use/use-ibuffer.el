@@ -1,7 +1,7 @@
 ;; Buffer list -*- lexical-binding: t -*-
 
 (use-package ibuffer
-  :elpaca nil
+  :ensure nil
   :functions (all-the-icons-icon-for-buffer
               all-the-icons-icon-for-mode
               all-the-icons-icon-family)

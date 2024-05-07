@@ -2,7 +2,7 @@
 
 ;; Electric
 (use-package electric
-  :elpaca nil
+  :ensure nil
   :hook ((elpaca-after-init . electric-indent-mode))
          ;; (elpaca-after-init . electric-layout-mode))
   :config
@@ -10,7 +10,7 @@
   (setq-default electric-indent-inhibit t))
 
 (use-package undo-propose
-  :elpaca (:repo "https://github.com/jackkamm/undo-propose-el" :files ("*.el"))
+  :ensure (:repo "https://github.com/jackkamm/undo-propose-el" :files ("*.el"))
   :commands (undo-propose undo-propose-diff)
   :config
   (undo-propose-wrap redo)
@@ -32,7 +32,7 @@
 
 ;; Visualize the undo tree
 (use-package vundo
-  :elpaca (:repo "https://github.com/casouri/vundo")
+  :ensure (:repo "https://github.com/casouri/vundo")
   :general
   (general-define-key
    :keymaps 'vundo-mode-map
@@ -62,7 +62,7 @@
 
 ;; Recent files
 (use-package recentf
-  :elpaca nil
+  :ensure nil
   :after no-littering
   :hook ((elpaca-after-init . recentf-mode)
          (kill-emacs . snug/recentf-cleanup-and-save))
@@ -124,12 +124,12 @@
   )
 
 (use-package subword
-  :elpaca nil
+  :ensure nil
   ;; :commands (subword-mode global-subword-mode)
   :hook (elpaca-after-init . global-subword-mode))
 
 (use-package uniquify
-  :elpaca nil
+  :ensure nil
   :defer 2
   :config
   (setq uniquify-buffer-name-style 'forward))
@@ -140,7 +140,7 @@
 
 ;; Make scripts executable automatically.
 (use-package executable
-  :elpaca nil
+  :ensure nil
   :ensure nil
   :hook (after-save . executable-make-buffer-file-executable-if-script-p))
 

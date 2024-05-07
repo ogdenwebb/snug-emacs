@@ -2,7 +2,7 @@
 
 ;; Regular expression
 (use-package re-builder
-  :elpaca nil
+  :ensure nil
   :commands (re-builder)
   ;; You can switch between the various styles by using
   ;; C-c TAB inside of the regexp builder's buffer.
@@ -116,11 +116,11 @@
 ;; NOTE: You can run `explain-pause-profiles' to view the profile report.
 (use-package explain-pause-mode
   :disabled t
-  :elpaca (:repo "https://github.com/lastquestion/explain-pause-mode")
+  :ensure (:repo "https://github.com/lastquestion/explain-pause-mode")
   :hook (elpaca-after-init . explain-pause-mode))
 
 (use-package treemacs
-  ;; :elpaca (treemacs :files (:defaults "/src/extra/*"))
+  ;; :ensure (treemacs :files (:defaults "/src/extra/*"))
   :commands (treemacs treemacs-create-theme treemacs-create-icon treemacs-load-theme)
   :config
   (treemacs-indent-guide-mode t)
@@ -181,7 +181,7 @@
 
 ;; Eldoc
 (use-package eldoc
-  :elpaca nil
+  :ensure nil
   :hook (prog-mode-hook . eldoc-mode)
   :config
   (global-eldoc-mode -1)
@@ -200,7 +200,7 @@
 
 (use-package google-translate-smooth-ui
   :defer t
-  :elpaca nil
+  :ensure nil
   ;; :after google-translate
   :commands google-translate-smooth-translate
   :config
@@ -252,10 +252,10 @@
         )
   )
 
-(use-package jsonrpc :elpaca nil :defer t)
-(use-package project :elpaca nil :defer t)
+(use-package jsonrpc :ensure nil :defer t)
+(use-package project :ensure nil :defer t)
 (use-package shut-up :defer t)
-(use-package seq :elpaca nil :defer t)
+(use-package seq :ensure nil :defer t)
 
 (use-package alert
   :disabled t
@@ -311,7 +311,7 @@
 
 ;; One-frame-per-action GIF recording for optimal quality/size ratio
 (use-package gif-screencast
-  :elpaca (:repo "https://gitlab.com/ambrevar/emacs-gif-screencast")
+  :ensure (:repo "https://gitlab.com/ambrevar/emacs-gif-screencast")
   :commands (gif-screencast-toggle-pause gif-screencast-stop gif-screencast-start-or-stop)
   :config
   (setq gif-screencast-args '("--quality" "25" "--focused")

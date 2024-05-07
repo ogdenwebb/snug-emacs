@@ -2,7 +2,7 @@
 
 ;; Undo/redo changes to Emacs' window layout
 (use-package winner
-  :elpaca nil
+  :ensure nil
   :hook (elpaca-after-init . winner-mode)
   :config
   (setq winner-dont-bind-my-keys t))
@@ -96,5 +96,41 @@
   (setq eyebrowse-mode-line-separator "|"))
   ;; (setq eyebrowse-new-workspace "*dashboard*"))
 
+(use-package popper
+  :hook (elpaca-after-init . popper-mode)
+  ;; :bind (:map popper-mode-map
+  ;;        ("C-`"   . popper-toggle-latest)
+  ;;        ("M-`"   . popper-cycle)
+  ;;        ("C-M-`" . popper-toggle-type))
+  :config
+  ;; (setq popper-group-function #'popper-group-by-directory)
+  (setq popper-group-function #'popper-group-by-directory
+        popper-window-height 30)
+
+  (setq popper-reference-buffers
+        '("\\*Messages\\*"
+          "Output\\*$"
+          "vterm .+\\*$"
+          help-mode
+          helpful-mode
+          compilation-mode))
+
+  ;; Use shackle to control popup placement
+  (setq popper-display-control nil)
+
+  (with-eval-after-load 'telephone-line
+    (setq popper-mode-line
+          '(:eval (let ((face (if (telephone-line-selected-window-active)
+                                  'telephone-line-accent-active
+                                'telephone-line-accent-inactive)))
+                    ;; (if (and (icons-displayable-p)
+                    ;;          (bound-and-true-p telephone-line-mode))
+                    ;;     (format " %s "
+                    ;;             (nerd-icons-octicon "nf-oct-pin" :face face))
+                      (propertize " POP" 'face face)))))
+
+
+  ;; NOTE: To open vterm as a popup we can use `popper-lower-to-popup'
+  )
 
 (provide 'use-wm)

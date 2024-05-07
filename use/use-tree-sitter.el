@@ -1,7 +1,7 @@
 ;; Tree sitter settings  -*- lexical-binding: t -*-
 
 (use-package treesit
-  :elpaca nil
+  :ensure nil
   :init
   (when (boundp 'treesit-extra-load-path)
     (add-to-list 'treesit-extra-load-path "/usr/local/lib/")

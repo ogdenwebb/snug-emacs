@@ -13,7 +13,7 @@
   ;; (add-to-list 'helm-completing-read-handlers-alist '(find-file . helm-completing-read-symbols))
 
   (use-package helm-config
-               :elpaca nil)
+               :ensure nil)
 
   ;; Fuzzy stuff
   (when snug-with-helm-fuzzy
@@ -82,7 +82,7 @@
   :after (helm company))
 
 ;; (use-package helm-eshell
-;;  :elpaca nil
+;;  :ensure nil
 ;;  :commands (helm-eshell-history))
 
 ; (use-package helm-css-scss
@@ -101,7 +101,7 @@
     (helm-exit-and-execute-action 'my-helm-run-fzf)))
 
 (use-package helm-files
-  :elpaca nil
+  :ensure nil
   :bind (("C-x C-f" . helm-find-files)
          :map helm-find-files-map
          ("C-," . my-helm-ff-switch-to-fzf)
@@ -119,7 +119,7 @@
 ;; Keybindings
 (when (eq snug-default-completion-system 'helm)
   (use-package helm
-    :elpaca nil
+    :ensure nil
     :general
     ([remap apropos]                       #'helm-apropos)
     ([remap bookmark-jump]                 #'helm-bookmarks)

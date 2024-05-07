@@ -175,7 +175,7 @@
 
 (when (eq snug-default-completion-system 'ivy)
   (use-package ivy
-    :elpaca nil
+    :ensure nil
     :general
     (general-def ivy-mode-map
       [remap list-buffers]                  #'ivy-switch-buffer
@@ -184,7 +184,7 @@
       [remap imenu-anywhere]                #'ivy-imenu-anywhere))
 
   (use-package counsel
-    :elpaca nil
+    :ensure nil
     :general
     (general-def counsel-mode-map
       [remap recentf-open-files]       #'counsel-recentf
@@ -230,7 +230,7 @@
 
 (when (eq snug-default-completion-system 'ivy)
   (use-package counsel
-    :elpaca nil
+    :ensure nil
     :general
     ([remap apropos]                       #'counsel-apropos)
     ([remap bookmark-jump]                 #'counsel-bookmarks)

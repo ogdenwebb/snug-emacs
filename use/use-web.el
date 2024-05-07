@@ -57,7 +57,7 @@
 
 ;; CSS mode
 (use-package css-mode
-  :elpaca nil
+  :ensure nil
   :mode ("\\.scss\\'" . scss-mode)
   :config
   (setq css-indent-offset 2)

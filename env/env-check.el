@@ -210,7 +210,7 @@
 ;;   :after (helm flyspell-correct))
 
 (use-package ispell
-  :elpaca nil
+  :ensure nil
   :defer 2
   :config
   ;; (setq ispell-program-name (or (executable-find "hunspell")
@@ -269,7 +269,7 @@
       (flycheck-buffer))))
 
 (use-package flymake
-  :elpaca nil
+  :ensure nil
   :defer t
   :config
   (remove-hook 'flymake-diagnostic-functions 'flymake-proc-legacy-flymake))

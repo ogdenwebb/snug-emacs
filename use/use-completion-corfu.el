@@ -1,7 +1,7 @@
 ;; Corfu - Completion Overlay Region FUnction  -*- lexical-binding: t; -*-
 
 (use-package corfu
-  :elpaca (corfu :files (:defaults "extensions/*"))
+  :ensure (corfu :files (:defaults "extensions/*"))
   :config
   (setq corfu-quit-no-match 'separator ;; Automatically quit if there is no match
         ;; corfu-auto t                   ;; Enable auto completion
@@ -38,9 +38,52 @@
          (shell-mode . corfu-mode)
          (eshell-mode . corfu-mode)))
 
+;; TODO:
+(use-package cape
+  :config
+  ;; NOTE: use cape-capf-buster or cape-super-capf
+
+  ;; (with-eval-after-load 'eglot
+  ;;   (advice-add 'eglot-completion-at-point :around #'cape-wrap-buster))
+
+  ;; TODO: doesn't not complete SASS filename in import properly :/
+  (defun snug/eglot-capf ()
+    (setq-local completion-at-point-functions
+                ;; (list (cape-super-capf #'eglot-completion-at-point #'cape-dabbrev #'cape-line (cape-company-to-capf #'company-yasnippet)))))
+                (list (cape-super-capf #'cape-file #'cape-dabbrev #'eglot-completion-at-point #'cape-line))))
+
+  (add-hook 'eglot-managed-mode-hook #'snug/eglot-capf)
+
+
+  ;; NOTE: OTHER WAY
+
+  ;; (add-to-list 'completion-at-point-functions #'cape-file)
+
+  ;; (advice-add 'eglot-completion-at-point :around #'cape-wrap-buster)
+  ;; (advice-add 'eglot-completion-at-point :around #'cape-wrap-noninterruptible)
+
+  )
+
+  ;; (defalias 'cape:eglot-cape (cape-super-capf
+  ;;                             #'eglot-completion-at-point
+  ;;                             #'cape-abbrev
+  ;;                             #'cape-dabbrev
+  ;;                             #'cape-keyword))
+
+  ;; (add-hook 'eglot--managed-mode-hook
+  ;;           (lambda () (flymake-mode -1)
+  ;;             ))
+
+  ;; (setq-mode-local
+  ;;  lsp-mode completion-at-point-functions (list
+  ;;                                          (cape-capf-buster #'cape:lsp-cape)
+  ;;                                          #'cape-file))
+
+
+
 ;; Documentation popup for Corfu
 (use-package corfu-popupinfo
-  :elpaca nil
+  :ensure nil
   :after corfu
   :config
   (setq corfu-popupinfo-delay 0.2

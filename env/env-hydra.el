@@ -24,7 +24,7 @@
   :after (hydra))
 
 (use-package hydra-posframe
-  :elpaca (:repo "https://github.com/Ladicle/hydra-posframe" :files ("*.el"))
+  :ensure (:repo "https://github.com/Ladicle/hydra-posframe" :files ("*.el"))
   :after (posframe hydra)
   :hook (elpaca-after-init . hydra-posframe-mode)
   :config

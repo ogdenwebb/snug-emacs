@@ -53,7 +53,7 @@
 
 ;; Replace the region while insert
 (use-package delsel
-  :elpaca nil
+  :ensure nil
   :hook (elpaca-after-init . delete-selection-mode))
 
 ;; Enable mouse within terminal
@@ -84,7 +84,7 @@
 ;; Various Emacs settings
 ;; Set variables defined in C source code
 (use-package emacs
-  :elpaca nil
+  :ensure nil
   :hook (eval-expression-minibuffer-setup . show-paren-mode)
   :config
   (setq frame-resize-pixelwise t  ; Resize frame pixelwise
@@ -156,7 +156,7 @@
   (pixel-scroll-precision-mode t))
 
 (use-package minibuffer
-  :elpaca nil
+  :ensure nil
   :hook (minibuffer-setup-hook . minibuffer-electric-default-mode)
   :config
   (setq read-answer-short t
@@ -170,7 +170,7 @@
 
 ;; simple.el
 (use-package simple
-  :elpaca nil
+  :ensure nil
   :config
   (setq-default yank-pop-change-selection t
                 ;; Disable key bindging suggeestions
@@ -222,7 +222,7 @@
 
 ;; Compilation
 (use-package compile
-  :elpaca nil
+  :ensure nil
   :config
   (setq compilation-always-kill t
         compilation-scroll-output t
@@ -246,7 +246,7 @@
 
 ;; Whitespace
 (use-package whitespace
-  :elpaca nil
+  :ensure nil
   :defer t
   :config
   (setq-default whitespace-line-column 80
@@ -257,7 +257,7 @@
 
 ;; Auto reload buffer if file was changed
 (use-package autorevert
-  :elpaca nil
+  :ensure nil
   :hook (elpaca-after-init . global-auto-revert-mode)
   :config
   (setq auto-revert-interval 10
@@ -278,12 +278,12 @@
 
 ;; Save last position in buffer
 (use-package saveplace
-  :elpaca nil
+  :ensure nil
   :hook (elpaca-after-init . save-place-mode))
 
 ;; Save history
 (use-package savehist
-  :elpaca nil
+  :ensure nil
   :hook (elpaca-after-init . savehist-mode)
   :config
   (setq savehist-autosave-interval nil     ; save on kill only
@@ -298,14 +298,14 @@
   )
 
 (use-package bookmark
-  :elpaca nil
+  :ensure nil
   :defer t
   :config
   (setq bookmark-save-flag t))
 
 ;; File-related settings
 (use-package files
-  :elpaca nil
+  :ensure nil
   :after no-littering
   :config
   (setq make-backup-files t
@@ -335,7 +335,7 @@
         ))
 
 (use-package find-file
-  :elpaca nil
+  :ensure nil
   :defer t
   :config
   (setq  ff-quiet-mode t))
@@ -427,7 +427,7 @@
 ;; Native-comp setting for Emacs 28+
 (if (and (not (version< emacs-version "28.0")) (featurep 'nativecomp))
     (use-package comp
-      :elpaca nil
+      :ensure nil
       :config
       (setq-default comp-async-compilation t
                     ;; native-comp-deferred-compilation nil

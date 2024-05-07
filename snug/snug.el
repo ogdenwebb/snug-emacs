@@ -109,7 +109,7 @@
 
 ;; Use Common Lisp library
 (use-package cl-lib
-  :elpaca nil
+  :ensure nil
   :defer t)
 
 ;; Add configuration directories to `load-path'
@@ -135,7 +135,7 @@
         inhibit-compacting-font-caches t
         gc-cons-percentage 0.1))
 
-;; (use-package subr-x :elpaca nil)
+;; (use-package subr-x :ensure nil)
 
 ;; Help keeping emacs directory clean
 
@@ -158,7 +158,7 @@
 
 ;; Server
 (use-package server
-  :elpaca nil
+  :ensure nil
   :hook (elpaca-after-init . server-mode)
   :config
   (add-hook 'server-done-hook 'recentf-cleanup))

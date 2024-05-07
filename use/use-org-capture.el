@@ -3,7 +3,7 @@
 
 (use-package org-protocol
   :defer .2
-  :elpaca nil
+  :ensure nil
   :config
   (setq org-capture-templates `(
         ("p" "Protocol" entry (file+headline ,(concat org-directory "notes.org") "Inbox")

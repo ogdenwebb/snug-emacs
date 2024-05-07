@@ -2,7 +2,7 @@
 
 (use-package cc-vars
   :defer t
-  :elpaca nil
+  :ensure nil
   :config
   (setq-default c-basic-offset snug-default-indent-width)
 

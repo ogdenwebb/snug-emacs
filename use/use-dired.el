@@ -2,7 +2,7 @@
 
 ;; Dired settings
 (use-package dired
-  :elpaca nil
+  :ensure nil
   :hook (dired-mode . hl-line-mode)
   :config
   ;; Dired settings
@@ -26,7 +26,7 @@
     (define-key dired-mode-map (kbd "RET") 'dired-open-file)))
 
 (use-package find-dired
-  :elpaca nil
+  :ensure nil
   :after dired
   :config
   (setq find-ls-option
@@ -50,7 +50,7 @@
         dired-subtree-line-prefix "  "))
 
 (use-package dired-async
-  :elpaca (:repo "https://github.com/jwiegley/emacs-async" :files ("dired-async.el"))
+  :ensure (:repo "https://github.com/jwiegley/emacs-async" :files ("dired-async.el"))
   :after (dired async)
   :hook (dired-mode . dired-async-mode))
 

@@ -1,6 +1,6 @@
 ;;; Lisp editing -*- lexical-binding: t; -*-
 (use-package elisp-mode
-  :elpaca nil
+  :ensure nil
   :hook (emacs-lisp-mode . eldoc-mode))
 
 ;; Improve readability of escape characters in ELisp regular expressions

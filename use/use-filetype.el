@@ -30,13 +30,13 @@
 
 ;; Shell files
 (use-package sh-script
-  :elpaca nil
+  :ensure nil
   :mode (("[/\\]\\zshrc$" . shell-script-mode))
   :config
   (setq sh-learn-basic-offset t))
 
 (use-package makefile-mode
-  :elpaca nil
+  :ensure nil
   :mode (("\\(/\\|\\`\\)[Mm]akefile" . makefile-mode)))
 
 ;; Performance issues
@@ -47,7 +47,7 @@
 
 ;; Support for i3 config
 (use-package i3wm-config-mode
-  :elpaca (:repo "https://github.com/Alexander-Miller/i3wm-Config-Mode")
+  :ensure (:repo "https://github.com/Alexander-Miller/i3wm-Config-Mode")
   :mode (("[/\\]\\.config/i3/config$" . i3wm-config-mode)
          ("[/\\]\\.i3/config$" . i3wm-config-mode)))
 
@@ -65,7 +65,7 @@
   (setq graphviz-dot-indent-width 4))
 
 (use-package company-graphviz-dot
-  :elpaca nil
+  :ensure nil
   :after (graphviz-dot-mode company)
   )
 
@@ -73,5 +73,14 @@
 (use-package nix-mode
              :disabled t
   :mode "\\.nix\\'")
+
+(use-package fb2-reader
+  :mode ("\\.fb2\\(\\.zip\\)?\\'" . fb2-reader-mode)
+  :commands (fb2-reader-continue)
+  :custom
+  ;; This mode renders book with fixed width, adjust to your preferences.
+  (fb2-reader-page-width 80)
+  (fb2-reader-image-max-width 400)
+  (fb2-reader-image-max-height 400))
 
 (provide 'use-filetype)

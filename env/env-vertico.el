@@ -2,7 +2,7 @@
 
 
 (use-package vertico
-  :elpaca (vertico :files (:defaults "extensions/*"))
+  :ensure (vertico :files (:defaults "extensions/*"))
   :hook ((elpaca-after-init . vertico-mode))
   :init
   ;; Add prompt indicator to `completing-read-multiple'.
@@ -106,17 +106,17 @@
         consult-async-input-debounce 0.1))
 
 ;; (use-package consult-vertico
-;;   :elpaca nil
+;;   :ensure nil
 ;;   :after consult)
 
 ;; Consult integration for projectile
 (use-package consult-projectile
   :after (consult projectile)
-  :elpaca (:repo "https://gitlab.com/OlMon/consult-projectile"))
+  :ensure (:repo "https://gitlab.com/OlMon/consult-projectile"))
 
 ;; Search and jump hl-todo keywords in buffers with consult.
 (use-package consult-todo
-  :elpaca (:repo "https://github.com/liuyinz/consult-todo")
+  :ensure (:repo "https://github.com/liuyinz/consult-todo")
   :after (consult hl-todo)
   :config
   ;; (setq consult-todo-narrow '((?t . "TODO")
@@ -151,7 +151,7 @@
 ;; TODO: find a better solution
 (when (eq snug-default-completion-system 'vertico)
   (use-package consult
-    :elpaca nil
+    :ensure nil
     :general
     ([remap apropos]                       #'consult-apropos)
     ([remap bookmark-jump]                 #'consult-bookmark)
@@ -170,7 +170,7 @@
     )
 
   (use-package consult-projectile
-    :elpaca nil
+    :ensure nil
     :general
     ([remap projectile-find-file] #'consult-projectile))
   )

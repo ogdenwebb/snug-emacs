@@ -6,7 +6,7 @@
 ;;   :commands (ivy-mpdel-list ivy-mpdel-artists ivy-mpdel-stored-playlists))
 
 (use-package colorpicker
-  :elpaca (colorpicker :host github :repo "syohex/emacs-colorpicker" :files ("*.el" "*.py" "script"))
+  :ensure (colorpicker :host github :repo "syohex/emacs-colorpicker" :files ("*.el" "*.py" "script"))
   :commands (colorpicker))
 
 (provide 'use-tools)

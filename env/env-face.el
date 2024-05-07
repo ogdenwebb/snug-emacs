@@ -58,7 +58,7 @@
 (use-package autothemer)
 
 (use-package kaolin-themes
-  :elpaca nil
+  :ensure nil
   :after autothemer
   :load-path "local/emacs-kaolin-themes"
   :config
@@ -122,7 +122,7 @@
 ;; TODO conflicts with separedit package
 (use-package ligature
   ;; :disabled t
-  :elpaca (:repo "https://github.com/mickeynp/ligature.el")
+  :ensure (:repo "https://github.com/mickeynp/ligature.el")
   :hook (prog-mode . ligature-mode)
   :config
   ;; Enable the "www" ligature in every possible major mode
@@ -153,7 +153,7 @@
 
 
 (use-package prog-mode
-  :elpaca nil
+  :ensure nil
   :init
   (setq prettify-symbols-unprettify-at-point t))
 
@@ -206,7 +206,7 @@
 
 ;; Highlight current line
 (use-package hl-line
-  :elpaca nil
+  :ensure nil
   :hook (prog-mode . hl-line-mode)
   :config
   ;; Highlight line only in current window
@@ -271,7 +271,7 @@
 
 ;; Highlight parenthess
 (use-package paren
-  :elpaca nil
+  :ensure nil
   :hook (prog-mode . show-paren-mode)
   :config
   (setq show-paren-style 'parenthesis
@@ -323,7 +323,7 @@
   (setq nlinum-highlight-current-line t))
 
 (use-package display-line-numbers
-  :elpaca nil
+  :ensure nil
   :if (not (version< emacs-version "26.0"))
   :hook ((prog-mode text-mode conf-mode) . display-line-numbers-mode)
   :config
