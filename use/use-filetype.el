@@ -77,6 +77,13 @@
 (use-package fb2-reader
   :mode ("\\.fb2\\(\\.zip\\)?\\'" . fb2-reader-mode)
   :commands (fb2-reader-continue)
+  :config
+  (custom-theme-set-faces
+   'user
+   '(fb2-reader-default     ((t (:inherit variable-pitch :height 1.2))))
+   '(fb2-reader-title       ((t (:inherit fb2-reader-default :height 1.4 :weight bold))))
+   )
+
   :custom
   ;; This mode renders book with fixed width, adjust to your preferences.
   (fb2-reader-page-width 80)
