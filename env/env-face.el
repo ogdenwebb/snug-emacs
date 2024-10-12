@@ -168,6 +168,7 @@
    ;; '(variable-pitch ((t (:family "Vollkorn" :height 135 :weight normal))))
    ;; '(variable-pitch ((t (:family "Libre Baskerville" :height 140 :weight normal))))
    '(variable-pitch ((t (:family "Iosevka Etoile" :height 125 :weight normal))))
+   ;; '(variable-pitch ((t (:family "Andika" :height 130 :weight normal))))
    )
   )
 
