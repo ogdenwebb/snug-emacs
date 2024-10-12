@@ -7,7 +7,11 @@
               vc-annotate-very-old-color nil)
 
 ;; Git
+(use-package transient
+  :ensure (transient :branch "main"))
+;;
 (use-package magit
+  :ensure (magit :branch "main" :pre-build ("make" "info"))
   :preface
   ;; Ignore magit messages about version
   (advice-add #'magit-version :override #'ignore)
