@@ -2,7 +2,7 @@
 
 
 (use-package vertico
-  :ensure (vertico :files (:defaults "extensions/*"))
+  :ensure (:files (:defaults "extensions/*"))
   :hook ((elpaca-after-init . vertico-mode))
   :init
   ;; Add prompt indicator to `completing-read-multiple'.
@@ -192,6 +192,7 @@
 
 ;; Display vertico in child-frame
 (use-package vertico-posframe
+             :disabled t
   :after (vertico)
   :preface
   (defun posframe-poshandler-frame-top-center-with-offset (info)
