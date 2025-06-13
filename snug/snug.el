@@ -159,8 +159,10 @@
 ;; Server
 (use-package server
   :ensure nil
-  :hook (elpaca-after-init . server-mode)
+  ;; :hook (elpaca-after-init . server-mode)
   :config
+  (unless (server-running-p)
+    server-mode)
   (add-hook 'server-done-hook 'recentf-cleanup))
 
 ;; Here we go
