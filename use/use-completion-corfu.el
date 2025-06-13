@@ -90,7 +90,11 @@
         corfu-popupinfo-max-width 80
         corfu-popupinfo-max-height 40))
 
+(use-package svg-lib
+             :elpaca (:host github :repo "rougier/svg-lib"))
+
 (use-package kind-icon
+  :elpaca (:host github :repo "jdtsmith/kind-icon")
   :after corfu
   :config
   ;; Text-based Icons
