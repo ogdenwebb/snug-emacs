@@ -71,7 +71,7 @@
 
 ;; An Emacs major mode for editing Nix expressions.
 (use-package nix-mode
-             :disabled t
+  ;; :disabled t
   :mode "\\.nix\\'")
 
 (use-package fb2-reader
