@@ -370,7 +370,7 @@
 ;;                   (indent-region (region-beginning) (region-end) nil))))))
 
 ;; Use zsh
-(setq shell-file-name "/bin/bash")
+;; (setq shell-file-name "/bin/bash")
 ;; (setq shell-command-switch "-ic")
 
 ;; Save bookmarks when kill emacs
