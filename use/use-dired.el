@@ -39,6 +39,7 @@
 
 ;; Dired Git info
 (use-package dired-git-info
+             :elpaca nil
   :commands (dired-git-info-mode))
 
 ;; Display subtrees in dired view.
