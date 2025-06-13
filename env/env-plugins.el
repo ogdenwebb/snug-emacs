@@ -105,6 +105,7 @@
 ;; :config (drag-stuff-global-mode 1))
 
 (use-package bug-hunter
+             :elpaca nil
   :commands (bug-hunter-init-file bug-hunter-file))
 
 ;; (use-package bug-reference
@@ -318,6 +319,7 @@
         gif-screencast-want-optimized nil))
 
 (use-package so-long
+             :ensure nil
   :defer 2
   :config
   (global-so-long-mode 1))
