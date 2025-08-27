@@ -40,7 +40,7 @@
 
 ;; Theme settings
 ;; Setup my theme
-(defvar snug-custom-theme 'kaolin-ocean
+(defvar snug-custom-theme 'kaolin-galaxy
   "Default custom theme for snug-emacs.")
 
 (use-package hl-todo
@@ -69,7 +69,12 @@
         ;; kaolin-themes-modeline-padded 2
         kaolin-themes-bold t
         kaolin-themes-org-scale-headings nil
-        kaolin-themes-distinct-metakeys nil)
+        kaolin-themes-distinct-metakeys nil
+        kaolin-themes-distinct-verbatim nil
+
+        ;; kaolin-themes-distinct-tab-line t
+
+        )
 
   ;; (setq kaolin-valley-light-alt-bg t)
   ;; (setq kaolin-valley-dark-alt-bg nil)
@@ -97,12 +102,14 @@
   ;; (setq kaolin-themes-treemacs-modeline t)
 
   ;; (setq kaolin-themes-treemacs-icons nil)
+  (setq kaolin-themes-treemacs-custom-dirs nil)
   (kaolin-treemacs-theme)
 
   ;; Highlight t and nil in elisp-mode
   (font-lock-add-keywords
    'emacs-lisp-mode
-   '(("\\<\\(nil\\|t\\)\\>" . 'kaolin-themes-boolean))))
+   '(("\\<\\(nil\\|t\\)\\>" . 'kaolin-themes-boolean)))
+  )
 
 ;; TODO: do we need that?
 (use-package pos-tip
@@ -116,8 +123,22 @@
 ;; Set default font
 ;; (add-to-list 'default-frame-alist '(font . "Victor Mono-13"))
 ;; (add-to-list 'default-frame-alist '(font . "D2Coding ligature-13"))
+;; (add-to-list 'default-frame-alist '(font . "Iosevka-13"))
 ;; (add-to-list 'default-frame-alist '(font . "Writer-12"))
-(add-to-list 'default-frame-alist '(font . "Cascadia Code-12.5"))
+;; (add-to-list 'default-frame-alist '(font . "Cascadia Code-12.5"))
+;; (add-to-list 'default-frame-alist '(font . "Fira Code-12"))
+;; (add-to-list 'default-frame-alist '(font . "Fira Code-12"))
+
+;; NOTE: NEEEW
+;; (add-to-list 'default-frame-alist '(font . "Source Code Pro Semibold-13"))
+;; (when (member "Source Code Pro" (font-family-list))
+;;   (set-face-font 'default "Source Code Pro-13"))
+;; BETTER
+(with-eval-after-load 'kaolin-themes
+  (add-to-list 'default-frame-alist '(font . "JetBrains Mono Medium-13"))
+  (set-face-attribute 'bold nil :weight 'extra-bold))
+
+(set-face-attribute 'bold nil :weight 'extra-bold)
 
 ;; TODO conflicts with separedit package
 (use-package ligature
@@ -317,6 +338,7 @@
 
 ;; Line numbering
 (use-package nlinum
+             :elpaca nil
   :if (version< emacs-version "26.0")
   :hook ((prog-mode text-mode) . nlinum-mode)
   :config
