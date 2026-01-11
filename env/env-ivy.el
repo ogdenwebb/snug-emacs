@@ -74,6 +74,9 @@
   ;;   (setq magit-completing-read-function 'ivy))
   )
 
+(use-package consult
+  :after ivy)
+
 (use-package ivy-hydra
   :requires (hydra)
   :after (ivy))
