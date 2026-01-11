@@ -1,6 +1,7 @@
 ;;; Find thing or definition -*- lexical-binding: t; -*-
 
 (use-package xref
+  :ensure nil
   :commands (xref-show-definitions-completing-read)
   :init
   (setq xref-show-definitions-function #'xref-show-definitions-completing-read)
