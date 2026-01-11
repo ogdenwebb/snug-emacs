@@ -7,6 +7,9 @@
               vc-annotate-very-old-color nil)
 
 ;; Git
+(use-package cond-let
+  :ensure (cond-let :repo "https://github.com/tarsius/cond-let" :files ("cond-let.el")))
+
 (use-package transient
   :ensure (transient :branch "main"))
 ;;
