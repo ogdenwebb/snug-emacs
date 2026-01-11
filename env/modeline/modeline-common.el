@@ -63,7 +63,8 @@
                  ((string= name "undo-tree-visualizer") "undotree")
                  ((string= name "C++//l") "cpp")
                  (t (downcase name))))
-          (icon (all-the-icons-icon-for-mode major-mode :v-adjust 0.0 :height 0.8 :face font-lock-string-face)))
+           ;; TODO: fix for text files (txt)
+          (icon (all-the-icons-icon-for-mode major-mode :v-adjust -0.05 :height 0.8 :face font-lock-string-face)))
       (concat
        (when
            (and (not (eq major-mode (all-the-icons-icon-for-mode major-mode)))
