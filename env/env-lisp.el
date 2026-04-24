@@ -10,8 +10,6 @@
   (set-face-attribute 'easy-escape-face nil :foreground (face-foreground 'error))
   (setq easy-escape-character ?╲))
 
-(setq test-regex "\\*\\(?:.\\|\n\\)*?\\*/\\|//\\(?:.\\|\n\\)*?$")
-
 (use-package litable
   :disabled t)
 

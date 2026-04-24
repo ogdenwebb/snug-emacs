@@ -133,6 +133,7 @@
 ;; (add-to-list 'default-frame-alist '(font . "Source Code Pro Semibold-13"))
 ;; (when (member "Source Code Pro" (font-family-list))
 ;;   (set-face-font 'default "Source Code Pro-13"))
+
 ;; BETTER
 (with-eval-after-load 'kaolin-themes
   (add-to-list 'default-frame-alist '(font . "JetBrains Mono Medium-13"))
