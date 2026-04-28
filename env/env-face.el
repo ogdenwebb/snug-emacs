@@ -136,10 +136,12 @@
 
 ;; BETTER
 (with-eval-after-load 'kaolin-themes
-  (add-to-list 'default-frame-alist '(font . "JetBrains Mono Medium-13"))
-  (set-face-attribute 'bold nil :weight 'extra-bold))
+  ;; (add-to-list 'default-frame-alist '(font . "JetBrains Mono Medium-13"))
+  ;; (set-face-attribute 'bold nil :weight 'extra-bold)
 
-(set-face-attribute 'bold nil :weight 'extra-bold)
+  (add-to-list 'default-frame-alist '(font . "Ioskeley Mono Semibold-13"))
+  (set-face-attribute 'bold nil :weight 'heavy)
+  )
 
 ;; TODO conflicts with separedit package
 (use-package ligature
@@ -275,9 +277,6 @@
 
 ;; Startup echo message
 (defalias 'display-startup-echo-area-message #'ignore)
-
-;; Disable cursor in non selected windows
-(setq-default cursor-in-non-selected-windows nil)
 
 ;;; Packages
 

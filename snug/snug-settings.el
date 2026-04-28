@@ -89,6 +89,9 @@
   :config
   (setq frame-resize-pixelwise t  ; Resize frame pixelwise
         ;; frame-inhibit-implied-resize t
+        ;; Use proportional window resizing
+        window-combination-resize t
+
         ;; Disable bell
         visible-bell nil
         ring-bell-function 'ignore
@@ -123,6 +126,9 @@
         ;; Disable lockfiles
         create-lockfiles nil
 
+        ;; Prevent ffap from pinging hostnames
+        ffap-machine-p-known 'reject
+
         ;; Disable mouse popup menu in mode-line
         mode-line-default-help-echo nil
 
@@ -139,9 +145,19 @@
 
                 x-stretch-cursor nil
                 visible-cursor nil
+
+                ;; Disable cursor in non selected windows
+                cursor-in-non-selected-windows nil
                 highlight-nonselected-windows nil
 
-                bidi-display-reordering nil    ; Disable bidirectional text for tiny performance boost
+                ;; Disable Bidirectional Text Scanning
+                bidi-display-reordering nil
+                bidi-paragraph-direction nil
+                bidi-inhibit-bpa t
+
+                ;; Skip Fontification During Input
+                redisplay-skip-fontification-on-input t
+
                 indicate-buffer-boundaries nil ;  Don't show where buffer starts/ends
                 indicate-empty-lines nil
 
@@ -176,6 +192,9 @@
                 ;; Disable key bindging suggeestions
                 suggest-key-bindings t
                 kill-whole-line t	; Kill line including '\n'
+                save-interprogram-paste-before-kill t ; Save the Clipboard before killing
+                kill-do-not-save-duplicates t ; Ignore duplicaet in the kill ring
+
                 eval-expression-print-level nil
                 set-mark-command-repeat-pop t
 
