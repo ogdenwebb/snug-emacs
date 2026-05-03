@@ -7,7 +7,8 @@
   ;; You can switch between the various styles by using
   ;; C-c TAB inside of the regexp builder's buffer.
   :config
-  (setq reb-re-syntax 'read))
+  ;; NOTE: Use 'string or 'rx
+  (setq reb-re-syntax 'string))
 
 ;; A minor mode that guesses the indentation offset
 (use-package dtrt-indent
