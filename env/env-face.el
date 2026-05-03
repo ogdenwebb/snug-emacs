@@ -136,11 +136,17 @@
 
 ;; BETTER
 (with-eval-after-load 'kaolin-themes
-  ;; (add-to-list 'default-frame-alist '(font . "JetBrains Mono Medium-13"))
-  ;; (set-face-attribute 'bold nil :weight 'extra-bold)
+  ;; JetBrains Mono
+  (add-to-list 'default-frame-alist '(font . "JetBrains Mono Medium-13"))
+  (set-face-attribute 'bold nil :weight 'extra-bold)
 
-  (add-to-list 'default-frame-alist '(font . "Ioskeley Mono Semibold-13"))
-  (set-face-attribute 'bold nil :weight 'heavy)
+  ;; Ioskeley Mono
+  ;; (add-to-list 'default-frame-alist '(font . "Ioskeley Mono Semibold-13"))
+  ;; (set-face-attribute 'bold nil :weight 'heavy)
+
+  ;; Lilex
+  ;; (add-to-list 'default-frame-alist '(font . "Lilex Nerd Font Mono Medium-13"))
+  ;; (set-face-attribute 'bold nil :weight 'extra-bold)
   )
 
 ;; TODO conflicts with separedit package
