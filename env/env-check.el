@@ -268,6 +268,15 @@
     (when (bound-and-true-p flycheck-mode)
       (flycheck-buffer))))
 
+;; TODO:
+(use-package jinx
+  :ensure nil
+  :commands (jinx-mode jinx-global-mode jinx-correct jinx-languages)
+  :bind (("M-$" . jinx-correct)
+         ("C-M-$" . jinx-languages))
+  :config
+  )
+
 (use-package flymake
   :ensure nil
   :defer t
