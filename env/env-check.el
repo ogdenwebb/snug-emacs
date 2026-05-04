@@ -275,6 +275,10 @@
   :bind (("M-$" . jinx-correct)
          ("C-M-$" . jinx-languages))
   :config
+  :general ([remap ispell-word] 'jinx-correct-word
+            [remap evil-next-flyspell-error] 'jinx-next
+            [remap evil-prev-flyspell-error] 'jinx-previous
+            [remap evil-prev-flyspell-error] 'jinx-previous)
   )
 
 (use-package flymake
