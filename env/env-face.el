@@ -440,4 +440,10 @@
   :config
   (setq mixed-pitch-set-height t))
 
+;; Pulse modified region
+;; (use-package goggles
+;;   :hook ((prog-mode text-mode) . goggles-mode)
+;;   :config
+;;   (setq-default goggles-pulse t))
+
 (provide 'env-face)

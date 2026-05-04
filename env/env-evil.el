@@ -109,17 +109,12 @@
   ;; :after evil
   :commands (evil-commentary evil-commentary-yank))
 
-
-;; TEST SUITE
-
-;; (use-package evil-goggles
-;;   ;; :requires evil
-;;   :disabled t
-;;   :hook (elpaca-after-init . evil-goggles-mode)
-;;   :config
-;;   (setq evil-goggles-duration 0.1
-;;         evil-goggles-enable-delete nil
-;;         evil-goggles-pulse t))
+(use-package evil-goggles
+  :hook (evil-mode . evil-goggles-mode)
+  :config
+  (setq evil-goggles-duration 0.1
+        ;; evil-goggles-enable-delete nil
+        evil-goggles-pulse t))
 
 
 ;; ;; TODO: maps
