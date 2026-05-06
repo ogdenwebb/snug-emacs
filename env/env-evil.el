@@ -12,18 +12,17 @@
         ;; evil-vsplit-window-right t ;; like vim's 'splitright'
         ;; evil-split-window-below t ;; like vim's 'splitbelow'
 
-
-        evil-want-fine-undo t
+        evil-want-fine-undo t ; Undone in several steps
         evil-want-Y-yank-to-eol t
         evil-ex-search-vim-style-regexp t
         ;; C-u is universal-argument in Emacs
-        evil-want-C-u-scroll nil
+        evil-want-C-u-scroll nil ; Emacs uses C-u as a prefix argument
         ;; evil-ex-search-persistent-highlight nil
 
-        evil-respect-visual-line-mode t
+        evil-respect-visual-line-mode t ; Respect visual lines
 
         evil-visual-state-cursor 'hollow
-        evil-mode-line-format 'nil
+        evil-mode-line-format 'nil ; We use own segment in mode-line
 
         evil-ex-search-case 'smart
         evil-ex-substitute-case t
