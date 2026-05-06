@@ -181,7 +181,7 @@
 
         ;; Resize mini windows
         resize-mini-windows t
-          ;; Enable recursive minibuffers, i.e. you can use M-x inside M-x
+        ;; Enable recursive minibuffers, i.e. you can use M-x inside M-x
         enable-recursive-minibuffers t))
 
 ;; simple.el
@@ -211,6 +211,11 @@
                 )
   )
 
+;; Keep your kill ring clean
+;; MAYBE: string-width < 2
+(use-package clean-kill-ring
+  :hook (elpaca-after-init . clean-kill-ring-mode))
+
 ;; TODO: sort
 (setq-default sentence-end-double-space nil
               custom-safe-themes t
@@ -219,13 +224,13 @@
 
 ;; TODO: sort
 (setq
-      ;; checkdoc-spellcheck-documentation-flag t
-      ;; comint-input-ignoredups  t
-      ;; comint-process-echoes  t
-      comint-prompt-read-only  t
-      ;; comint-scroll-to-bottom-on-input   ’this
-      ;; completions-format  ’vertical
-      )
+ ;; checkdoc-spellcheck-documentation-flag t
+ ;; comint-input-ignoredups  t
+ ;; comint-process-echoes  t
+ comint-prompt-read-only  t
+ ;; comint-scroll-to-bottom-on-input   ’this
+ ;; completions-format  ’vertical
+ )
 
 
 ;; `tty-run-terminal-initialization' is *tremendously* slow for some
@@ -234,9 +239,9 @@
 (unless (display-graphic-p)
   (advice-add #'tty-run-terminal-initialization :override #'ignore)
   (add-hook 'window-setup-hook
-    (defun snug-init-tty-h ()
-      (advice-remove #'tty-run-terminal-initialization #'ignore)
-      (tty-run-terminal-initialization (selected-frame) nil t))))
+            (defun snug-init-tty-h ()
+              (advice-remove #'tty-run-terminal-initialization #'ignore)
+              (tty-run-terminal-initialization (selected-frame) nil t))))
 
 
 ;; Compilation
@@ -271,8 +276,8 @@
   (setq-default whitespace-line-column 80
                 ;; NOTE: break compability with whitespace-cleanup
                 ;; whitespace-style '(face spaces tabs newline space-mark tab-mark
-                                        ;; newline-mark lines-tail empty))
-  ))
+                ;; newline-mark lines-tail empty))
+                ))
 
 ;; Auto reload buffer if file was changed
 (use-package autorevert
@@ -359,9 +364,9 @@
   :config
   (setq  ff-quiet-mode t))
 ;; TODO
-  ;; (put 'ff-search-directories
-  ;;      'safe-local-variable
-  ;;      (lambda (x) (cl-every #'stringp x))))
+;; (put 'ff-search-directories
+;;      'safe-local-variable
+;;      (lambda (x) (cl-every #'stringp x))))
 
 ;; (setq auto-save-file-name-transforms
 ;; `((".*" "~/.cache/emacs/saves/" t)))
