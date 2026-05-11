@@ -22,6 +22,12 @@
         evil-respect-visual-line-mode t ; Respect visual lines
 
         evil-visual-state-cursor 'hollow
+        evil-emacs-state-cursor  'hbar
+        evil-insert-state-cursor 'bar
+        evil-motion-state-cursor 'box
+        evil-normal-state-cursor 'box
+        evil-visual-state-cursor 'hollow
+
         evil-mode-line-format 'nil ; We use own segment in mode-line
 
         evil-ex-search-case 'smart
