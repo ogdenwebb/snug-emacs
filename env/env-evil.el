@@ -214,4 +214,11 @@
 (use-package evil-indent-plus
   :after evil)
 
+;; Change cursor by mode for evil/meow/ryo-modal on terminal.
+(use-package evil-terminal-cursor-changer
+  :after evil
+  :hook (tty-setup . etcc-on)
+  :config)
+;; (setq etcc-term-type-override 'xterm))
+
 (provide 'env-evil)
