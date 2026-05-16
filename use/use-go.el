@@ -1,65 +1,24 @@
 ;; Support for golang -*- lexical-binding: t -*-
-;; maybe: https://github.com/dougm/go-projectile/
 
 (use-package go-mode
-  :mode (("\\.go\\'" . go-mode))
+  :mode (("\\.go\\'" . go-ts-mode)
+         ("\\.go\\.mod" . go-mod-ts-mode))
+  ;; :hook (lsp-deferred)
   :interpreter "go"
   :config
-  (defun snug/setup-go ()
-    ;; (set (make-local-variable 'flycheck-disabled-checkers) '(go-vet))
-    ;; (flycheck-mode -1)
-    ;; (company-mode)
-    ;; (set (make-local-variable 'company-backends) '(company-go))
-    (set (make-local-variable 'compile-command) (concat "go run " (shell-quote-argument buffer-file-name)))
-    (add-hook 'before-save-hook #'gofmt-before-save nil t)
-    )
-
-  (setq gofmt-command "goimports")
-        ;; godoc-at-point-function 'godoc-gogetdoc)
-  (if (not (executable-find "goimports"))
-      (warn "go-mode: couldn't find goimports; no code formatting/fixed imports on save"))
-  :hook (go-mode . snug/setup-go))
-
-;; ;; Customize compile command to run go build
-;; (if (not (string-match "go" compile-command))
-;;     (set (make-local-variable 'compile-command)
-;;          "go build -v && go test -v && go vet"))
-
-;; TODO rework
-(use-package company-go
-             :disabled t
-  :requires (company)
-  :after (company go-mode)
-  :config
-  (setq company-go-show-annotation t))
-
-;; TODO: fix for elpaca
-(use-package go-impl
-             :disabled t
-  :after go-mode
-  :config
-  ;; (general-add-advice '(go-impl go-impl--completing-function)
-  ;;                     :around #'without-orderless)
-  ;; :config
-  ;; (advice-add 'go-impl :around #'without-orderless)
-  ;; (advice-add 'go-impl--receiver-complete :around #'without-orderless)
-  ;; (advice-add 'go-impl--matched-packages :around #'without-orderless)
-  ;; EXPLORE:
-  ;; (advice-add 'go-impl--completing-function :around #'without-orderless)
   )
 
-;; (use-package gotest
-;;   :disabled t
-;;   :after go-mode)
+(use-package gotest-ts
+  :if (featurep 'treesit)
+  :hook (go-ts-mode . gotest-ts-setup))
 
-;; (use-package go-guru
-;;   :after go-mode)
+(use-package go-tag
+  :commands (go-tag-add go-tag-remove go-tag-refresh))
 
-;; TODO: fix for elpaca
-(use-package go-eldoc
-             :disabled t
-  :if (and (not (featurep 'lsp-mode))
-           (not (featurep 'eglot)))
-  :hook (go-mode . go-eldoc-setup))
+(use-package gorepl-mode
+  :hook (go-mode go-ts-mode))
+
+(use-package go-gen-test
+  :after go-mode)
 
 (provide 'use-go)
