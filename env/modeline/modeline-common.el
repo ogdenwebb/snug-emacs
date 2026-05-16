@@ -9,13 +9,13 @@
 ;; Telephone line
 (use-package telephone-line
   :hook ((elpaca-after-init . telephone-line-mode))
-         ;; (elpaca-after-init . recreate-message-buffer))
+  ;; (elpaca-after-init . recreate-message-buffer))
   :config
   ;; Need to display telephone-line in *Messages* buffer
   (defun recreate-message-buffer ()
     (cl-flet ((buffer-string* (buffer)
-                              (with-current-buffer buffer
-                                (buffer-string))))
+                (with-current-buffer buffer
+                  (buffer-string))))
       (let ((msg (buffer-string* "*Messages*")))
         (kill-buffer "*Messages*")
         (message msg))))
@@ -42,12 +42,12 @@
                      mode-name
                    (car mode-name)))
            (mode (cond
-                 ((string= name "Fundamental") "text")
-                 ((string= name "Emacs-Lisp") "elisp")
-                 ((string= name "Javascript-IDE") "js")
-                 ((string= name "undo-tree-visualizer") "undotree")
-                 ((string= name "C++//l") "cpp")
-                 (t (downcase name)))))
+                  ((string= name "Fundamental") "text")
+                  ((string= name "Emacs-Lisp") "elisp")
+                  ((string= name "Javascript-IDE") "js")
+                  ((string= name "undo-tree-visualizer") "undotree")
+                  ((string= name "C++//l") "cpp")
+                  (t (downcase name)))))
       (propertize mode 'face `font-lock-string-face)))
 
   ;; TODO: add raise or v-adjust
@@ -56,15 +56,15 @@
                      mode-name
                    (car mode-name)))
            (mode (cond
-                 ((string= name "Fundamental") "text")
-                 ((string= name "Emacs-Lisp") "elisp")
-                 ((string= name "ELisp") "elisp")
-                 ((string= name "Javascript-IDE") "js")
-                 ((string= name "undo-tree-visualizer") "undotree")
-                 ((string= name "C++//l") "cpp")
-                 (t (downcase name))))
+                  ((string= name "Fundamental") "text")
+                  ((string= name "Emacs-Lisp") "elisp")
+                  ((string= name "ELisp") "elisp")
+                  ((string= name "Javascript-IDE") "js")
+                  ((string= name "undo-tree-visualizer") "undotree")
+                  ((string= name "C++//l") "cpp")
+                  (t (downcase name))))
            ;; TODO: fix for text files (txt)
-          (icon (all-the-icons-icon-for-mode major-mode :v-adjust -0.05 :height 0.8 :face font-lock-string-face)))
+           (icon (all-the-icons-icon-for-mode major-mode :v-adjust -0.05 :height 0.8 :face font-lock-string-face)))
       (concat
        (when
            (and (not (eq major-mode (all-the-icons-icon-for-mode major-mode)))
@@ -123,26 +123,27 @@
   ;;     (format " %3d:%2d " line column)))
 
   (telephone-line-defsegment my-position-segment (&optional lines columns)
-     "Position segment. Optional args set padding on lines/columns."
-     (when (telephone-line-selected-window-active)
-       (let* ((l (number-to-string (if lines lines 3)))
-              (c (number-to-string (if columns columns 2))))
-         (if (eq major-mode 'paradox-menu-mode)
-             (telephone-line-raw mode-line-front-space t)
-           `(,(concat " %" l "l:%" c "c"))))))
+    "Position segment. Optional args set padding on lines/columns."
+    (when (telephone-line-selected-window-active)
+      (let* ((l (number-to-string (if lines lines 3)))
+             (c (number-to-string (if columns columns 2))))
+        (if (eq major-mode 'paradox-menu-mode)
+            (telephone-line-raw mode-line-front-space t)
+          `(,(concat " %" l "l:%" c "c"))))))
 
 
   ;; Exclude some buffers in modeline
-  (defvar modeline-ignored-modes '("Dashboard"
-                                 "Warnings"
-                                 "Compilation"
-                                 "EShell" "Eshell"
-                                 "Debugger"
-                                 "Quickrun"
-                                 "REPL"
-                                 "IELM"
-                                 "Messages"
-                                 "Interactive-Haskell")
+  (defvar modeline-ignored-modes '("Comint"
+                                   "Dashboard"
+                                   "Warnings"
+                                   "Compilation"
+                                   "EShell" "Eshell"
+                                   "Debugger"
+                                   "Quickrun"
+                                   "REPL"
+                                   "IELM"
+                                   "Messages"
+                                   "Interactive-Haskell")
     "List of major modes to ignore in modeline")
 
   ;; Display modified status
