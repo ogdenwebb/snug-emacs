@@ -105,6 +105,9 @@
 (use-package evil-collection
   :after evil
   :config
+  ;; fix RET in insert mode
+  (setq evil-collection-repl-submit-state 'insert)
+
   (setq-default evil-collection-company-use-tng nil)
   (setq evil-collection-mode-list (remove 'lispy evil-collection-mode-list))
   (setq evil-collection-mode-list (remove 'corfu evil-collection-mode-list))
