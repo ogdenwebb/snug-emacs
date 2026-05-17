@@ -69,11 +69,6 @@
   :after (graphviz-dot-mode company)
   )
 
-;; An Emacs major mode for editing Nix expressions.
-(use-package nix-mode
-  ;; :disabled t
-  :mode "\\.nix\\'")
-
 (use-package fb2-reader
   :mode ("\\.fb2\\(\\.zip\\)?\\'" . fb2-reader-mode)
   :commands (fb2-reader-continue)
