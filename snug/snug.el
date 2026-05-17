@@ -58,10 +58,10 @@
       ;; https://www.keylength.com/en/4/
       gnutls-min-prime-bits 3072
       tls-checktrust gnutls-verify-error
-  ;; Emacs is built with `gnutls' by default, so `tls-program' would not be
-  ;; used in that case. Otherwise, people have reasons to not go with
-  ;; `gnutls', we use `openssl' instead. For more details, see
-  ;; https://redd.it/8sykl1
+      ;; Emacs is built with `gnutls' by default, so `tls-program' would not be
+      ;; used in that case. Otherwise, people have reasons to not go with
+      ;; `gnutls', we use `openssl' instead. For more details, see
+      ;; https://redd.it/8sykl1
       tls-program '("openssl s_client -connect %h:%p -CAfile %t -nbio -no_ssl3 -no_tls1 -no_tls1_1 -ign_eof"
                     "gnutls-cli -p %p --dh-bits=3072 --ocsp --x509cafile=%t \
 --strict-tofu --priority='SECURE192:+SECURE128:-VERS-ALL:+VERS-TLS1.2:+VERS-TLS1.3' %h"
@@ -120,6 +120,7 @@
 
 (update-load-path)
 
+;; Enable main keybindings
 (require 'env-maps)
 (elpaca-wait)
 
