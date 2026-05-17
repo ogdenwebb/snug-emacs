@@ -1,9 +1,6 @@
 ;; Support for golang -*- lexical-binding: t -*-
 
 (use-package go-mode
-  :mode (("\\.go\\'" . go-ts-mode)
-         ("\\.go\\.mod" . go-mod-ts-mode))
-  ;; :hook (lsp-deferred)
   :interpreter "go"
   :config
   )
