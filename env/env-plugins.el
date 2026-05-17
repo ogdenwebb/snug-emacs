@@ -20,7 +20,8 @@
 
 ;; Project management
 (use-package projectile
-  :defer 1
+  :disabled t
+  ;; :defer 1
   :config
   (projectile-global-mode t)
 
@@ -60,9 +61,6 @@
 
     )
 
-
-
-
   ;; Projectile settings
   (setq projectile-verbose nil
         projectile-dynamic-mode-line nil
@@ -95,10 +93,10 @@
 ;; Quickrun
 (use-package quickrun
   :commands (quickrun quickrun-region
-             quickrun-with-arg
-             quickrun-shell
-             quickrun-compile-only
-             quickrun-replace-region))
+                      quickrun-with-arg
+                      quickrun-shell
+                      quickrun-compile-only
+                      quickrun-replace-region))
 
 ;; Move region or line
 (use-package drag-stuff
@@ -106,7 +104,7 @@
 ;; :config (drag-stuff-global-mode 1))
 
 (use-package bug-hunter
-             :elpaca nil
+  :elpaca nil
   :commands (bug-hunter-init-file bug-hunter-file))
 
 ;; (use-package bug-reference
@@ -178,8 +176,7 @@
 (use-package which-key
   :hook (elpaca-after-init . which-key-mode)
   :config
-  (which-key-setup-side-window-bottom)
-  )
+  (which-key-setup-side-window-bottom))
 
 ;; Eldoc
 (use-package eldoc
@@ -320,7 +317,7 @@
         gif-screencast-want-optimized nil))
 
 (use-package so-long
-             :ensure nil
+  :ensure nil
   :defer 2
   :config
   (global-so-long-mode 1))
