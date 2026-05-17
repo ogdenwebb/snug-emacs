@@ -2,12 +2,12 @@
 
 (with-eval-after-load 'general
 
-   (general-create-definer leader-def
+  (general-create-definer leader-def
     :states '(normal visual motion)
     :prefix "SPC")
 
-   (with-eval-after-load 'evil
-     (leader-def
+  (with-eval-after-load 'evil
+    (leader-def
       " " nil ;;to prevent an error about SPC not being a prefix
       "q" evil-window-map))
 
@@ -159,13 +159,13 @@
    "j l" 'link-hint-open-link
    "j L" 'link-hint-open-all-links
 
-   ;; Projectile
-   "p"   '(:ignore t :wk "Project managment")
-   "p p" '(projectile-switch-project :wk "Switch project")
-   "p f" '(projectile-find-file :wk "Find file in project")
-   "p k" '(projectile-ripgrep :wk "Grep in project")
-   "p r" '(projectile-replace :wk "Replace in project")
-   "p t" '(projectile-regenerate-tags :wk "Update tags for project")
+   ;; Project management
+   "p"   `(:ignore t :wk "Project managment")
+   "p p" `(,snug-project-switch-project :wk "Switch project")
+   "p f" `(,snug-project-find-file :wk "Find file in project")
+                                        ; "p k" `(,snug-project-ripgrep :wk "Grep in project")
+   "p r" `(,snug-project-replace :wk "Replace in project")
+                                        ; "p t" `(,snug-project-regenerate-tags :wk "Update tags for project")
 
    ;; Toggle settings with hotkeys
    "t"   '(:ignore t :wk "Toggle settings")
@@ -218,6 +218,7 @@
    :keymaps '(normal visual)
    "g x"  'browse-url-at-point
    ;; "/"    'ctrlf-forward-fuzzy ;; or  ctrlf-forward-fuzzy/consult-line
+   "/"    'consult-line
    ;; Navigation between windows
    "C-h"  'evil-window-left
    "C-j"  'evil-window-down
@@ -426,7 +427,7 @@
    :states 'insert
    "RET" 'newline-and-indent)
 
-  ;
+                                        ;
   (general-define-key
    :prefix
    )
