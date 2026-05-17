@@ -37,5 +37,10 @@
   :general
   :config)
 
+;; Extension of project.el to detect project root with root file
+(use-package project-rootfile
+  :after project
+  :config
+  (add-to-list 'project-find-functions #'project-rootfile-try-detect t))
 
 (provide 'use-project)
